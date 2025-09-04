@@ -105,6 +105,9 @@ experiments/
 *.html
 data/outputs/
 
+# Future architecture documents (too large for GitHub)
+docs/architecture/future/
+
 # Keep example files
 !.env.example
 !mcp_config.example.json
