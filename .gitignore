@@ -63,6 +63,9 @@ temp/
 *.temp
 *.bak
 
+# Local full-record recovery archive
+archive_full_record/
+
 # OS
 .DS_Store
 Thumbs.db
