@@ -222,3 +222,22 @@ print(f'Embeddings in database: {count}')
 ---
 
 *Last Updated: 2025-09-03 (Documentation Optimization Plan Created - Ready for Phase 1 Execution)*
+## Commands
+
+```bash
+make test    # run test suite
+```
+
+## Workflow
+
+Use `docs/plans/` for implementation plans. Run `make test` before committing.
+
+## Principles
+
+- Fail loud — no silent fallbacks
+- Commit every verified slice
+- Use `docs/plans/` for non-trivial work
+
+## References
+
+- `docs/plans/` — implementation plans
