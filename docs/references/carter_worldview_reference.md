@@ -2,6 +2,12 @@
 
 This note preserves the pointer for agents working on the thesis repository from GitHub.
 
+## Downstream Build Context
+
+Brian's current downstream system is not about Jimmy Carter specifically. It is a coding project to build models of online forum users from their post histories: inferred beliefs, recurring claims, values, assumptions, issue positions, reasoning patterns, and changes over time.
+
+The Carter/WorldView material is relevant as a methodological precedent. It shows how a research system can turn a speaker's text into a structured model of beliefs and reasoning, then analyze that model as a semantic network. Treat Carter as an example domain and WorldView as conceptual inspiration for forum-user modeling, not as the target application.
+
 ## Source Paper
 
 - Title: "Cognitive Mapping Meets Semantic Networks"
@@ -11,7 +17,7 @@ This note preserves the pointer for agents working on the thesis repository from
 - Local PDF title metadata: `Cognitive Mapping Meets Semantic Networks`
 - Local PDF SHA-256: `21e4b2d8255aaacbf84fa38b0531d207d69cae92110e850dcb23b43ea0e8142c`
 
-The paper introduces WorldView, a semantic-network extension of cognitive mapping for representing political belief structures. It is relevant to thesis work on modeling a speaker's worldview, argument structure, and policy reasoning from text.
+The paper introduces WorldView, a semantic-network extension of cognitive mapping for representing political belief structures. It is relevant to thesis work on modeling a speaker's worldview, argument structure, policy reasoning, and belief network from text.
 
 ## Carter-Specific Relevance
 
