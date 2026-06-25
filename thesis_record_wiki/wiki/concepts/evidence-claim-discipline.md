@@ -20,6 +20,8 @@ The lit-review Phase 2 evidence adds a second example: a remediation summary can
 
 Phase 4 adds the same lesson at integration scale: stored tests can pass while certification reports remain weak, and later remediation may supersede earlier benchmark claims. See [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md).
 
+Phase 6 extends the issue into deployment language: internal production-validation simulations can support "production validation package exists" without proving an externally deployed production service. See [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]

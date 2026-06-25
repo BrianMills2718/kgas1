@@ -36,6 +36,8 @@ The `experiments/lit_review/evidence/phase4_integration_pipeline` slice records 
 
 The `experiments/lit_review/evidence/phase5_reasoning_engine` slice records cross-purpose reasoning over the balanced pipeline. It reports perfect balance and 0.819 integration quality, but the evidence remains demo-scale. See [Lit Review Phase 5 Reasoning Engine](/wiki/sources/lit-review-phase5-reasoning-engine.md).
 
+The `experiments/lit_review/evidence/phase6_production_validation` slice records production validation and deployment simulation. It reports final remediated production-certified status, while benchmarks preserve stress-load limits and timeout/error rates. See [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

@@ -78,6 +78,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Balance Driven Validation](/wiki/concepts/balance-driven-validation.md) - validation metric pattern useful for bias detection but insufficient alone for theory fidelity.
 - [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md) - integration evidence whose test, certification, and remediation claims need time-indexed reading.
 - [Lit Review Phase 5 Reasoning Engine](/wiki/sources/lit-review-phase5-reasoning-engine.md) - cross-purpose reasoning evidence with internally consistent but demo-scale production claims.
+- [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md) - internal production-validation/deployment-simulation package with remediated final claims and stress-test limits.
 
 # Current Cautions
 

@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added lit-review Phase 6 production validation slice with deployment-claim caveats.
 * **Ingest** | Added lit-review Phase 5 cross-purpose reasoning engine slice.
 * **Ingest** | Added lit-review Phase 4 integration pipeline slice with certification/status caveats.
 * **Ingest** | Added lit-review Phase 2-3 evidence slice. Created balanced vocabulary/schema evidence page and balance-driven validation concept.
