@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added model-form detection results slice and model-form-routing concept.
 * **Ingest** | Added universal theory applicator slice and complexity-conservation-in-theory-application concept.
 * **Ingest** | Added semantic-hypergraph application-results slice and formal-notation-as-theory-content concept.
 * **Plan** | Added current runtime repair plan for cross-modal API and MCP import blockers.

@@ -101,6 +101,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md) - schema-fidelity rule for formal theories with notation systems and pattern languages.
 - [Lit Review Universal Theory Applicator](/wiki/sources/lit-review-universal-theory-applicator.md) - schema-driven universal theory application framework, critique, enhancement template, and Young 1996 output.
 - [Complexity Conservation In Theory Application](/wiki/concepts/complexity-conservation-in-theory-application.md) - lesson that generalization shifts theory-specific work into schemas, prompts, validation, and metrics.
+- [Lit Review Model Form Detection Results](/wiki/sources/lit-review-model-form-detection-results.md) - optimized experimental outputs for classifying theory representational form, with an internal consistency caveat.
+- [Model Form Routing](/wiki/concepts/model-form-routing.md) - rule that schema/application form should follow the theory structure rather than platform preference.
 
 # Current Cautions
 
