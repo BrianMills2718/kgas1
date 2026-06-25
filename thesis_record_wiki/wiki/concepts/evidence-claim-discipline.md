@@ -46,6 +46,8 @@ The uncertainty setup slice is a demo-automation caution: Docker/Neo4j setup scr
 
 The uncertainty optimization slice is a performance-evidence caution: one preserved result shows live-oriented estimated improvement, while another script is a pure mock concurrency demonstration and the cache benefit is assumption-driven. See [Digimon Lineage Uncertainty Stress Test Optimization](/wiki/sources/digimon-lineage-uncertainty-stress-test-optimization.md).
 
+The uncertainty organization slice is a cleanup-provenance caution: historical "useful" and "production-ready" labels are valuable triage signals, but many symlink targets are broken at the preserved path and the labels need source-level verification. See [Digimon Lineage Uncertainty Stress Test Organization](/wiki/sources/digimon-lineage-uncertainty-stress-test-organization.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -81,6 +83,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md): design documents, unchecked checklist items, and uncorroborated validation-study claims.
 - [Digimon Lineage Uncertainty Stress Test Setup](/wiki/sources/digimon-lineage-uncertainty-stress-test-setup.md): setup/demo automation without preserved successful demo outputs.
 - [Digimon Lineage Uncertainty Stress Test Optimization](/wiki/sources/digimon-lineage-uncertainty-stress-test-optimization.md): performance claims split into mock demonstration, estimated parallel timing, and assumed cache effects.
+- [Digimon Lineage Uncertainty Stress Test Organization](/wiki/sources/digimon-lineage-uncertainty-stress-test-organization.md): historical useful/non-useful classification labels with broken symlink caveats.
 
 # Citations
 
