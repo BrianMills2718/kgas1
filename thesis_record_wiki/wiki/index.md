@@ -20,6 +20,7 @@
 * [Digimon Lineage Evidence Archives](sources/digimon-lineage-evidence-archives.md) - evidence archive slice focused on false-claim correction and system-level validation discipline.
 * [Lit Review Theory Extraction Experiment](sources/lit-review-theory-extraction-experiment.md) - lit_review experiment subsystem for automated theory extraction, schema generation, and validation claims.
 * [Carter Theory Analysis Output](sources/carter-theory-analysis-output.md) - generated Carter speech outputs applying cognitive mapping and framing theory.
+* [Lit Review Schema Creation Production Path](sources/lit-review-schema-creation-production-path.md) - schema_creation code and prompts behind the lit-review extraction pipeline.
 
 # Entities
 
@@ -44,6 +45,7 @@
 * [Evidence Claim Discipline](concepts/evidence-claim-discipline.md) - rule that claims must match component, integration, workflow, or benchmark validation level.
 * [Automated Theory Extraction](concepts/automated-theory-extraction.md) - lit-review experiment line for extracting theory schemas from papers and applying them to data.
 * [Multi-Theory Application Artifact](concepts/multi-theory-application-artifact.md) - concrete generated-output pattern for applying multiple theories to one empirical text.
+* [Schema Extraction Pipeline Evolution](concepts/schema-extraction-pipeline-evolution.md) - evolution toward full-vocabulary, model-adaptive, no-truncation theory extraction.
 
 # Timeline
 

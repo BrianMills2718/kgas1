@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added `experiments/lit_review/src/schema_creation` production-path slice. Created schema creation source page and schema extraction pipeline evolution concept.
 * **Ingest** | Added `experiments/lit_review/carter_analysis_output` slice. Created Carter theory analysis source page and multi-theory application artifact concept.
 * **Ingest** | Added first `experiments/lit_review` slice from `digimon_lineage_Digimons`. Created lit-review source page and automated theory extraction concept.
 * **Ingest** | Added `digimon_lineage_Digimons` evidence-archive slice. Created evidence archive source page and evidence claim discipline concept.

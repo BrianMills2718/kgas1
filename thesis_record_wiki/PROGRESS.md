@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from the Carter generated-output slice into narrower lit-review validation/source-code sub-slices or architecture ADR topical sub-slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from the lit-review schema-creation production path into validation/source-output comparison sub-slices or architecture ADR topical sub-slices.
 
 ## Completed
 
@@ -45,10 +45,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `871f7e9` ingested `digimon_lineage_Digimons/docs/architecture` top-level slice, including architecture source summary and uncertainty traceability concept.
 - `bf80bf9` ingested the evidence archive slice, including false-claim correction and evidence validation-level concept.
 - `54d1422` ingested first `experiments/lit_review` slice, including automated theory extraction source summary, schema/application method concept, and validation-claim caveats.
-- Pending commit: `experiments/lit_review/carter_analysis_output` slice, including concrete generated output artifacts and multi-theory application artifact concept.
+- `c780da3` ingested `experiments/lit_review/carter_analysis_output`, including concrete generated output artifacts and multi-theory application artifact concept.
+- Pending commit: `experiments/lit_review/src/schema_creation` production-path slice, including prompt structure, information-loss fix, v13 extractors, and schema extraction pipeline evolution concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the Carter output slice.
-2. Next recommended ingest slice: `experiments/lit_review/src/schema_creation` plus adjacent prompt/config files, because the generated Carter artifacts need their production path documented before their scores can be trusted.
-3. Later slices: `experiments/lit_review/evidence/` deeper phase evidence, `validation_results/`, `docs/architecture/adrs/`, and UI/recovered components.
+1. Run wiki lint, commit, and push the schema-creation production-path slice.
+2. Next recommended ingest slice: `experiments/lit_review/validation_results/academic_papers` and `validation_results/cross_domain`, because these can connect generated outputs to validation comparisons rather than only code intent.
+3. Later slices: `experiments/lit_review/evidence/` deeper phase evidence, `docs/architecture/adrs/`, and UI/recovered components.

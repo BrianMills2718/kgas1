@@ -27,6 +27,8 @@ theory schema -> empirical text analysis -> cross-purpose outputs -> integrated 
 
 It also gives future reviewers a concrete object to check for theoretical fidelity, prompt leakage, schema adequacy, and evidence overclaiming.
 
+[Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md) begins documenting the production path that should be checked against artifacts like the Carter output.
+
 # Current Limitation
 
 The artifact contains internal balance and fidelity claims. A later validation slice should compare the generated analysis against:

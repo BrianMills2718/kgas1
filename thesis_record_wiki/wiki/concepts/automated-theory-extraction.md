@@ -47,10 +47,13 @@ This thread is close to the core dissertation goal of LLM-generated ontologies a
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md)
 - [Multi-Theory Application Artifact](/wiki/concepts/multi-theory-application-artifact.md)
+- [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 
 # Concrete Output Slice
 
 [Carter Theory Analysis Output](/wiki/sources/carter-theory-analysis-output.md) is the first ingested concrete output slice for this thread. It applies cognitive mapping and framing theory to one Carter speech and creates separate plus integrated JSON/YAML artifacts. Treat it as internal generated evidence pending external validation.
+
+[Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md) is the first ingested production-path slice. It shows how the extractor evolved toward external prompts, full-vocabulary phase handoff, adaptive model-type selection, and v13 single/multi-theory extraction.
 
 # Citations
 

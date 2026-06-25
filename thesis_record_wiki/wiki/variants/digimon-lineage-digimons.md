@@ -26,6 +26,8 @@ The `experiments/lit_review` slice is a separate 51M experiment subsystem with 2
 
 The `experiments/lit_review/carter_analysis_output` slice is a concrete generated-output sub-slice: six files applying Young 1996 cognitive mapping and Chong & Druckman 2007 framing theory to a Carter speech, then integrating the results. See [Carter Theory Analysis Output](/wiki/sources/carter-theory-analysis-output.md).
 
+The `experiments/lit_review/src/schema_creation` slice documents production-path evolution behind those outputs: prompt externalization, improved multiphase extraction, information-loss correction, v13 single/multi-theory extractors, and caveats around hardcoded historical paths. See [Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.
