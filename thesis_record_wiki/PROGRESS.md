@@ -152,11 +152,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `727fe47` ingested the archive-before-cleanup analysis slice, including codebase/ops/performance review, KGAS theory/data architecture, reproducibility design, Claude Code orchestration, claim caveats, and no-literal-key finding.
 - `1cff5b8` ingested the archive-before-cleanup residual-planning slice, including Phase C/entity-resolution caveats, observation-focused performance tracking, archived benchmark requirements, post-MVP agent-intelligence plans, and no-literal-key finding.
 - `4fcc772` ingested the archive-before-cleanup root-files slice, including archive rationale, roadmap status claims, two-layer theory implementation/integration status, full-system DAG example, cleanup-improvement audit tension, and no-literal-key finding.
-- Pending commit: coverage/progress reassessment marking `ARCHIVE_BEFORE_CLEANUP_20250805/` sufficiently represented at top level and recommending `theoretical_exploration/` next.
+- `e45e400` updated the archive coverage queue, marking `ARCHIVE_BEFORE_CLEANUP_20250805/` sufficiently represented at top level and recommending `theoretical_exploration/` next.
+- Pending commit: theoretical-exploration overview slice, including 107-file inventory, top-subtree hashes, archive/KISS boundary, sub-slice queue, and no-literal-key finding.
 
 ## Next
 
-1. Run wiki lint, commit, and push the coverage/progress reassessment.
-2. Next recommended step: ingest `archive/theoretical_exploration/` as the next high-priority thesis-lineage slice.
+1. Run wiki lint, commit, and push the theoretical-exploration overview slice.
+2. Next recommended step: ingest `archive/theoretical_exploration/proposal_materials/` as the highest-value bounded thesis/proposal sub-slice.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
