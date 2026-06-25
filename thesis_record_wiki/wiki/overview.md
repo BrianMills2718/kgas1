@@ -94,6 +94,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md) - recovered and archived KGAS UI/demo/dashboard files.
 - [Recovered UI Demo Surface](/wiki/concepts/recovered-ui-demo-surface.md) - human-facing inspection/demo layer for upload, analysis, graph status, query, and export workflows.
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md) - current cleaned-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
+- [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md) - import-only runtime evidence: tool contracts import, cross-modal API import fails on `AnalysisRequest`, and MCP import fails on missing `neo4j`.
 - [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md) - status rule separating architecture intent, evidence reports, current files, and runtime proof.
 
 # Current Cautions

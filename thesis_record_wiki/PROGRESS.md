@@ -59,10 +59,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `1fcdd0d` ingested the analysis-expansion ADR slice, including cross-modal analysis, ABM simulation, statistical/SEM expansion, schema ecosystem, and local-only REST API.
 - `ba02a82` ingested the lit-review multi-agent system slice, including isolated implementation/evaluation harness, current status claims, six phase evaluation results, and Phase 2 11/12-vs-100/100 caveat.
 - `d43ae5b` ingested the UI recovered-components slice, including duplicate recovered/archive UI README, static/Streamlit/FastAPI UI surfaces, dashboard evidence, and recovered React component.
-- Pending commit: current-code verification slice, including storage, tool contract, API/MCP, UI, entry-point, and tests/current-layout findings.
+- `981e769` added the current-code verification slice, including storage, tool contract, API/MCP, UI, entry-point, and tests/current-layout findings.
+- Pending commit: runtime import check slice, including successful `src.core.tool_contract` import and failed `src.api.cross_modal_api` / `src.mcp_server` imports.
 
 ## Next
 
-1. Run wiki lint, commit, and push the current-code verification slice.
-2. Next recommended step: runtime verification of one narrow current path, starting with import-only checks for `src/core/tool_contract.py`, `src/api/cross_modal_api.py`, and `src/mcp_server.py`.
+1. Run wiki lint, commit, and push the runtime import check slice.
+2. Next recommended step: inspect whether the active environment should be repaired for read-only verification, or keep documenting current failures without installing dependencies.
 3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.

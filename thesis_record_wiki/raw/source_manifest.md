@@ -178,6 +178,10 @@ Initial source set for the Thesis Record Wiki.
 | `../src/core/qdrant_store.py` | Current Qdrant compatibility/mock vector store | `sha256:b218ae16425248565030eba7322de393526ba136f8a7bab5e9847aa560b356f7` | Simplified Qdrant compatibility/mock implementation still present in cleaned checkout. |
 | `../src/core/vector_store.py` | Current vector store interface | `sha256:546b35e2e1e70b53b684a01fecb0a0e63f01f11650994dc9df304fa8865c9615` | Abstract vector storage interface. |
 | `../src/core/tool_contract.py` | Current KGASTool contract implementation | `sha256:9c0f7db8a661d2c923f635c9c29890e7798aa81a052493190fe692fe79df5090` | Current ToolRequest, ToolResult, KGASTool, BaseKGASTool, and TheoryAwareKGASTool implementation. |
+| `../src/api/cross_modal_api.py` | Current cross-modal FastAPI module | `sha256:8aee7251af9df493cfaa7a6ec70e1a06a38a0e75d2c3497596f2e206ba65c3b8` | Imports fail in active environment because `AnalysisRequest` is not exported from `src.analytics`. |
+| `../src/mcp_server.py` | Current MCP server module | `sha256:2a29e4b76aae9acf61c3bc840517014ec7d61a4066f38f9220501f0677eeaeed` | Imports fail in active environment because `neo4j` is not installed. |
+| `../src/analytics/__init__.py` | Current analytics package exports | `sha256:320cbb2097c1d7d93bea62799066a0b8c33e5a721515a5179d1e12b805d408c7` | Does not export `AnalysisRequest` during runtime import check. |
+| `../requirements.txt` | Current Python dependency list | `sha256:6fd940472b4302abb2ec751ea514c228bec6aa0ea70cb74c03020dd924469dca` | Lists `neo4j>=5.0.0`, explaining MCP import dependency expectation. |
 | `../src/api/cross_modal_api.py` | Current cross-modal FastAPI API | `sha256:8aee7251af9df493cfaa7a6ec70e1a06a38a0e75d2c3497596f2e206ba65c3b8` | Current local cross-modal REST API surface. |
 | `../src/mcp_server.py` | Current MCP server entry point | `sha256:2a29e4b76aae9acf61c3bc840517014ec7d61a4066f38f9220501f0677eeaeed` | Current MCP server file found in cleaned checkout. |
 | `../Makefile` | Current Makefile | `sha256:3c971ff3a8ed52690a63700bc23f2c234711ef242de8771552469ea3ccd7b8fa` | Current make targets; mostly enforced-planning/session/worktree targets. |

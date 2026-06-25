@@ -25,6 +25,7 @@ The 2026-06-25 verification slice found concrete examples:
 - current docs and archives claim UI capability, but recovered UI code lives outside the current `src/` layout
 - storage ADRs describe Qdrant removal, but current code still has Qdrant compatibility/mock code
 - tool contracts exist, but existence does not prove complete tool migration
+- import-only runtime checks can split file-presence claims further: `src.core.tool_contract` imports, while current cross-modal API and MCP imports fail in the active environment
 
 # Rule
 
@@ -40,6 +41,7 @@ Do not collapse these into one status label.
 # Links
 
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md)
+- [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md)
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md)
