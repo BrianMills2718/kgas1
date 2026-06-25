@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added legacy-system framing slice and analyst-assembler-pattern concept.
 * **Ingest** | Added old schema archive inventory slice and old-schema-corpus-breadth concept.
 * **Ingest** | Added Grusch/UAP information-disorder output slice and information-disorder-application-artifact concept.
 * **Verification** | Added negative evidence page for empty lit-review validation_retesting directories.

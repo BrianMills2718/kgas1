@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from the first architecture ADR map into topical ADR sub-slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, currently working through lit-review archive and literature-corpus slices.
 
 ## Completed
 
@@ -69,10 +69,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `d700688` ingested the prompt-variation model-routing slice, including theory-count detection, specialized detector calibration, confidence integration, hybrid detection, and generated Young 1996 hybrid schema.
 - `3a77822` documented negative evidence for empty `experimental_testing/validation_retesting` subdirectories.
 - `9e17ffd` ingested the Grusch/UAP information-disorder output slice, including structured generated analysis and empty `analysis_results/` caveat.
-- Pending commit: old schema archive inventory slice, including 56 YAML schemas, 55 parseable dictionaries, one malformed file, aggregate directory hash, and old-schema-corpus-breadth concept.
+- `5fa54dc` ingested the old schema archive inventory slice, including 56 YAML schemas, 55 parseable dictionaries, one malformed file, aggregate directory hash, and old-schema-corpus-breadth concept.
+- Pending commit: legacy-system framing slice, including Analyst/Assembler methodology, post-processing guide, project overview, archived CLAUDE validation problems, and analyst-assembler-pattern concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the old schema archive inventory slice.
-2. Next recommended step: inspect `archive/legacy_system/` and `archive/project_overviews/`, because they likely preserve the pre-pipeline conceptual framing and may explain why the old schema corpus was created.
+1. Run wiki lint, commit, and push the legacy-system framing slice.
+2. Next recommended step: inspect top-level `literature/Index.md` and the `literature/` domain folders to capture the raw source corpus breadth behind the schema archive.
 3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.

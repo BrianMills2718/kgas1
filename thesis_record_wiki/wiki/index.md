@@ -43,6 +43,7 @@
 * [Lit Review Validation Retesting Empty Directories](sources/lit-review-validation-retesting-empty.md) - negative evidence that preserved validation_retesting subdirectories contain no files.
 * [Grusch UAP Information Disorder Output](sources/grusch-uap-information-disorder-output.md) - structured generated analysis of UAP hearing narratives, actors, credibility, and information disorder.
 * [Lit Review Old Schema Archive Inventory](sources/lit-review-old-schema-archive-inventory.md) - inventory of 56 archived early theory schemas and parseability caveats.
+* [Lit Review Legacy System Framing](sources/lit-review-legacy-system-framing.md) - archived early methodology and project framing for Analyst/Assembler schema generation.
 
 # Entities
 
@@ -84,6 +85,7 @@
 * [Prompt Calibration Loop](concepts/prompt-calibration-loop.md) - detector-prompt pattern: test known cases, identify bias, refine criteria, and add arbitration logic.
 * [Information Disorder Application Artifact](concepts/information-disorder-application-artifact.md) - generated-output pattern for public-information events and narrative contestation.
 * [Old Schema Corpus Breadth](concepts/old-schema-corpus-breadth.md) - early broad theory-schema corpus before later validation/routing discipline.
+* [Analyst Assembler Pattern](concepts/analyst-assembler-pattern.md) - LLM for semantic interpretation, deterministic code for schema assembly and validation.
 
 # Timeline
 

@@ -110,6 +110,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Information Disorder Application Artifact](/wiki/concepts/information-disorder-application-artifact.md) - generated-output pattern for actors, messages, interpreters, credibility, transparency, and narrative contestation.
 - [Lit Review Old Schema Archive Inventory](/wiki/sources/lit-review-old-schema-archive-inventory.md) - inventory of 56 archived early theory schemas, common schema fields, and one parseability gap.
 - [Old Schema Corpus Breadth](/wiki/concepts/old-schema-corpus-breadth.md) - finding that the thesis attempted a broad interdisciplinary schema corpus before later validation discipline.
+- [Lit Review Legacy System Framing](/wiki/sources/lit-review-legacy-system-framing.md) - archived Analyst/Assembler methodology, computational social science framing, and critical validation problems.
+- [Analyst Assembler Pattern](/wiki/concepts/analyst-assembler-pattern.md) - workflow split between LLM interpretation and deterministic schema assembly.
 
 # Current Cautions
 
