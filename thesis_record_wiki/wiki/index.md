@@ -33,6 +33,7 @@
 * [Digimon Lineage Analysis Expansion ADRs](sources/digimon-lineage-analysis-expansion-adrs.md) - cross-modal, schema, ABM, statistics, and local API ADR slice.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.
+* [Current Code Verification 2026-06-25](sources/current-code-verification-2026-06-25.md) - focused current-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
 
 # Entities
 
@@ -67,6 +68,7 @@
 * [Analysis Expansion Architecture](concepts/analysis-expansion-architecture.md) - KGAS expansion from graph extraction to cross-modal, schema, simulation, statistical, and local automation modes.
 * [Multi Agent Evidence Harness](concepts/multi-agent-evidence-harness.md) - isolated implementation/evaluation pattern used to enforce 100/100 phase gates.
 * [Recovered UI Demo Surface](concepts/recovered-ui-demo-surface.md) - preserved static, FastAPI, Streamlit, and React UI/demo surfaces.
+* [Current Status Verification Discipline](concepts/current-status-verification-discipline.md) - rule for separating architecture, evidence, current code, and runtime status.
 
 # Timeline
 

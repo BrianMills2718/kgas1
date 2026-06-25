@@ -58,10 +58,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `c2b9aad` ingested the tool/orchestration ADR slice, including contract-first Layer 2, pipeline adapters, MCP Layer 3, structured output migration, and three-layer interface reconciliation.
 - `1fcdd0d` ingested the analysis-expansion ADR slice, including cross-modal analysis, ABM simulation, statistical/SEM expansion, schema ecosystem, and local-only REST API.
 - `ba02a82` ingested the lit-review multi-agent system slice, including isolated implementation/evaluation harness, current status claims, six phase evaluation results, and Phase 2 11/12-vs-100/100 caveat.
-- Pending commit: UI recovered-components slice, including duplicate recovered/archive UI README, static/Streamlit/FastAPI UI surfaces, dashboard evidence, and recovered React component.
+- `d43ae5b` ingested the UI recovered-components slice, including duplicate recovered/archive UI README, static/Streamlit/FastAPI UI surfaces, dashboard evidence, and recovered React component.
+- Pending commit: current-code verification slice, including storage, tool contract, API/MCP, UI, entry-point, and tests/current-layout findings.
 
 ## Next
 
-1. Run wiki lint, commit, and push the UI recovered-components slice.
-2. Next recommended ingest slice: current-code verification of the highest-risk claims now indexed: storage status, tool-layer status, and UI runnable status.
+1. Run wiki lint, commit, and push the current-code verification slice.
+2. Next recommended step: runtime verification of one narrow current path, starting with import-only checks for `src/core/tool_contract.py`, `src/api/cross_modal_api.py`, and `src/mcp_server.py`.
 3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.

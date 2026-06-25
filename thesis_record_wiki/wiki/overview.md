@@ -93,6 +93,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md) - procedural evidence pattern for isolated implementation, external evaluation, remediation, and 100/100 gates.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md) - recovered and archived KGAS UI/demo/dashboard files.
 - [Recovered UI Demo Surface](/wiki/concepts/recovered-ui-demo-surface.md) - human-facing inspection/demo layer for upload, analysis, graph status, query, and export workflows.
+- [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md) - current cleaned-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
+- [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md) - status rule separating architecture intent, evidence reports, current files, and runtime proof.
 
 # Current Cautions
 

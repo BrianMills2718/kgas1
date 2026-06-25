@@ -61,6 +61,8 @@ The lit-review multi-agent slice adds a procedural verification layer: isolated 
 
 The recovered UI slice preserves human-facing demo and inspection surfaces: static/mock UI, FastAPI backend UI, Streamlit dashboard, and a React analysis dashboard component. See [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md) and [Recovered UI Demo Surface](/wiki/concepts/recovered-ui-demo-surface.md).
 
+The current-code verification slice checks the cleaned checkout directly and finds important status gaps: documented root entry points and `src/ui` are absent, `src/mcp_server.py` and `src/api/cross_modal_api.py` exist, and Qdrant compatibility/mock code remains. See [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

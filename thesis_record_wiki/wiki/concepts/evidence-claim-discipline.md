@@ -28,6 +28,8 @@ The analysis-expansion ADRs add a scale warning: broad accepted architecture and
 
 The lit-review multi-agent harness is a stronger evidence pattern than self-reporting because it separates implementation from evaluation, but its claims remain historical artifacts until rerun or otherwise reproduced. See [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md).
 
+The current-code verification slice adds the final distinction: even current docs can be stale, so status summaries must separate architecture intent, evidence reports, files present on disk, and runtime execution. See [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -54,6 +56,7 @@ Future summaries must name the validation level.
 - [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md): uncertainty claims must be tied to the active or superseded framework being referenced.
 - [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md): broad capability surfaces require per-capability verification.
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md): implementation/evaluation separation as a procedural guardrail.
+- [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md): current functionality requires direct checkout and runtime checks.
 
 # Citations
 

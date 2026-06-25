@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Verification** | Added current-code verification slice and current status verification discipline concept.
 * **Ingest** | Added UI recovered-components slice and recovered UI demo surface concept.
 * **Ingest** | Added lit-review multi-agent system slice and multi-agent evidence harness concept.
 * **Ingest** | Added analysis-expansion ADR slice and analysis expansion architecture concept.
