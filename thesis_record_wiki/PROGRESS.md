@@ -90,10 +90,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `1ce0e6f` ingested the testing code slice, including 14-script aggregate hash, processor comparison, prompt-routing, computational-schema execution, SH extraction, provider-debug, and multi-agent runner caveats.
 - `1e5bb6e` ingested the lit-review root-files slice, including 22-file aggregate hash, project framing docs, prompt drafts, extraction logs, source texts, sensitive `.env` caveat, and root clutter.
 - `0b500fa` ingested the lit-review docs bundle slice, including 13-file aggregate hash, meta-schema, extraction methodology, n-ary relation guide, universal-applicator critique, archived strategies, TypeDB PDFs, and Carter visualization artifacts.
-- Pending commit: data/examples grounding slice, including 17-file data hash, 11-file examples hash, source papers, test texts, Carter examples, hybrid schemas, OWL/causal stress tests, UI requirements, and model-form negative evidence.
+- `8c4adc7` ingested the data/examples grounding slice, including 17-file data hash, 11-file examples hash, source papers, test texts, Carter examples, hybrid schemas, OWL/causal stress tests, UI requirements, and model-form negative evidence.
+- Pending commit: evidence corpus inventory slice, including 114-file aggregate hash, six phase aggregates, Phase 1 purpose-classification summary, and links to existing Phase 2-6 pages.
 
 ## Next
 
-1. Run wiki lint, commit, and push the data/examples slice.
-2. Next recommended step: inspect remaining `experiments/lit_review/evidence/`, because it is large and likely contains the phase-by-phase evidence packages behind the 100/100 claims.
+1. Run wiki lint, commit, and push the evidence corpus slice.
+2. Next recommended step: inspect `experiments/lit_review/debug_improved/` and remaining `analysis_results/`, because they may contain generated/debug artifacts not covered by source/data/evidence pages.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
