@@ -43,6 +43,7 @@
 * [Lit Review Prompt Variation Model Routing](sources/lit-review-prompt-variation-model-routing.md) - prompt-calibration artifacts for theory-count, model-form, confidence, and hybrid routing.
 * [Lit Review Validation Retesting Empty Directories](sources/lit-review-validation-retesting-empty.md) - negative evidence that preserved validation_retesting subdirectories contain no files.
 * [Lit Review Experimental Testing Corpus](sources/lit-review-experimental-testing-corpus.md) - directory-level inventory and top-level validation/optimization summaries for model-routing experiments.
+* [Lit Review Local Repo Metadata](sources/lit-review-local-repo-metadata.md) - preserved nested git provenance, `sb_ontologies` remote, trip-backup branch, and local `.claude` timeout settings.
 * [Grusch UAP Information Disorder Output](sources/grusch-uap-information-disorder-output.md) - structured generated analysis of UAP hearing narratives, actors, credibility, and information disorder.
 * [Lit Review Old Schema Archive Inventory](sources/lit-review-old-schema-archive-inventory.md) - inventory of 56 archived early theory schemas and parseability caveats.
 * [Lit Review Legacy System Framing](sources/lit-review-legacy-system-framing.md) - archived early methodology and project framing for Analyst/Assembler schema generation.
