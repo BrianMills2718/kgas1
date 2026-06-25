@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added archived uncertainty datasets page covering file hashes, dataset structure, tweet/object counts, identifier/privacy risks, count inconsistencies, empty-key config, and July 27 root test result without quoting raw tweet text.
 * **Ingest** | Added archived uncertainty experiments docs/validation page covering 13 non-duplicate docs, 17 validation files, 75%-ready versus production-ready status tension, Kunst validation claims, LLM-native 7/7 result, mock SocialMaze caveat, and hardcoded-path/API rerun caveats.
 * **Ingest** | Added archived-uncertainty-tests overview covering the 57 MB bundle, duplicate reorganized copy, 2025-07 experiments tree, datasets, incomplete personality-prediction checkout, cleanup/deletion recommendations, and privacy/security caveats.
 * **Ingest** | Added uncertainty-stress-test organization page covering the symlink classification layer, useful/non-useful judgments, 53 symlinks with 48 broken at this path, and follow-on pointers to archived personality-prediction material.

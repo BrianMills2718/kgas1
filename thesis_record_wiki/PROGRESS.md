@@ -139,11 +139,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `d615339` ingested the uncertainty-stress-test optimization slice, including mock parallelism, preserved estimated speedup JSON, cache assumptions, hardcoded historical paths, and no-literal-key finding.
 - `0ae4fde` ingested the uncertainty-stress-test organization slice, including useful/non-useful symlink classification, 48/53 broken symlink caveat, and follow-on pointer to archived personality-prediction material.
 - `fc4b9d2` ingested the archived-uncertainty-tests overview, including duplicate reorganized copy, 2025-07 experiments datasets/config/results, incomplete personality-prediction checkout, cleanup/deletion recommendations, and privacy/security caveats.
-- Pending commit: archived uncertainty experiments docs/validation slice, including 13-doc/17-validation inventory, production-ready versus fix-bias-first status tension, Kunst claims, LLM-native 7/7 result, mock SocialMaze caveat, and rerun caveats.
+- `b0f9fc4` ingested the archived uncertainty experiments docs/validation slice, including 13-doc/17-validation inventory, production-ready versus fix-bias-first status tension, Kunst claims, LLM-native 7/7 result, mock SocialMaze caveat, and rerun caveats.
+- Pending commit: archived uncertainty datasets slice, including per-file hashes, dataset structure, tweet/object counts, identifier/privacy risk, count inconsistencies, empty-key config, and July 27 result summary.
 
 ## Next
 
-1. Run wiki lint, commit, and push the archived uncertainty experiments docs/validation slice.
-2. Next recommended step: mark the archived-uncertainty overview commit complete in progress, then inspect the experiments root datasets/config/test-result slice for whether a dedicated dataset ethics/provenance page is warranted.
+1. Run wiki lint, commit, and push the archived uncertainty datasets slice.
+2. Next recommended step: mark the archived uncertainty experiments docs/validation commit complete in progress, then inspect remaining non-duplicate `2025_07_experiments` code directories (`analysis`, `core_services`, `bayesian`, `testing`, `setup`) only for differences from already-ingested slices.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
