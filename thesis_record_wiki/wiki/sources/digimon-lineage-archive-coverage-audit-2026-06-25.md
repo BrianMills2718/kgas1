@@ -56,11 +56,11 @@ The following top-level archive areas were not found in the wiki index by this a
 | `old_claude_md_versions/` | 7 | 123,514 | Covered by old-CLAUDE-md-versions page. |
 | `demos_examples_2025_08/` | 13 | 63,774 | Covered by demos-examples-2025-08 page; overlaps with scripts archive. |
 | `archived_implementations/` | 4 | 53,730 | Covered by archived-implementations-ui page; all four files are UI remnants. |
-| `doc_generation_scripts/` | 4 | 26,430 | Low: scripts for docs generation unless tied to generated claims. |
+| `doc_generation_scripts/` | 4 | 26,430 | Covered by doc-generation-scripts page; explains generated architecture/ADR bundles. |
 
 # Recommended Next Slice
 
-Next reassess whether lower-priority `doc_generation_scripts/` and `temp_debug_files/` merit dedicated pages. Prefer `doc_generation_scripts/` first if continuing because it is small and may explain generated-doc artifacts. [1]
+Next inspect `temp_debug_files/`, the last not-yet-represented top-level archive queue from this audit. It may only need a negative/low-value page if it is scratch debugging. [1]
 
 # Relationship To Wiki
 
@@ -83,6 +83,7 @@ Next reassess whether lower-priority `doc_generation_scripts/` and `temp_debug_f
 - [Digimon Lineage Archived Experimental Tests](/wiki/sources/digimon-lineage-archived-experimental-tests.md): archived redundant functional, stress, and root test corpus.
 - [Digimon Lineage Demos Examples 2025 08](/wiki/sources/digimon-lineage-demos-examples-2025-08.md): small demo/example corpus with ontology UI and validation leftovers.
 - [Digimon Lineage Archived Implementations UI](/wiki/sources/digimon-lineage-archived-implementations-ui.md): small archived Streamlit UI implementation-remnants bundle.
+- [Digimon Lineage Doc Generation Scripts](/wiki/sources/digimon-lineage-doc-generation-scripts.md): generated architecture/ADR bundle script provenance.
 - [Digimon Lineage Root Cleanup 2025 08 29](/wiki/sources/digimon-lineage-root-cleanup-2025-08-29.md): root cleanup and duplicate entry-point archive overview.
 - [Digimon Lineage Old Claude Md Versions](/wiki/sources/digimon-lineage-old-claude-md-versions.md): historical agent-instruction archive overview.
 - [Digimon Lineage Old Docs 2025 08](/wiki/sources/digimon-lineage-old-docs-2025-08.md): superseded old-docs archive covering contract-first, structured-output, operations, and uncertainty notes.
