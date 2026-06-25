@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added theoretical-exploration thinking-out-loud slice, including 13-file inventory, text-internal/text-external analysis distinction, two-stage SIT critique, cross-modal orchestration planning, six-level theory automation, implementation-claim caveats, and no-literal-key finding.
 * **Ingest** | Added theoretical-exploration full-example architecture slice, including 29-file inventory, dynamic tool generation design, uncertainty decision evolution, DAG execution/assessment, schema/source artifacts, and no-literal-key finding.
 * **Ingest** | Added theoretical-exploration proposal-materials slice, including dissertation framing, academic writing guidance, validation critiques/matrix, HSPC subtree pointer, worked examples, safety framework, deprecated concepts, and no-literal-key finding.
 * **Ingest** | Added theoretical-exploration overview slice, including 107-file inventory, top-subtree hashes, archive/KISS boundary, high-value sub-slice queue, and no-literal-key finding.

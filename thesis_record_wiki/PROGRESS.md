@@ -155,11 +155,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `e45e400` updated the archive coverage queue, marking `ARCHIVE_BEFORE_CLEANUP_20250805/` sufficiently represented at top level and recommending `theoretical_exploration/` next.
 - `1f4ab20` ingested the theoretical-exploration overview slice, including 107-file inventory, top-subtree hashes, archive/KISS boundary, sub-slice queue, and no-literal-key finding.
 - `efbd845` ingested the theoretical-exploration proposal-materials slice, including dissertation framing, academic guidance, validation critiques/matrix, HSPC pointer, worked examples, safety framework, deprecated concepts, and no-literal-key finding.
-- Pending commit: theoretical-exploration full-example architecture slice, including dynamic tool generation, uncertainty decisions, DAG execution/assessment, schema/source artifacts, and no-literal-key finding.
+- `87ba2b5` ingested the theoretical-exploration full-example architecture slice, including dynamic tool generation, uncertainty decisions, DAG execution/assessment, schema/source artifacts, and no-literal-key finding.
+- Pending commit: theoretical-exploration thinking-out-loud slice, including analysis-philosophy, two-stage-analysis, cross-modal orchestration, six-level automation, implementation-claim caveats, and no-literal-key finding.
 
 ## Next
 
-1. Run wiki lint, commit, and push the theoretical-exploration full-example architecture slice.
-2. Next recommended step: ingest `archive/theoretical_exploration/thinking_out_loud/` as the next bounded analysis-philosophy/architecture/implementation-claims slice.
+1. Run wiki lint, commit, and push the theoretical-exploration thinking-out-loud slice.
+2. Next recommended step: ingest `archive/theoretical_exploration/archived_proposal_materials/fragments/`, `assessment_documentation/`, and possibly `historical_versions/` as the next bounded proposal-evolution slice.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
