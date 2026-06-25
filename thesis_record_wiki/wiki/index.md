@@ -46,6 +46,7 @@
 * [Lit Review Legacy System Framing](sources/lit-review-legacy-system-framing.md) - archived early methodology and project framing for Analyst/Assembler schema generation.
 * [Lit Review Literature Corpus Inventory](sources/lit-review-literature-corpus-inventory.md) - inventory of the preserved annotated literature corpus, topical folders, and schema-location caveats.
 * [Lit Review Operational Code Corpus](sources/lit-review-operational-code-corpus.md) - operational-code and Young WorldView literature slice with schema-variant comparison.
+* [Lit Review Influence Operations Corpus](sources/lit-review-influence-operations-corpus.md) - influence-operations source folder and generated Chapter 6-7 framework artifacts.
 
 # Entities
 
@@ -90,6 +91,7 @@
 * [Analyst Assembler Pattern](concepts/analyst-assembler-pattern.md) - LLM for semantic interpretation, deterministic code for schema assembly and validation.
 * [Literature Corpus As Theory Testbed](concepts/literature-corpus-as-theory-testbed.md) - heterogeneous corpus as stress test for theory-to-schema representation methods.
 * [Schema Variant Drift](concepts/schema-variant-drift.md) - multiple extraction passes over the same source preserve different theory content.
+* [Multi-Level Influence Modeling](concepts/multi-level-influence-modeling.md) - representation pattern for campaign-level influence theories spanning actors, messages, strategies, and metrics.
 
 # Timeline
 

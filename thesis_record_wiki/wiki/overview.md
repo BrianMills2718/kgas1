@@ -116,6 +116,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Literature Corpus As Theory Testbed](/wiki/concepts/literature-corpus-as-theory-testbed.md) - corpus-level explanation for why model routing and hybrid representations became necessary.
 - [Lit Review Operational Code Corpus](/wiki/sources/lit-review-operational-code-corpus.md) - operational-code/WorldView source family and Young 1996 schema-variant comparison.
 - [Schema Variant Drift](/wiki/concepts/schema-variant-drift.md) - evidence that extraction pass, prompt, and representation frame can preserve different theory content for the same source.
+- [Lit Review Influence Operations Corpus](/wiki/sources/lit-review-influence-operations-corpus.md) - largest literature subfolder, with RAND/START source texts and generated Chapter 6-7 framework artifacts.
+- [Multi-Level Influence Modeling](/wiki/concepts/multi-level-influence-modeling.md) - pattern where property-graph representation is justified by multi-level actors, messages, strategies, metrics, and feedback loops.
 
 # Current Cautions
 

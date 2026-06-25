@@ -72,10 +72,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `5fa54dc` ingested the old schema archive inventory slice, including 56 YAML schemas, 55 parseable dictionaries, one malformed file, aggregate directory hash, and old-schema-corpus-breadth concept.
 - `9b2fb37` ingested the legacy-system framing slice, including Analyst/Assembler methodology, post-processing guide, project overview, archived CLAUDE validation problems, and analyst-assembler-pattern concept.
 - `bb67108` ingested the literature corpus inventory slice, including 73 preserved files, 47 indexed papers, topical folder counts, schema-location caveat, and literature-corpus-as-theory-testbed concept.
-- Pending commit: operational-code corpus slice, including five source texts, four Young schema variants, schema-variant-drift concept, and YAML truth-value parsing caveat.
+- `d2bb70a` ingested the operational-code corpus slice, including five source texts, four Young schema variants, schema-variant-drift concept, and YAML truth-value parsing caveat.
+- Pending commit: influence-operations corpus slice, including folder inventory, RAND Chapter 6-7 generated artifacts, schema/debug counts, and multi-level-influence-modeling concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the operational-code corpus slice.
-2. Next recommended step: inspect `literature/influence_operations/`, because it is the largest literature folder and includes both source texts and generated/debug artifacts.
-3. Later slices: `literature/social_marketing/`, selected generated-code directories, and remaining experiment directories.
+1. Run wiki lint, commit, and push the influence-operations corpus slice.
+2. Next recommended step: inspect `literature/social_marketing/`, because it contains CORE/sharedProps/post_process artifacts that likely connect back to the Analyst/Assembler and common ontology pattern.
+3. Later slices: selected generated-code directories and remaining experiment directories.
