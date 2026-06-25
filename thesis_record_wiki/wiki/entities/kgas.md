@@ -19,6 +19,10 @@ The system's recurring implementation themes are entity extraction, relationship
 
 The first lineage ingest adds two historically important KGAS concerns: truthful separation of roadmap status from target architecture, and tool composability through semantic typed contracts. See [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md) and [Type-Based Tool Composition](/wiki/concepts/type-based-tool-composition.md).
 
+Brian clarified that much of the Digimon material extends or forks JayLZhou GraphRAG / DIGIMON. That upstream relationship should be explicit in any KGAS history. See [GraphRAG Upstream Lineage](/wiki/concepts/graphrag-upstream-lineage.md).
+
+The `digimon_core_sparse` slice adds a contract-first migration thread and a concrete graph-construction warning: entity extraction can work while relationship extraction fails or is not invoked. See [Contract-First Migration](/wiki/concepts/contract-first-migration.md) and [Relationship Extraction Bottleneck](/wiki/concepts/relationship-extraction-bottleneck.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

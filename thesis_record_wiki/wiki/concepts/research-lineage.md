@@ -34,6 +34,9 @@ Two through-lines are now visible from the first small-variant ingest:
 
 - [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md): repeated attempts to separate target architecture from verified implementation status.
 - [Type-Based Tool Composition](/wiki/concepts/type-based-tool-composition.md): a later tool-compatibility strategy using semantic data types and exact schemas.
+- [GraphRAG Upstream Lineage](/wiki/concepts/graphrag-upstream-lineage.md): Brian's note that much local Digimon work extends or forks JayLZhou GraphRAG / DIGIMON.
+- [Contract-First Migration](/wiki/concepts/contract-first-migration.md): the sparse variant's formal migration from split interfaces to KGASTool contracts.
+- [Relationship Extraction Bottleneck](/wiki/concepts/relationship-extraction-bottleneck.md): stress-test evidence that the graph layer could fail by extracting entities but no relationships.
 
 # Open Interpretive Work
 

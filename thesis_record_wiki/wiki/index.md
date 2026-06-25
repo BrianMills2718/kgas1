@@ -10,6 +10,8 @@
 * [Digimons Documentation Repository](sources/digimons-docs-documentation-repository.md) - documentation-only lineage variant and its source-of-truth split.
 * [Digimons Minimal Clean Reference](sources/digimons-minimal-clean-reference.md) - compact 2025-09-04 clean KGAS reference line.
 * [Tool Compatibility Decision](sources/tool-compatibility-decision.md) - type-based composition decision and POC context.
+* [JayLZhou GraphRAG Upstream](sources/jaylzhou-graphrag-upstream.md) - external DIGIMON / GraphRAG reference repository.
+* [Digimon Core Sparse Contract Layer](sources/digimon-core-sparse-contract-layer.md) - sparse variant contract-first migration, evidence, and bottleneck findings.
 
 # Entities
 
@@ -22,6 +24,9 @@
 * [Verification Gaps](concepts/verification-gaps.md) - known places where the record is incomplete, permission-limited, or needs later review.
 * [Documentation Status Truthfulness](concepts/documentation-status-truthfulness.md) - recurring attempt to separate target architecture from verified implementation status.
 * [Type-Based Tool Composition](concepts/type-based-tool-composition.md) - later compatibility strategy for turning incompatible tools into composable typed operators.
+* [GraphRAG Upstream Lineage](concepts/graphrag-upstream-lineage.md) - how local Digimon/KGAS work relates to JayLZhou GraphRAG and DIGIMON method decomposition.
+* [Contract-First Migration](concepts/contract-first-migration.md) - migration from split tool interfaces toward KGASTool contracts.
+* [Relationship Extraction Bottleneck](concepts/relationship-extraction-bottleneck.md) - evidence that graph construction failed when relationship extraction was missing or silent.
 
 # Timeline
 

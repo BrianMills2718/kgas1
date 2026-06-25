@@ -52,6 +52,9 @@ After the first small-variant ingest, two organizing themes are visible:
 
 - [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md) - cleanup work repeatedly tried to separate target architecture from verified implementation status.
 - [Type-Based Tool Composition](/wiki/concepts/type-based-tool-composition.md) - later engineering work focused on making KGAS tools composable through exact typed contracts.
+- [GraphRAG Upstream Lineage](/wiki/concepts/graphrag-upstream-lineage.md) - local Digimon/KGAS should be read as connected to JayLZhou GraphRAG / DIGIMON, not as an isolated origin.
+- [Contract-First Migration](/wiki/concepts/contract-first-migration.md) - `digimon_core_sparse` records a formal attempt to collapse split tool interfaces into KGASTool contracts.
+- [Relationship Extraction Bottleneck](/wiki/concepts/relationship-extraction-bottleneck.md) - sparse-variant stress tests show a critical failure mode where entities were extracted but relationships were not.
 
 # Current Cautions
 

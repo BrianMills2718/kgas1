@@ -24,6 +24,10 @@ The initial recovery metadata is strong enough to establish that the archive was
 | `digimon_core_sparse` git head recorded as `ERROR` | `recovery_inventory.tsv` | Git metadata or inspection failed; inspect before making claims. |
 | `digimon_autoloop` git head recorded as `ERROR` | `recovery_inventory.tsv` | Git metadata or inspection failed; inspect before making claims. |
 
+# Sparse Variant Git Pointer
+
+The `digimon_core_sparse` `.git` file points to `/home/brian/projects/Digimons/.git/worktrees/digimon_core_sparse`, which is absent from this preserved repo location. This likely explains the recorded `ERROR` git head. Preserve that fact as part of the record; do not rewrite the `.git` pointer unless Brian explicitly asks for a recovery operation.
+
 # Next Actions
 
 - Inspect error-head variants with non-destructive commands.

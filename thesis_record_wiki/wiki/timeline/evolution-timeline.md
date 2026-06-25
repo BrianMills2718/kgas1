@@ -18,7 +18,9 @@ confidence: medium
 | Date | Event | Evidence |
 | --- | --- | --- |
 | Before 2025-09-04 | Earlier Digimons work accumulated across multiple local variants and archives. | `../archive_full_record/lineage_variants/`, `../archive_full_record/metadata/recovery_inventory.tsv` |
+| Upstream context | JayLZhou/GraphRAG / DIGIMON provides an external method-decomposition lineage for local Digimon/KGAS work. | `https://github.com/JayLZhou/GraphRAG` |
 | 2025-07-31 | Conservative verified roadmap baseline recorded 36/123 tools, core agent/infrastructure pieces, and major vector/cross-modal/reliability gaps. | `../archive_full_record/lineage_variants/Digimons_docs/docs/roadmap/ROADMAP_OVERVIEW_CONSERVATIVE.md` |
+| 2025-08-05 | `digimon_core_sparse` records contract-first migration in progress and identifies competing tool interfaces. | `../archive_full_record/lineage_variants/digimon_core_sparse/CLAUDE.md`, `Contract_First_Uncertainty_Analysis.md` |
 | 2025-09-04 | Clean KGAS implementation commits created, then repomix outputs removed. | Git commits `a722622`, `50b7650`, `431a201`, `6614a22`, `2c59a1f` |
 | 2025-09-05 | Documentation-only repository created with roadmap/status separation and architecture docs scoped as target design. | `../archive_full_record/lineage_variants/Digimons_docs`, commit `2690886` |
 | 2026-02-24 | `Digimons_clean_for_real` trip-backup branch captured untracked/new files, including extensive tool-compatibility material. | `../archive_full_record/lineage_variants/Digimons_clean_for_real`, commit `9b9e999` |
