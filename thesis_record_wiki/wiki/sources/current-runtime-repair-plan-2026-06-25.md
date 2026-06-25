@@ -97,11 +97,15 @@ Interpretation: the first MCP repair is environment dependency installation or p
 
 # Acceptance Criteria For A Future Code Fix
 
-- `python -c "import src.core.tool_contract"` passes.
-- `python -c "import src.api.cross_modal_api"` passes.
+- `python -c "import src.core.tool_contract"` passes. Completed in the follow-up repair pass.
+- `python -c "import src.api.cross_modal_api"` passes. Completed in the follow-up repair pass.
 - A focused API test proves the cross-modal endpoint calls the current `orchestrate_analysis(...)` signature.
 - In an isolated KGAS environment with requirements installed, `python -c "import src.mcp_server"` reaches the next real configuration or service-readiness state.
 - Any remaining failures are recorded with full traceback and not collapsed into a generic "broken" label.
+
+# Follow-Up Status
+
+The cross-modal API import blocker has been repaired and covered by `tests/current_runtime/test_cross_modal_api_contract.py`. The repair also exposed a second service-registry dependency gap (`torchvision`) when registry wiring is imported eagerly, so registry-backed endpoint execution still needs isolated environment work. MCP remains blocked on missing `neo4j` in the active environment. [1][4][6]
 
 # Links
 

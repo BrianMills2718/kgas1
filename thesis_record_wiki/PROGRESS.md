@@ -175,10 +175,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `5e70807` ingested the doc-generation-scripts slice, including architecture concatenation, architecture split, ADR extraction/indexing, Gemini architecture review script, generated-doc provenance caveats, and no-literal-key finding.
 - `9ad6de6` ingested the temp-debug-files slice, including database/debug/structured-output/claim-validation/reliability inventory, facade POC transcript fragment, overlap caveats, and no-literal-key finding.
 - `4430129` added the KGAS evolution checkpoint synthesis, including top-level archive coverage completion, GraphRAG-to-theory-system arc, evidence/status caveats, relationship-extraction and uncertainty risks, and recommended deep dives.
+- Pending commit: current-runtime repair slice, including cross-modal API import/calling-contract repair, focused current-runtime tests, passing `src.api.cross_modal_api` import, and remaining `neo4j`/`torchvision` dependency blockers.
 
 ## Next
 
-1. Recommended next deep dive: current runtime repair and verification, because it turns high-level status claims into current runtime evidence before deeper historical interpretation.
-2. After that, trace the relationship-extraction bottleneck across T27/current code/archive evidence.
+1. Run wiki lint, tests, commit, and push the current-runtime repair slice.
+2. Next recommended step: create an isolated KGAS environment and install declared requirements to separate missing-package failures (`neo4j`, `torchvision`) from real MCP/service configuration failures.
+3. After that, trace the relationship-extraction bottleneck across T27/current code/archive evidence.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

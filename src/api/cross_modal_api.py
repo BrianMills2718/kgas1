@@ -25,17 +25,10 @@ from pydantic import BaseModel, Field
 import numpy as np
 import pandas as pd
 
-# Import cross-modal services
-from src.analytics import (
-    get_registry,
-    initialize_cross_modal_services,
-    DataFormat,
-    AnalysisRequest,
-    DataContext,
-    AnalysisMode,
-    ValidationLevel,
-    WorkflowOptimizationLevel
-)
+# Import concrete cross-modal services directly so package-level export drift fails loudly.
+from src.analytics.cross_modal_converter import DataFormat
+from src.analytics.cross_modal_orchestrator import WorkflowOptimizationLevel
+from src.analytics.cross_modal_validator import ValidationLevel
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -118,7 +111,7 @@ async def startup_event():
             'embedding': {'device': 'cpu'}
         }
         
-        success = initialize_cross_modal_services(config)
+        success = _initialize_cross_modal_services(config)
         if success:
             logger.info("✅ Cross-modal services initialized successfully")
         else:
@@ -133,7 +126,7 @@ async def startup_event():
 async def health_check():
     """Check API and service health"""
     try:
-        registry = get_registry()
+        registry = _get_registry()
         health_status = registry.check_all_health()
         
         return {
@@ -174,7 +167,7 @@ async def analyze_document(
     
     # Validate target format
     try:
-        target_fmt = DataFormat(target_format.upper())
+        target_fmt = _parse_enum(DataFormat, target_format, "target format")
     except ValueError:
         raise HTTPException(
             status_code=400,
@@ -188,78 +181,8 @@ async def analyze_document(
             tmp_file.write(content)
             tmp_path = tmp_file.name
         
-        # Integrated with core pipeline services
-        registry = get_registry()
-        
-        # Integrate with actual pipeline services
-        try:
-            from src.core.pipeline_orchestrator import PipelineOrchestrator
-            from src.core.service_manager import ServiceManager
-            
-            # Initialize service manager and orchestrator
-            service_manager = ServiceManager()
-            orchestrator = PipelineOrchestrator(service_manager)
-            
-            # Process document through actual pipeline
-            processing_request = {
-                "documents": [tmp_path],
-                "queries": queries,
-                "phase": "phase1",
-                "optimization_level": optimization_level.upper()
-            }
-            
-            pipeline_result = orchestrator.execute_processing_request(processing_request)
-            
-            if pipeline_result and pipeline_result.get("success", False):
-                graph_data = pipeline_result.get("graph_data", {})
-                entities = pipeline_result.get("entities", [])
-                relationships = pipeline_result.get("relationships", [])
-                
-                logger.info(f"Pipeline processing successful: {len(entities)} entities, {len(relationships)} relationships")
-            else:
-                error_msg = pipeline_result.get("error", "Pipeline processing failed") if pipeline_result else "Pipeline returned no results"
-                logger.error(f"Pipeline processing failed: {error_msg}")
-                raise Exception(f"Pipeline processing failed: {error_msg}")
-                
-        except ImportError as e:
-            logger.error(f"Failed to import pipeline components: {e}")
-            raise HTTPException(status_code=500, detail=f"Pipeline integration not available: {str(e)}")
-        except Exception as e:
-            logger.error(f"Pipeline processing error: {e}")
-            raise HTTPException(status_code=500, detail=f"Pipeline processing failed: {str(e)}")
-        
-        # TEMPORARY: Use mock data to demonstrate API structure
-        if file_ext == ".pdf":
-            # Mock PDF processing - replace with pipeline when ready
-            mock_graph_data = {
-                "nodes": [
-                    {"id": "1", "label": "Entity A", "type": "PERSON"},
-                    {"id": "2", "label": "Entity B", "type": "ORGANIZATION"},
-                    {"id": "3", "label": "Entity C", "type": "LOCATION"}
-                ],
-                "edges": [
-                    {"source": "1", "target": "2", "relationship": "WORKS_FOR"},
-                    {"source": "2", "target": "3", "relationship": "LOCATED_IN"}
-                ]
-            }
-        else:
-            # Mock text processing - replace with pipeline when ready
-            mock_graph_data = {
-                "nodes": [
-                    {"id": "1", "label": "Document", "type": "DOCUMENT"}
-                ],
-                "edges": []
-            }
-        
-        # Create analysis request
-        request = AnalysisRequest(
-            data=mock_graph_data,
-            source_format=DataFormat.GRAPH,
-            target_formats=[target_fmt],
-            task=task,
-            optimization_level=WorkflowOptimizationLevel(optimization_level.upper()),
-            validation_level=ValidationLevel(validation_level.upper())
-        )
+        registry = _get_registry()
+        graph_data = _document_placeholder_graph(file.filename, len(content), file_ext)
         
         # Execute analysis
         orchestrator = registry.orchestrator
@@ -269,7 +192,14 @@ async def analyze_document(
                 detail="Orchestrator service not available"
             )
             
-        result = await orchestrator.orchestrate_analysis(request)
+        result = await orchestrator.orchestrate_analysis(
+            research_question=task,
+            data=graph_data,
+            source_format=DataFormat.GRAPH,
+            preferred_modes=_preferred_modes_for_format(target_fmt),
+            optimization_level=_parse_enum(WorkflowOptimizationLevel, optimization_level, "optimization level"),
+            validation_level=_parse_enum(ValidationLevel, validation_level, "validation level")
+        )
         
         # Clean up temp file
         os.unlink(tmp_path)
@@ -277,15 +207,19 @@ async def analyze_document(
         # Return results
         return AnalysisResponse(
             workflow_id=result.workflow_id,
-            selected_mode=result.selected_mode.value,
+            selected_mode=_selected_mode_value(result),
             results={
-                target_format: _serialize_results(result.converted_data.get(target_fmt))
+                target_format: _serialize_results(result.primary_result)
             },
-            validation=result.validation_results,
+            validation=_serialize_validation_report(result.validation_report),
             performance_metrics=result.performance_metrics,
-            source_traceability=result.source_traceability
+            source_traceability=result.analysis_metadata
         )
         
+    except HTTPException:
+        if 'tmp_path' in locals() and os.path.exists(tmp_path):
+            os.unlink(tmp_path)
+        raise
     except Exception as e:
         logger.error(f"Analysis failed: {e}")
         # Clean up temp file if it exists
@@ -303,14 +237,14 @@ async def convert_format(request: ConvertRequest):
     """
     try:
         # Validate formats
-        source_fmt = DataFormat(request.source_format.upper())
-        target_fmt = DataFormat(request.target_format.upper())
+        source_fmt = _parse_enum(DataFormat, request.source_format, "source format")
+        target_fmt = _parse_enum(DataFormat, request.target_format, "target format")
         
         if source_fmt == target_fmt:
             return {"data": request.data, "message": "Source and target formats are the same"}
         
         # Get converter
-        registry = get_registry()
+        registry = _get_registry()
         converter = registry.converter
         if not converter:
             raise HTTPException(
@@ -351,39 +285,10 @@ async def recommend_mode(request: RecommendRequest):
     
     Returns confidence scores and reasoning.
     """
-    try:
-        registry = get_registry()
-        mode_selector = registry.mode_selector
-        if not mode_selector:
-            raise HTTPException(
-                status_code=503,
-                detail="Mode selection service not available"
-            )
-        
-        # Create data context
-        context = DataContext(
-            data_type=request.data_type,
-            size=request.size,
-            task=request.task,
-            performance_priority=request.performance_priority
-        )
-        
-        # Get recommendation
-        recommendation = await mode_selector.recommend_mode(context)
-        
-        return {
-            "primary_mode": recommendation.primary_mode.value,
-            "secondary_modes": [mode.value for mode in recommendation.secondary_modes],
-            "confidence": recommendation.confidence,
-            "confidence_level": recommendation.confidence_level.value,
-            "reasoning": recommendation.reasoning,
-            "estimated_performance": recommendation.estimated_performance,
-            "metadata": recommendation.selection_metadata
-        }
-        
-    except Exception as e:
-        logger.error(f"Mode recommendation failed: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+    raise HTTPException(
+        status_code=501,
+        detail="Mode recommendation endpoint is not wired to the current DataContext contract"
+    )
 
 # Batch analysis endpoint
 @app.post("/api/batch/analyze", response_model=JobResponse)
@@ -453,7 +358,7 @@ async def get_job_status(job_id: str):
 async def get_statistics():
     """Get service statistics and usage metrics"""
     try:
-        registry = get_registry()
+        registry = _get_registry()
         stats = registry.get_service_stats()
         
         return {
@@ -479,6 +384,87 @@ def _serialize_results(data: Any) -> Any:
     elif hasattr(data, '__dict__'):
         return data.__dict__
     return data
+
+def _get_registry() -> Any:
+    """Import the registry only when an endpoint actually needs service wiring."""
+    try:
+        from src.analytics.cross_modal_service_registry import get_registry
+    except ImportError as exc:
+        raise HTTPException(status_code=503, detail=f"Cross-modal registry unavailable: {exc}") from exc
+    return get_registry()
+
+def _initialize_cross_modal_services(config: Dict[str, Any]) -> Any:
+    """Initialize cross-modal services lazily so API import does not require all runtime deps."""
+    try:
+        from src.analytics.cross_modal_service_registry import initialize_cross_modal_services
+    except ImportError as exc:
+        raise HTTPException(status_code=503, detail=f"Cross-modal registry unavailable: {exc}") from exc
+    return initialize_cross_modal_services(config)
+
+def _document_placeholder_graph(filename: str, byte_count: int, file_ext: str) -> Dict[str, Any]:
+    """Create explicit document-metadata graph input until full pipeline wiring is restored."""
+    return {
+        "nodes": [
+            {
+                "id": "document",
+                "label": filename,
+                "type": "DOCUMENT",
+                "properties": {
+                    "filename": filename,
+                    "extension": file_ext,
+                    "byte_count": byte_count
+                }
+            }
+        ],
+        "edges": []
+    }
+
+def _parse_enum(enum_cls: Any, raw_value: str, label: str) -> Any:
+    """Parse API strings against enum values, accepting case-insensitive values."""
+    normalized = raw_value.lower()
+    try:
+        return enum_cls(normalized)
+    except ValueError as exc:
+        allowed = ", ".join(item.value for item in enum_cls)
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid {label}: {raw_value}. Use one of: {allowed}"
+        ) from exc
+
+def _preferred_modes_for_format(target_format: DataFormat) -> Optional[List[Any]]:
+    """Map a requested output format to preferred analysis modes when possible."""
+    try:
+        from src.analytics.mode_selection_service import AnalysisMode
+    except ImportError as exc:
+        raise HTTPException(status_code=500, detail=f"Mode selection unavailable: {exc}") from exc
+
+    mapping = {
+        DataFormat.GRAPH: [AnalysisMode.GRAPH_ANALYSIS],
+        DataFormat.TABLE: [AnalysisMode.TABLE_ANALYSIS],
+        DataFormat.VECTOR: [AnalysisMode.VECTOR_ANALYSIS],
+    }
+    return mapping.get(target_format)
+
+def _selected_mode_value(result: Any) -> str:
+    """Extract the selected mode from the current AnalysisResult metadata."""
+    mode_selection = result.analysis_metadata.get("mode_selection", {})
+    primary_mode = mode_selection.get("primary_mode") if isinstance(mode_selection, dict) else None
+    if hasattr(primary_mode, "value"):
+        return primary_mode.value
+    if primary_mode:
+        return str(primary_mode)
+    return "unknown"
+
+def _serialize_validation_report(report: Any) -> Dict[str, Any]:
+    """Serialize current validation reports for API responses."""
+    if report is None:
+        return {}
+    if hasattr(report, "__dict__"):
+        return {
+            key: _serialize_results(value)
+            for key, value in report.__dict__.items()
+        }
+    return {"report": _serialize_results(report)}
 
 async def process_batch_analysis(job_id: str, files: List[UploadFile], target_format: str, task: str):
     """Process batch analysis in background"""

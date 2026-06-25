@@ -99,6 +99,29 @@ OK direct AnalysisRequest import
 
 Interpretation: the cross-modal API import failure is specifically caused by the `src.analytics` package export path, not by absence of `AnalysisRequest` from the repository. The MCP import failure remains a dependency-installation gap in the active environment.
 
+# Repair Follow-Up
+
+After the repair pass, `src.api.cross_modal_api` imports successfully in the active environment. The patch changed the API boundary to import concrete cross-modal modules directly where they are needed, lazy-load the service registry so missing registry runtime dependencies do not prevent module import, normalize API enum strings against lowercase enum values, call the current `orchestrate_analysis(...)` signature, and map the current `AnalysisResult` fields into `AnalysisResponse`. [2][5]
+
+The focused current-runtime test file `tests/current_runtime/test_cross_modal_api_contract.py` covers module import, enum parsing, document-placeholder graph construction, preferred-mode mapping, selected-mode extraction, and bad-value HTTP 400 behavior. The targeted test run passed:
+
+```text
+tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
+8 passed, 2 warnings
+```
+
+The same import check now reports:
+
+```text
+OK src.core.tool_contract
+OK src.api.cross_modal_api
+FAIL src.mcp_server: ModuleNotFoundError: No module named 'neo4j'
+```
+
+An attempted eager import of `src.analytics.cross_modal_service_registry` exposed a separate dependency gap: `ModuleNotFoundError: No module named 'torchvision'`. The lazy registry import keeps the API module importable, but endpoints that initialize or use registry-backed services still require dependency/environment work before they can be called end to end. [2]
+
+The mode-recommendation endpoint now returns an explicit 501 because its old `DataContext` construction no longer matches the current `DataContext` dataclass. That is a truthful status boundary rather than a silent fallback.
+
 # Links
 
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md)
@@ -114,3 +137,4 @@ Interpretation: the cross-modal API import failure is specifically caused by the
 [4] `../src/analytics/__init__.py`  
 [5] `../src/analytics/cross_modal_orchestrator.py`  
 [6] `../requirements.txt`
+[7] `../tests/current_runtime/test_cross_modal_api_contract.py`
