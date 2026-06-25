@@ -97,6 +97,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) - broad test-suite inventory with explicit real-execution/no-mocks principles and integration-status caveats.
 - [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) - focused main-system integration-test inventory preserving active-test claims, count mismatches, and unknown runtime status.
 - [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) - historical root-level test corpus preserving real-execution, schema, DAG, MCP, and LLM/API verification attempts.
+- [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) - user-perspective workflow tests for UI, MCP, phases, no-mocks policy, and realistic research scenarios.
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
 - [Lit Review Multi Agent System Corpus](/wiki/sources/lit-review-multi-agent-system-corpus.md) - full 648-file inventory separating the outer lit-review harness from the nested V5.2 generator/evidence/remediation corpus.
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md) - procedural evidence pattern for isolated implementation, external evaluation, remediation, and 100/100 gates.

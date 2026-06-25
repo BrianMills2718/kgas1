@@ -39,6 +39,7 @@
 * [Digimon Lineage Tests Corpus](sources/digimon-lineage-tests-corpus.md) - 519-file tests inventory with no-mocks testing principles, category hashes, and runtime-proof caveats.
 * [Digimon Lineage Integration Tests](sources/digimon-lineage-integration-tests.md) - focused 74-file integration-test inventory with active-main-system claims, count mismatches, and unknown runtime-status caveats.
 * [Digimon Lineage Archived Root Tests](sources/digimon-lineage-archived-root-tests.md) - 100-file historical root-test corpus covering real-execution pressure, DAGs, schemas, MCP, LLM/API probes, and runtime-proof caveats.
+* [Digimon Lineage Functional Tests](sources/digimon-lineage-functional-tests.md) - 46-file user-workflow functional test corpus covering UI, MCP, phases, no-mocks policy, and runtime-status caveats.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
 * [Lit Review Multi Agent System Corpus](sources/lit-review-multi-agent-system-corpus.md) - corpus-level inventory of the 648-file multi-agent harness, nested V5.2 evidence packages, templates, tests, and remediation records.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.

@@ -104,10 +104,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `34be44a` ingested the large-lineage scripts corpus slice, including 127-file validation/verification/repair/demo/analysis/monitoring/testing inventory.
 - `aa76124` ingested the large-lineage tests corpus slice, including 519-file category inventory, no-mocks testing principles, and integration-status caveats.
 - `36aa579` ingested the large-lineage integration-tests slice, including 74-file main-system integration inventory, README/index/count mismatch, and unknown runtime-status caveat.
-- Pending commit: large-lineage archived-root-tests slice, including 100-file historical root-level test inventory and runtime-proof caveats.
+- `f23734b` ingested the large-lineage archived-root-tests slice, including 100-file historical root-level test inventory and runtime-proof caveats.
+- Pending commit: large-lineage functional-tests slice, including 46-file user-workflow inventory, UI/MCP/phase/no-mocks themes, and runtime caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the archived-root-tests slice.
-2. Next recommended step: ingest `tests/functional/`, because it is the next major real-execution/no-mocks test area and complements the integration and archived-root histories.
+1. Run wiki lint, commit, and push the functional-tests slice.
+2. Next recommended step: ingest `tests/reliability/`, because it is the next verification-heavy test area and should be separated from functional/integration scope.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
