@@ -129,6 +129,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Semantic Hypergraph Schema Family](/wiki/sources/lit-review-semantic-hypergraph-schema-family.md) - 19-file schema-variant and debug-output inventory for the formal Semantic Hypergraph theory.
 - [Lit Review Src Code Inventory](/wiki/sources/lit-review-src-code-inventory.md) - 90-file code inventory showing schema creation, application, testing, visualization, and UI surfaces.
 - [Lit Review Schema Application Code](/wiki/sources/lit-review-schema-application-code.md) - 24-script application layer connecting theory schemas to Carter, Young/WorldView, Semantic Hypergraph, and universal-applicator runs.
+- [Lit Review Visualization Code](/wiki/sources/lit-review-visualization-code.md) - 9-script inspection layer for Carter cognitive maps and Semantic Hypergraph instances.
 
 # Current Cautions
 

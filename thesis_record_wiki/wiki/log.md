@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added visualization code slice with Carter cognitive-map and Semantic Hypergraph inspection scripts.
 * **Ingest** | Added schema_application code slice with universal-applicator and hardcoded-path caveats.
 * **Ingest** | Added lit-review src code inventory.
 * **Ingest** | Added semantic-hypergraph schema-family slice and linked it to formal notation as theory content.

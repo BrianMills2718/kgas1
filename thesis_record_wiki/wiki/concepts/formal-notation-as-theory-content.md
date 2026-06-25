@@ -9,6 +9,7 @@ sources:
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/results/semantic_hypergraph/approach_comparison.md
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/results/semantic_hypergraph/fixed_schema_critique.md
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/results/semantic_hypergraph/enhanced_extraction/comparison_report.md
+  - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/src/visualization/visualize_iran_hypergraph_formal.py
 confidence: high
 ---
 
@@ -40,10 +41,13 @@ The semantic-hypergraph comparisons show that integrated schemas were convenient
 
 The enhanced extraction comparison shows the practical payoff: once notation was explicitly requested, the result included argument-role codes, special symbols, pattern syntax, type-inference rules, and implementation algorithms. [3]
 
+The visualization code adds implementation-side evidence for the same point. `visualize_iran_hypergraph_formal.py` needed a parser for typed atoms, nested hyperedges, connector roles, and inferred hyperedge types before the Iran debate result could be plotted as complete and simplified graph views. [4]
+
 # Links
 
 - [Lit Review Semantic Hypergraph Application Results](/wiki/sources/lit-review-semantic-hypergraph-application-results.md)
 - [Lit Review Semantic Hypergraph Schema Family](/wiki/sources/lit-review-semantic-hypergraph-schema-family.md)
+- [Lit Review Visualization Code](/wiki/sources/lit-review-visualization-code.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md)
 
@@ -51,4 +55,5 @@ The enhanced extraction comparison shows the practical payoff: once notation was
 
 [1] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/results/semantic_hypergraph/approach_comparison.md`  
 [2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/results/semantic_hypergraph/fixed_schema_critique.md`  
-[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/results/semantic_hypergraph/enhanced_extraction/comparison_report.md`
+[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/results/semantic_hypergraph/enhanced_extraction/comparison_report.md`  
+[4] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/src/visualization/visualize_iran_hypergraph_formal.py`
