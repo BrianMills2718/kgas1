@@ -51,7 +51,7 @@ The following top-level archive areas were not found in the wiki index by this a
 | `scripts_archive_2025_08/` | 67 | 626,156 | Medium-low: script archive likely best handled as corpus inventory. |
 | `archived_experimental/` | 33 | 576,378 | Medium-low: experimental tests/utilities; likely corpus inventory. |
 | `proposal_rewrite_condensed/` | 25 | 333,418 | Medium-low but conceptually important; likely overlaps with theoretical exploration. |
-| `old_docs_2025_08/` | 12 | 289,025 | Medium-low: old docs bundle; check for supersession relationships. |
+| `old_docs_2025_08/` | 12 | 289,025 | Covered by old-docs-2025-08 page; deeper IC uncertainty extraction remains optional. |
 | `temp_debug_files/` | 32 | 169,254 | Low unless it contains unique failure evidence. |
 | `old_claude_md_versions/` | 7 | 123,514 | Covered by old-CLAUDE-md-versions page. |
 | `demos_examples_2025_08/` | 13 | 63,774 | Low-medium: demo/example corpus. |
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next move to `old_docs_2025_08/` for superseded documentation lineage or `proposal_rewrite_condensed/` for proposal-compression lineage. [1]
+Next move to `proposal_rewrite_condensed/` for proposal-compression lineage, then choose between `scripts_archive_2025_08/` and `archived_experimental/` for lower-priority corpus inventory. [1]
 
 # Relationship To Wiki
 
@@ -80,6 +80,7 @@ Next move to `old_docs_2025_08/` for superseded documentation lineage or `propos
 - [Digimon Lineage Agent Stress Testing](/wiki/sources/digimon-lineage-agent-stress-testing.md): agent workflow/adaptive-planning stress-test archive overview.
 - [Digimon Lineage Root Cleanup 2025 08 29](/wiki/sources/digimon-lineage-root-cleanup-2025-08-29.md): root cleanup and duplicate entry-point archive overview.
 - [Digimon Lineage Old Claude Md Versions](/wiki/sources/digimon-lineage-old-claude-md-versions.md): historical agent-instruction archive overview.
+- [Digimon Lineage Old Docs 2025 08](/wiki/sources/digimon-lineage-old-docs-2025-08.md): superseded old-docs archive covering contract-first, structured-output, operations, and uncertainty notes.
 - [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md): start of the old-backups represented slice family.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md): represented UI/archive UI slice.
 - [Progress](../../PROGRESS.md): working queue and commit-level progress tracker.

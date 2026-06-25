@@ -3,6 +3,7 @@
 ## 2026-06-25
 
 * **Ingest** | Added old-CLAUDE-md-versions slice, including seven-file instruction-history inventory, contract-first migration guidance, MVP Day 1 guide, Phase 2.1 completion tasks, evidence-first repair policy, current-policy caveat, and no-literal-key finding.
+* **Ingest** | Added old-docs-2025-08 slice, including contract-first interface split, service API drift, structured-output migration, documentation/status separation, operations-label caveat, IC uncertainty notes, and placeholder-key finding.
 * **Ingest** | Added root-cleanup-2025-08-29 slice, including 63-file inventory, duplicate app entry-point cleanup rationale, tool-composition checkpoint, archived apps/Twitter explorer/k8s material, cross-modal test output, placeholder-secret caveat, and no-literal-key finding.
 * **Ingest** | Added agent-stress-testing slice, including 52-file inventory, dual-agent framework goals, working-system claims, proof demo with T15A/T23A execution, adaptive-agent demo caveats, trace artifact inventory, and no-literal-key finding.
 * **Ingest** | Added analysis-validation-2025-08 slice, including 40-file validation archive inventory, development-standards validation, three Gemini claim validations, reliability/MCP/final validation configs, chronology/supersession caveat, and no-literal-key finding.
