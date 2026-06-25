@@ -7,6 +7,9 @@
 * [Recovery Archive Manifest](sources/recovery-archive-manifest-2026-04-04.md) - why `archive_full_record/` exists and what it preserves.
 * [Recovery Inventory](sources/recovery-inventory.md) - preservation metadata, sizes, file counts, git heads, and verification errors.
 * [Current Repo Context](sources/current-repo-context.md) - current README, CLAUDE notes, branch, and git history baseline.
+* [Digimons Documentation Repository](sources/digimons-docs-documentation-repository.md) - documentation-only lineage variant and its source-of-truth split.
+* [Digimons Minimal Clean Reference](sources/digimons-minimal-clean-reference.md) - compact 2025-09-04 clean KGAS reference line.
+* [Tool Compatibility Decision](sources/tool-compatibility-decision.md) - type-based composition decision and POC context.
 
 # Entities
 
@@ -17,6 +20,8 @@
 * [Full Record Preservation](concepts/full-record-preservation.md) - policy for preserving the complete messy historical record before cleanup.
 * [Research Lineage](concepts/research-lineage.md) - how Digimons variants, KGAS, archives, and cleaned repo relate.
 * [Verification Gaps](concepts/verification-gaps.md) - known places where the record is incomplete, permission-limited, or needs later review.
+* [Documentation Status Truthfulness](concepts/documentation-status-truthfulness.md) - recurring attempt to separate target architecture from verified implementation status.
+* [Type-Based Tool Composition](concepts/type-based-tool-composition.md) - later compatibility strategy for turning incompatible tools into composable typed operators.
 
 # Timeline
 

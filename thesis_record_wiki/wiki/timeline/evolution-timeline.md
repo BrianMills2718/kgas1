@@ -18,7 +18,10 @@ confidence: medium
 | Date | Event | Evidence |
 | --- | --- | --- |
 | Before 2025-09-04 | Earlier Digimons work accumulated across multiple local variants and archives. | `../archive_full_record/lineage_variants/`, `../archive_full_record/metadata/recovery_inventory.tsv` |
+| 2025-07-31 | Conservative verified roadmap baseline recorded 36/123 tools, core agent/infrastructure pieces, and major vector/cross-modal/reliability gaps. | `../archive_full_record/lineage_variants/Digimons_docs/docs/roadmap/ROADMAP_OVERVIEW_CONSERVATIVE.md` |
 | 2025-09-04 | Clean KGAS implementation commits created, then repomix outputs removed. | Git commits `a722622`, `50b7650`, `431a201`, `6614a22`, `2c59a1f` |
+| 2025-09-05 | Documentation-only repository created with roadmap/status separation and architecture docs scoped as target design. | `../archive_full_record/lineage_variants/Digimons_docs`, commit `2690886` |
+| 2026-02-24 | `Digimons_clean_for_real` trip-backup branch captured untracked/new files, including extensive tool-compatibility material. | `../archive_full_record/lineage_variants/Digimons_clean_for_real`, commit `9b9e999` |
 | 2026-04-04 | Archived experimental prototypes restored into tracked repo. | Git commit `75d07cf`; recovery manifest restored-files section |
 | 2026-04-04 | Full-record archive manifest added and archive verification documented. | Git commits `71e0855`, `9748c77`; `../RECOVERY_ARCHIVE_MANIFEST_2026-04-04.md` |
 | 2026-04-05 | Enforced-planning governance framework installed. | Git commit `971797a` |

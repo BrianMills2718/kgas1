@@ -28,6 +28,13 @@ The thesis work should be understood as a lineage, not as one repo. The clean tr
 - [Digimons Docs](/wiki/variants/digimons-docs.md)
 - [Digimon Autoloop](/wiki/variants/digimon-autoloop.md)
 
+# Emerging Through-Lines
+
+Two through-lines are now visible from the first small-variant ingest:
+
+- [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md): repeated attempts to separate target architecture from verified implementation status.
+- [Type-Based Tool Composition](/wiki/concepts/type-based-tool-composition.md): a later tool-compatibility strategy using semantic data types and exact schemas.
+
 # Open Interpretive Work
 
 The current inventory identifies preserved units, but it does not explain the conceptual differences between all variants. Future ingest should sample README, CLAUDE, roadmap, evidence, and docs files from each variant and update these pages with a richer lineage narrative.

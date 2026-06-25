@@ -17,6 +17,8 @@ KGAS is the Knowledge Graph Analysis System described in the current README as t
 
 The system's recurring implementation themes are entity extraction, relationship mapping, Neo4j graph storage, GraphRAG-style querying, provenance, uncertainty, reasoning traces, and tool orchestration. [1][2]
 
+The first lineage ingest adds two historically important KGAS concerns: truthful separation of roadmap status from target architecture, and tool composability through semantic typed contracts. See [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md) and [Type-Based Tool Composition](/wiki/concepts/type-based-tool-composition.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

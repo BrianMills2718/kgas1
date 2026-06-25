@@ -20,11 +20,15 @@ This may be a high-leverage source for reconstructing the conceptual/documentati
 
 Because it is small and documentation-focused, this should probably be ingested before the larger `digimons_old` and `digimon_lineage_Digimons` trees. Its pages can establish a vocabulary for later variant comparison.
 
+Initial ingest shows this variant is especially important for [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md): it explicitly separates target architecture from implementation status and assigns current status to roadmap docs. Its conservative roadmap records a verified 2025-07-31 baseline rather than treating all architectural goals as implemented. [2]
+
 # Related Pages
 
 - [Research Lineage](/wiki/concepts/research-lineage.md)
 - [Recovery Inventory](/wiki/sources/recovery-inventory.md)
+- [Digimons Documentation Repository](/wiki/sources/digimons-docs-documentation-repository.md)
 
 # Citations
 
-[1] `../archive_full_record/metadata/recovery_inventory.tsv`
+[1] `../archive_full_record/metadata/recovery_inventory.tsv`  
+[2] `../archive_full_record/lineage_variants/Digimons_docs/docs/roadmap/ROADMAP_OVERVIEW_CONSERVATIVE.md`

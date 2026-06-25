@@ -48,6 +48,11 @@ Initial source summaries:
 
 The first pass is intentionally conservative: it identifies buckets and risks rather than attempting to flatten the record into one narrative. The next pass should ingest variant README/CLAUDE/docs files and then revise the lineage pages with more confident descriptions.
 
+After the first small-variant ingest, two organizing themes are visible:
+
+- [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md) - cleanup work repeatedly tried to separate target architecture from verified implementation status.
+- [Type-Based Tool Composition](/wiki/concepts/type-based-tool-composition.md) - later engineering work focused on making KGAS tools composable through exact typed contracts.
+
 # Current Cautions
 
 - Two permission-denied paths are recorded in the recovery errors metadata; treat those as verification gaps, not as proof of absence. [4]
