@@ -44,6 +44,7 @@ Until then, the correct disposition is "concrete internal output, not externally
 
 - [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md)
 - [Carter Theory Analysis Output](/wiki/sources/carter-theory-analysis-output.md)
+- [Digimon Lineage Old Backups Carter Analysis Output](/wiki/sources/digimon-lineage-old-backups-carter-analysis-output.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 
 # Citations
