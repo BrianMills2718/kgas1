@@ -33,6 +33,7 @@ The following top-level archive areas are already represented by dedicated wiki 
 | `uncertainty_stress_test/` | 95 | 9,218,730 | Covered by uncertainty stress-test slice family. |
 | `validation-reports/` | 2 | 30,030 | Covered by old-backups validation reports page. |
 | `temp_analysis_2025_08/` | 16 | 19,659,025 | Covered by temp-analysis provenance page. |
+| `ARCHIVE_BEFORE_CLEANUP_20250805/` | 261 | 8,286,966 | Covered by overview page; proposal-rewrite, phases, and initiatives still need dedicated sub-slices. |
 
 # Not-Yet-Represented Areas
 
@@ -40,7 +41,6 @@ The following top-level archive areas were not found in the wiki index by this a
 
 | Directory | Files | Bytes | Initial Priority |
 | --- | ---: | ---: | --- |
-| `ARCHIVE_BEFORE_CLEANUP_20250805/` | 261 | 8,286,966 | High: pre-cleanup snapshot with proposals, phases, initiatives, performance, issues, and uncertainty-rewrite material. |
 | `theoretical_exploration/` | 107 | 5,854,782 | High: proposal materials and theoretical/exploratory thesis framing likely important to intellectual lineage. |
 | `gemini-review-tool/` | 166 | 3,083,515 | Medium-high: external review tool outputs/bundles may contain critique/evaluation provenance. |
 | `docs_architecture_cleanup_2025_08_29/` | 62 | 2,182,341 | Medium-high: architecture cleanup docs and generated architecture documents; likely overlaps with architecture pages but needs explicit audit. |
@@ -60,12 +60,13 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next ingest `ARCHIVE_BEFORE_CLEANUP_20250805/`, starting with the August 12 proposal-rewrite / uncertainty-rewrite subtree highlighted by the temp-analysis file lists. Then ingest `theoretical_exploration/` as a separate bounded slice because it is more likely to preserve thesis evolution and proposal reasoning. [1]
+Next ingest `ARCHIVE_BEFORE_CLEANUP_20250805/proposal_rewrite_20250812_about_to_drop_all_complex_uncerainty/`, then `theoretical_exploration/` as a separate bounded slice because it is more likely to preserve thesis evolution and proposal reasoning. [1]
 
 # Relationship To Wiki
 
 - [Digimon Lineage Archived Uncertainty Tests Overview](/wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md): most recent large archive subtree brought to represented status.
 - [Digimon Lineage Temp Analysis 2025 08](/wiki/sources/digimon-lineage-temp-analysis-2025-08.md): first high-priority not-yet-represented archive queue brought to represented status.
+- [Digimon Lineage Archive Before Cleanup 2025 08 05 Overview](/wiki/sources/digimon-lineage-archive-before-cleanup-2025-08-05-overview.md): overview of the pre-cleanup roadmap archive and its sub-slice queue.
 - [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md): start of the old-backups represented slice family.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md): represented UI/archive UI slice.
 - [Progress](../../PROGRESS.md): working queue and commit-level progress tracker.

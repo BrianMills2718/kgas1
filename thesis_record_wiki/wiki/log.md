@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added archive-before-cleanup-2025-08-05 overview slice, including roadmap status claims, cleanup caveats, directory counts, theory-integration status, placeholder-key caveat, and sub-slice queue.
 * **Ingest** | Added temp-analysis-2025-08 archive provenance slice, including file-list counts, uncommitted-file inventory, history examples, architecture-generation/debug script roles, demo-password caveat, and next-slice pointer to `ARCHIVE_BEFORE_CLEANUP_20250805/`.
 * **Audit** | Added large-lineage archive coverage audit identifying represented archive areas and not-yet-represented queues, with `temp_analysis_2025_08/`, `ARCHIVE_BEFORE_CLEANUP_20250805/`, and `theoretical_exploration/` as recommended next slices.
 * **Ingest** | Added archived uncertainty experiments code-delta page documenting that remaining experiment code is mostly subset/duplicate material, with only `test_ner_direct.py` and `test_socialmaze_uncertainty.py` unique versus the reorganized copy.
