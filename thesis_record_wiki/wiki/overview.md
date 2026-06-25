@@ -102,6 +102,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) - performance benchmark definitions for agent, analytics, async, parallel, load, production-scale, and pipeline behavior.
 - [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) - compact failure-mode corpus covering edge cases, recovery, resilience, and concrete error inputs.
 - [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) - compact security-test corpus for API resilience, injection prevention, hardcoded credential checks, and production security caveats.
+- [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) - generated coverage/reliability/evidence reports that upgrade some test claims from definitions to historical reported outputs.
 - [Test Evidence Layer](/wiki/concepts/test-evidence-layer.md) - synthesis of the test corpus: strong verification culture, uneven runtime proof, and claim-level rules.
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
 - [Lit Review Multi Agent System Corpus](/wiki/sources/lit-review-multi-agent-system-corpus.md) - full 648-file inventory separating the outer lit-review harness from the nested V5.2 generator/evidence/remediation corpus.

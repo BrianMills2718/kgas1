@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added generated-reports page with 82-file inventory, reliability supersession chronology, coverage-claim caveat, and integration evidence report summary.
 * **Synthesis** | Added test-evidence-layer concept page synthesizing the test corpus as broad verification intent with uneven runtime proof and explicit claim-level rules.
 * **Ingest** | Added security-tests page with 5-file inventory, API/injection/credential/production-security themes, negative credential-scan evidence, and public-export caveat.
 * **Ingest** | Added error-scenarios-tests page with 8-file failure-mode inventory, edge-case/recovery/resilience themes, and runtime-proof caveat.

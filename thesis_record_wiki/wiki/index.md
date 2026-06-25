@@ -44,6 +44,7 @@
 * [Digimon Lineage Performance Tests](sources/digimon-lineage-performance-tests.md) - 16-file benchmark-definition corpus covering agent, analytics, async, parallel, load, production-scale, and pipeline performance caveats.
 * [Digimon Lineage Error Scenarios Tests](sources/digimon-lineage-error-scenarios-tests.md) - 8-file failure-mode corpus covering edge cases, error handling, persistence recovery, resilience, and runtime-proof caveats.
 * [Digimon Lineage Security Tests](sources/digimon-lineage-security-tests.md) - 5-file security-test corpus covering API resilience, injection prevention, credential scanning, enterprise fixes, and security-proof caveats.
+* [Digimon Lineage Generated Reports](sources/digimon-lineage-generated-reports.md) - 82-file generated-report corpus with coverage, reliability, evidence, validation bundle, and supersession caveats.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
 * [Lit Review Multi Agent System Corpus](sources/lit-review-multi-agent-system-corpus.md) - corpus-level inventory of the 648-file multi-agent harness, nested V5.2 evidence packages, templates, tests, and remediation records.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.
@@ -104,7 +105,7 @@
 * [Vertical Slice vs Main System](concepts/vertical-slice-vs-main-system.md) - coexisting simple verified vertical slice and complex main-system architecture.
 * [Uncertainty Traceability Architecture](concepts/uncertainty-traceability-architecture.md) - KGAS uncertainty, provenance, traceability, and over-engineering tension.
 * [Evidence Claim Discipline](concepts/evidence-claim-discipline.md) - rule that claims must match component, integration, workflow, or benchmark validation level.
-* [Test Evidence Layer](concepts/test-evidence-layer.md) - synthesis of the 519-file test corpus as broad verification intent with uneven runtime proof.
+* [Test Evidence Layer](concepts/test-evidence-layer.md) - synthesis of the 519-file test corpus and generated reports as broad verification intent with uneven runtime proof.
 * [Automated Theory Extraction](concepts/automated-theory-extraction.md) - lit-review experiment line for extracting theory schemas from papers and applying them to data.
 * [Multi-Theory Application Artifact](concepts/multi-theory-application-artifact.md) - concrete generated-output pattern for applying multiple theories to one empirical text.
 * [Schema Extraction Pipeline Evolution](concepts/schema-extraction-pipeline-evolution.md) - evolution toward full-vocabulary, model-adaptive, no-truncation theory extraction.

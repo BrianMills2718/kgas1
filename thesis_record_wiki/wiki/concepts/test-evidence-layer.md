@@ -14,12 +14,13 @@ sources:
   - /wiki/sources/digimon-lineage-performance-tests.md
   - /wiki/sources/digimon-lineage-error-scenarios-tests.md
   - /wiki/sources/digimon-lineage-security-tests.md
+  - /wiki/sources/digimon-lineage-generated-reports.md
   - /wiki/concepts/evidence-claim-discipline.md
   - /wiki/concepts/current-status-verification-discipline.md
 confidence: high
 ---
 
-> Sources consulted: [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) · [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) · [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) · [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) · [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) · [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) · [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) · [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md). Other wiki pages were not consulted for this synthesis because the scope is the test evidence layer, not the full KGAS/Digimons thesis record. Status: first synthesis from bounded test-ingest slices.
+> Sources consulted: [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) · [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) · [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) · [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) · [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) · [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) · [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) · [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) · [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md). Other wiki pages were not consulted for this synthesis because the scope is the test evidence layer, not the full KGAS/Digimons thesis record. Status: updated after generated-report ingest.
 
 # Summary
 
@@ -34,6 +35,8 @@ The test layer has three different kinds of evidence:
 1. **Test definitions**: code and instructions that specify what should be tested. Most slices currently fall here.
 2. **Status metadata**: README/index files that say what was working, unknown, completed, in progress, or pending. Integration and reliability have especially useful status metadata.
 3. **Runtime proof**: preserved outputs, CI reports, or fresh execution in a known environment. The test-layer pages repeatedly note that this is still missing for many claims.
+
+[Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) adds a fourth practical category: **historical generated reports**. These are stronger than test definitions because they record reported outputs or validation conclusions, but weaker than fresh current-environment execution.
 
 Future summaries should never collapse these three into one label.
 
@@ -57,6 +60,7 @@ Weaknesses and caveats:
 - Functional tests include both no-mocks tests and tests that deliberately use mocks or mock data for UI/API/dependency isolation. [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md)
 - Performance tests define benchmark surfaces, but benchmark definitions are not benchmark measurements. [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md)
 - Security tests include a hardcoded-credential scanner that was expected to fail initially, so its existence is negative evidence as much as a safeguard. [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md)
+- Generated coverage reports include both claim language and corrective numbers; for example, one report says the 95% target was only partially validated even while validating real-functionality testing. [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md)
 
 # Claim Discipline Rule
 
@@ -67,6 +71,7 @@ For any KGAS/Digimons test claim, name the evidence level:
 - "README/index says working/unknown/pending"
 - "preserved report says pass/fail"
 - "fresh run in current environment passed/failed"
+- "historical generated report claims pass/fail/partial, with date and method named"
 
 This is a direct application of [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) and [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md).
 

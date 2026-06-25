@@ -110,10 +110,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `ab33997` ingested the large-lineage performance-tests slice, including 16-file benchmark-definition inventory and benchmark-output caveat.
 - `f691716` ingested the large-lineage error-scenarios-tests slice, including 8-file failure-mode inventory and runtime-proof caveats.
 - `1e7e37f` ingested the large-lineage security-tests slice, including 5-file security inventory, hardcoded-credential negative evidence, and public-export caveat.
-- Pending commit: test-evidence-layer synthesis, including claim-level distinctions across test definitions, status metadata, and runtime proof.
+- `6120db2` synthesized the test-evidence-layer concept, including claim-level distinctions across test definitions, status metadata, historical generated reports, and runtime proof.
+- Pending commit: generated-reports slice, including 82-file report inventory, reliability supersession chronology, coverage caveat, and integration evidence report summary.
 
 ## Next
 
-1. Run wiki lint, commit, and push the test-evidence-layer synthesis.
-2. Next recommended step: search for preserved pytest, CI, benchmark, reliability-certification, and security-scan output artifacts so the next slice upgrades from source-code inventory to runtime evidence.
+1. Run wiki lint, commit, and push the generated-reports slice.
+2. Next recommended step: ingest `archive/evidence/current/Evidence_Performance_Benchmarks.md` and adjacent evidence/current files, because they appear to contain narrower runtime evidence outside the generated_reports bundle.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
