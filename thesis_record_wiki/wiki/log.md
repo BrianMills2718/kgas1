@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added uncertainty/quality ADR slice and uncertainty framework evolution concept.
 * **Ingest** | Added data-storage ADR slice and storage architecture evolution concept.
 * **Ingest** | Added first architecture ADR map slice and academic proof-of-concept scope concept.
 * **Ingest** | Added lit-review Phase 6 production validation slice with deployment-claim caveats.

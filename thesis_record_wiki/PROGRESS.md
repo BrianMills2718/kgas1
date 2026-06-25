@@ -53,10 +53,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `6f1ba35` ingested lit-review Phase 5 reasoning engine slice, including cross-purpose reasoners, balance/integration metrics, and demo-scale caveats.
 - `c4463a0` ingested lit-review Phase 6 production validation slice, including production-validation claims, final remediation results, and stress-test/deployment caveats.
 - `48bd98a` ingested the first architecture ADR map slice, including scope/deployment/errors/theory/purpose/tool-layer backbone and academic proof-of-concept scope.
-- Pending commit: data/storage ADR slice, including vector-store consolidation, Neo4j + SQLite bi-store rationale, and PostgreSQL migration threshold.
+- `9bbc0e9` ingested the data/storage ADR slice, including vector-store consolidation, Neo4j + SQLite bi-store rationale, and PostgreSQL migration threshold.
+- Pending commit: uncertainty/quality ADR slice, including confidence ontology, CERQual supersession, quality-system supersession, entity resolution, later local-assessment uncertainty model, and missing ADR-029 caveat.
 
 ## Next
 
-1. Run wiki lint, commit, and push the data/storage ADR slice.
-2. Next recommended ingest slice: uncertainty/quality ADRs (`ADR-004`, `ADR-007`, `ADR-010`, `ADR-025`) because they explain confidence, uncertainty, quality, and entity-resolution decisions behind the thesis evidence discipline.
-3. Later slices: tool/orchestration ADRs, analysis-expansion ADRs, `experiments/lit_review/multi_agent_system/`, and UI/recovered components.
+1. Run wiki lint, commit, and push the uncertainty/quality ADR slice.
+2. Next recommended ingest slice: tool/orchestration ADRs (`ADR-001`, `ADR-002`, `ADR-013`, `ADR-017`, `ADR-028`) because they explain phase interfaces, orchestration, MCP, structured output, and tool-layer boundaries.
+3. Later slices: analysis-expansion ADRs, `experiments/lit_review/multi_agent_system/`, and UI/recovered components.

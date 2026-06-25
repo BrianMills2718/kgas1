@@ -83,6 +83,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Academic Proof Of Concept Scope](/wiki/concepts/academic-proof-of-concept-scope.md) - reason to read "production" claims as internal academic readiness unless external deployment evidence exists.
 - [Digimon Lineage Data Storage ADRs](/wiki/sources/digimon-lineage-data-storage-adrs.md) - storage ADR slice explaining Qdrant removal, Neo4j/SQLite bi-store rationale, and PostgreSQL migration threshold.
 - [Storage Architecture Evolution](/wiki/concepts/storage-architecture-evolution.md) - scale-indexed interpretation of KGAS storage claims across target docs and implementation-status evidence.
+- [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md) - uncertainty, quality, and entity-resolution ADR slice showing multiple superseded frameworks and the later local-assessment model.
+- [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md) - conceptual arc from numeric confidence normalization to auditable construct-mapping uncertainty.
 
 # Current Cautions
 

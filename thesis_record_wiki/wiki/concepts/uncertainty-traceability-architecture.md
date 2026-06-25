@@ -42,6 +42,8 @@ The review recommended a pragmatic reduction:
 - use practical research decision bands rather than exhaustive uncertainty theory
 - consolidate competing uncertainty architecture docs into one source of truth [1]
 
+The focused uncertainty/quality ADR slice shows the historical reason for this consolidation need: ADR-004, ADR-007, and ADR-010 are all superseded; ADR-025 remains accepted for entity resolution; later active docs move toward local construct-mapping assessment with stored reasoning. See [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md).
+
 # Relationship To Other Threads
 
 This concept connects to:
@@ -50,6 +52,7 @@ This concept connects to:
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md): implementation claims need evidence.
 - [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md): the vertical slice tracked uncertainty structurally but hardcoded values to `0.0`.
 - [Contract-First Migration](/wiki/concepts/contract-first-migration.md): traceable confidence and provenance require stable contracts.
+- [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md): focused ADR slice for confidence, quality, and entity-resolution uncertainty.
 
 # Citations
 

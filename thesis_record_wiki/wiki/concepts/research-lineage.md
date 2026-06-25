@@ -48,6 +48,7 @@ Two through-lines are now visible from the first small-variant ingest:
 - [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md): lit-review experiment thread closest to the dissertation question of extracting theories from academic papers and applying them to data.
 - [Academic Proof Of Concept Scope](/wiki/concepts/academic-proof-of-concept-scope.md): architecture ADR thread defining KGAS as local academic proof-of-concept rather than enterprise production product.
 - [Storage Architecture Evolution](/wiki/concepts/storage-architecture-evolution.md): scale-indexed storage thread moving from Qdrant removal to Neo4j/SQLite and later Neo4j/PostgreSQL.
+- [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md): confidence/uncertainty design thread from normalized fields to auditable local construct-mapping judgments.
 
 # Open Interpretive Work
 

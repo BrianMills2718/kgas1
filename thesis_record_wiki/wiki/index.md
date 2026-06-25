@@ -28,6 +28,7 @@
 * [Lit Review Phase 6 Production Validation](sources/lit-review-phase6-production-validation.md) - production validation evidence package and deployment-claim caveats.
 * [Digimon Lineage Architecture ADRs Map](sources/digimon-lineage-architecture-adrs-map.md) - first ADR decision-history slice for large lineage architecture docs.
 * [Digimon Lineage Data Storage ADRs](sources/digimon-lineage-data-storage-adrs.md) - storage ADR slice covering Qdrant removal, Neo4j/SQLite rationale, and PostgreSQL migration threshold.
+* [Digimon Lineage Uncertainty Quality ADRs](sources/digimon-lineage-uncertainty-quality-adrs.md) - uncertainty, quality, and entity-resolution ADR slice with supersession caveats.
 
 # Entities
 
@@ -57,6 +58,7 @@
 * [Balance Driven Validation](concepts/balance-driven-validation.md) - five-purpose balance metric pattern and its evidence/overfitting risk.
 * [Academic Proof Of Concept Scope](concepts/academic-proof-of-concept-scope.md) - scope decision prioritizing academic correctness, provenance, and local reproducibility.
 * [Storage Architecture Evolution](concepts/storage-architecture-evolution.md) - KGAS storage evolution from tri-store avoidance to Neo4j/SQLite and Neo4j/PostgreSQL.
+* [Uncertainty Framework Evolution](concepts/uncertainty-framework-evolution.md) - movement from confidence fields to auditable local uncertainty reasoning.
 
 # Timeline
 

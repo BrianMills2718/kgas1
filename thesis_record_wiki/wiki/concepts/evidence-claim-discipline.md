@@ -22,6 +22,8 @@ Phase 4 adds the same lesson at integration scale: stored tests can pass while c
 
 Phase 6 extends the issue into deployment language: internal production-validation simulations can support "production validation package exists" without proving an externally deployed production service. See [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md).
 
+The uncertainty ADRs add another claim-discipline rule: do not cite "the KGAS uncertainty framework" as one stable object without naming the document/date, because several frameworks were explicitly superseded and a referenced ADR-029 path is missing from the preserved ADR tree. See [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -45,6 +47,7 @@ Future summaries must name the validation level.
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md): uncertainty/provenance claims require audit trails, not only design intent.
 - [Adaptive Operator Routing](/wiki/concepts/adaptive-operator-routing.md): development benchmark evidence should not be treated as locked proof.
 - [Balance Driven Validation](/wiki/concepts/balance-driven-validation.md): balance metrics are useful evidence but do not by themselves prove theoretical fidelity.
+- [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md): uncertainty claims must be tied to the active or superseded framework being referenced.
 
 # Citations
 

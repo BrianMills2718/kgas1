@@ -42,6 +42,8 @@ The `docs/architecture/adrs` map slice records the decision backbone behind the 
 
 The data-storage ADR slice records the storage evolution inside that same ADR set: Neo4j native vector indexing replaces Qdrant, Neo4j + SQLite is justified for local academic use, and Neo4j + PostgreSQL is accepted for 50K+ entity analytics. See [Digimon Lineage Data Storage ADRs](/wiki/sources/digimon-lineage-data-storage-adrs.md).
 
+The uncertainty/quality ADR slice records a messy but important design evolution: multiple superseded uncertainty frameworks, an accepted entity-resolution architecture, active uncertainty propagation docs, and a missing referenced ADR-029 path. See [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.
