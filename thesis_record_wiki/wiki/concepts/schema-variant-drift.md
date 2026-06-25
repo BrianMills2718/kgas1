@@ -29,6 +29,8 @@ Schema variant drift implies that validation must compare generated schemas agai
 
 [Lit Review Results Corpus](/wiki/sources/lit-review-results-corpus.md) adds an application-result version: WorldView/Carter outputs improve substantially as more schema context and operational examples are supplied, showing that application output can drift as much as schema output.
 
+The old-backups stress-test framework adds a registry-level variant: the resource-dependency theory schema declares compatibility with stakeholder theory, while the generated registry compatibility matrix marks the two registered theories incompatible because no integration points were found. See [Digimon Lineage Old Backups Stress Test Framework](/wiki/sources/digimon-lineage-old-backups-stress-test-framework.md).
+
 # Links
 
 - [Lit Review Operational Code Corpus](/wiki/sources/lit-review-operational-code-corpus.md)
@@ -36,6 +38,7 @@ Schema variant drift implies that validation must compare generated schemas agai
 - [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md)
 - [Lit Review Debug Improved Results](/wiki/sources/lit-review-debug-improved-results.md)
 - [Lit Review Results Corpus](/wiki/sources/lit-review-results-corpus.md)
+- [Digimon Lineage Old Backups Stress Test Framework](/wiki/sources/digimon-lineage-old-backups-stress-test-framework.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Model Form Routing](/wiki/concepts/model-form-routing.md)

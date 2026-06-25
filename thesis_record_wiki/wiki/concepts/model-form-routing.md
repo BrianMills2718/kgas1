@@ -28,6 +28,8 @@ The n-ary relations guide turns the same idea into a modeling decision procedure
 
 The data/examples slice preserves `problems_to_fix.txt`, which explicitly identifies property-graph anchoring in earlier prompts and the domain/range-on-entities error. That file is negative evidence for why model-form routing had to become explicit. [4]
 
+The old-backups stress-test gives an implementation-oriented version of the same problem: graph, table, and vector forms were treated as separate representations whose transformations needed semantic-preservation tests. The preserved output says graph-to-table-to-vector-to-graph reconstruction kept structure but failed semantic preservation until a CrossModalEntity-style patch was demonstrated. See [Digimon Lineage Old Backups Stress Test Root](/wiki/sources/digimon-lineage-old-backups-stress-test-root.md).
+
 # Rule
 
 Do not force every theory into the same representation just because the platform has a preferred graph format. First detect the theory's model form, then choose the schema/application path.
@@ -38,6 +40,7 @@ Do not force every theory into the same representation just because the platform
 - [Lit Review ELM Schema](/wiki/sources/lit-review-elm-schema.md)
 - [Lit Review Docs Bundle](/wiki/sources/lit-review-docs-bundle.md)
 - [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md)
+- [Digimon Lineage Old Backups Stress Test Framework](/wiki/sources/digimon-lineage-old-backups-stress-test-framework.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 

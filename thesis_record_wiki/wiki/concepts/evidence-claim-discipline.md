@@ -30,6 +30,8 @@ The lit-review multi-agent harness is a stronger evidence pattern than self-repo
 
 The current-code verification slice adds the final distinction: even current docs can be stale, so status summaries must separate architecture intent, evidence reports, files present on disk, and runtime execution. See [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md).
 
+The old-backups stress-test slice gives a compact example inside one directory: an earlier machine-readable run reports 0.4 / `DEVELOPMENT_READY`, a later run reports 0.8 / `PRODUCTION_READY`, the final report still flags cross-modal semantic preservation at 40%, and a separate patch report claims 100% preservation on a smaller patched demonstration. See [Digimon Lineage Old Backups Stress Test Root](/wiki/sources/digimon-lineage-old-backups-stress-test-root.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -57,6 +59,7 @@ Future summaries must name the validation level.
 - [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md): broad capability surfaces require per-capability verification.
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md): implementation/evaluation separation as a procedural guardrail.
 - [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md): current functionality requires direct checkout and runtime checks.
+- [Digimon Lineage Old Backups Stress Test Framework](/wiki/sources/digimon-lineage-old-backups-stress-test-framework.md): mock-mode fallbacks and registry/schema disagreement as claim-level caveats.
 
 # Citations
 
