@@ -40,6 +40,8 @@ Two through-lines are now visible from the first small-variant ingest:
 - [Adaptive Operator Routing](/wiki/concepts/adaptive-operator-routing.md): the autoloop variant's sharpened, falsifiable thesis that per-question operator selection should beat fixed pipelines.
 - [MCP Autoloop Interface](/wiki/concepts/mcp-autoloop-interface.md): early MCP/UKRF integration planning preserved alongside later MCP/direct retrieval interfaces.
 - [Graph Build Manifest](/wiki/concepts/graph-build-manifest.md): a later contract for exposing tools only when graph topology, attributes, and artifacts support them.
+- [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md): the large lineage bundle's sequence of documentation corrections, overcorrections, and roadmap consolidation.
+- [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md): the architectural split that made implementation status hard to summarize in one number.
 
 # Open Interpretive Work
 

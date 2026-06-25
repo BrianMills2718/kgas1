@@ -19,6 +19,8 @@ This wiki is a derived navigation layer for Brian's KGAS / Digimons / PhD thesis
 
 The current tracked repo presents KGAS as an academic research GraphRAG system connected to the dissertation topic "Theoretical Foundations for LLM-Generated Ontologies and Analysis of Fringe Discourse." [2] The current `CLAUDE.md` also preserves older operational context about tool compatibility, vertical slices, uncertainty propagation, provenance, reasoning traces, and documentation cleanup. [3]
 
+For ongoing ingest state and next slices, see [Progress](/PROGRESS.md).
+
 # Preservation Model
 
 The archive is not clutter to delete. It is the full record of project evolution. The wiki should make that record navigable while keeping raw sources unchanged.
@@ -58,6 +60,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Adaptive Operator Routing](/wiki/concepts/adaptive-operator-routing.md) - `digimon_autoloop` sharpens the thesis into a falsifiable benchmark question and records negative development evidence.
 - [MCP Autoloop Interface](/wiki/concepts/mcp-autoloop-interface.md) - autoloop preserves early MCP/UKRF integration plans and later MCP/direct tool-surface status.
 - [Graph Build Manifest](/wiki/concepts/graph-build-manifest.md) - later DIGIMON docs require tool exposure to be driven by persisted graph build facts rather than assumed capability.
+- [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md) - `digimon_lineage_Digimons` records a September 2025 correction sequence around inflated implementation claims and roadmap consolidation.
+- [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md) - the large lineage bundle preserves a simple verified vertical slice alongside a more complex main-system architecture.
 
 # Current Cautions
 

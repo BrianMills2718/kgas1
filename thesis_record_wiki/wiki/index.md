@@ -1,6 +1,7 @@
 # Overview
 
 * [Overview](overview.md) - top-level map of the thesis work record and preservation strategy.
+* [Progress](../PROGRESS.md) - durable mission, acceptance criteria, completed commits, and next slices for the thesis record wiki.
 
 # Sources
 
@@ -13,6 +14,7 @@
 * [JayLZhou GraphRAG Upstream](sources/jaylzhou-graphrag-upstream.md) - external DIGIMON / GraphRAG reference repository.
 * [Digimon Core Sparse Contract Layer](sources/digimon-core-sparse-contract-layer.md) - sparse variant contract-first migration, evidence, and bottleneck findings.
 * [Digimon Autoloop Operator Routing](sources/digimon-autoloop-operator-routing.md) - later operators-first DIGIMON state, benchmark evidence, and supported-surface boundary.
+* [Digimon Lineage Active State](sources/digimon-lineage-active-state.md) - large Digimons lineage root state and September 2025 reality-verification arc.
 
 # Entities
 
@@ -31,6 +33,8 @@
 * [Adaptive Operator Routing](concepts/adaptive-operator-routing.md) - falsifiable thesis that per-question operator routing should beat fixed graph and non-graph baselines.
 * [MCP Autoloop Interface](concepts/mcp-autoloop-interface.md) - historical MCP/UKRF plans and later MCP tool-surface status.
 * [Graph Build Manifest](concepts/graph-build-manifest.md) - build-manifest and tool-gating contract for truthful graph capability exposure.
+* [Reality Verification Arc](concepts/reality-verification-arc.md) - September 2025 correction chain around implementation claims and roadmap consolidation.
+* [Vertical Slice vs Main System](concepts/vertical-slice-vs-main-system.md) - coexisting simple verified vertical slice and complex main-system architecture.
 
 # Timeline
 

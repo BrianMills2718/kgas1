@@ -25,6 +25,8 @@ The `digimon_core_sparse` slice adds a contract-first migration thread and a con
 
 The `digimon_autoloop` slice captures a later operators-first DIGIMON state: 28 typed operators, MCP/direct tool access, benchmark modes, two-model graph-build/query design, and an explicit go/no-go plan for adaptive routing. See [Digimon Autoloop Operator Routing](/wiki/sources/digimon-autoloop-operator-routing.md), [Adaptive Operator Routing](/wiki/concepts/adaptive-operator-routing.md), and [Graph Build Manifest](/wiki/concepts/graph-build-manifest.md).
 
+The first `digimon_lineage_Digimons` slice captures the September 2025 active state: a large repository with root KGAS README/CLAUDE guidance, an evidence log, a consolidated conservative roadmap, and operations investigations that corrected implementation-status claims. See [Digimon Lineage Active State](/wiki/sources/digimon-lineage-active-state.md), [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md), and [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

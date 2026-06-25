@@ -14,6 +14,8 @@ confidence: medium
 
 `digimon_lineage_Digimons` is preserved at `../archive_full_record/lineage_variants/digimon_lineage_Digimons`. The recovery manifest identifies it as the largest preserved lineage bundle. The inventory records 9,334,155,151 readable bytes, 78,514 files, 9,619 directories, 157 symlinks, and git head `e14164e818588b474b68eb0e525ea78d9a10ce1c`. [1]
 
+Focused root ingest shows this bundle preserves a September 2025 active KGAS state with documentation truthfulness, roadmap consolidation, and vertical-slice/main-system reconciliation work. The first slice should be read through [Digimon Lineage Active State](/wiki/sources/digimon-lineage-active-state.md), [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md), and [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.
@@ -22,6 +24,11 @@ Shallow inspection shows archive, archived, config, contracts, data, dev, docker
 
 This is likely the highest-value lineage source after the current repo. It should be ingested in slices: README/CLAUDE first, docs/evidence second, experiments and recovered UI third.
 
+# Current Git Caveat
+
+At focused ingest time, the preserved git repo reported `master...kgas/master [ahead 1]` with a modified nested `experiments/tool_compatability/GraphRAG` path. The recovery inventory's git head is therefore only one preserved reference point; later local working-tree state should be investigated before making exact commit-history claims. [2]
+
 # Citations
 
 [1] `../archive_full_record/metadata/recovery_inventory.tsv`
+[2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/.git` and `git status` output observed during 2026-06-25 ingest.
