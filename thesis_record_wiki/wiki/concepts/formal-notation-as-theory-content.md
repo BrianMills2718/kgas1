@@ -43,6 +43,7 @@ The enhanced extraction comparison shows the practical payoff: once notation was
 # Links
 
 - [Lit Review Semantic Hypergraph Application Results](/wiki/sources/lit-review-semantic-hypergraph-application-results.md)
+- [Lit Review Semantic Hypergraph Schema Family](/wiki/sources/lit-review-semantic-hypergraph-schema-family.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md)
 

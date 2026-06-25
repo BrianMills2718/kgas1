@@ -54,6 +54,7 @@
 * [Lit Review Social Identity Theory Schema](sources/lit-review-social-identity-theory-schema.md) - adjacent Turner/Oakes Self-Categorization Theory schema pass.
 * [Lit Review Young1996 Schema Family](sources/lit-review-young1996-schema-family.md) - mature Young/WorldView schema variants and execution prompt.
 * [Lit Review ELM Schema](sources/lit-review-elm-schema.md) - compact Elaboration Likelihood Model schema and summary.
+* [Lit Review Semantic Hypergraph Schema Family](sources/lit-review-semantic-hypergraph-schema-family.md) - semantic-hypergraph schema variants and debug-output inventory.
 
 # Entities
 

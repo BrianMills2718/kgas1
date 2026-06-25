@@ -80,10 +80,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `65f5de8` ingested the Turner social-identity extraction comparison, including extracted/extracted_single aggregate hashes, six-theory nested output, single Self-Categorization Theory output, and multi-theory-extraction-split concept.
 - `6e7052b` ingested the social-identity-theory schema slice, including three-file aggregate hash, SIT JSON/YAML schema shape, and relationship to Turner extracted/extracted_single outputs.
 - `63f37ea` ingested the Young1996 schema-family slice, including six-file aggregate hash, computational/enhanced/multi-pass variants, execution prompt, and schema-variant-drift update.
-- Pending commit: ELM schema slice, including two-file aggregate hash, compact sequential schema shape, and model-form-routing update.
+- `fb6bc1b` ingested the ELM schema slice, including two-file aggregate hash, compact sequential schema shape, and model-form-routing update.
+- Pending commit: semantic-hypergraph schema-family slice, including 19-file aggregate hash, enhanced/multi-pass/option variants, debug-output inventory, and formal-notation concept link.
 
 ## Next
 
-1. Run wiki lint, commit, and push the ELM schema slice.
-2. Next recommended step: inspect remaining `schemas/semantic_hypergraph/` variants only if needed; much of it is already covered by the semantic-hypergraph application-results slice, so first compare for missing variant-family facts before writing another page.
+1. Run wiki lint, commit, and push the semantic-hypergraph schema-family slice.
+2. Next recommended step: inspect the root `test_simple_schema.yml` and then consider the `src/` code directories; the major `schemas/` subfolders now have bounded wiki coverage.
 3. Later slices: selected generated-code directories and remaining experiment directories.
