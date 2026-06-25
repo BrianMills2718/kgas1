@@ -134,11 +134,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `1942fde` ingested the uncertainty-stress-test validation slice, including preserved connectivity, formal Bayesian, LLM-native comparison, SocialMaze mock-mode outputs, validator scripts, missing-output caveats, and hardcoded-path caveats.
 - `3435403` ingested the uncertainty-stress-test testing slice, including nine-file IC-inspired harness, root 5/5 stress-test summary linkage, methodology walkthrough, synthetic-benchmark boundary, truncated-output caveat, and hardcoded-path rerun caveats.
 - `e2d58af` ingested the uncertainty-stress-test Bayesian slice, including three psychological-trait Bayesian prototype scripts, simulated LLM likelihood-ratio methods, research-prior update pattern, and "real"/"production" label caveats.
-- Pending commit: uncertainty-stress-test docs slice, including methodology/specification files, formula/design content, unchecked implementation checklist, performance-target boundary, and uncorroborated validation-claim caveats.
+- `ab9160f` ingested the uncertainty-stress-test docs slice, including methodology/specification files, formula/design content, unchecked implementation checklist, performance-target boundary, and uncorroborated validation-claim caveats.
+- Pending commit: uncertainty-stress-test setup slice, including Neo4j Docker manager, one-click setup helpers, complete demo script, demo password, optional Docker volume deletion path, fragile sibling-validator import, and missing demo-output caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the uncertainty-stress-test docs slice.
-2. Next recommended step: continue with `archive/uncertainty_stress_test/setup/`, then `optimization/`, because those should capture reproducibility context and speed-optimization evidence.
+1. Run wiki lint, commit, and push the uncertainty-stress-test setup slice.
+2. Next recommended step: continue with `archive/uncertainty_stress_test/optimization/`, then do a final pass over any remaining uncertainty-stress-test subdirectories/files not yet represented.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

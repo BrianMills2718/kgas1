@@ -42,6 +42,8 @@ The uncertainty Bayesian slice is a naming caution: files named "real" and "prod
 
 The uncertainty docs slice is a documentation-evidence caution: a methodology document can report validation-study numbers while a specification document marks every implementation checklist item unchecked. Use those as design/status claims to corroborate, not as standalone proof. See [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md).
 
+The uncertainty setup slice is a demo-automation caution: Docker/Neo4j setup scripts and complete-demo code exist, but no demo-output files were found in that setup directory, and one import path appears fragile. See [Digimon Lineage Uncertainty Stress Test Setup](/wiki/sources/digimon-lineage-uncertainty-stress-test-setup.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -75,6 +77,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md): constructed harness success versus generalization proof.
 - [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md): filename/status-label caveats for simulated LLM Bayesian prototypes.
 - [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md): design documents, unchecked checklist items, and uncorroborated validation-study claims.
+- [Digimon Lineage Uncertainty Stress Test Setup](/wiki/sources/digimon-lineage-uncertainty-stress-test-setup.md): setup/demo automation without preserved successful demo outputs.
 
 # Citations
 

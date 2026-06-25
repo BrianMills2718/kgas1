@@ -71,6 +71,7 @@
 * [Digimon Lineage Uncertainty Stress Test Testing](sources/digimon-lineage-uncertainty-stress-test-testing.md) - IC-inspired testing harness for information value, stopping rules, ACH, calibration, mental-model auditing, and methodology walkthrough caveats.
 * [Digimon Lineage Uncertainty Stress Test Bayesian](sources/digimon-lineage-uncertainty-stress-test-bayesian.md) - Bayesian-specific psychological-trait prototype scripts with simulated LLM likelihood ratios and production-label caveats.
 * [Digimon Lineage Uncertainty Stress Test Docs](sources/digimon-lineage-uncertainty-stress-test-docs.md) - methodology and implementation-specification docs for uncertainty formulas, CERQual/Bayesian/cross-modal design, validation targets, and unchecked checklist caveats.
+* [Digimon Lineage Uncertainty Stress Test Setup](sources/digimon-lineage-uncertainty-stress-test-setup.md) - Neo4j Docker setup and KGAS demo scripts with demo-password, optional volume-deletion, fragile-import, and missing-output caveats.
 * [Current Code Verification 2026-06-25](sources/current-code-verification-2026-06-25.md) - focused current-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
 * [Current Runtime Import Check 2026-06-25](sources/current-runtime-import-check-2026-06-25.md) - import-only runtime check for current contract, cross-modal API, and MCP modules.
 * [Current Runtime Repair Plan 2026-06-25](sources/current-runtime-repair-plan-2026-06-25.md) - non-invasive source-level plan for repairing first import/runtime blockers.
