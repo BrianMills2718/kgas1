@@ -66,6 +66,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md) - architecture target-design docs, ADR cascades, limitations, and critical uncertainty review.
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md) - the internal critique of uncertainty modeling, provenance gaps, and research decision support.
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) - evidence archive correction showing that component success was incorrectly overstated as system integration success.
+- [Lit Review Theory Extraction Experiment](/wiki/sources/lit-review-theory-extraction-experiment.md) - separate experiment subsystem for extracting theory schemas from academic papers and applying them to data.
+- [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md) - a thesis-core method thread connecting schema extraction, model-type selection, and evidence discipline.
 
 # Current Cautions
 

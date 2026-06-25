@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from evidence archives into experiments or ADR topical sub-slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from the first lit-review overview slice into narrower lit-review evidence/output sub-slices or architecture ADR topical sub-slices.
 
 ## Completed
 
@@ -40,13 +40,14 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `97a3fb7` ingested `Digimons_docs`, `Digimons_minimal`, and `Digimons_clean_for_real/tool_compatability`.
 - `78e0f90` ingested JayLZhou GraphRAG upstream lineage and `digimon_core_sparse`.
 - `901461d` ingested `digimon_autoloop`, including adaptive operator routing, MCP/autoloop interface, graph build manifest, negative MuSiQue dev evidence, and broken worktree pointer provenance.
-- Pending commit: first `digimon_lineage_Digimons` root-state slice, including source summary, reality-verification arc, vertical-slice/main-system split, and progress tracker.
-- Pending commit: `digimon_lineage_Digimons/tool_compatability` slice, including large-bundle source summary and updates to type-based composition.
-- Pending commit: `digimon_lineage_Digimons/docs/architecture` top-level slice, including architecture source summary and uncertainty traceability concept.
-- Pending commit: evidence archive slice, including false-claim correction and evidence validation-level concept.
+- `dba77e8` ingested first `digimon_lineage_Digimons` root-state slice, including source summary, reality-verification arc, vertical-slice/main-system split, and progress tracker.
+- `41fcead` ingested `digimon_lineage_Digimons/tool_compatability`, including large-bundle source summary and updates to type-based composition.
+- `871f7e9` ingested `digimon_lineage_Digimons/docs/architecture` top-level slice, including architecture source summary and uncertainty traceability concept.
+- `bf80bf9` ingested the evidence archive slice, including false-claim correction and evidence validation-level concept.
+- Pending commit: first `experiments/lit_review` slice, including automated theory extraction source summary, schema/application method concept, and validation-claim caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the evidence slice.
-2. Next ingest slice: `experiments/lit_review`, because it appears to preserve phase-by-phase thesis experiment evidence from purpose classification through production validation.
-3. Later slices: `docs/architecture/adrs/` and UI/recovered components.
+1. Run wiki lint, commit, and push the first lit-review slice.
+2. Next recommended ingest slice: `experiments/lit_review/carter_analysis_output`, because it likely preserves concrete application outputs for a named theory/case and should ground the high-level validation claims.
+3. Later slices: `experiments/lit_review/evidence/` deeper phase evidence, `docs/architecture/adrs/`, and UI/recovered components.

@@ -22,13 +22,15 @@ The architecture-docs slice confirms that `docs/architecture/` is target design,
 
 The evidence-archive slice shows that some success claims were later archived as false because they relied on component-level tests rather than system integration validation. See [Digimon Lineage Evidence Archives](/wiki/sources/digimon-lineage-evidence-archives.md) and [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md).
 
+The `experiments/lit_review` slice is a separate 51M experiment subsystem with 2,768 files and its own `.git` directory. It preserves automated theory extraction/application work, schema-based ontology docs, validation summaries, and phase completion evidence. See [Lit Review Theory Extraction Experiment](/wiki/sources/lit-review-theory-extraction-experiment.md) and [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.
 
 # Interpretation
 
-This is likely the highest-value lineage source after the current repo. Continue ingesting in slices: root README/CLAUDE/roadmap, tool compatibility, architecture docs, evidence archives, experiments, and recovered UI.
+This is likely the highest-value lineage source after the current repo. Continue ingesting in slices: root README/CLAUDE/roadmap, tool compatibility, architecture docs, evidence archives, experiments, ADRs, Carter analysis outputs, and recovered UI.
 
 # Current Git Caveat
 

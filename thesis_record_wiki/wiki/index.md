@@ -18,6 +18,7 @@
 * [Digimon Lineage Tool Compatibility](sources/digimon-lineage-tool-compatibility.md) - large lineage tool_compatability subtree and active vertical-slice context.
 * [Digimon Lineage Architecture Docs](sources/digimon-lineage-architecture-docs.md) - large lineage architecture target-design docs and uncertainty/traceability critical review.
 * [Digimon Lineage Evidence Archives](sources/digimon-lineage-evidence-archives.md) - evidence archive slice focused on false-claim correction and system-level validation discipline.
+* [Lit Review Theory Extraction Experiment](sources/lit-review-theory-extraction-experiment.md) - lit_review experiment subsystem for automated theory extraction, schema generation, and validation claims.
 
 # Entities
 
@@ -40,6 +41,7 @@
 * [Vertical Slice vs Main System](concepts/vertical-slice-vs-main-system.md) - coexisting simple verified vertical slice and complex main-system architecture.
 * [Uncertainty Traceability Architecture](concepts/uncertainty-traceability-architecture.md) - KGAS uncertainty, provenance, traceability, and over-engineering tension.
 * [Evidence Claim Discipline](concepts/evidence-claim-discipline.md) - rule that claims must match component, integration, workflow, or benchmark validation level.
+* [Automated Theory Extraction](concepts/automated-theory-extraction.md) - lit-review experiment line for extracting theory schemas from papers and applying them to data.
 
 # Timeline
 

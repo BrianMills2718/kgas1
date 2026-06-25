@@ -31,6 +31,8 @@ The architecture-docs slice captures the target design side of KGAS: theory auto
 
 The evidence-archive slice captures the verification-quality side: evidence files include both raw successes/errors and explicit archival of false system-integration claims. See [Digimon Lineage Evidence Archives](/wiki/sources/digimon-lineage-evidence-archives.md) and [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md).
 
+The `experiments/lit_review` slice captures a separate thesis experiment line focused directly on automated theory extraction and application: papers become schemas, schemas are applied to data, and results are compared to the source paper. See [Lit Review Theory Extraction Experiment](/wiki/sources/lit-review-theory-extraction-experiment.md) and [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).
