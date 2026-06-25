@@ -87,10 +87,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `31ff970` ingested the schema_application code slice, including 24-script aggregate hash, direct OpenAI/hardcoded path counts, universal applicator implementation, and caveats.
 - `5efdb91` ingested the visualization code slice, including 9-script aggregate hash, Carter cognitive-map visualization scripts, Semantic Hypergraph visualization scripts, and hardcoded-path caveats.
 - `dc6dce5` ingested the UI code slice, including 3-file aggregate hash, Streamlit schema-analysis review surface, YAML corpus statistics script, and launcher caveats.
-- Pending commit: testing code slice, including 14-script aggregate hash, processor comparison, prompt-routing, computational-schema execution, SH extraction, provider-debug, and multi-agent runner caveats.
+- `1ce0e6f` ingested the testing code slice, including 14-script aggregate hash, processor comparison, prompt-routing, computational-schema execution, SH extraction, provider-debug, and multi-agent runner caveats.
+- Pending commit: lit-review root-files slice, including 22-file aggregate hash, project framing docs, prompt drafts, extraction logs, source texts, sensitive `.env` caveat, and root clutter.
 
 ## Next
 
-1. Run wiki lint, commit, and push the testing code slice.
-2. Next recommended step: inspect remaining top-level lit-review files and small directories not yet covered by the source-code/schema/literature passes.
-3. Later slices: selected remaining experiment directories.
+1. Run wiki lint, commit, and push the root-files slice.
+2. Next recommended step: inspect `experiments/lit_review/docs/`, because it is a large documentation bundle that likely explains method, architecture, and limitations.
+3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.

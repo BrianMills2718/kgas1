@@ -132,6 +132,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Visualization Code](/wiki/sources/lit-review-visualization-code.md) - 9-script inspection layer for Carter cognitive maps and Semantic Hypergraph instances.
 - [Lit Review UI Code](/wiki/sources/lit-review-ui-code.md) - 3-file Streamlit review surface for selecting schemas/texts, running analysis, browsing results, charting outputs, and chatting over prior JSON.
 - [Lit Review Testing Code](/wiki/sources/lit-review-testing-code.md) - 14-script testing/debug corpus for schema comparisons, prompt routing, provider checks, SH extraction, and six-phase multi-agent execution.
+- [Lit Review Root Files](/wiki/sources/lit-review-root-files.md) - top-level project framing, prompts, logs, source texts, environment files, and accidental package-output artifacts.
 
 # Current Cautions
 

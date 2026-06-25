@@ -9,6 +9,7 @@ sources:
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/CLAUDE.md
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/PROJECT_OVERVIEW.md
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/validation_results/validation_summary.md
+  - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/meta_schema_8_prompt.md
 confidence: medium
 ---
 
@@ -25,6 +26,8 @@ Academic Paper -> Schema Extraction -> Data Application -> Comparable Results
 ```
 
 The extraction pipeline uses vocabulary extraction, ontological classification, and theory-adaptive schema generation. [1][2]
+
+The root prompt artifacts show this design in operational form: model-type classification, reasoning-engine selection, compatible-operator selection, ontology extraction, analytics/process extraction, and telos specification were explicit prompt targets, not later wiki reinterpretations. [4]
 
 # Representation Strategy
 
@@ -64,4 +67,5 @@ This thread is close to the core dissertation goal of LLM-generated ontologies a
 
 [1] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/CLAUDE.md`  
 [2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/PROJECT_OVERVIEW.md`  
-[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/validation_results/validation_summary.md`
+[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/validation_results/validation_summary.md`  
+[4] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/meta_schema_8_prompt.md`
