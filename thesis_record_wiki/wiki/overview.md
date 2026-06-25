@@ -112,6 +112,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage Old Backups Error Reports](/wiki/sources/digimon-lineage-old-backups-error-reports.md) - error/escalation report bundle with registered recovery strategies, validation load-test dominance, and 0/55 successful recoveries.
 - [Digimon Lineage Old Backups Empty Monitoring Output](/wiki/sources/digimon-lineage-old-backups-empty-monitoring-output.md) - negative evidence that the old-backups `monitoring_output/` directory preserved no files.
 - [Digimon Lineage Old Backups Output Reports](/wiki/sources/digimon-lineage-old-backups-output-reports.md) - generated Phase A/B success reports paired with a tool-registry inventory showing only 12/123 tools implemented.
+- [Digimon Lineage Old Backups Logs](/wiki/sources/digimon-lineage-old-backups-logs.md) - 44,622-line operational log with successful pipeline traces, Neo4j/API failures, provenance deprecation warnings, and raw credential-leak caveat.
 - [Test Evidence Layer](/wiki/concepts/test-evidence-layer.md) - synthesis of the test corpus: strong verification culture, uneven runtime proof, and claim-level rules.
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
 - [Lit Review Multi Agent System Corpus](/wiki/sources/lit-review-multi-agent-system-corpus.md) - full 648-file inventory separating the outer lit-review harness from the nested V5.2 generator/evidence/remediation corpus.
