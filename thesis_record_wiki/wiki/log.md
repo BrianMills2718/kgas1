@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added archive-before-cleanup initiatives slice, including theory extraction integration, uncertainty, two-stage analysis, bi-store/PostgreSQL, concurrency, dynamic orchestration, import failures, identity variants, risk, metrics, and no-literal-key finding.
 * **Ingest** | Added archive-before-cleanup phases slice, including 75-file phase inventory, Phase C completion caveats, reliability freeze, TDD migration, fail-fast, theory-to-code, universal LLM, and placeholder-key caveat.
 * **Ingest** | Added proposal-rewrite-2025-08-12 thesis lineage slice, including proposal positioning, critique incorporation, IC/uncertainty planning tension, validation matrices, HSPC/reference inventory, and concept links.
 * **Ingest** | Added archive-before-cleanup-2025-08-05 overview slice, including roadmap status claims, cleanup caveats, directory counts, theory-integration status, placeholder-key caveat, and sub-slice queue.
