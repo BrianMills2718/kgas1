@@ -59,6 +59,7 @@ This overview is enough to mark the top-level directory represented, but it is n
 3. `initiatives/`: represented by a cross-cutting-plan page covering theory extraction, uncertainty, risk, storage, imports, identity, orchestration, and metrics. [1]
 4. `archived/`: represented by a service-investigation cleanup page covering consolidation categories, template-only markers, and status-claim tensions. [4]
 5. `analysis/`: represented by a codebase, operations, performance, theory-architecture, reproducibility, and Claude Code orchestration analysis page. [1]
+6. `issues/`, `performance/`, and `post-mvp/`: represented by a residual-planning page covering Phase C caveats, observation-focused performance tracking, archived rigid benchmarks, and future agent-intelligence enhancements. [1][5][6]
 
 # Relationship To Wiki
 
@@ -68,6 +69,7 @@ This overview is enough to mark the top-level directory represented, but it is n
 - [Digimon Lineage Archive Before Cleanup Initiatives](digimon-lineage-archive-before-cleanup-initiatives.md): cross-cutting initiative sub-slice from this archive.
 - [Digimon Lineage Archive Before Cleanup Archived Investigations](digimon-lineage-archive-before-cleanup-archived-investigations.md): service-investigation cleanup and consolidation sub-slice from this archive.
 - [Digimon Lineage Archive Before Cleanup Analysis](digimon-lineage-archive-before-cleanup-analysis.md): codebase and theory/reproducibility analysis sub-slice from this archive.
+- [Digimon Lineage Archive Before Cleanup Residual Planning](digimon-lineage-archive-before-cleanup-residual-planning.md): small residual planning sub-slice from this archive.
 - [Lit Review Multi Agent System Corpus](lit-review-multi-agent-system-corpus.md): supporting record for the experimental theory-extraction validation line.
 - [Evidence Claim Discipline](../concepts/evidence-claim-discipline.md): relevant because this archive mixes roadmap status claims, plans, evidence summaries, and runtime claims.
 - [Current Status Verification Discipline](../concepts/current-status-verification-discipline.md): relevant caution for separating archived status documents from current runtime verification.

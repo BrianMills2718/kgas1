@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added archive-before-cleanup residual-planning slice, including entity-resolution/Phase C caveats, observation-focused performance tracking, archived rigid benchmark requirements, post-MVP agent-intelligence plans, and no-literal-key finding.
 * **Ingest** | Added archive-before-cleanup analysis slice, including 11-file codebase/ops/performance/KGAS analysis inventory, theory/data architecture caveats, reproducibility design, Claude Code orchestration notes, and no-literal-key finding.
 * **Ingest** | Added archive-before-cleanup archived-investigations slice, including 17-file service-investigation cleanup inventory, duplicate/consolidation categories, template-only markers, and status-tension caveats.
 * **Ingest** | Added archive-before-cleanup initiatives slice, including theory extraction integration, uncertainty, two-stage analysis, bi-store/PostgreSQL, concurrency, dynamic orchestration, import failures, identity variants, risk, metrics, and no-literal-key finding.
