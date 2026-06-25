@@ -36,6 +36,8 @@ The uncertainty core-services slice adds a code-level version of the same rule: 
 
 The uncertainty validation slice adds an output-presence rule: LLM-native 7/7 and SocialMaze excellent-calibration claims have preserved result files, but SocialMaze is mock mode and the detailed ground-truth/bias-analysis output files are absent from that directory. See [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md).
 
+The uncertainty testing slice adds another validation-level boundary: a root 5/5 success summary exists for the IC-inspired harness, but the tests are constructed demonstrations and the root summary preserves only truncated stdout excerpts. See [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -66,6 +68,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Old Backups Stress Test Framework](/wiki/sources/digimon-lineage-old-backups-stress-test-framework.md): mock-mode fallbacks and registry/schema disagreement as claim-level caveats.
 - [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md): source-code implementation evidence constrained by runtime caveats.
 - [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md): preserved validation outputs versus validation scripts and missing-output boundaries.
+- [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md): constructed harness success versus generalization proof.
 
 # Citations
 

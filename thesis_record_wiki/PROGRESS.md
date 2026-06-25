@@ -131,11 +131,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `7e85506` ingested the uncertainty-stress-test root slice, including IC-inspired tests, CERQual/Bayesian/LLM services, Davis validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.
 - `82f9d71` ingested the uncertainty-stress-test analysis slice, including Davis rapid analysis, 157 prepared chunks, six agent notes, synthesis findings, and 3.8% coverage caveat.
 - `4ea7913` ingested the uncertainty-stress-test core-services slice, including six Python implementation files, Bayesian/CERQual/LLM-native service roles, direct GPT-4 API patterns, fallback/default behavior, and optimized-engine runtime caveats.
-- Pending commit: uncertainty-stress-test validation slice, including preserved connectivity, formal Bayesian, LLM-native comparison, SocialMaze mock-mode outputs, validator scripts, missing-output caveats, and hardcoded-path caveats.
+- `1942fde` ingested the uncertainty-stress-test validation slice, including preserved connectivity, formal Bayesian, LLM-native comparison, SocialMaze mock-mode outputs, validator scripts, missing-output caveats, and hardcoded-path caveats.
+- Pending commit: uncertainty-stress-test testing slice, including nine-file IC-inspired harness, root 5/5 stress-test summary linkage, methodology walkthrough, synthetic-benchmark boundary, truncated-output caveat, and hardcoded-path rerun caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the uncertainty-stress-test validation slice.
-2. Next recommended step: continue with `archive/uncertainty_stress_test/testing/`, then `bayesian/`, because those should capture the remaining test harnesses and Bayesian-specific artifacts.
+1. Run wiki lint, commit, and push the uncertainty-stress-test testing slice.
+2. Next recommended step: continue with `archive/uncertainty_stress_test/bayesian/`, then `docs/`, because those should capture the remaining Bayesian-specific artifacts and supporting methodology docs.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

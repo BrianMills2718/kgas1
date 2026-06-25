@@ -26,6 +26,8 @@ The stress-test core-services directory shows the corresponding implementation e
 
 The validation directory then shows which claims had preserved output artifacts: basic connectivity, formal Bayesian medical and extraordinary-claim examples, a seven-case LLM-native versus rule-based comparison, and SocialMaze mock-mode analysis. Missing ground-truth and bias-analysis outputs remain an important caveat. See [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md).
 
+The testing directory shows the IC-inspired harness behind the root 5/5 stress-test summary: information value, stopping rules, ACH, calibration, and mental-model auditing. Its results are meaningful as constructed-harness evidence, not broad external validation. See [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md).
+
 # Evolution
 
 1. **Contract normalization**: ADR-004 tried to make all tools report confidence through one Pydantic model. This addressed interface compatibility but not deeper research uncertainty. [1]
@@ -59,6 +61,7 @@ Several files cite an ADR-029 IC-informed uncertainty framework, but that direct
 - [Digimon Lineage Uncertainty Stress Test Analysis](/wiki/sources/digimon-lineage-uncertainty-stress-test-analysis.md)
 - [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md)
 - [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md)
+- [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md)
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md)
