@@ -42,6 +42,7 @@ Two through-lines are now visible from the first small-variant ingest:
 - [Graph Build Manifest](/wiki/concepts/graph-build-manifest.md): a later contract for exposing tools only when graph topology, attributes, and artifacts support them.
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md): the large lineage bundle's sequence of documentation corrections, overcorrections, and roadmap consolidation.
 - [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md): the architectural split that made implementation status hard to summarize in one number.
+- [Digimon Lineage Tool Compatibility](/wiki/sources/digimon-lineage-tool-compatibility.md): large-bundle copy of the type-based composition direction, tied to active vertical-slice work.
 
 # Open Interpretive Work
 

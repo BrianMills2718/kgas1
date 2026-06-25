@@ -16,13 +16,15 @@ confidence: medium
 
 Focused root ingest shows this bundle preserves a September 2025 active KGAS state with documentation truthfulness, roadmap consolidation, and vertical-slice/main-system reconciliation work. The first slice should be read through [Digimon Lineage Active State](/wiki/sources/digimon-lineage-active-state.md), [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md), and [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md).
 
+The `tool_compatability` slice shows the same type-based composition decision seen in `Digimons_clean_for_real`, but with active local context: the subtree is explicitly marked as the adapter/framework direction and the nested `poc/vertical_slice` path is marked as the active proof-of-concept framework. See [Digimon Lineage Tool Compatibility](/wiki/sources/digimon-lineage-tool-compatibility.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.
 
 # Interpretation
 
-This is likely the highest-value lineage source after the current repo. It should be ingested in slices: README/CLAUDE first, docs/evidence second, experiments and recovered UI third.
+This is likely the highest-value lineage source after the current repo. Continue ingesting in slices: root README/CLAUDE/roadmap, tool compatibility, architecture docs, evidence archives, experiments, and recovered UI.
 
 # Current Git Caveat
 

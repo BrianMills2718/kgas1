@@ -15,6 +15,7 @@
 * [Digimon Core Sparse Contract Layer](sources/digimon-core-sparse-contract-layer.md) - sparse variant contract-first migration, evidence, and bottleneck findings.
 * [Digimon Autoloop Operator Routing](sources/digimon-autoloop-operator-routing.md) - later operators-first DIGIMON state, benchmark evidence, and supported-surface boundary.
 * [Digimon Lineage Active State](sources/digimon-lineage-active-state.md) - large Digimons lineage root state and September 2025 reality-verification arc.
+* [Digimon Lineage Tool Compatibility](sources/digimon-lineage-tool-compatibility.md) - large lineage tool_compatability subtree and active vertical-slice context.
 
 # Entities
 

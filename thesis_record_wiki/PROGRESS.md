@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from root active-state docs into topical sub-slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from tool compatibility into architecture/evidence topical sub-slices.
 
 ## Completed
 
@@ -41,9 +41,10 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `78e0f90` ingested JayLZhou GraphRAG upstream lineage and `digimon_core_sparse`.
 - `901461d` ingested `digimon_autoloop`, including adaptive operator routing, MCP/autoloop interface, graph build manifest, negative MuSiQue dev evidence, and broken worktree pointer provenance.
 - Pending commit: first `digimon_lineage_Digimons` root-state slice, including source summary, reality-verification arc, vertical-slice/main-system split, and progress tracker.
+- Pending commit: `digimon_lineage_Digimons/tool_compatability` slice, including large-bundle source summary and updates to type-based composition.
 
 ## Next
 
-1. Run wiki lint, commit, and push the first large-bundle slice.
-2. Next ingest slice: `tool_compatability/` lineage, because root CLAUDE says it was active development focus and earlier variants already introduced type-based composition.
-3. Later slices: `docs/architecture/`, `archive/evidence/`, `experiments/`, and UI/recovered components.
+1. Run wiki lint, commit, and push the tool-compatibility slice.
+2. Next ingest slice: `docs/architecture/` current target design, especially architecture overview, ADR index, and architecture critical review.
+3. Later slices: `archive/evidence/`, `experiments/`, and UI/recovered components.

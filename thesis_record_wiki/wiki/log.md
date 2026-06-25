@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added `digimon_lineage_Digimons/tool_compatability` source summary and linked it to type-based composition and vertical-slice context.
 * **Ingest** | Added first bounded `digimon_lineage_Digimons` root-state slice. Created active-state source page plus reality-verification and vertical-slice/main-system concept pages.
 * **Ingest** | Added `digimon_autoloop` operators-first ingest. Created adaptive operator routing, MCP autoloop interface, and graph build manifest concept pages; recorded negative development evidence and broken worktree pointer.
 * **Ingest** | Added JayLZhou GraphRAG upstream lineage and `digimon_core_sparse` contract-layer ingest. Created GraphRAG upstream, contract-first migration, and relationship extraction bottleneck concept pages.

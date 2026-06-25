@@ -62,6 +62,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Graph Build Manifest](/wiki/concepts/graph-build-manifest.md) - later DIGIMON docs require tool exposure to be driven by persisted graph build facts rather than assumed capability.
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md) - `digimon_lineage_Digimons` records a September 2025 correction sequence around inflated implementation claims and roadmap consolidation.
 - [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md) - the large lineage bundle preserves a simple verified vertical slice alongside a more complex main-system architecture.
+- [Digimon Lineage Tool Compatibility](/wiki/sources/digimon-lineage-tool-compatibility.md) - the large bundle connects type-based composition to the active vertical-slice framework path.
 
 # Current Cautions
 
