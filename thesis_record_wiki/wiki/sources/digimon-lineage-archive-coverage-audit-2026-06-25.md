@@ -43,7 +43,7 @@ The following top-level archive areas were not found in the wiki index by this a
 | Directory | Files | Bytes | Initial Priority |
 | --- | ---: | ---: | --- |
 | `gemini-review-tool/` | 166 | 3,083,515 | Covered by Gemini review-tool archive overview; deeper architecture-validation/roadmap-critique bundle pages remain optional. |
-| `docs_architecture_cleanup_2025_08_29/` | 62 | 2,182,341 | Medium-high: architecture cleanup docs and generated architecture documents; likely overlaps with architecture pages but needs explicit audit. |
+| `docs_architecture_cleanup_2025_08_29/` | 62 | 2,182,341 | Covered by architecture-cleanup overview; deeper IC uncertainty or generated-doc comparison remains optional. |
 | `generated_outputs_2025_08/` | 10 | 1,885,050 | Medium: generated output artifacts, including `reasoning_traces.db` and clean-architecture bundle. |
 | `root_cleanup_2025_08_29/` | 63 | 1,413,590 | Medium: root cleanup artifact and specialized app remnants. |
 | `analysis_validation_2025_08/` | 40 | 1,122,878 | Medium: validation artifacts requiring evidence-level review. |
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next move to `docs_architecture_cleanup_2025_08_29/` as the highest-value remaining architecture-history archive, unless Brian wants a deeper pass on Gemini architecture-validation bundles first. [1]
+Next move to `generated_outputs_2025_08/` or `analysis_validation_2025_08/` as the next highest-value evidence/output archive, unless Brian wants a deeper pass on IC uncertainty cleanup first. [1]
 
 # Relationship To Wiki
 
@@ -74,6 +74,7 @@ Next move to `docs_architecture_cleanup_2025_08_29/` as the highest-value remain
 - [Digimon Lineage Theoretical Exploration Proposal Evolution](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-evolution.md): proposal fragments, assessments, historical versions, and critique-response sub-slice from theoretical exploration.
 - [Digimon Lineage Theoretical Exploration Schema v14 Post MVP](/wiki/sources/digimon-lineage-theoretical-exploration-schema-v14-post-mvp.md): post-MVP schema-evolution sub-slice from theoretical exploration.
 - [Digimon Lineage Gemini Review Tool Archive](/wiki/sources/digimon-lineage-gemini-review-tool-archive.md): Gemini review/validation tool archive and generated critique overview.
+- [Digimon Lineage Docs Architecture Cleanup 2025 08 29](/wiki/sources/digimon-lineage-docs-architecture-cleanup-2025-08-29.md): architecture cleanup archive and IC uncertainty supersession overview.
 - [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md): start of the old-backups represented slice family.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md): represented UI/archive UI slice.
 - [Progress](../../PROGRESS.md): working queue and commit-level progress tracker.

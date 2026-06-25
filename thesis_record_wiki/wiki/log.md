@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added docs-architecture-cleanup-2025-08-29 archive overview, including 62-file inventory, generated-document cleanup rationale, over-engineered service-guide archival, IC uncertainty ADR-to-abandonment arc, category-error critique, and no-literal-key finding.
 * **Ingest** | Added gemini-review-tool archive overview, including 166-file inventory, tool purpose, preview/path workflow fixes, Phase 2.1/reliability/provenance validation findings, generated docs-review caveats, roadmap critique config, and no-literal-key finding.
 * **Ingest** | Added theoretical-exploration schema-v14 post-MVP slice, including operationalization clarity, parameter uncertainty, method-selection guidance, multidimensional uncertainty, IC-at-execution, DAG-aware propagation, and no-literal-key finding.
 * **Ingest** | Added theoretical-exploration proposal-evolution slice, including 25-file fragments/assessment/historical-version inventory, critique-response mapping, proof-of-concept tone edits, final-submission packaging, citation choices, and no-literal-key finding.
