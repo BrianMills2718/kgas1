@@ -44,7 +44,7 @@ The following top-level archive areas were not found in the wiki index by this a
 | --- | ---: | ---: | --- |
 | `gemini-review-tool/` | 166 | 3,083,515 | Covered by Gemini review-tool archive overview; deeper architecture-validation/roadmap-critique bundle pages remain optional. |
 | `docs_architecture_cleanup_2025_08_29/` | 62 | 2,182,341 | Covered by architecture-cleanup overview; deeper IC uncertainty or generated-doc comparison remains optional. |
-| `generated_outputs_2025_08/` | 10 | 1,885,050 | Medium: generated output artifacts, including `reasoning_traces.db` and clean-architecture bundle. |
+| `generated_outputs_2025_08/` | 10 | 1,885,050 | Covered by generated-outputs page; deeper DB trace inspection remains optional. |
 | `root_cleanup_2025_08_29/` | 63 | 1,413,590 | Medium: root cleanup artifact and specialized app remnants. |
 | `analysis_validation_2025_08/` | 40 | 1,122,878 | Medium: validation artifacts requiring evidence-level review. |
 | `agent_stress_testing/` | 52 | 977,712 | Medium: agent workflow/memory/research stress tests. |
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next move to `generated_outputs_2025_08/` or `analysis_validation_2025_08/` as the next highest-value evidence/output archive, unless Brian wants a deeper pass on IC uncertainty cleanup first. [1]
+Next move to `analysis_validation_2025_08/` as the next highest-value validation archive, unless Brian wants deeper inspection of generated-output database payloads first. [1]
 
 # Relationship To Wiki
 
@@ -75,6 +75,7 @@ Next move to `generated_outputs_2025_08/` or `analysis_validation_2025_08/` as t
 - [Digimon Lineage Theoretical Exploration Schema v14 Post MVP](/wiki/sources/digimon-lineage-theoretical-exploration-schema-v14-post-mvp.md): post-MVP schema-evolution sub-slice from theoretical exploration.
 - [Digimon Lineage Gemini Review Tool Archive](/wiki/sources/digimon-lineage-gemini-review-tool-archive.md): Gemini review/validation tool archive and generated critique overview.
 - [Digimon Lineage Docs Architecture Cleanup 2025 08 29](/wiki/sources/digimon-lineage-docs-architecture-cleanup-2025-08-29.md): architecture cleanup archive and IC uncertainty supersession overview.
+- [Digimon Lineage Generated Outputs 2025 08](/wiki/sources/digimon-lineage-generated-outputs-2025-08.md): generated output artifacts, SQLite schemas, and repomix bundle caveats.
 - [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md): start of the old-backups represented slice family.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md): represented UI/archive UI slice.
 - [Progress](../../PROGRESS.md): working queue and commit-level progress tracker.
