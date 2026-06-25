@@ -59,6 +59,7 @@
 * [Lit Review Schema Application Code](sources/lit-review-schema-application-code.md) - schema_application code inventory and universal-applicator implementation notes.
 * [Lit Review Visualization Code](sources/lit-review-visualization-code.md) - visualization scripts for Carter cognitive maps and Semantic Hypergraph instances.
 * [Lit Review UI Code](sources/lit-review-ui-code.md) - Streamlit review surface and YAML statistics script for schema analysis.
+* [Lit Review Testing Code](sources/lit-review-testing-code.md) - testing/debug scripts for schema processors, provider behavior, prompt routing, and multi-agent phase execution.
 
 # Entities
 

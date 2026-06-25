@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added testing code slice with processor comparison, prompt-routing, computational-schema, provider-debug, and multi-agent runner scripts.
 * **Ingest** | Added UI code slice with Streamlit schema-analysis review surface and YAML statistics script.
 * **Ingest** | Added visualization code slice with Carter cognitive-map and Semantic Hypergraph inspection scripts.
 * **Ingest** | Added schema_application code slice with universal-applicator and hardcoded-path caveats.

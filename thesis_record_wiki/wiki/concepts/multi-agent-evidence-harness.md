@@ -9,6 +9,7 @@ sources:
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/multi_agent_system/USAGE_GUIDE.md
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/multi_agent_system/multi_agent_system/MULTI_AGENT_SYSTEM_GUIDE.md
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/multi_agent_system/docs/current_phase_status.md
+  - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/src/testing/run_multi_agent_implementation.py
 confidence: medium
 ---
 
@@ -30,6 +31,8 @@ It is a procedural answer to a recurring KGAS problem: implementation claims wer
 
 This harness is important because it shows the lit-review experiment developed its own internal verification culture. It does not automatically make every production-readiness claim externally true, but it raises the evidence level above a simple generated summary.
 
+The testing code preserves a runner for the six-phase harness. It invokes purpose classification, vocabulary extraction, schema generation, integration pipeline, reasoning engine, and production validation with an explicit 100/100 phase-gate requirement. [4]
+
 # Caveat
 
 The harness itself is preserved as historical source material. Its guides include hardcoded historical paths and claims about 100% success rates. Current reproducibility would require rerunning the evidence in the preserved environment or porting paths deliberately.
@@ -37,6 +40,7 @@ The harness itself is preserved as historical source material. Its guides includ
 # Links
 
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md)
+- [Lit Review Testing Code](/wiki/sources/lit-review-testing-code.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Balance Driven Validation](/wiki/concepts/balance-driven-validation.md)
 - [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md)
@@ -45,4 +49,5 @@ The harness itself is preserved as historical source material. Its guides includ
 
 [1] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/multi_agent_system/USAGE_GUIDE.md`  
 [2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/multi_agent_system/multi_agent_system/MULTI_AGENT_SYSTEM_GUIDE.md`  
-[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/multi_agent_system/docs/current_phase_status.md`
+[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/multi_agent_system/docs/current_phase_status.md`  
+[4] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/src/testing/run_multi_agent_implementation.py`

@@ -86,10 +86,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `f674a43` ingested the lit-review src code inventory, including 90-file aggregate hash and subdirectory roles for schema_creation, schema_application, testing, ui, and visualization.
 - `31ff970` ingested the schema_application code slice, including 24-script aggregate hash, direct OpenAI/hardcoded path counts, universal applicator implementation, and caveats.
 - `5efdb91` ingested the visualization code slice, including 9-script aggregate hash, Carter cognitive-map visualization scripts, Semantic Hypergraph visualization scripts, and hardcoded-path caveats.
-- Pending commit: UI code slice, including 3-file aggregate hash, Streamlit schema-analysis review surface, YAML corpus statistics script, and launcher caveats.
+- `dc6dce5` ingested the UI code slice, including 3-file aggregate hash, Streamlit schema-analysis review surface, YAML corpus statistics script, and launcher caveats.
+- Pending commit: testing code slice, including 14-script aggregate hash, processor comparison, prompt-routing, computational-schema execution, SH extraction, provider-debug, and multi-agent runner caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the UI code slice.
-2. Next recommended step: deep-dive `src/testing/`, because it preserves debugging and comparison scripts that explain how schema-generation and application behavior was checked.
+1. Run wiki lint, commit, and push the testing code slice.
+2. Next recommended step: inspect remaining top-level lit-review files and small directories not yet covered by the source-code/schema/literature passes.
 3. Later slices: selected remaining experiment directories.
