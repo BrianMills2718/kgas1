@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
 * **Verification** | Added current-code verification slice and current status verification discipline concept.
 * **Ingest** | Added UI recovered-components slice and recovered UI demo surface concept.

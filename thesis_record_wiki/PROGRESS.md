@@ -60,10 +60,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `ba02a82` ingested the lit-review multi-agent system slice, including isolated implementation/evaluation harness, current status claims, six phase evaluation results, and Phase 2 11/12-vs-100/100 caveat.
 - `d43ae5b` ingested the UI recovered-components slice, including duplicate recovered/archive UI README, static/Streamlit/FastAPI UI surfaces, dashboard evidence, and recovered React component.
 - `981e769` added the current-code verification slice, including storage, tool contract, API/MCP, UI, entry-point, and tests/current-layout findings.
-- Pending commit: runtime import check slice, including successful `src.core.tool_contract` import and failed `src.api.cross_modal_api` / `src.mcp_server` imports.
+- `236d6f5` added the runtime import check slice, including successful `src.core.tool_contract` import and failed `src.api.cross_modal_api` / `src.mcp_server` imports.
+- Pending commit: active-environment follow-up on the runtime import slice, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 
 ## Next
 
-1. Run wiki lint, commit, and push the runtime import check slice.
-2. Next recommended step: inspect whether the active environment should be repaired for read-only verification, or keep documenting current failures without installing dependencies.
+1. Run wiki lint, commit, and push the active-environment follow-up.
+2. Next recommended step: do a non-invasive source-level fix plan for the current import failures before changing code or installing shared-venv dependencies.
 3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.

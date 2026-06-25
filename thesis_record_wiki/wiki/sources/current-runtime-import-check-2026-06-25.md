@@ -59,6 +59,46 @@ FAIL src.mcp_server: ModuleNotFoundError: No module named 'neo4j'
 
 The import attempt also emitted a missing `config/default.yaml` warning and initialized logging to `logs/super_digimon.log`. Those side effects matter for future runtime verification: even import-only checks are not completely side-effect free.
 
+# Follow-Up Environment Inspection
+
+A follow-up inspection used the active interpreter:
+
+```text
+/home/brian/projects/.venv/bin/python
+Python 3.12.3
+```
+
+`python -m pip show neo4j fastapi pydantic requests urllib3 chardet charset-normalizer` confirmed:
+
+- `neo4j` is not installed in the active shared virtual environment
+- `fastapi`, `pydantic`, and `requests` are installed
+- the earlier `RequestsDependencyWarning` is reproducible from the active dependency set
+
+`python -m pip check` reported:
+
+```text
+graspologic 3.4.4 has requirement beartype<0.19.0,>=0.18.5, but you have beartype 0.22.9.
+```
+
+A direct symbol check succeeded:
+
+```bash
+python - <<'PY'
+from src.analytics.cross_modal_orchestrator import AnalysisRequest
+print("OK direct AnalysisRequest import")
+print(AnalysisRequest)
+PY
+```
+
+Result:
+
+```text
+OK direct AnalysisRequest import
+<class 'src.analytics.cross_modal_orchestrator.AnalysisRequest'>
+```
+
+Interpretation: the cross-modal API import failure is specifically caused by the `src.analytics` package export path, not by absence of `AnalysisRequest` from the repository. The MCP import failure remains a dependency-installation gap in the active environment.
+
 # Links
 
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md)

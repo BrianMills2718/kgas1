@@ -63,7 +63,7 @@ The recovered UI slice preserves human-facing demo and inspection surfaces: stat
 
 The current-code verification slice checks the cleaned checkout directly and finds important status gaps: documented root entry points and `src/ui` are absent, `src/mcp_server.py` and `src/api/cross_modal_api.py` exist, and Qdrant compatibility/mock code remains. See [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md).
 
-The runtime import slice adds first execution evidence for the cleaned checkout: `src.core.tool_contract` imports, `src.api.cross_modal_api` fails on `AnalysisRequest` export wiring, and `src.mcp_server` fails because `neo4j` is not installed in the active environment. See [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md).
+The runtime import slice adds first execution evidence for the cleaned checkout: `src.core.tool_contract` imports, `src.api.cross_modal_api` fails on `AnalysisRequest` export wiring, and `src.mcp_server` fails because `neo4j` is not installed in the active environment. A direct `AnalysisRequest` import from `src.analytics.cross_modal_orchestrator` succeeds, narrowing the API issue to package exports. See [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md).
 
 # Historical Position
 

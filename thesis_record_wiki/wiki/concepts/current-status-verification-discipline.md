@@ -25,7 +25,7 @@ The 2026-06-25 verification slice found concrete examples:
 - current docs and archives claim UI capability, but recovered UI code lives outside the current `src/` layout
 - storage ADRs describe Qdrant removal, but current code still has Qdrant compatibility/mock code
 - tool contracts exist, but existence does not prove complete tool migration
-- import-only runtime checks can split file-presence claims further: `src.core.tool_contract` imports, while current cross-modal API and MCP imports fail in the active environment
+- import-only runtime checks can split file-presence claims further: `src.core.tool_contract` imports, current cross-modal API fails on package export wiring, and MCP fails on active-environment dependency readiness
 
 # Rule
 
