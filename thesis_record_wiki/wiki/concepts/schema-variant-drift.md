@@ -29,6 +29,7 @@ Schema variant drift implies that validation must compare generated schemas agai
 
 - [Lit Review Operational Code Corpus](/wiki/sources/lit-review-operational-code-corpus.md)
 - [Lit Review Young1996 Schema Family](/wiki/sources/lit-review-young1996-schema-family.md)
+- [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Model Form Routing](/wiki/concepts/model-form-routing.md)

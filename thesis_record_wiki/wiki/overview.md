@@ -134,6 +134,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Testing Code](/wiki/sources/lit-review-testing-code.md) - 14-script testing/debug corpus for schema comparisons, prompt routing, provider checks, SH extraction, and six-phase multi-agent execution.
 - [Lit Review Root Files](/wiki/sources/lit-review-root-files.md) - top-level project framing, prompts, logs, source texts, environment files, and accidental package-output artifacts.
 - [Lit Review Docs Bundle](/wiki/sources/lit-review-docs-bundle.md) - 13-file methodology/reference bundle covering meta-schema, multiphase extraction, n-ary relations, schema enhancement, universal-applicator critique, and archived strategies.
+- [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md) - 28-file grounding slice with source papers, test texts, Carter examples, hybrid schemas, OWL/causal stress tests, and Grusch prompt material.
 
 # Current Cautions
 

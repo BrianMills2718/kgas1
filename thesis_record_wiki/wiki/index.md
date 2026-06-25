@@ -62,6 +62,7 @@
 * [Lit Review Testing Code](sources/lit-review-testing-code.md) - testing/debug scripts for schema processors, provider behavior, prompt routing, and multi-agent phase execution.
 * [Lit Review Root Files](sources/lit-review-root-files.md) - top-level lit_review files, including overview docs, prompts, logs, source texts, environment files, and root clutter.
 * [Lit Review Docs Bundle](sources/lit-review-docs-bundle.md) - methodology docs, universal-applicator critique, archived implementation strategies, TypeDB references, and Carter visualization artifacts.
+* [Lit Review Data And Examples](sources/lit-review-data-examples.md) - benchmark paper texts, test texts, UI requirements, Carter examples, hybrid schemas, OWL/causal stress tests, and Grusch prompt material.
 
 # Entities
 

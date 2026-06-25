@@ -26,6 +26,8 @@ The framing result detects multiple theoretical components and Prospect Theory, 
 
 The n-ary relations guide turns the same idea into a modeling decision procedure: use hypergraphs when n-ary relations are central and recursive, property graphs when binary relations dominate and occasional n-ary relations can be reified, and tables when fixed-arity row/column structure is natural. [3]
 
+The data/examples slice preserves `problems_to_fix.txt`, which explicitly identifies property-graph anchoring in earlier prompts and the domain/range-on-entities error. That file is negative evidence for why model-form routing had to become explicit. [4]
+
 # Rule
 
 Do not force every theory into the same representation just because the platform has a preferred graph format. First detect the theory's model form, then choose the schema/application path.
@@ -35,6 +37,7 @@ Do not force every theory into the same representation just because the platform
 - [Lit Review Model Form Detection Results](/wiki/sources/lit-review-model-form-detection-results.md)
 - [Lit Review ELM Schema](/wiki/sources/lit-review-elm-schema.md)
 - [Lit Review Docs Bundle](/wiki/sources/lit-review-docs-bundle.md)
+- [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 
@@ -42,4 +45,5 @@ Do not force every theory into the same representation just because the platform
 
 [1] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/experimental_testing/architecture_comparison/lofland_optimized_result.yml`  
 [2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/experimental_testing/architecture_comparison/heilman_optimized_result.yml`  
-[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/docs/N-ARY_RELATIONS_GUIDE.md`
+[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/docs/N-ARY_RELATIONS_GUIDE.md`  
+[4] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/data/test_texts/problems_to_fix.txt`

@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added data/examples grounding slice with paper texts, test texts, UI requirements, Carter examples, hybrid schemas, OWL/causal stress tests, and model-form negative evidence.
 * **Ingest** | Added lit-review docs bundle with meta-schema, methodology, n-ary relation guide, universal-applicator critique, archived strategies, TypeDB PDFs, and Carter visualization artifacts.
 * **Ingest** | Added lit-review root-files slice with overview docs, prompts, logs, source texts, sensitive env caveat, and root clutter.
 * **Ingest** | Added testing code slice with processor comparison, prompt-routing, computational-schema, provider-debug, and multi-agent runner scripts.
