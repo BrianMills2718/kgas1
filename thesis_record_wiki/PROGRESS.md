@@ -133,11 +133,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `4ea7913` ingested the uncertainty-stress-test core-services slice, including six Python implementation files, Bayesian/CERQual/LLM-native service roles, direct GPT-4 API patterns, fallback/default behavior, and optimized-engine runtime caveats.
 - `1942fde` ingested the uncertainty-stress-test validation slice, including preserved connectivity, formal Bayesian, LLM-native comparison, SocialMaze mock-mode outputs, validator scripts, missing-output caveats, and hardcoded-path caveats.
 - `3435403` ingested the uncertainty-stress-test testing slice, including nine-file IC-inspired harness, root 5/5 stress-test summary linkage, methodology walkthrough, synthetic-benchmark boundary, truncated-output caveat, and hardcoded-path rerun caveats.
-- Pending commit: uncertainty-stress-test Bayesian slice, including three psychological-trait Bayesian prototype scripts, simulated LLM likelihood-ratio methods, research-prior update pattern, and "real"/"production" label caveats.
+- `e2d58af` ingested the uncertainty-stress-test Bayesian slice, including three psychological-trait Bayesian prototype scripts, simulated LLM likelihood-ratio methods, research-prior update pattern, and "real"/"production" label caveats.
+- Pending commit: uncertainty-stress-test docs slice, including methodology/specification files, formula/design content, unchecked implementation checklist, performance-target boundary, and uncorroborated validation-claim caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the uncertainty-stress-test Bayesian slice.
-2. Next recommended step: continue with `archive/uncertainty_stress_test/docs/`, then `setup/`, because those should capture the remaining supporting methodology and reproducibility context.
+1. Run wiki lint, commit, and push the uncertainty-stress-test docs slice.
+2. Next recommended step: continue with `archive/uncertainty_stress_test/setup/`, then `optimization/`, because those should capture reproducibility context and speed-optimization evidence.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

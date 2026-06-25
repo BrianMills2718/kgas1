@@ -48,6 +48,8 @@ The archived uncertainty stress test is the implementation-side counterpart: it 
 
 The core-services slice shows both progress and traceability risk at code level. Several services preserve explicit reasoning/report structures, but they also rely on direct GPT-4 calls, JSON substring parsing, and default-return fallbacks after exceptions or parse failures. See [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md).
 
+The uncertainty docs slice supplies the intended traceability architecture and service interfaces, but it also ends with an unchecked implementation checklist. That makes it architecture/spec evidence rather than proof that traceability was implemented. See [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md).
+
 # Relationship To Other Threads
 
 This concept connects to:
@@ -59,6 +61,7 @@ This concept connects to:
 - [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md): focused ADR slice for confidence, quality, and entity-resolution uncertainty.
 - [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md): implementation/result slice for uncertainty services, tests, Davis validation, and bias-readiness caveats.
 - [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md): implementation-code slice for Bayesian, CERQual, LLM-native, and optimized uncertainty services.
+- [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md): methodology/specification slice with unchecked implementation checklist.
 
 # Citations
 

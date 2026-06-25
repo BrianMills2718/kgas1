@@ -40,6 +40,8 @@ The uncertainty testing slice adds another validation-level boundary: a root 5/5
 
 The uncertainty Bayesian slice is a naming caution: files named "real" and "production" still use simulated LLM analyses in the preserved code, so status claims must be based on behavior and outputs rather than filenames. See [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md).
 
+The uncertainty docs slice is a documentation-evidence caution: a methodology document can report validation-study numbers while a specification document marks every implementation checklist item unchecked. Use those as design/status claims to corroborate, not as standalone proof. See [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -72,6 +74,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md): preserved validation outputs versus validation scripts and missing-output boundaries.
 - [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md): constructed harness success versus generalization proof.
 - [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md): filename/status-label caveats for simulated LLM Bayesian prototypes.
+- [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md): design documents, unchecked checklist items, and uncorroborated validation-study claims.
 
 # Citations
 

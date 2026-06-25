@@ -30,6 +30,8 @@ The testing directory shows the IC-inspired harness behind the root 5/5 stress-t
 
 The Bayesian directory preserves an earlier psychological-trait inference prototype: simulated LLM evidence extraction and likelihood ratios feeding deterministic Bayesian updates. It is useful for understanding the method idea, but not proof of live LLM integration. See [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md).
 
+The docs directory preserves the mathematical/design rationale behind the stress test. It is useful for formulas and intended architecture, but the unchecked implementation checklist and uncorroborated validation-study claims mean it should not be used alone as completion evidence. See [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md).
+
 # Evolution
 
 1. **Contract normalization**: ADR-004 tried to make all tools report confidence through one Pydantic model. This addressed interface compatibility but not deeper research uncertainty. [1]
@@ -65,6 +67,7 @@ Several files cite an ADR-029 IC-informed uncertainty framework, but that direct
 - [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md)
 - [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md)
 - [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md)
+- [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md)
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md)
