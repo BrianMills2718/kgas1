@@ -34,7 +34,7 @@ The following top-level archive areas are already represented by dedicated wiki 
 | `validation-reports/` | 2 | 30,030 | Covered by old-backups validation reports page. |
 | `temp_analysis_2025_08/` | 16 | 19,659,025 | Covered by temp-analysis provenance page. |
 | `ARCHIVE_BEFORE_CLEANUP_20250805/` | 261 | 8,286,966 | Covered by overview plus proposal-rewrite, phases, initiatives, archived-investigations, analysis, residual-planning, and root-files sub-slices. |
-| `theoretical_exploration/` | 107 | 5,854,782 | Covered by overview page; proposal materials and full-example architecture still need dedicated sub-slices. |
+| `theoretical_exploration/` | 107 | 5,854,782 | Covered by overview and proposal-materials page; full-example architecture, thinking-out-loud, and HSPC sub-slices remain optional follow-ups. |
 
 # Not-Yet-Represented Areas
 
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next ingest `theoretical_exploration/proposal_materials/` as the highest-value sub-slice because it is likely to preserve active thesis/proposal framing, academic validation planning, HSPC material, and examples. [1]
+Next ingest `theoretical_exploration/archived_proposal_materials/full_example_architecture/` as the highest-value remaining theoretical-exploration sub-slice because it preserves full worked examples, uncertainty decisions, DAGs, and schema/application artifacts. [1]
 
 # Relationship To Wiki
 
@@ -68,6 +68,7 @@ Next ingest `theoretical_exploration/proposal_materials/` as the highest-value s
 - [Digimon Lineage Temp Analysis 2025 08](/wiki/sources/digimon-lineage-temp-analysis-2025-08.md): first high-priority not-yet-represented archive queue brought to represented status.
 - [Digimon Lineage Archive Before Cleanup 2025 08 05 Overview](/wiki/sources/digimon-lineage-archive-before-cleanup-2025-08-05-overview.md): overview of the pre-cleanup roadmap archive and its sub-slice queue.
 - [Digimon Lineage Theoretical Exploration Overview](/wiki/sources/digimon-lineage-theoretical-exploration-overview.md): overview of the theoretical/proposal archive and sub-slice queue.
+- [Digimon Lineage Theoretical Exploration Proposal Materials](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-materials.md): proposal-writing and research-planning sub-slice from theoretical exploration.
 - [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md): start of the old-backups represented slice family.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md): represented UI/archive UI slice.
 - [Progress](../../PROGRESS.md): working queue and commit-level progress tracker.
