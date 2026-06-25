@@ -38,6 +38,8 @@ The uncertainty validation slice adds an output-presence rule: LLM-native 7/7 an
 
 The uncertainty testing slice adds another validation-level boundary: a root 5/5 success summary exists for the IC-inspired harness, but the tests are constructed demonstrations and the root summary preserves only truncated stdout excerpts. See [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md).
 
+The uncertainty Bayesian slice is a naming caution: files named "real" and "production" still use simulated LLM analyses in the preserved code, so status claims must be based on behavior and outputs rather than filenames. See [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -69,6 +71,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md): source-code implementation evidence constrained by runtime caveats.
 - [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md): preserved validation outputs versus validation scripts and missing-output boundaries.
 - [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md): constructed harness success versus generalization proof.
+- [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md): filename/status-label caveats for simulated LLM Bayesian prototypes.
 
 # Citations
 

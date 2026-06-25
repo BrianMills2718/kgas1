@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added uncertainty-stress-test Bayesian page covering three psychological-trait Bayesian prototype scripts, simulated LLM likelihood-ratio methods, research-prior update pattern, and "real"/"production" label caveats.
 * **Ingest** | Added uncertainty-stress-test testing page covering the nine-file IC-inspired testing harness, root 5/5 stress-test summary linkage, methodology walkthrough, synthetic-benchmark boundary, truncated-output caveat, and hardcoded-path rerun caveats.
 * **Ingest** | Added uncertainty-stress-test validation page covering basic connectivity output, formal Bayesian examples, LLM-native comparison, SocialMaze mock-mode output, validator scripts, missing ground-truth/bias output files, and hardcoded-path caveats.
 * **Ingest** | Added uncertainty-stress-test core-services page covering six Python implementation files, direct GPT-4 API patterns, Bayesian/CERQual/LLM-native service roles, fallback/default behavior, and optimized-engine runtime caveats.
