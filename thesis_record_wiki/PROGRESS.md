@@ -88,10 +88,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `5efdb91` ingested the visualization code slice, including 9-script aggregate hash, Carter cognitive-map visualization scripts, Semantic Hypergraph visualization scripts, and hardcoded-path caveats.
 - `dc6dce5` ingested the UI code slice, including 3-file aggregate hash, Streamlit schema-analysis review surface, YAML corpus statistics script, and launcher caveats.
 - `1ce0e6f` ingested the testing code slice, including 14-script aggregate hash, processor comparison, prompt-routing, computational-schema execution, SH extraction, provider-debug, and multi-agent runner caveats.
-- Pending commit: lit-review root-files slice, including 22-file aggregate hash, project framing docs, prompt drafts, extraction logs, source texts, sensitive `.env` caveat, and root clutter.
+- `1e5bb6e` ingested the lit-review root-files slice, including 22-file aggregate hash, project framing docs, prompt drafts, extraction logs, source texts, sensitive `.env` caveat, and root clutter.
+- Pending commit: lit-review docs bundle slice, including 13-file aggregate hash, meta-schema, extraction methodology, n-ary relation guide, universal-applicator critique, archived strategies, TypeDB PDFs, and Carter visualization artifacts.
 
 ## Next
 
-1. Run wiki lint, commit, and push the root-files slice.
-2. Next recommended step: inspect `experiments/lit_review/docs/`, because it is a large documentation bundle that likely explains method, architecture, and limitations.
+1. Run wiki lint, commit, and push the docs bundle slice.
+2. Next recommended step: inspect `experiments/lit_review/data/` and `examples/`, because they likely preserve raw papers, test texts, and canonical examples that ground the schema/application claims.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.

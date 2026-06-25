@@ -8,6 +8,7 @@ updated: 2026-06-25
 sources:
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/experimental_testing/architecture_comparison/lofland_optimized_result.yml
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/experimental_testing/architecture_comparison/heilman_optimized_result.yml
+  - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/docs/N-ARY_RELATIONS_GUIDE.md
 confidence: medium
 ---
 
@@ -23,6 +24,8 @@ The framing result detects multiple theoretical components and Prospect Theory, 
 
 [Lit Review ELM Schema](/wiki/sources/lit-review-elm-schema.md) gives a positive simple case: the Elaboration Likelihood Model is represented as a compact sequential process with four entities, six relationships, and four analysis steps. This contrasts with the complex Young 1996 schema family and reinforces that representation should follow theory form.
 
+The n-ary relations guide turns the same idea into a modeling decision procedure: use hypergraphs when n-ary relations are central and recursive, property graphs when binary relations dominate and occasional n-ary relations can be reified, and tables when fixed-arity row/column structure is natural. [3]
+
 # Rule
 
 Do not force every theory into the same representation just because the platform has a preferred graph format. First detect the theory's model form, then choose the schema/application path.
@@ -31,10 +34,12 @@ Do not force every theory into the same representation just because the platform
 
 - [Lit Review Model Form Detection Results](/wiki/sources/lit-review-model-form-detection-results.md)
 - [Lit Review ELM Schema](/wiki/sources/lit-review-elm-schema.md)
+- [Lit Review Docs Bundle](/wiki/sources/lit-review-docs-bundle.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 
 # Citations
 
 [1] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/experimental_testing/architecture_comparison/lofland_optimized_result.yml`  
-[2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/experimental_testing/architecture_comparison/heilman_optimized_result.yml`
+[2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/experimental_testing/architecture_comparison/heilman_optimized_result.yml`  
+[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/docs/N-ARY_RELATIONS_GUIDE.md`

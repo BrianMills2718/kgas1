@@ -52,6 +52,7 @@ This thread is close to the core dissertation goal of LLM-generated ontologies a
 - [Multi-Theory Application Artifact](/wiki/concepts/multi-theory-application-artifact.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md)
+- [Lit Review Docs Bundle](/wiki/sources/lit-review-docs-bundle.md)
 
 # Concrete Output Slice
 
