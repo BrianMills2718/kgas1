@@ -54,13 +54,13 @@ The following top-level archive areas were not found in the wiki index by this a
 | `old_docs_2025_08/` | 12 | 289,025 | Covered by old-docs-2025-08 page; deeper IC uncertainty extraction remains optional. |
 | `temp_debug_files/` | 32 | 169,254 | Low unless it contains unique failure evidence. |
 | `old_claude_md_versions/` | 7 | 123,514 | Covered by old-CLAUDE-md-versions page. |
-| `demos_examples_2025_08/` | 13 | 63,774 | Low-medium: demo/example corpus. |
+| `demos_examples_2025_08/` | 13 | 63,774 | Covered by demos-examples-2025-08 page; overlaps with scripts archive. |
 | `archived_implementations/` | 4 | 53,730 | Low-medium: small implementation remnants. |
 | `doc_generation_scripts/` | 4 | 26,430 | Low: scripts for docs generation unless tied to generated claims. |
 
 # Recommended Next Slice
 
-Next reassess whether lower-priority `demos_examples_2025_08/`, `archived_implementations/`, `doc_generation_scripts/`, and `temp_debug_files/` merit dedicated pages. Prefer `demos_examples_2025_08/` if continuing archive coverage because it is more likely to preserve user-facing workflow examples than raw debug scratch. [1]
+Next reassess whether lower-priority `archived_implementations/`, `doc_generation_scripts/`, and `temp_debug_files/` merit dedicated pages. Prefer `archived_implementations/` next because it is small and may contain actual implementation remnants. [1]
 
 # Relationship To Wiki
 
@@ -81,6 +81,7 @@ Next reassess whether lower-priority `demos_examples_2025_08/`, `archived_implem
 - [Digimon Lineage Agent Stress Testing](/wiki/sources/digimon-lineage-agent-stress-testing.md): agent workflow/adaptive-planning stress-test archive overview.
 - [Digimon Lineage Scripts Archive 2025 08](/wiki/sources/digimon-lineage-scripts-archive-2025-08.md): archived debug/demo/fix/old-analysis/test scripts corpus.
 - [Digimon Lineage Archived Experimental Tests](/wiki/sources/digimon-lineage-archived-experimental-tests.md): archived redundant functional, stress, and root test corpus.
+- [Digimon Lineage Demos Examples 2025 08](/wiki/sources/digimon-lineage-demos-examples-2025-08.md): small demo/example corpus with ontology UI and validation leftovers.
 - [Digimon Lineage Root Cleanup 2025 08 29](/wiki/sources/digimon-lineage-root-cleanup-2025-08-29.md): root cleanup and duplicate entry-point archive overview.
 - [Digimon Lineage Old Claude Md Versions](/wiki/sources/digimon-lineage-old-claude-md-versions.md): historical agent-instruction archive overview.
 - [Digimon Lineage Old Docs 2025 08](/wiki/sources/digimon-lineage-old-docs-2025-08.md): superseded old-docs archive covering contract-first, structured-output, operations, and uncertainty notes.

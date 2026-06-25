@@ -169,11 +169,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `ddd5d9f` ingested the old-docs-2025-08 slice, including contract-first interface split, service API drift, structured-output migration, documentation/status separation, operations-label caveat, IC uncertainty notes, and placeholder-key finding.
 - `c2c768f` ingested the proposal-rewrite-condensed slice, including SCT full-example DAGs, StructGPT-inspired schema discovery/data interfaces, graph fusion, dynamic tool generation, uncertainty-framework notes, pure-LLM uncertainty critique, and no-literal-key finding.
 - `5e912a9` ingested the scripts-archive-2025-08 slice, including debug/demo/fix/old-analysis/test inventory, repair-script policy lineage, DAG/cross-modal/LLM/Neo4j/MCP harnesses, relationship-debugging notes, hardcoded-path caveats, and no-literal-key finding.
-- Pending commit: archived-experimental-tests slice, including redundant-functional/stress/root-test inventory, MCP/PDF workflow tests, TORC/adversarial stress methodology, API/contract/configuration checks, PageRank/vertical-slice caveats, empty-directory notes, and no-literal-key finding.
+- `f83a5a8` ingested the archived-experimental-tests slice, including redundant-functional/stress/root-test inventory, MCP/PDF workflow tests, TORC/adversarial stress methodology, API/contract/configuration checks, PageRank/vertical-slice caveats, empty-directory notes, and no-literal-key finding.
+- Pending commit: demos-examples-2025-08 slice, including ontology Streamlit UI, Neo4j/SQLite transaction demo, reliability demonstration, direct Gemini validators, natural-language-to-DAG proof, sample documents, multimodal output JSON, and no-literal-key finding.
 
 ## Next
 
-1. Run wiki lint, commit, and push the archived-experimental-tests slice.
-2. Next recommended step: reassess lower-priority archive directories; if continuing coverage, do `archive/demos_examples_2025_08/` before `temp_debug_files/` because demos are more likely to preserve meaningful workflow examples.
+1. Run wiki lint, commit, and push the demos-examples-2025-08 slice.
+2. Next recommended step: inspect `archive/archived_implementations/` before `doc_generation_scripts/` and `temp_debug_files/`, because it is small and may contain actual implementation remnants.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
