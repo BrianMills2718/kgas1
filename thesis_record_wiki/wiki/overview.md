@@ -108,6 +108,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Validation Retesting Empty Directories](/wiki/sources/lit-review-validation-retesting-empty.md) - negative evidence that the preserved retesting subtree has directories but no files.
 - [Grusch UAP Information Disorder Output](/wiki/sources/grusch-uap-information-disorder-output.md) - structured generated application output over a UAP hearing/public-information case.
 - [Information Disorder Application Artifact](/wiki/concepts/information-disorder-application-artifact.md) - generated-output pattern for actors, messages, interpreters, credibility, transparency, and narrative contestation.
+- [Lit Review Old Schema Archive Inventory](/wiki/sources/lit-review-old-schema-archive-inventory.md) - inventory of 56 archived early theory schemas, common schema fields, and one parseability gap.
+- [Old Schema Corpus Breadth](/wiki/concepts/old-schema-corpus-breadth.md) - finding that the thesis attempted a broad interdisciplinary schema corpus before later validation discipline.
 
 # Current Cautions
 

@@ -68,10 +68,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `bfaa496` ingested the model-form detection slice, including Lofland-Stark sequential-funnel result, Heilman/framing internal inconsistency caveat, empty sibling result directories, and model-form-routing concept.
 - `d700688` ingested the prompt-variation model-routing slice, including theory-count detection, specialized detector calibration, confidence integration, hybrid detection, and generated Young 1996 hybrid schema.
 - `3a77822` documented negative evidence for empty `experimental_testing/validation_retesting` subdirectories.
-- Pending commit: Grusch/UAP information-disorder output slice, including structured generated analysis and empty `analysis_results/` caveat.
+- `9e17ffd` ingested the Grusch/UAP information-disorder output slice, including structured generated analysis and empty `analysis_results/` caveat.
+- Pending commit: old schema archive inventory slice, including 56 YAML schemas, 55 parseable dictionaries, one malformed file, aggregate directory hash, and old-schema-corpus-breadth concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the Grusch/UAP information-disorder output slice.
-2. Next recommended step: inspect `archive/old_schemas/` as a historical schema inventory slice, because it likely captures the breadth of theory domains attempted before later schema-generation pipelines.
+1. Run wiki lint, commit, and push the old schema archive inventory slice.
+2. Next recommended step: inspect `archive/legacy_system/` and `archive/project_overviews/`, because they likely preserve the pre-pipeline conceptual framing and may explain why the old schema corpus was created.
 3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.
