@@ -125,6 +125,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Multi Theory Extraction Split](/wiki/concepts/multi-theory-extraction-split.md) - extraction-mode design choice between theoretical landscape preservation and executable single-theory output.
 - [Lit Review Social Identity Theory Schema](/wiki/sources/lit-review-social-identity-theory-schema.md) - smaller adjacent Self-Categorization Theory schema pass over the same Turner/Oakes source.
 - [Lit Review Young1996 Schema Family](/wiki/sources/lit-review-young1996-schema-family.md) - mature Young/WorldView schema family spanning theory-only, multi-pass, enhanced, computational, and execution-prompt variants.
+- [Lit Review ELM Schema](/wiki/sources/lit-review-elm-schema.md) - compact sequential persuasion schema contrasting with Young's complex schema family.
 
 # Current Cautions
 

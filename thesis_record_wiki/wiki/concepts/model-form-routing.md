@@ -21,6 +21,8 @@ The Lofland-Stark result treats conversion theory as a sequential funnel. A grap
 
 The framing result detects multiple theoretical components and Prospect Theory, but contains an internal inconsistency between its rationale and final `model_type`. That makes it evidence for the need for routing plus validation, not evidence that the router was solved. [2]
 
+[Lit Review ELM Schema](/wiki/sources/lit-review-elm-schema.md) gives a positive simple case: the Elaboration Likelihood Model is represented as a compact sequential process with four entities, six relationships, and four analysis steps. This contrasts with the complex Young 1996 schema family and reinforces that representation should follow theory form.
+
 # Rule
 
 Do not force every theory into the same representation just because the platform has a preferred graph format. First detect the theory's model form, then choose the schema/application path.
@@ -28,6 +30,7 @@ Do not force every theory into the same representation just because the platform
 # Links
 
 - [Lit Review Model Form Detection Results](/wiki/sources/lit-review-model-form-detection-results.md)
+- [Lit Review ELM Schema](/wiki/sources/lit-review-elm-schema.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 

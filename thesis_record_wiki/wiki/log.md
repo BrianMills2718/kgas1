@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added ELM schema slice and updated model-form-routing.
 * **Ingest** | Added Young1996 schema-family slice and updated schema-variant-drift.
 * **Ingest** | Added social-identity-theory schema slice and updated multi-theory-extraction-split.
 * **Ingest** | Added Turner social-identity extraction comparison and multi-theory-extraction-split concept.
