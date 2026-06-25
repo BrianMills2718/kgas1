@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added debug_improved and empty analysis_results slice with three-phase Carter/SH intermediate outputs and empty-directory caveat.
 * **Ingest** | Added evidence corpus inventory with Phase 1 purpose-classification summary and links to existing Phase 2-6 detail pages.
 * **Ingest** | Added data/examples grounding slice with paper texts, test texts, UI requirements, Carter examples, hybrid schemas, OWL/causal stress tests, and model-form negative evidence.
 * **Ingest** | Added lit-review docs bundle with meta-schema, methodology, n-ary relation guide, universal-applicator critique, archived strategies, TypeDB PDFs, and Carter visualization artifacts.

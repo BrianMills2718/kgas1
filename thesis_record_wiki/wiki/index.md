@@ -64,6 +64,7 @@
 * [Lit Review Docs Bundle](sources/lit-review-docs-bundle.md) - methodology docs, universal-applicator critique, archived implementation strategies, TypeDB references, and Carter visualization artifacts.
 * [Lit Review Data And Examples](sources/lit-review-data-examples.md) - benchmark paper texts, test texts, UI requirements, Carter examples, hybrid schemas, OWL/causal stress tests, and Grusch prompt material.
 * [Lit Review Evidence Corpus](sources/lit-review-evidence-corpus.md) - six-phase evidence directory inventory with focused Phase 1 purpose-classification summary and links to Phase 2-6 detail pages.
+* [Lit Review Debug Improved Results](sources/lit-review-debug-improved-results.md) - improved three-phase debug JSON outputs for Carter and Semantic Hypergraph cases, plus empty analysis_results caveat.
 
 # Entities
 

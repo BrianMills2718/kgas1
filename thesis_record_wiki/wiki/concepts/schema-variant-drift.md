@@ -25,11 +25,14 @@ Schema variant drift implies that validation must compare generated schemas agai
 
 [Lit Review Young1996 Schema Family](/wiki/sources/lit-review-young1996-schema-family.md) shows a constructive form of variant drift: Young 1996 variants serve different operational roles, including theory-only description, simplified network schema, multi-pass extraction record, universal-applicator schema, computational algorithm spec, and execution prompt.
 
+[Lit Review Debug Improved Results](/wiki/sources/lit-review-debug-improved-results.md) adds an intermediate-output version of the same pattern: two Semantic Hypergraph debug runs both route to `hypergraph`, but preserve substantially different Phase 2 and Phase 3 counts.
+
 # Links
 
 - [Lit Review Operational Code Corpus](/wiki/sources/lit-review-operational-code-corpus.md)
 - [Lit Review Young1996 Schema Family](/wiki/sources/lit-review-young1996-schema-family.md)
 - [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md)
+- [Lit Review Debug Improved Results](/wiki/sources/lit-review-debug-improved-results.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Model Form Routing](/wiki/concepts/model-form-routing.md)

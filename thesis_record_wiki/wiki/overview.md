@@ -136,6 +136,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Docs Bundle](/wiki/sources/lit-review-docs-bundle.md) - 13-file methodology/reference bundle covering meta-schema, multiphase extraction, n-ary relations, schema enhancement, universal-applicator critique, and archived strategies.
 - [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md) - 28-file grounding slice with source papers, test texts, Carter examples, hybrid schemas, OWL/causal stress tests, and Grusch prompt material.
 - [Lit Review Evidence Corpus](/wiki/sources/lit-review-evidence-corpus.md) - 114-file six-phase evidence corpus, including Phase 1 purpose classification and links to detailed Phase 2-6 pages.
+- [Lit Review Debug Improved Results](/wiki/sources/lit-review-debug-improved-results.md) - 9 JSON intermediate phase outputs for Carter and Semantic Hypergraph cases, with empty `analysis_results/` negative evidence.
 
 # Current Cautions
 
