@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added old-backups-results page with provenance traces, Phase D success report, 0/6 validation report, failed end-to-end workflow, production-readiness caveat, and 22.2% tool-interface compliance audit.
 * **Ingest** | Added evidence-reports-2025-08 page with 13-file inventory, DAG/traceability demonstrations, coverage caveats, Carter analysis traceability, and relationship-extraction bottleneck evidence.
 * **Ingest** | Added current-evidence-archive page with 46-file inventory, timestamped verification successes/failures, corrected performance claims, and failed full-integration caveat.
 * **Ingest** | Added generated-reports page with 82-file inventory, reliability supersession chronology, coverage-claim caveat, and integration evidence report summary.

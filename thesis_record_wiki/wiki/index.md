@@ -47,6 +47,7 @@
 * [Digimon Lineage Generated Reports](sources/digimon-lineage-generated-reports.md) - 82-file generated-report corpus with coverage, reliability, evidence, validation bundle, and supersession caveats.
 * [Digimon Lineage Current Evidence Archive](sources/digimon-lineage-current-evidence-archive.md) - 46-file evidence/current corpus with timestamped verification records, corrected speedup claims, mixed integration results, and negative evidence.
 * [Digimon Lineage Evidence Reports 2025 08](sources/digimon-lineage-evidence-reports-2025-08.md) - curated 13-file August 2025 evidence-report bundle with DAG, traceability, coverage, Carter-analysis, and architectural-bottleneck reports.
+* [Digimon Lineage Old Backups Results](sources/digimon-lineage-old-backups-results.md) - nine-file old-backups results slice with provenance traces, Phase D success report, validation failures, performance outputs, and tool-interface audit.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
 * [Lit Review Multi Agent System Corpus](sources/lit-review-multi-agent-system-corpus.md) - corpus-level inventory of the 648-file multi-agent harness, nested V5.2 evidence packages, templates, tests, and remediation records.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.

@@ -113,10 +113,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `6120db2` synthesized the test-evidence-layer concept, including claim-level distinctions across test definitions, status metadata, historical generated reports, and runtime proof.
 - `c10ca8b` ingested the generated-reports slice, including 82-file report inventory, reliability supersession chronology, coverage caveat, and integration evidence report summary.
 - `4e557d1` ingested the current-evidence-archive slice, including 46-file evidence/current inventory, timestamped verification failures/successes, corrected speedup claims, and failed full-integration caveat.
-- Pending commit: evidence-reports-2025-08 slice, including 13-file August evidence-report inventory, DAG/traceability demonstrations, coverage caveats, Carter analysis traceability, and repeated relationship-extraction bottleneck evidence.
+- `96d7814` ingested the evidence-reports-2025-08 slice, including 13-file August evidence-report inventory, DAG/traceability demonstrations, coverage caveats, Carter analysis traceability, and repeated relationship-extraction bottleneck evidence.
+- Pending commit: old-backups-results slice, including 9-file output-artifact inventory, provenance traces, Phase D success report, 0/6 validation report, failed end-to-end workflow, production-readiness caveat, and 22.2% interface audit.
 
 ## Next
 
-1. Run wiki lint, commit, and push the evidence-reports-2025-08 slice.
-2. Next recommended step: inspect `archive/old_backups_2025_08/results/`, because it is likely a smaller output-artifact slice before the larger old-backups tree.
+1. Run wiki lint, commit, and push the old-backups-results slice.
+2. Next recommended step: inspect `archive/old_backups_2025_08/outputs/coverage/current/`, because coverage output is a bounded evidence-adjacent subtree and should clarify whether the coverage reports have underlying HTML/JSON outputs.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
