@@ -44,6 +44,7 @@
 * [Grusch UAP Information Disorder Output](sources/grusch-uap-information-disorder-output.md) - structured generated analysis of UAP hearing narratives, actors, credibility, and information disorder.
 * [Lit Review Old Schema Archive Inventory](sources/lit-review-old-schema-archive-inventory.md) - inventory of 56 archived early theory schemas and parseability caveats.
 * [Lit Review Legacy System Framing](sources/lit-review-legacy-system-framing.md) - archived early methodology and project framing for Analyst/Assembler schema generation.
+* [Lit Review Literature Corpus Inventory](sources/lit-review-literature-corpus-inventory.md) - inventory of the preserved annotated literature corpus, topical folders, and schema-location caveats.
 
 # Entities
 
@@ -86,6 +87,7 @@
 * [Information Disorder Application Artifact](concepts/information-disorder-application-artifact.md) - generated-output pattern for public-information events and narrative contestation.
 * [Old Schema Corpus Breadth](concepts/old-schema-corpus-breadth.md) - early broad theory-schema corpus before later validation/routing discipline.
 * [Analyst Assembler Pattern](concepts/analyst-assembler-pattern.md) - LLM for semantic interpretation, deterministic code for schema assembly and validation.
+* [Literature Corpus As Theory Testbed](concepts/literature-corpus-as-theory-testbed.md) - heterogeneous corpus as stress test for theory-to-schema representation methods.
 
 # Timeline
 

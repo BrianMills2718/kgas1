@@ -112,6 +112,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Old Schema Corpus Breadth](/wiki/concepts/old-schema-corpus-breadth.md) - finding that the thesis attempted a broad interdisciplinary schema corpus before later validation discipline.
 - [Lit Review Legacy System Framing](/wiki/sources/lit-review-legacy-system-framing.md) - archived Analyst/Assembler methodology, computational social science framing, and critical validation problems.
 - [Analyst Assembler Pattern](/wiki/concepts/analyst-assembler-pattern.md) - workflow split between LLM interpretation and deterministic schema assembly.
+- [Lit Review Literature Corpus Inventory](/wiki/sources/lit-review-literature-corpus-inventory.md) - 73-file preserved corpus with 47 indexed papers across theory, persuasion, intervention, information, and behavior-change domains.
+- [Literature Corpus As Theory Testbed](/wiki/concepts/literature-corpus-as-theory-testbed.md) - corpus-level explanation for why model routing and hybrid representations became necessary.
 
 # Current Cautions
 

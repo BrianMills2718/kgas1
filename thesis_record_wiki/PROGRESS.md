@@ -70,10 +70,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `3a77822` documented negative evidence for empty `experimental_testing/validation_retesting` subdirectories.
 - `9e17ffd` ingested the Grusch/UAP information-disorder output slice, including structured generated analysis and empty `analysis_results/` caveat.
 - `5fa54dc` ingested the old schema archive inventory slice, including 56 YAML schemas, 55 parseable dictionaries, one malformed file, aggregate directory hash, and old-schema-corpus-breadth concept.
-- Pending commit: legacy-system framing slice, including Analyst/Assembler methodology, post-processing guide, project overview, archived CLAUDE validation problems, and analyst-assembler-pattern concept.
+- `9b2fb37` ingested the legacy-system framing slice, including Analyst/Assembler methodology, post-processing guide, project overview, archived CLAUDE validation problems, and analyst-assembler-pattern concept.
+- Pending commit: literature corpus inventory slice, including 73 preserved files, 47 indexed papers, topical folder counts, schema-location caveat, and literature-corpus-as-theory-testbed concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the legacy-system framing slice.
-2. Next recommended step: inspect top-level `literature/Index.md` and the `literature/` domain folders to capture the raw source corpus breadth behind the schema archive.
-3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.
+1. Run wiki lint, commit, and push the literature corpus inventory slice.
+2. Next recommended step: inspect `literature/operational_code_analysis/` as the first semantic deep dive, because Young/operational-code artifacts recur in current validation, prompt variation, and schema evolution pages.
+3. Later slices: `literature/influence_operations/`, `literature/social_marketing/`, selected generated-code directories, and remaining experiment directories.
