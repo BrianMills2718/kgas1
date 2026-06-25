@@ -90,6 +90,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage Analysis Expansion ADRs](/wiki/sources/digimon-lineage-analysis-expansion-adrs.md) - cross-modal, schema, simulation, statistical, and local API architecture ambitions.
 - [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md) - thesis-level expansion from graph building toward multi-representation social theory analysis.
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
+- [Lit Review Multi Agent System Corpus](/wiki/sources/lit-review-multi-agent-system-corpus.md) - full 648-file inventory separating the outer lit-review harness from the nested V5.2 generator/evidence/remediation corpus.
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md) - procedural evidence pattern for isolated implementation, external evaluation, remediation, and 100/100 gates.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md) - recovered and archived KGAS UI/demo/dashboard files.
 - [Recovered UI Demo Surface](/wiki/concepts/recovered-ui-demo-surface.md) - human-facing inspection/demo layer for upload, analysis, graph status, query, and export workflows.
