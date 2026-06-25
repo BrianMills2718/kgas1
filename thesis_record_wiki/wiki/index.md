@@ -55,6 +55,7 @@
 * [Lit Review Young1996 Schema Family](sources/lit-review-young1996-schema-family.md) - mature Young/WorldView schema variants and execution prompt.
 * [Lit Review ELM Schema](sources/lit-review-elm-schema.md) - compact Elaboration Likelihood Model schema and summary.
 * [Lit Review Semantic Hypergraph Schema Family](sources/lit-review-semantic-hypergraph-schema-family.md) - semantic-hypergraph schema variants and debug-output inventory.
+* [Lit Review Src Code Inventory](sources/lit-review-src-code-inventory.md) - directory-level inventory of schema creation/application/testing/UI/visualization source code.
 
 # Entities
 

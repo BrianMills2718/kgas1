@@ -127,6 +127,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Young1996 Schema Family](/wiki/sources/lit-review-young1996-schema-family.md) - mature Young/WorldView schema family spanning theory-only, multi-pass, enhanced, computational, and execution-prompt variants.
 - [Lit Review ELM Schema](/wiki/sources/lit-review-elm-schema.md) - compact sequential persuasion schema contrasting with Young's complex schema family.
 - [Lit Review Semantic Hypergraph Schema Family](/wiki/sources/lit-review-semantic-hypergraph-schema-family.md) - 19-file schema-variant and debug-output inventory for the formal Semantic Hypergraph theory.
+- [Lit Review Src Code Inventory](/wiki/sources/lit-review-src-code-inventory.md) - 90-file code inventory showing schema creation, application, testing, visualization, and UI surfaces.
 
 # Current Cautions
 

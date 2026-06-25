@@ -82,10 +82,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `63f37ea` ingested the Young1996 schema-family slice, including six-file aggregate hash, computational/enhanced/multi-pass variants, execution prompt, and schema-variant-drift update.
 - `fb6bc1b` ingested the ELM schema slice, including two-file aggregate hash, compact sequential schema shape, and model-form-routing update.
 - `893f3d8` ingested the semantic-hypergraph schema-family slice, including 19-file aggregate hash, enhanced/multi-pass/option variants, debug-output inventory, and formal-notation concept link.
-- Pending commit: simple schema fixture caveat, documenting `schemas/test_simple_schema.yml` as a synthetic hypergraph test artifact rather than substantive source.
+- `24fef8c` documented the simple schema fixture caveat for `schemas/test_simple_schema.yml` as a synthetic hypergraph test artifact rather than substantive source.
+- Pending commit: lit-review src code inventory, including 90-file aggregate hash and subdirectory roles for schema_creation, schema_application, testing, ui, and visualization.
 
 ## Next
 
-1. Run wiki lint, commit, and push the simple schema fixture caveat.
-2. Next recommended step: inspect `experiments/lit_review/src/` at directory level, then deep-dive `src/schema_application/` because it connects schemas to execution/application.
-3. Later slices: selected generated-code directories and remaining experiment directories.
+1. Run wiki lint, commit, and push the lit-review src code inventory.
+2. Next recommended step: deep-dive `src/schema_application/`, because it connects schemas to execution/application and likely contains the clearest evidence of how theory schemas became runnable workflows.
+3. Later slices: `src/visualization/`, `src/ui/`, and selected remaining experiment directories.

@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added lit-review src code inventory.
 * **Ingest** | Added semantic-hypergraph schema-family slice and linked it to formal notation as theory content.
 * **Ingest** | Added ELM schema slice and updated model-form-routing.
 * **Ingest** | Added Young1996 schema-family slice and updated schema-variant-drift.
