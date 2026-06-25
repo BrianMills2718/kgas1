@@ -34,6 +34,8 @@ This pattern matters because it suggests a practical thesis implementation strat
 
 That is more credible and operationally useful than claiming the whole theory-extraction problem was solved uniformly.
 
+[Balance Driven Validation](/wiki/concepts/balance-driven-validation.md) is a related but separate validation pattern: it checks purpose parity, while complexity/accuracy checks which theory structures are suitable for automation.
+
 # Caution
 
 The validation summary later claims 100% validation completion and 100% model-type accuracy across all complexity levels, but the same file still contains `TBD` rows for medium/complex tests and discourse diversification. Until those follow-up artifacts are ingested, this page preserves the narrower, better-supported pattern.

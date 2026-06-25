@@ -74,6 +74,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md) - information-loss correction, no-truncation extraction, and adaptive model-type selection thread.
 - [Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md) - reports and outputs for Young 1996, framing effects, and Lofland-Stark validation cases.
 - [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md) - conservative validation lesson that simple theories are the best automation target.
+- [Lit Review Phase 2-3 Evidence](/wiki/sources/lit-review-phase2-3-evidence.md) - balanced vocabulary/schema evidence with a Phase 2 summary-versus-test contradiction.
+- [Balance Driven Validation](/wiki/concepts/balance-driven-validation.md) - validation metric pattern useful for bias detection but insufficient alone for theory fidelity.
 
 # Current Cautions
 

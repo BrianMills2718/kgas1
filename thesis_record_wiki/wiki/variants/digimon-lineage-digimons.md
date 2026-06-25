@@ -30,6 +30,8 @@ The `experiments/lit_review/src/schema_creation` slice documents production-path
 
 The `experiments/lit_review/validation_results` slice records validation reports and outputs. The conservative finding is a complexity/accuracy pattern rather than blanket success: Lofland-Stark sequence worked especially well, framing effects exposed a model-type error, and Young 1996 worked as a property graph case. See [Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md).
 
+The `experiments/lit_review/evidence/phase2_vocabulary_extraction` and `phase3_schema_generation` slice records balance-driven evidence. Phase 3 has consistent 8/8 passing test artifacts; Phase 2 preserves a contradiction between 100% remediation claims and a failing stored test result. See [Lit Review Phase 2-3 Evidence](/wiki/sources/lit-review-phase2-3-evidence.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

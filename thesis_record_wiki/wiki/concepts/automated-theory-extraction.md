@@ -58,6 +58,8 @@ This thread is close to the core dissertation goal of LLM-generated ontologies a
 
 [Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md) is the first ingested validation-results slice. It supports a conservative strategy: automate simpler theories first and treat broader 100% validation claims as requiring more evidence.
 
+[Lit Review Phase 2-3 Evidence](/wiki/sources/lit-review-phase2-3-evidence.md) adds the balance-metric evidence layer. It shows Phase 3 internally consistent at 8/8 tests, while Phase 2 has a summary/test-results conflict.
+
 # Citations
 
 [1] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/CLAUDE.md`  

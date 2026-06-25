@@ -22,6 +22,7 @@
 * [Carter Theory Analysis Output](sources/carter-theory-analysis-output.md) - generated Carter speech outputs applying cognitive mapping and framing theory.
 * [Lit Review Schema Creation Production Path](sources/lit-review-schema-creation-production-path.md) - schema_creation code and prompts behind the lit-review extraction pipeline.
 * [Lit Review Validation Results](sources/lit-review-validation-results.md) - validation reports for Young 1996, framing effects, and Lofland-Stark complexity testing.
+* [Lit Review Phase 2-3 Evidence](sources/lit-review-phase2-3-evidence.md) - evidence artifacts for balanced vocabulary extraction and schema generation.
 
 # Entities
 
@@ -48,6 +49,7 @@
 * [Multi-Theory Application Artifact](concepts/multi-theory-application-artifact.md) - concrete generated-output pattern for applying multiple theories to one empirical text.
 * [Schema Extraction Pipeline Evolution](concepts/schema-extraction-pipeline-evolution.md) - evolution toward full-vocabulary, model-adaptive, no-truncation theory extraction.
 * [Complexity Accuracy Pattern](concepts/complexity-accuracy-pattern.md) - validation pattern that simpler theories are more reliable automation targets.
+* [Balance Driven Validation](concepts/balance-driven-validation.md) - five-purpose balance metric pattern and its evidence/overfitting risk.
 
 # Timeline
 

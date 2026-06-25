@@ -39,6 +39,8 @@ The schema-creation source slice documents the production-path side of that line
 
 The validation-results slice gives the first conservative validation pattern: simple theories appear better suited to automation, while medium/cross-domain theories can still miss model type. See [Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md) and [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md).
 
+The Phase 2-3 evidence slice shows how KGAS/lit-review tried to operationalize balanced descriptive, explanatory, predictive, causal, and intervention purposes. See [Lit Review Phase 2-3 Evidence](/wiki/sources/lit-review-phase2-3-evidence.md) and [Balance Driven Validation](/wiki/concepts/balance-driven-validation.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).
