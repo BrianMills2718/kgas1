@@ -122,11 +122,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `b99dd9d` documented the empty old-backups-monitoring-output slice, showing that `monitoring_output/` exists but contains zero files.
 - `e767a10` ingested the old-backups-output-reports slice, including Phase A 6/6 pass report, Phase B 20/20 pass report, and tool-registry status showing 12/123 tools implemented.
 - `1a40b6d` ingested the old-backups-logs slice, including 44,622-line `super_digimon.log`, Neo4j/API failure patterns, successful pipeline traces, and raw credential-leak caveat.
-- Pending commit: old-backups-theory-output slice, including Prospect Theory JSON/report/CSV generated-output artifact and input-to-parameter drift caveat.
+- `b14f762` ingested the old-backups-theory-output slice, including Prospect Theory JSON/report/CSV generated-output artifact and input-to-parameter drift caveat.
+- Pending commit: old-backups-architecture-overview slice, including eight architecture/ADR overview files and architecture-intent caveat.
 
 ## Next
 
-1. Run wiki lint, commit, and push the old-backups-theory-output slice.
-2. Next recommended step: inspect `archive/old_backups_2025_08/overview/`, because it may explain the old-backups bundle structure and intended status.
+1. Run wiki lint, commit, and push the old-backups-architecture-overview slice.
+2. Next recommended step: inspect `archive/old_backups_2025_08/backups/`, because it is the next old-backups top-level subtree and may contain backup manifests or snapshots.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
