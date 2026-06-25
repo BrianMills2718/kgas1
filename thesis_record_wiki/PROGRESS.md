@@ -115,10 +115,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `4e557d1` ingested the current-evidence-archive slice, including 46-file evidence/current inventory, timestamped verification failures/successes, corrected speedup claims, and failed full-integration caveat.
 - `96d7814` ingested the evidence-reports-2025-08 slice, including 13-file August evidence-report inventory, DAG/traceability demonstrations, coverage caveats, Carter analysis traceability, and repeated relationship-extraction bottleneck evidence.
 - `d8eed87` ingested the old-backups-results slice, including 9-file output-artifact inventory, provenance traces, Phase D success report, 0/6 validation report, failed end-to-end workflow, production-readiness caveat, and 22.2% interface audit.
-- Pending commit: old-backups-current-coverage slice, including 215-file/21 MB coverage HTML report, 206 indexed `src/core` files, 27,115 statements, and 2.99% total coverage.
+- `e8b4778` ingested the old-backups-current-coverage slice, including 215-file/21 MB coverage HTML report, 206 indexed `src/core` files, 27,115 statements, and 2.99% total coverage.
+- Pending commit: old-backups-validation-reports slice, including two skeptical Phase 2/Phase 3 validation reports about simulated processing, placeholders, shallow tests, and overclaiming.
 
 ## Next
 
-1. Run wiki lint, commit, and push the old-backups-current-coverage slice.
-2. Next recommended step: inspect `archive/old_backups_2025_08/validation-reports/`, because it is likely another bounded generated-evidence subtree adjacent to the old-backups result and coverage artifacts.
+1. Run wiki lint, commit, and push the old-backups-validation-reports slice.
+2. Next recommended step: inspect `archive/old_backups_2025_08/benchmark_results/`, because it is likely a bounded performance-evidence subtree adjacent to the old-backups results and validation artifacts.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
