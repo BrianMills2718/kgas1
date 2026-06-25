@@ -34,6 +34,8 @@ The `experiments/lit_review/evidence/phase2_vocabulary_extraction` and `phase3_s
 
 The `experiments/lit_review/evidence/phase4_integration_pipeline` slice records integrated-pipeline evidence. It should be read time-indexed because benchmark/balance reports preserve certification weaknesses while remediation/completion summaries claim later 100/100 resolution. See [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md).
 
+The `experiments/lit_review/evidence/phase5_reasoning_engine` slice records cross-purpose reasoning over the balanced pipeline. It reports perfect balance and 0.819 integration quality, but the evidence remains demo-scale. See [Lit Review Phase 5 Reasoning Engine](/wiki/sources/lit-review-phase5-reasoning-engine.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

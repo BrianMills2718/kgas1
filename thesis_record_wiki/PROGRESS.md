@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from lit-review Phase 4 integration evidence into Phase 5 reasoning or architecture ADR topical sub-slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from lit-review Phase 5 reasoning into Phase 6 production validation or architecture ADR topical sub-slices.
 
 ## Completed
 
@@ -49,10 +49,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `603f173` ingested `experiments/lit_review/src/schema_creation`, including prompt structure, information-loss fix, v13 extractors, and schema extraction pipeline evolution concept.
 - `e006732` ingested `experiments/lit_review/validation_results`, including Young/framing/Lofland reports, selected baseline outputs, and complexity/accuracy pattern concept.
 - `02e5258` ingested lit-review Phase 2-3 evidence slice, including vocabulary/schema balance claims, stored test outputs, and Phase 2 summary/test contradiction.
-- Pending commit: lit-review Phase 4 integration pipeline slice, including integration claims, test artifacts, certification caveats, and remediation chronology.
+- `eb2165c` ingested lit-review Phase 4 integration pipeline slice, including integration claims, test artifacts, certification caveats, and remediation chronology.
+- Pending commit: lit-review Phase 5 reasoning engine slice, including cross-purpose reasoners, balance/integration metrics, and demo-scale caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the Phase 4 integration slice.
-2. Next recommended ingest slice: `experiments/lit_review/evidence/phase5_reasoning_engine`, because it builds directly on Phase 4 and should be checked before Phase 6 production validation.
-3. Later slices: Phase 6 production validation, `docs/architecture/adrs/`, `experiments/lit_review/multi_agent_system/`, and UI/recovered components.
+1. Run wiki lint, commit, and push the Phase 5 reasoning slice.
+2. Next recommended ingest slice: `experiments/lit_review/evidence/phase6_production_validation`, because it makes the strongest deployment claims and should be checked after Phase 5.
+3. Later slices: `docs/architecture/adrs/`, `experiments/lit_review/multi_agent_system/`, and UI/recovered components.

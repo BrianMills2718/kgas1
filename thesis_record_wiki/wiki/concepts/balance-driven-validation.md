@@ -28,6 +28,8 @@ The same pattern can over-optimize for score balance. Phase 2's remediation summ
 
 Phase 4 adds another caution: test pass rate, certification rate, and later remediation score can diverge across artifacts. See [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md).
 
+Phase 5 applies the same balance principle to reasoning depth: five purposes receive near-equal moderate depth scores and a 1.000 balance score. See [Lit Review Phase 5 Reasoning Engine](/wiki/sources/lit-review-phase5-reasoning-engine.md).
+
 # Working Rule
 
 Use balance metrics as one validation layer, not as the definition of success. A credible theory-extraction validation stack needs:

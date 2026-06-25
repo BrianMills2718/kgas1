@@ -43,6 +43,8 @@ The Phase 2-3 evidence slice shows how KGAS/lit-review tried to operationalize b
 
 The Phase 4 slice shows an integrated balanced-purpose pipeline, but its archived evidence mixes passing tests, weak certification metrics, and later remediation claims. See [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md).
 
+The Phase 5 slice extends that pipeline into cross-purpose reasoning and synthesis, with internally consistent demo evidence but still internal production-readiness claims. See [Lit Review Phase 5 Reasoning Engine](/wiki/sources/lit-review-phase5-reasoning-engine.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).
