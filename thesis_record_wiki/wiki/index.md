@@ -27,6 +27,7 @@
 * [Lit Review Phase 5 Reasoning Engine](sources/lit-review-phase5-reasoning-engine.md) - cross-purpose reasoning engine evidence and demo-scale caveats.
 * [Lit Review Phase 6 Production Validation](sources/lit-review-phase6-production-validation.md) - production validation evidence package and deployment-claim caveats.
 * [Digimon Lineage Architecture ADRs Map](sources/digimon-lineage-architecture-adrs-map.md) - first ADR decision-history slice for large lineage architecture docs.
+* [Digimon Lineage Data Storage ADRs](sources/digimon-lineage-data-storage-adrs.md) - storage ADR slice covering Qdrant removal, Neo4j/SQLite rationale, and PostgreSQL migration threshold.
 
 # Entities
 
@@ -55,6 +56,7 @@
 * [Complexity Accuracy Pattern](concepts/complexity-accuracy-pattern.md) - validation pattern that simpler theories are more reliable automation targets.
 * [Balance Driven Validation](concepts/balance-driven-validation.md) - five-purpose balance metric pattern and its evidence/overfitting risk.
 * [Academic Proof Of Concept Scope](concepts/academic-proof-of-concept-scope.md) - scope decision prioritizing academic correctness, provenance, and local reproducibility.
+* [Storage Architecture Evolution](concepts/storage-architecture-evolution.md) - KGAS storage evolution from tri-store avoidance to Neo4j/SQLite and Neo4j/PostgreSQL.
 
 # Timeline
 

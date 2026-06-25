@@ -49,6 +49,8 @@ The Phase 6 slice records internal production validation and deployment simulati
 
 The ADR map clarifies that KGAS architecture intentionally centered academic proof-of-concept use: local single-node deployment, fail-fast errors, two-layer theory architecture, human question-driven analysis, and layered tools. See [Digimon Lineage Architecture ADRs Map](/wiki/sources/digimon-lineage-architecture-adrs-map.md) and [Academic Proof Of Concept Scope](/wiki/concepts/academic-proof-of-concept-scope.md).
 
+The data-storage ADR slice adds a scale-indexed storage history: Qdrant was removed to avoid tri-store consistency complexity, Neo4j + SQLite was justified for local academic workflows, and Neo4j + PostgreSQL was later accepted for 50,000+ entity analytical workloads. See [Digimon Lineage Data Storage ADRs](/wiki/sources/digimon-lineage-data-storage-adrs.md) and [Storage Architecture Evolution](/wiki/concepts/storage-architecture-evolution.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

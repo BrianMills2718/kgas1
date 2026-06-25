@@ -81,6 +81,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md) - internal production-validation/deployment-simulation package with remediated final claims and stress-test limits.
 - [Digimon Lineage Architecture ADRs Map](/wiki/sources/digimon-lineage-architecture-adrs-map.md) - ADR backbone for scope, deployment, errors, theory architecture, analytical purpose, and tool layers.
 - [Academic Proof Of Concept Scope](/wiki/concepts/academic-proof-of-concept-scope.md) - reason to read "production" claims as internal academic readiness unless external deployment evidence exists.
+- [Digimon Lineage Data Storage ADRs](/wiki/sources/digimon-lineage-data-storage-adrs.md) - storage ADR slice explaining Qdrant removal, Neo4j/SQLite bi-store rationale, and PostgreSQL migration threshold.
+- [Storage Architecture Evolution](/wiki/concepts/storage-architecture-evolution.md) - scale-indexed interpretation of KGAS storage claims across target docs and implementation-status evidence.
 
 # Current Cautions
 

@@ -40,6 +40,8 @@ The `experiments/lit_review/evidence/phase6_production_validation` slice records
 
 The `docs/architecture/adrs` map slice records the decision backbone behind the architecture: academic proof-of-concept, single-node local deployment, fail-fast transparency, two-layer theory analysis, analytical purpose clarification, and tool-interface layering. See [Digimon Lineage Architecture ADRs Map](/wiki/sources/digimon-lineage-architecture-adrs-map.md).
 
+The data-storage ADR slice records the storage evolution inside that same ADR set: Neo4j native vector indexing replaces Qdrant, Neo4j + SQLite is justified for local academic use, and Neo4j + PostgreSQL is accepted for 50K+ entity analytics. See [Digimon Lineage Data Storage ADRs](/wiki/sources/digimon-lineage-data-storage-adrs.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.
