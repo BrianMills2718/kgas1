@@ -126,11 +126,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `71b3c42` ingested the old-backups-architecture-overview slice, including eight architecture/ADR overview files and architecture-intent caveat.
 - `b0a676a` ingested the old-backups-backup-archives slice, including three tarballs, backup history metadata, duplicate ID/path caveat, and unencrypted `.env` caveat.
 - `65665ee` ingested the old-backups stress-test root/framework slices, including 30-file subtree inventory, integration-score progression, cross-modal preservation failure/patch reports, support schemas/theory/tool-capability files, and mock-mode caveats.
-- Pending commit: old-backups Carter analysis output slice, including generated themes/rhetoric/insights and empty evidence-sidecar caveat.
+- `5a28850` ingested the old-backups Carter analysis output slice, including generated themes/rhetoric/insights and empty evidence-sidecar caveat.
+- Pending commit: full archived UI corpus expansion, including `archive/ui`, near-duplicate `ui_archive_2025_08`, archived implementations, logs/uploads/exports, and readiness-vs-backend caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the old-backups Carter analysis output slice.
-2. Next recommended step: verify old-backups coverage completeness, then move from `archive/old_backups_2025_08/` to the next unrepresented archive subtree under `digimon_lineage_Digimons/archive/`.
+1. Run wiki lint, commit, and push the full archived UI corpus expansion.
+2. Next recommended step: inspect `archive/temp_analysis_2025_08/` or `archive/uncertainty_stress_test/`, prioritizing whichever has more thesis-evolution value after a quick inventory.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

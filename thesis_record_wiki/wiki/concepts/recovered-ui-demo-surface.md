@@ -31,9 +31,13 @@ It also connects the architecture to a human-facing thesis demo. Without this la
 
 The lit-review UI code adds a narrower research-review surface: a Streamlit app for selecting extracted theory schemas and text files, running schema-guided analysis, browsing saved JSON results, rendering charts/network views, and chatting over analysis outputs. [5]
 
+The full archived UI corpus shows that `archive/ui/` and `archive/ui_archive_2025_08/` are near-duplicates: 95 files versus 91 files, with the four extra files in `archive/ui/archived_implementations/`. That makes the UI archive mostly one preserved surface with a duplicate snapshot, not two independent implementations. See [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md).
+
 # Caveat
 
 The UI docs mix real backend integration claims with mock-mode fallback and archived status. Treat them as recoverable design/demo artifacts until current runtime verification is performed.
+
+The full archive also preserves logs showing both successful local server/export traces and Neo4j connection/authentication failures. UI readiness claims should therefore be read as "a demo/UI surface existed and was locally tested," not as proof that all backend graph workflows were live.
 
 The lit-review Streamlit app has its own recovery caveats: it uses hardcoded historical paths, direct OpenAI calls, and a launcher that expects a sibling `requirements_ui.txt`.
 

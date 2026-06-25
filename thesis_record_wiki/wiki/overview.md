@@ -123,7 +123,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
 - [Lit Review Multi Agent System Corpus](/wiki/sources/lit-review-multi-agent-system-corpus.md) - full 648-file inventory separating the outer lit-review harness from the nested V5.2 generator/evidence/remediation corpus.
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md) - procedural evidence pattern for isolated implementation, external evaluation, remediation, and 100/100 gates.
-- [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md) - recovered and archived KGAS UI/demo/dashboard files.
+- [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md) - recovered and archived KGAS UI/demo/dashboard files, including the full `archive/ui` corpus, near-duplicate `ui_archive_2025_08`, logs, uploads, exports, React app, and backend/demo caveats.
 - [Recovered UI Demo Surface](/wiki/concepts/recovered-ui-demo-surface.md) - human-facing inspection/demo layer for upload, analysis, graph status, query, and export workflows.
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md) - current cleaned-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md) - import-only runtime evidence: tool contracts import, cross-modal API import fails on `AnalysisRequest`, and MCP import fails on missing `neo4j`.
