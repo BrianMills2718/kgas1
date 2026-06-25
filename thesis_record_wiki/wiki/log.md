@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Plan** | Added current runtime repair plan for cross-modal API and MCP import blockers.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
 * **Verification** | Added current-code verification slice and current status verification discipline concept.
