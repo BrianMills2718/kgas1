@@ -17,6 +17,8 @@ confidence: high
 
 Contract-first migration is the sparse variant's answer to KGAS interface fragmentation. The migration target was a single `KGASTool` interface with `ToolRequest` / `ToolResult` contracts, theory integration, confidence scoring, and provenance tracking. [1][3]
 
+The later architecture ADRs formalize this as Layer 2 of a three-layer tool interface model: raw implementation/adapters below it and MCP exposure above it. See [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md).
+
 # Root Cause
 
 The uncertainty analysis identifies three competing tool interface definitions:

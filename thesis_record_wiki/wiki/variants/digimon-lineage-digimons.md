@@ -44,6 +44,8 @@ The data-storage ADR slice records the storage evolution inside that same ADR se
 
 The uncertainty/quality ADR slice records a messy but important design evolution: multiple superseded uncertainty frameworks, an accepted entity-resolution architecture, active uncertainty propagation docs, and a missing referenced ADR-029 path. See [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md).
 
+The tool/orchestration ADR slice records how KGAS reconciled contract-first tools, pipeline adapters, MCP exposure, and structured output into a layered architecture. See [Digimon Lineage Tool Orchestration ADRs](/wiki/sources/digimon-lineage-tool-orchestration-adrs.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

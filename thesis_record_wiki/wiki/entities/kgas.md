@@ -53,6 +53,8 @@ The data-storage ADR slice adds a scale-indexed storage history: Qdrant was remo
 
 The uncertainty/quality ADR slice shows why KGAS uncertainty claims must be read historically: confidence-score normalization, CERQual, and quality degradation were superseded, while later notes emphasize local LLM expert assessments with reasoning and mathematically coherent combination. See [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md) and [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md).
 
+The tool/orchestration ADR slice explains the intended agent-drivable surface: raw tools/adapters, internal KGASTool contracts, external MCP access, and schema-validated LLM outputs. See [Digimon Lineage Tool Orchestration ADRs](/wiki/sources/digimon-lineage-tool-orchestration-adrs.md) and [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

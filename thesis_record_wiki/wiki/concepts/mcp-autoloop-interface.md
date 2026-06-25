@@ -21,6 +21,8 @@ confidence: medium
 - Early 2025-06 MCP implementation planning: foundation server, client manager, shared context, tool migration, multi-agent coordination, production hardening. [1][2]
 - Later DIGIMON tool surface: MCP/direct access to a mature operators-first benchmark and retrieval system. [4]
 
+The architecture ADRs later clarify MCP as Layer 3 external access, wrapping internal KGASTool contracts rather than replacing them. See [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md).
+
 # Early MCP Tracker
 
 The 2025-06-06 implementation tracker records only checkpoint 1.1 as passed and shows overall MCP progress at 8%. Tool migration, multi-agent coordination, and production phases are all marked not started in that tracker. [1]

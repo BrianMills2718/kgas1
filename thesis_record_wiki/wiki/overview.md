@@ -85,6 +85,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Storage Architecture Evolution](/wiki/concepts/storage-architecture-evolution.md) - scale-indexed interpretation of KGAS storage claims across target docs and implementation-status evidence.
 - [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md) - uncertainty, quality, and entity-resolution ADR slice showing multiple superseded frameworks and the later local-assessment model.
 - [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md) - conceptual arc from numeric confidence normalization to auditable construct-mapping uncertainty.
+- [Digimon Lineage Tool Orchestration ADRs](/wiki/sources/digimon-lineage-tool-orchestration-adrs.md) - tool-interface ADR slice connecting contracts, adapters, MCP, and structured output.
+- [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md) - three-layer interpretation of KGAS tool surfaces and status caveats.
 
 # Current Cautions
 
