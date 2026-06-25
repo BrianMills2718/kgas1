@@ -115,6 +115,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage Old Backups Logs](/wiki/sources/digimon-lineage-old-backups-logs.md) - 44,622-line operational log with successful pipeline traces, Neo4j/API failures, provenance deprecation warnings, and raw credential-leak caveat.
 - [Digimon Lineage Old Backups Theory Output](/wiki/sources/digimon-lineage-old-backups-theory-output.md) - concrete Prospect Theory generated-output artifact with JSON/report/CSV and input-to-parameter drift caveat.
 - [Digimon Lineage Old Backups Architecture Overview](/wiki/sources/digimon-lineage-old-backups-architecture-overview.md) - compiled architecture-doc bundle preserving old-backups KGAS vision, theory/data, integration, and ADR packaging.
+- [Digimon Lineage Old Backups Backup Archives](/wiki/sources/digimon-lineage-old-backups-backup-archives.md) - backup tarballs/history with duplicate ID/path caveat and unencrypted `.env` secret-risk caveat.
 - [Test Evidence Layer](/wiki/concepts/test-evidence-layer.md) - synthesis of the test corpus: strong verification culture, uneven runtime proof, and claim-level rules.
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
 - [Lit Review Multi Agent System Corpus](/wiki/sources/lit-review-multi-agent-system-corpus.md) - full 648-file inventory separating the outer lit-review harness from the nested V5.2 generator/evidence/remediation corpus.

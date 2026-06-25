@@ -57,6 +57,7 @@
 * [Digimon Lineage Old Backups Logs](sources/digimon-lineage-old-backups-logs.md) - old-backups log slice with a 44,622-line super_digimon log, Neo4j/API failures, successful pipeline traces, and credential-leak caveat.
 * [Digimon Lineage Old Backups Theory Output](sources/digimon-lineage-old-backups-theory-output.md) - three-file Prospect Theory output bundle with JSON, markdown report, and CSV visualization data plus extraction-drift caveat.
 * [Digimon Lineage Old Backups Architecture Overview](sources/digimon-lineage-old-backups-architecture-overview.md) - eight-file old-backups architecture overview bundle compiling KGAS vision, theory/data architecture, integration architecture, ADRs, and comprehensive architecture docs.
+* [Digimon Lineage Old Backups Backup Archives](sources/digimon-lineage-old-backups-backup-archives.md) - three tar.gz backup archives and backup_history metadata from old_backups_2025_08, with duplicate-ID and unencrypted .env caveats.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
 * [Lit Review Multi Agent System Corpus](sources/lit-review-multi-agent-system-corpus.md) - corpus-level inventory of the 648-file multi-agent harness, nested V5.2 evidence packages, templates, tests, and remediation records.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.
