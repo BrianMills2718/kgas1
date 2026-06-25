@@ -24,9 +24,14 @@ The legacy lit-review system states this explicitly as the "Analyst & Assembler"
 
 This pattern is a recurring design lesson in the thesis work. It avoids asking the LLM to simultaneously perform difficult interpretation and exact boilerplate/schema construction. It also makes common ontology injection and schema validity programmatic rather than conversational.
 
+# Additional Evidence
+
+[Lit Review Social Marketing Corpus](/wiki/sources/lit-review-social-marketing-corpus.md) preserves a concrete `post_process.py` implementation that loads an AI-generated YAML schema, injects `CORE.json` and `sharedProps.json` into `$defs`, and writes a processed YAML artifact. That folder also preserves the limitation that the configured input/output YAML files are missing from the local copy, so it is evidence of the pattern and partial provenance rather than a complete runnable example. [2]
+
 # Links
 
 - [Lit Review Legacy System Framing](/wiki/sources/lit-review-legacy-system-framing.md)
+- [Lit Review Social Marketing Corpus](/wiki/sources/lit-review-social-marketing-corpus.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Complexity Conservation In Theory Application](/wiki/concepts/complexity-conservation-in-theory-application.md)
 

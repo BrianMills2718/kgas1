@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added social-marketing corpus slice and updated analyst-assembler-pattern with common-ontology injection evidence.
 * **Ingest** | Added influence-operations corpus slice and multi-level-influence-modeling concept.
 * **Ingest** | Added operational-code corpus slice and schema-variant-drift concept.
 * **Ingest** | Added lit-review literature corpus inventory and literature-corpus-as-theory-testbed concept.

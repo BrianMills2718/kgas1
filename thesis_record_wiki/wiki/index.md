@@ -47,6 +47,7 @@
 * [Lit Review Literature Corpus Inventory](sources/lit-review-literature-corpus-inventory.md) - inventory of the preserved annotated literature corpus, topical folders, and schema-location caveats.
 * [Lit Review Operational Code Corpus](sources/lit-review-operational-code-corpus.md) - operational-code and Young WorldView literature slice with schema-variant comparison.
 * [Lit Review Influence Operations Corpus](sources/lit-review-influence-operations-corpus.md) - influence-operations source folder and generated Chapter 6-7 framework artifacts.
+* [Lit Review Social Marketing Corpus](sources/lit-review-social-marketing-corpus.md) - social-marketing source folder with CORE/sharedProps/post-processing common ontology artifacts.
 
 # Entities
 
