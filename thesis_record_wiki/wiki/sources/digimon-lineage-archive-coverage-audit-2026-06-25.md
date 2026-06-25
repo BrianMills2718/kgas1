@@ -33,7 +33,7 @@ The following top-level archive areas are already represented by dedicated wiki 
 | `uncertainty_stress_test/` | 95 | 9,218,730 | Covered by uncertainty stress-test slice family. |
 | `validation-reports/` | 2 | 30,030 | Covered by old-backups validation reports page. |
 | `temp_analysis_2025_08/` | 16 | 19,659,025 | Covered by temp-analysis provenance page. |
-| `ARCHIVE_BEFORE_CLEANUP_20250805/` | 261 | 8,286,966 | Covered by overview page; proposal-rewrite, phases, and initiatives still need dedicated sub-slices. |
+| `ARCHIVE_BEFORE_CLEANUP_20250805/` | 261 | 8,286,966 | Covered by overview plus proposal-rewrite, phases, initiatives, archived-investigations, analysis, residual-planning, and root-files sub-slices. |
 
 # Not-Yet-Represented Areas
 
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next ingest `ARCHIVE_BEFORE_CLEANUP_20250805/proposal_rewrite_20250812_about_to_drop_all_complex_uncerainty/`, then `theoretical_exploration/` as a separate bounded slice because it is more likely to preserve thesis evolution and proposal reasoning. [1]
+Next ingest `theoretical_exploration/` as a separate bounded slice because it is likely to preserve thesis evolution, theoretical exploration, and proposal reasoning not fully covered by the roadmap-cleanup archive. [1]
 
 # Relationship To Wiki
 

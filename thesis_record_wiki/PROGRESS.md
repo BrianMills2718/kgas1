@@ -151,11 +151,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `e4acc23` ingested the archive-before-cleanup archived-investigations slice, including service-investigation cleanup inventory, duplicate/consolidation categories, template-only markers, and status-tension caveats.
 - `727fe47` ingested the archive-before-cleanup analysis slice, including codebase/ops/performance review, KGAS theory/data architecture, reproducibility design, Claude Code orchestration, claim caveats, and no-literal-key finding.
 - `1cff5b8` ingested the archive-before-cleanup residual-planning slice, including Phase C/entity-resolution caveats, observation-focused performance tracking, archived benchmark requirements, post-MVP agent-intelligence plans, and no-literal-key finding.
-- Pending commit: archive-before-cleanup root-files slice, including archive rationale, roadmap status claims, two-layer theory implementation/integration status, full-system DAG example, cleanup-improvement audit tension, and no-literal-key finding.
+- `4fcc772` ingested the archive-before-cleanup root-files slice, including archive rationale, roadmap status claims, two-layer theory implementation/integration status, full-system DAG example, cleanup-improvement audit tension, and no-literal-key finding.
+- Pending commit: coverage/progress reassessment marking `ARCHIVE_BEFORE_CLEANUP_20250805/` sufficiently represented at top level and recommending `theoretical_exploration/` next.
 
 ## Next
 
-1. Run wiki lint, commit, and push the archive-before-cleanup root-files slice.
-2. Next recommended step: reassess `ARCHIVE_BEFORE_CLEANUP_20250805/` coverage; likely mark it sufficiently represented at top level unless deeper per-file questions arise.
+1. Run wiki lint, commit, and push the coverage/progress reassessment.
+2. Next recommended step: ingest `archive/theoretical_exploration/` as the next high-priority thesis-lineage slice.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
