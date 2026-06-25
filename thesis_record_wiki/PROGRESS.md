@@ -127,11 +127,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `b0a676a` ingested the old-backups-backup-archives slice, including three tarballs, backup history metadata, duplicate ID/path caveat, and unencrypted `.env` caveat.
 - `65665ee` ingested the old-backups stress-test root/framework slices, including 30-file subtree inventory, integration-score progression, cross-modal preservation failure/patch reports, support schemas/theory/tool-capability files, and mock-mode caveats.
 - `5a28850` ingested the old-backups Carter analysis output slice, including generated themes/rhetoric/insights and empty evidence-sidecar caveat.
-- Pending commit: full archived UI corpus expansion, including `archive/ui`, near-duplicate `ui_archive_2025_08`, archived implementations, logs/uploads/exports, and readiness-vs-backend caveats.
+- `fb682d2` expanded the archived UI corpus record, including `archive/ui`, near-duplicate `ui_archive_2025_08`, archived implementations, logs/uploads/exports, and readiness-vs-backend caveats.
+- Pending commit: uncertainty-stress-test root slice, including IC-inspired tests, CERQual/Bayesian/LLM services, Davis validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the full archived UI corpus expansion.
-2. Next recommended step: inspect `archive/temp_analysis_2025_08/` or `archive/uncertainty_stress_test/`, prioritizing whichever has more thesis-evolution value after a quick inventory.
+1. Run wiki lint, commit, and push the uncertainty-stress-test root slice.
+2. Next recommended step: split `archive/uncertainty_stress_test/analysis/`, `core_services/`, and `validation/` into follow-up pages, starting with `analysis/` because it preserves Davis extraction/synthesis inputs.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

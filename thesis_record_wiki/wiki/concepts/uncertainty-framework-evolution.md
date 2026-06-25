@@ -18,6 +18,8 @@ confidence: medium
 
 KGAS uncertainty architecture changed because early confidence approaches were either too shallow for academic research or too complex to sustain. The later direction is not "perfect uncertainty measurement"; it is auditable expert reasoning about construct mappings.
 
+The archived uncertainty stress test adds an intermediate implementation arc: CERQual/Bayesian/LLM services, IC-inspired analytical tests, bias analysis, and Davis multi-resolution/multi-perspective validation. It shows both the ambition and the reason later summaries must preserve bias/readiness caveats. See [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md).
+
 # Evolution
 
 1. **Contract normalization**: ADR-004 tried to make all tools report confidence through one Pydantic model. This addressed interface compatibility but not deeper research uncertainty. [1]
@@ -47,6 +49,7 @@ Several files cite an ADR-029 IC-informed uncertainty framework, but that direct
 # Links
 
 - [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md)
+- [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md)
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md)

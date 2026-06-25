@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added uncertainty-stress-test root page covering IC-inspired uncertainty tests, CERQual/Bayesian/LLM implementation claims, Davis-enhanced validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.
 * **Ingest** | Expanded UI recovered-components page to cover the full 95-file `archive/ui` corpus, 91-file near-duplicate `ui_archive_2025_08`, archived implementation scripts, logs/uploads/exports, and readiness-vs-backend caveats.
 * **Ingest** | Added old-backups Carter analysis output page for the single Gemini-generated speech-analysis JSON, including theme/rhetoric/insight structure and empty database/evidence sidecar caveat.
 * **Ingest** | Added old-backups stress-test root and framework pages, covering the 30-file stakeholder-theory stress test, 0.4-to-0.8 integration-score progression, cross-modal semantic-preservation failure/patch evidence, support schemas/theory/tool-capability files, and mock-mode caveats.

@@ -44,6 +44,8 @@ The review recommended a pragmatic reduction:
 
 The focused uncertainty/quality ADR slice shows the historical reason for this consolidation need: ADR-004, ADR-007, and ADR-010 are all superseded; ADR-025 remains accepted for entity resolution; later active docs move toward local construct-mapping assessment with stored reasoning. See [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md).
 
+The archived uncertainty stress test is the implementation-side counterpart: it contains root reports claiming working IC-inspired uncertainty features and core services, but also a validation-status report that identifies critical sample-size and language-complexity biases before external review. See [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md).
+
 # Relationship To Other Threads
 
 This concept connects to:
@@ -53,6 +55,7 @@ This concept connects to:
 - [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md): the vertical slice tracked uncertainty structurally but hardcoded values to `0.0`.
 - [Contract-First Migration](/wiki/concepts/contract-first-migration.md): traceable confidence and provenance require stable contracts.
 - [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md): focused ADR slice for confidence, quality, and entity-resolution uncertainty.
+- [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md): implementation/result slice for uncertainty services, tests, Davis validation, and bias-readiness caveats.
 
 # Citations
 
