@@ -163,11 +163,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `1e4eb0f` ingested the docs-architecture-cleanup-2025-08-29 overview, including generated-document cleanup rationale, over-engineered service-guide archival, IC uncertainty ADR-to-abandonment arc, category-error critique, and no-literal-key finding.
 - `3687a70` ingested the generated-outputs-2025-08 slice, including performance/SLA JSON, real-vector proof, provenance/reasoning-trace SQLite schema and row counts, repomix-bundle caveats, and no-literal-key finding.
 - `61b5aaf` ingested the analysis-validation-2025-08 slice, including validation archive inventory, development-standards validation, three Gemini claim validations, reliability/MCP/final validation configs, chronology/supersession caveat, and no-literal-key finding.
-- Pending commit: agent-stress-testing slice, including dual-agent framework goals, working-system claims, T15A/T23A proof demo, adaptive-agent demo caveats, trace artifact inventory, and no-literal-key finding.
+- `cc5ae4e` ingested the agent-stress-testing slice, including dual-agent framework goals, working-system claims, T15A/T23A proof demo, adaptive-agent demo caveats, trace artifact inventory, and no-literal-key finding.
+- Pending commit: root-cleanup-2025-08-29 slice, including duplicate app entry-point cleanup rationale, tool-composition checkpoint, archived apps/Twitter explorer/k8s material, cross-modal test output, placeholder-secret caveat, and no-literal-key finding.
 
 ## Next
 
-1. Run wiki lint, commit, and push the agent-stress-testing slice.
-2. Next recommended step: move to `archive/root_cleanup_2025_08_29/` or `archive/old_claude_md_versions/` for cleanup/policy lineage.
+1. Run wiki lint, commit, and push the root-cleanup-2025-08-29 slice.
+2. Next recommended step: move to `archive/old_claude_md_versions/` for historical agent-instruction lineage, or `archive/old_docs_2025_08/` for superseded documentation lineage.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

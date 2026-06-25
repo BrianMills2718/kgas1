@@ -45,7 +45,7 @@ The following top-level archive areas were not found in the wiki index by this a
 | `gemini-review-tool/` | 166 | 3,083,515 | Covered by Gemini review-tool archive overview; deeper architecture-validation/roadmap-critique bundle pages remain optional. |
 | `docs_architecture_cleanup_2025_08_29/` | 62 | 2,182,341 | Covered by architecture-cleanup overview; deeper IC uncertainty or generated-doc comparison remains optional. |
 | `generated_outputs_2025_08/` | 10 | 1,885,050 | Covered by generated-outputs page; deeper DB trace inspection remains optional. |
-| `root_cleanup_2025_08_29/` | 63 | 1,413,590 | Medium: root cleanup artifact and specialized app remnants. |
+| `root_cleanup_2025_08_29/` | 63 | 1,413,590 | Covered by root-cleanup page; deeper specialized Twitter explorer review remains optional. |
 | `analysis_validation_2025_08/` | 40 | 1,122,878 | Covered by analysis-validation page; deeper bundle/script-level validation remains optional. |
 | `agent_stress_testing/` | 52 | 977,712 | Covered by agent-stress-testing page; deeper replay/test-level validation remains optional. |
 | `scripts_archive_2025_08/` | 67 | 626,156 | Medium-low: script archive likely best handled as corpus inventory. |
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next move to `root_cleanup_2025_08_29/` or `old_claude_md_versions/` for cleanup/policy lineage, unless Brian wants more evidence-corpus work first. [1]
+Next move to `old_claude_md_versions/` for historical agent-instruction lineage, or `old_docs_2025_08/` for superseded documentation lineage. [1]
 
 # Relationship To Wiki
 
@@ -78,6 +78,7 @@ Next move to `root_cleanup_2025_08_29/` or `old_claude_md_versions/` for cleanup
 - [Digimon Lineage Generated Outputs 2025 08](/wiki/sources/digimon-lineage-generated-outputs-2025-08.md): generated output artifacts, SQLite schemas, and repomix bundle caveats.
 - [Digimon Lineage Analysis Validation 2025 08](/wiki/sources/digimon-lineage-analysis-validation-2025-08.md): validation archive with claim checks, configs, bundles, and scripts.
 - [Digimon Lineage Agent Stress Testing](/wiki/sources/digimon-lineage-agent-stress-testing.md): agent workflow/adaptive-planning stress-test archive overview.
+- [Digimon Lineage Root Cleanup 2025 08 29](/wiki/sources/digimon-lineage-root-cleanup-2025-08-29.md): root cleanup and duplicate entry-point archive overview.
 - [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md): start of the old-backups represented slice family.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md): represented UI/archive UI slice.
 - [Progress](../../PROGRESS.md): working queue and commit-level progress tracker.
