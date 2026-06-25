@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added analysis-expansion ADR slice and analysis expansion architecture concept.
 * **Ingest** | Added tool/orchestration ADR slice and layered tool interface architecture concept.
 * **Ingest** | Added uncertainty/quality ADR slice and uncertainty framework evolution concept.
 * **Ingest** | Added data-storage ADR slice and storage architecture evolution concept.

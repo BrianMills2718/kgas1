@@ -50,6 +50,7 @@ Two through-lines are now visible from the first small-variant ingest:
 - [Storage Architecture Evolution](/wiki/concepts/storage-architecture-evolution.md): scale-indexed storage thread moving from Qdrant removal to Neo4j/SQLite and later Neo4j/PostgreSQL.
 - [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md): confidence/uncertainty design thread from normalized fields to auditable local construct-mapping judgments.
 - [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md): tool architecture thread reconciling raw implementations, internal contracts, and MCP exposure.
+- [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md): research-platform expansion thread from graph extraction to cross-modal, schema, ABM, statistics, and local automation.
 
 # Open Interpretive Work
 

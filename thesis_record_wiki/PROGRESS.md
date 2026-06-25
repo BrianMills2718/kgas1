@@ -55,10 +55,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `48bd98a` ingested the first architecture ADR map slice, including scope/deployment/errors/theory/purpose/tool-layer backbone and academic proof-of-concept scope.
 - `9bbc0e9` ingested the data/storage ADR slice, including vector-store consolidation, Neo4j + SQLite bi-store rationale, and PostgreSQL migration threshold.
 - `28bed51` ingested the uncertainty/quality ADR slice, including confidence ontology, CERQual supersession, quality-system supersession, entity resolution, later local-assessment uncertainty model, and missing ADR-029 caveat.
-- Pending commit: tool/orchestration ADR slice, including contract-first Layer 2, pipeline adapters, MCP Layer 3, structured output migration, and three-layer interface reconciliation.
+- `c2b9aad` ingested the tool/orchestration ADR slice, including contract-first Layer 2, pipeline adapters, MCP Layer 3, structured output migration, and three-layer interface reconciliation.
+- Pending commit: analysis-expansion ADR slice, including cross-modal analysis, ABM simulation, statistical/SEM expansion, schema ecosystem, and local-only REST API.
 
 ## Next
 
-1. Run wiki lint, commit, and push the tool/orchestration ADR slice.
-2. Next recommended ingest slice: analysis-expansion ADRs (`ADR-006`, `ADR-015`, `ADR-020`, `ADR-021`, `ADR-023`, `ADR-026`) because they explain cross-modal analysis, ABM/statistical expansion, schema ecosystem, and API boundaries.
-3. Later slices: `experiments/lit_review/multi_agent_system/`, UI/recovered components, and current-code verification of claims made by ADRs.
+1. Run wiki lint, commit, and push the analysis-expansion ADR slice.
+2. Next recommended ingest slice: `experiments/lit_review/multi_agent_system/` because it likely connects the automated theory-extraction work to agent orchestration and should clarify whether the lit-review subsystem had a multi-agent execution layer.
+3. Later slices: UI/recovered components and current-code verification of claims made by ADRs.

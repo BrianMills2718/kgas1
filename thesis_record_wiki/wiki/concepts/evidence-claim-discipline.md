@@ -24,6 +24,8 @@ Phase 6 extends the issue into deployment language: internal production-validati
 
 The uncertainty ADRs add another claim-discipline rule: do not cite "the KGAS uncertainty framework" as one stable object without naming the document/date, because several frameworks were explicitly superseded and a referenced ADR-029 path is missing from the preserved ADR tree. See [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md).
 
+The analysis-expansion ADRs add a scale warning: broad accepted architecture and validation claims for cross-modal, schema, ABM, and statistical capabilities should not be treated as current working-system status without separate implementation evidence. See [Digimon Lineage Analysis Expansion ADRs](/wiki/sources/digimon-lineage-analysis-expansion-adrs.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -48,6 +50,7 @@ Future summaries must name the validation level.
 - [Adaptive Operator Routing](/wiki/concepts/adaptive-operator-routing.md): development benchmark evidence should not be treated as locked proof.
 - [Balance Driven Validation](/wiki/concepts/balance-driven-validation.md): balance metrics are useful evidence but do not by themselves prove theoretical fidelity.
 - [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md): uncertainty claims must be tied to the active or superseded framework being referenced.
+- [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md): broad capability surfaces require per-capability verification.
 
 # Citations
 

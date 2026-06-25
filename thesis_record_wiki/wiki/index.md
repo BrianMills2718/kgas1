@@ -30,6 +30,7 @@
 * [Digimon Lineage Data Storage ADRs](sources/digimon-lineage-data-storage-adrs.md) - storage ADR slice covering Qdrant removal, Neo4j/SQLite rationale, and PostgreSQL migration threshold.
 * [Digimon Lineage Uncertainty Quality ADRs](sources/digimon-lineage-uncertainty-quality-adrs.md) - uncertainty, quality, and entity-resolution ADR slice with supersession caveats.
 * [Digimon Lineage Tool Orchestration ADRs](sources/digimon-lineage-tool-orchestration-adrs.md) - contract, adapter, MCP, and structured-output ADR slice.
+* [Digimon Lineage Analysis Expansion ADRs](sources/digimon-lineage-analysis-expansion-adrs.md) - cross-modal, schema, ABM, statistics, and local API ADR slice.
 
 # Entities
 
@@ -61,6 +62,7 @@
 * [Storage Architecture Evolution](concepts/storage-architecture-evolution.md) - KGAS storage evolution from tri-store avoidance to Neo4j/SQLite and Neo4j/PostgreSQL.
 * [Uncertainty Framework Evolution](concepts/uncertainty-framework-evolution.md) - movement from confidence fields to auditable local uncertainty reasoning.
 * [Layered Tool Interface Architecture](concepts/layered-tool-interface-architecture.md) - three-layer reconciliation of implementation tools, internal contracts, and MCP access.
+* [Analysis Expansion Architecture](concepts/analysis-expansion-architecture.md) - KGAS expansion from graph extraction to cross-modal, schema, simulation, statistical, and local automation modes.
 
 # Timeline
 

@@ -87,6 +87,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md) - conceptual arc from numeric confidence normalization to auditable construct-mapping uncertainty.
 - [Digimon Lineage Tool Orchestration ADRs](/wiki/sources/digimon-lineage-tool-orchestration-adrs.md) - tool-interface ADR slice connecting contracts, adapters, MCP, and structured output.
 - [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md) - three-layer interpretation of KGAS tool surfaces and status caveats.
+- [Digimon Lineage Analysis Expansion ADRs](/wiki/sources/digimon-lineage-analysis-expansion-adrs.md) - cross-modal, schema, simulation, statistical, and local API architecture ambitions.
+- [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md) - thesis-level expansion from graph building toward multi-representation social theory analysis.
 
 # Current Cautions
 

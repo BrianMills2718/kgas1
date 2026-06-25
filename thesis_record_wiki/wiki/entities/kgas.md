@@ -55,6 +55,8 @@ The uncertainty/quality ADR slice shows why KGAS uncertainty claims must be read
 
 The tool/orchestration ADR slice explains the intended agent-drivable surface: raw tools/adapters, internal KGASTool contracts, external MCP access, and schema-validated LLM outputs. See [Digimon Lineage Tool Orchestration ADRs](/wiki/sources/digimon-lineage-tool-orchestration-adrs.md) and [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md).
 
+The analysis-expansion ADR slice shows the larger KGAS thesis ambition: graph/table/vector movement, multiple schema paradigms, theory-to-ABM simulation, SEM/statistical analysis, and local automation interfaces. See [Digimon Lineage Analysis Expansion ADRs](/wiki/sources/digimon-lineage-analysis-expansion-adrs.md) and [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).
