@@ -100,6 +100,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) - user-perspective workflow tests for UI, MCP, phases, no-mocks policy, and realistic research scenarios.
 - [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) - reliability test corpus preserving completed/in-progress/pending status boundaries, real-database tests, and certification ambitions.
 - [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) - performance benchmark definitions for agent, analytics, async, parallel, load, production-scale, and pipeline behavior.
+- [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) - compact failure-mode corpus covering edge cases, recovery, resilience, and concrete error inputs.
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
 - [Lit Review Multi Agent System Corpus](/wiki/sources/lit-review-multi-agent-system-corpus.md) - full 648-file inventory separating the outer lit-review harness from the nested V5.2 generator/evidence/remediation corpus.
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md) - procedural evidence pattern for isolated implementation, external evaluation, remediation, and 100/100 gates.
