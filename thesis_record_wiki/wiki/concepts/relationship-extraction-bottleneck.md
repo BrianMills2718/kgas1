@@ -7,12 +7,15 @@ created: 2026-06-25
 updated: 2026-06-25
 sources:
   - ../archive_full_record/lineage_variants/digimon_core_sparse/ARCHITECTURAL_BOTTLENECKS_ANALYSIS.md
+  - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/evidence_reports_2025_08/ARCHITECTURAL_BOTTLENECKS_ANALYSIS.md
 confidence: high
 ---
 
 # Summary
 
 The relationship extraction bottleneck is one of the clearest technical warnings in the preserved record. The architectural bottleneck analysis says a multi-document stress test processed 25 documents and extracted 398 entities, but found zero relationships. [1]
+
+The same warning appears in the large Digimons lineage August 2025 evidence-report bundle, not only in the sparse variant. That makes it a repeated lineage-level caveat rather than an isolated copy of old sparse-variant documentation. [2]
 
 # Why It Matters
 
@@ -25,9 +28,11 @@ The bottleneck analysis says relationship extraction tool T27 was either not cal
 # Related Pages
 
 - [Digimon Core Sparse Contract Layer](/wiki/sources/digimon-core-sparse-contract-layer.md)
+- [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md)
 - [Contract-First Migration](/wiki/concepts/contract-first-migration.md)
 - [KGAS](/wiki/entities/kgas.md)
 
 # Citations
 
 [1] `../archive_full_record/lineage_variants/digimon_core_sparse/ARCHITECTURAL_BOTTLENECKS_ANALYSIS.md`
+[2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/evidence_reports_2025_08/ARCHITECTURAL_BOTTLENECKS_ANALYSIS.md`

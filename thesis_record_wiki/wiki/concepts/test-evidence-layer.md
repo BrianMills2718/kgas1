@@ -16,12 +16,13 @@ sources:
   - /wiki/sources/digimon-lineage-security-tests.md
   - /wiki/sources/digimon-lineage-generated-reports.md
   - /wiki/sources/digimon-lineage-current-evidence-archive.md
+  - /wiki/sources/digimon-lineage-evidence-reports-2025-08.md
   - /wiki/concepts/evidence-claim-discipline.md
   - /wiki/concepts/current-status-verification-discipline.md
 confidence: high
 ---
 
-> Sources consulted: [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) · [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) · [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) · [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) · [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) · [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) · [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) · [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) · [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) · [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md). Other wiki pages were not consulted for this synthesis because the scope is the test evidence layer, not the full KGAS/Digimons thesis record. Status: updated after current-evidence archive ingest.
+> Sources consulted: [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) · [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) · [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) · [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) · [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) · [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) · [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) · [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) · [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) · [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md) · [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md). Other wiki pages were not consulted for this synthesis because the scope is the test evidence layer, not the full KGAS/Digimons thesis record. Status: updated after evidence-reports-2025-08 ingest.
 
 # Summary
 
@@ -40,6 +41,8 @@ The test layer has three different kinds of evidence:
 [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) adds a fourth practical category: **historical generated reports**. These are stronger than test definitions because they record reported outputs or validation conclusions, but weaker than fresh current-environment execution.
 
 [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md) adds a stronger historical-runtime category: timestamped verification records with hashes, system info, successes, and failures.
+
+[Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md) adds a curated report category: compact dated reports that mix DAG/traceability demonstrations with explicit architectural and coverage caveats.
 
 Future summaries should never collapse these three into one label.
 
@@ -65,6 +68,7 @@ Weaknesses and caveats:
 - Security tests include a hardcoded-credential scanner that was expected to fail initially, so its existence is negative evidence as much as a safeguard. [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md)
 - Generated coverage reports include both claim language and corrective numbers; for example, one report says the 95% target was only partially validated even while validating real-functionality testing. [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md)
 - Current evidence records preserve failed full integration at 40% success and corrected speedup claims around 1.17x-1.24x, which directly constrains stronger system-success narratives. [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md)
+- The August 2025 evidence-report bundle preserves both DAG success reports and a critical bottleneck report where 25 documents yielded 398 entities but zero relationships. [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md)
 
 # Claim Discipline Rule
 
@@ -77,6 +81,7 @@ For any KGAS/Digimons test claim, name the evidence level:
 - "fresh run in current environment passed/failed"
 - "historical generated report claims pass/fail/partial, with date and method named"
 - "timestamped historical verification record reports success/failure, with hash/system info named"
+- "curated historical evidence report says success/partial/failure, with report date and caveat named"
 
 This is a direct application of [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) and [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md).
 

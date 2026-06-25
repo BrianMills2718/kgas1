@@ -112,10 +112,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `1e7e37f` ingested the large-lineage security-tests slice, including 5-file security inventory, hardcoded-credential negative evidence, and public-export caveat.
 - `6120db2` synthesized the test-evidence-layer concept, including claim-level distinctions across test definitions, status metadata, historical generated reports, and runtime proof.
 - `c10ca8b` ingested the generated-reports slice, including 82-file report inventory, reliability supersession chronology, coverage caveat, and integration evidence report summary.
-- Pending commit: current-evidence-archive slice, including 46-file evidence/current inventory, timestamped verification failures/successes, corrected speedup claims, and failed full-integration caveat.
+- `4e557d1` ingested the current-evidence-archive slice, including 46-file evidence/current inventory, timestamped verification failures/successes, corrected speedup claims, and failed full-integration caveat.
+- Pending commit: evidence-reports-2025-08 slice, including 13-file August evidence-report inventory, DAG/traceability demonstrations, coverage caveats, Carter analysis traceability, and repeated relationship-extraction bottleneck evidence.
 
 ## Next
 
-1. Run wiki lint, commit, and push the current-evidence-archive slice.
-2. Next recommended step: ingest `archive/evidence_reports_2025_08/`, because it likely contains coverage/evidence reports adjacent to but distinct from `generated_reports`.
+1. Run wiki lint, commit, and push the evidence-reports-2025-08 slice.
+2. Next recommended step: inspect `archive/old_backups_2025_08/results/`, because it is likely a smaller output-artifact slice before the larger old-backups tree.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
