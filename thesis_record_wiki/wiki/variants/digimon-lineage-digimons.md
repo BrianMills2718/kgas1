@@ -20,6 +20,8 @@ The `tool_compatability` slice shows the same type-based composition decision se
 
 The architecture-docs slice confirms that `docs/architecture/` is target design, not status tracking, and adds a critical internal review of uncertainty/provenance over-engineering. See [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md) and [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md).
 
+The evidence-archive slice shows that some success claims were later archived as false because they relied on component-level tests rather than system integration validation. See [Digimon Lineage Evidence Archives](/wiki/sources/digimon-lineage-evidence-archives.md) and [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added `digimon_lineage_Digimons` evidence-archive slice. Created evidence archive source page and evidence claim discipline concept.
 * **Ingest** | Added `digimon_lineage_Digimons/docs/architecture` top-level slice. Created architecture docs source page and uncertainty traceability concept page.
 * **Ingest** | Added `digimon_lineage_Digimons/tool_compatability` source summary and linked it to type-based composition and vertical-slice context.
 * **Ingest** | Added first bounded `digimon_lineage_Digimons` root-state slice. Created active-state source page plus reality-verification and vertical-slice/main-system concept pages.

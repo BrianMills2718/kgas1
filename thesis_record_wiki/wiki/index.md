@@ -17,6 +17,7 @@
 * [Digimon Lineage Active State](sources/digimon-lineage-active-state.md) - large Digimons lineage root state and September 2025 reality-verification arc.
 * [Digimon Lineage Tool Compatibility](sources/digimon-lineage-tool-compatibility.md) - large lineage tool_compatability subtree and active vertical-slice context.
 * [Digimon Lineage Architecture Docs](sources/digimon-lineage-architecture-docs.md) - large lineage architecture target-design docs and uncertainty/traceability critical review.
+* [Digimon Lineage Evidence Archives](sources/digimon-lineage-evidence-archives.md) - evidence archive slice focused on false-claim correction and system-level validation discipline.
 
 # Entities
 
@@ -38,6 +39,7 @@
 * [Reality Verification Arc](concepts/reality-verification-arc.md) - September 2025 correction chain around implementation claims and roadmap consolidation.
 * [Vertical Slice vs Main System](concepts/vertical-slice-vs-main-system.md) - coexisting simple verified vertical slice and complex main-system architecture.
 * [Uncertainty Traceability Architecture](concepts/uncertainty-traceability-architecture.md) - KGAS uncertainty, provenance, traceability, and over-engineering tension.
+* [Evidence Claim Discipline](concepts/evidence-claim-discipline.md) - rule that claims must match component, integration, workflow, or benchmark validation level.
 
 # Timeline
 

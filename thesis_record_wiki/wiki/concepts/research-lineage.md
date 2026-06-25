@@ -44,6 +44,7 @@ Two through-lines are now visible from the first small-variant ingest:
 - [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md): the architectural split that made implementation status hard to summarize in one number.
 - [Digimon Lineage Tool Compatibility](/wiki/sources/digimon-lineage-tool-compatibility.md): large-bundle copy of the type-based composition direction, tied to active vertical-slice work.
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md): architecture thread where uncertainty sophistication ran into provenance and implementation practicality gaps.
+- [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md): evidence archive correction that separates component tests from system integration proof.
 
 # Open Interpretive Work
 

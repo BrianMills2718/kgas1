@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from architecture into evidence/archive topical sub-slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from evidence archives into experiments or ADR topical sub-slices.
 
 ## Completed
 
@@ -43,9 +43,10 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - Pending commit: first `digimon_lineage_Digimons` root-state slice, including source summary, reality-verification arc, vertical-slice/main-system split, and progress tracker.
 - Pending commit: `digimon_lineage_Digimons/tool_compatability` slice, including large-bundle source summary and updates to type-based composition.
 - Pending commit: `digimon_lineage_Digimons/docs/architecture` top-level slice, including architecture source summary and uncertainty traceability concept.
+- Pending commit: evidence archive slice, including false-claim correction and evidence validation-level concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the architecture slice.
-2. Next ingest slice: `archive/evidence/current` and `archive/generated_reports` evidence files, focusing on claims that corroborate or contradict roadmap status.
-3. Later slices: `experiments/`, `docs/architecture/adrs/`, and UI/recovered components.
+1. Run wiki lint, commit, and push the evidence slice.
+2. Next ingest slice: `experiments/lit_review`, because it appears to preserve phase-by-phase thesis experiment evidence from purpose classification through production validation.
+3. Later slices: `docs/architecture/adrs/` and UI/recovered components.

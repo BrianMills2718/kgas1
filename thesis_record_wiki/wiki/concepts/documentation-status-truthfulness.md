@@ -21,6 +21,8 @@ The `digimon_lineage_Digimons` ingest extends this theme with a September 2025 c
 
 The same large lineage architecture docs enforce the design/status boundary directly: `docs/architecture/` is target architecture, while roadmap docs carry implementation status. See [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md).
 
+The evidence archives add a validation-level boundary: component-level tests were explicitly archived as false success claims when they were used to imply system integration. See [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md).
+
 # Pattern
 
 The pattern appears in several forms:
@@ -40,6 +42,7 @@ For reconstructing the thesis work, this means status claims must be time-indexe
 - [Digimons Minimal Clean Reference](/wiki/sources/digimons-minimal-clean-reference.md)
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md)
 - [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md)
+- [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Research Lineage](/wiki/concepts/research-lineage.md)
 
 # Citations

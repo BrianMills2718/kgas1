@@ -29,6 +29,8 @@ The first `digimon_lineage_Digimons` slice captures the September 2025 active st
 
 The architecture-docs slice captures the target design side of KGAS: theory automation, cross-modal analysis, bi-store storage, agent workflows, ADR cascades, and an internal uncertainty/traceability critique. See [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md) and [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md).
 
+The evidence-archive slice captures the verification-quality side: evidence files include both raw successes/errors and explicit archival of false system-integration claims. See [Digimon Lineage Evidence Archives](/wiki/sources/digimon-lineage-evidence-archives.md) and [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).
