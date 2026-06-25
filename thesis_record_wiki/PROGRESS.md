@@ -97,10 +97,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `75a160a` ingested the experimental_testing corpus slice, including 41-file aggregate hash, top-level validation/optimization summaries, architecture comparison/prompt variation hashes, and empty retesting link.
 - `32a5da2` ingested the multi_agent_system corpus slice, including 648-file aggregate hash, outer lit-review harness inventory, nested V5.2 evidence package inventory, template/test inventory, and evaluation/remediation caveats.
 - `8a3367e` ingested the lit-review local repo metadata slice, including nested `sb_ontologies` remote, trip-backup branch, commit-summary provenance, and local `.claude` timeout settings.
-- Pending commit: large-lineage ops scaffolding slice, including `.github`, `docker`, and `requirements` inventories plus deployment/status caveats.
+- `f576061` ingested the large-lineage ops scaffolding slice, including `.github`, `docker`, and `requirements` inventories plus deployment/status caveats.
+- Pending commit: large-lineage config/contracts slice, including core config, orchestration/monitoring, phase interfaces, theory validator, and nine preserved tool contracts.
 
 ## Next
 
-1. Run wiki lint, commit, and push the ops scaffolding slice.
-2. Next recommended step: inspect `config/` and `contracts/` as a separate slice, because they appear to contain theory schemas, tool contract schemas, phase interface code, and validation logic.
+1. Run wiki lint, commit, and push the config/contracts slice.
+2. Next recommended step: inspect `config/schemas/` as its own slice, because it contains multiple theory meta-schema versions and concrete theory schema examples distinct from the lit-review schema corpus.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.

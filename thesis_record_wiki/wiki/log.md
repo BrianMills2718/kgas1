@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added config/contracts slice with core config inventory, orchestration/monitoring notes, theory-aware phase interfaces, validator, and nine tool contracts.
 * **Ingest** | Added large-lineage ops scaffolding slice covering GitHub Actions, Docker deployment files, requirements locks, and deployment/status caveats.
 * **Ingest** | Added lit-review local repo metadata page for nested `sb_ontologies` git provenance, trip-backup branch, and `.claude` timeout settings.
 * **Ingest** | Added full multi_agent_system corpus inventory, including nested V5.2 evidence packages, templates, tests, and remediation/evaluation caveats.
