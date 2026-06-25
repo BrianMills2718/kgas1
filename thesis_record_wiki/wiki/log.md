@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added performance-tests page with 16-file benchmark-definition inventory, async/parallel/load/production-scale themes, and benchmark-output caveat.
 * **Ingest** | Added reliability-tests page with 33-file inventory, README completed/in-progress/pending boundaries, real-database transaction/entity-ID scope, and certification caveats.
 * **Ingest** | Added functional-tests page with 46-file user-workflow inventory, UI/MCP/phase/no-mocks themes, symlinked AGENTS note, and runtime-status caveats.
 * **Ingest** | Added archived-root-tests page with 100-file historical inventory, real-execution/no-mocks pressure, schema/DAG/MCP/LLM themes, and runtime-proof caveats.
