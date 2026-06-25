@@ -49,6 +49,7 @@
 * [Lit Review Influence Operations Corpus](sources/lit-review-influence-operations-corpus.md) - influence-operations source folder and generated Chapter 6-7 framework artifacts.
 * [Lit Review Social Marketing Corpus](sources/lit-review-social-marketing-corpus.md) - social-marketing source folder with CORE/sharedProps/post-processing common ontology artifacts.
 * [Lit Review Remaining Literature Folders](sources/lit-review-remaining-literature-folders.md) - grouped inventory of remaining smaller literature folders and two remaining generated schemas.
+* [Lit Review Schemas Corpus Inventory](sources/lit-review-schemas-corpus-inventory.md) - mature schema corpus inventory with Young, semantic hypergraph, Turner/social identity, ELM, and extracted-theory artifacts.
 
 # Entities
 

@@ -38,6 +38,8 @@ This thread explains why the lit-review experiment was not merely "make an ontol
 
 [Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md) gives the first ingested empirical reason for this design pressure: model-type selection can be right for Young and Lofland-Stark while wrong for framing effects.
 
+[Lit Review Schemas Corpus Inventory](/wiki/sources/lit-review-schemas-corpus-inventory.md) shows a later schema corpus with variant families, debug JSON, extracted fulltext sidecars, execution prompts, and application-ready artifacts. This strengthens the pattern: the pipeline evolved from broad one-pass schema generation toward staged, inspectable, executable schema work.
+
 # Caveat
 
 The archive also shows an unfinished transition to stronger engineering discipline: hardcoded paths, multiple extractor generations, and `json_object` usage coexist with better prompt externalization and Pydantic parsing. Treat the pipeline as historically valuable and conceptually mature in places, but not cleanly productionized without further verification.
@@ -47,6 +49,7 @@ The archive also shows an unfinished transition to stronger engineering discipli
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md)
 - [Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md)
+- [Lit Review Schemas Corpus Inventory](/wiki/sources/lit-review-schemas-corpus-inventory.md)
 - [Multi-Theory Application Artifact](/wiki/concepts/multi-theory-application-artifact.md)
 
 # Citations

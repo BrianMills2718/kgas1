@@ -75,10 +75,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `d2bb70a` ingested the operational-code corpus slice, including five source texts, four Young schema variants, schema-variant-drift concept, and YAML truth-value parsing caveat.
 - `2184edf` ingested the influence-operations corpus slice, including folder inventory, RAND Chapter 6-7 generated artifacts, schema/debug counts, and multi-level-influence-modeling concept.
 - `704edff` ingested the social-marketing corpus slice, including CORE/sharedProps/post_process artifacts, missing configured YAML caveat, and analyst-assembler-pattern update.
-- Pending commit: remaining literature folders grouped slice, including 23-folder inventory, poliheuristic schema note, framing schema note, and literature-corpus-as-theory-testbed update.
+- `09c25a4` ingested the remaining literature folders grouped slice, including 23-folder inventory, poliheuristic schema note, framing schema note, and literature-corpus-as-theory-testbed update.
+- Pending commit: mature schemas corpus inventory, including 54-file count, subfolder inventory, aggregate hash, ELM summary note, Young execution prompt note, and schema-extraction-pipeline-evolution update.
 
 ## Next
 
-1. Run wiki lint, commit, and push the grouped remaining literature folders slice.
-2. Next recommended step: leave `literature/` for now and inspect `experiments/lit_review/schemas/`, because it likely contains the mature schema corpus that connects literature sources to universal applicator and validation outputs.
+1. Run wiki lint, commit, and push the schemas corpus inventory slice.
+2. Next recommended step: deep-dive `schemas/extracted` and `schemas/extracted_single` together, because they appear to preserve the Turner/social-identity multi-theory versus single-theory extraction comparison.
 3. Later slices: selected generated-code directories and remaining experiment directories.

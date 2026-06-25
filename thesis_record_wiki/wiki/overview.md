@@ -120,6 +120,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Multi-Level Influence Modeling](/wiki/concepts/multi-level-influence-modeling.md) - pattern where property-graph representation is justified by multi-level actors, messages, strategies, metrics, and feedback loops.
 - [Lit Review Social Marketing Corpus](/wiki/sources/lit-review-social-marketing-corpus.md) - social-marketing folder preserving CORE/sharedProps/post-processing machinery and a missing generated-YAML caveat.
 - [Lit Review Remaining Literature Folders](/wiki/sources/lit-review-remaining-literature-folders.md) - grouped remainder inventory, with poliheuristic and framing-theory generated schema notes.
+- [Lit Review Schemas Corpus Inventory](/wiki/sources/lit-review-schemas-corpus-inventory.md) - mature schema corpus with variant families, debug JSON, fulltext sidecars, and execution prompts.
 
 # Current Cautions
 
