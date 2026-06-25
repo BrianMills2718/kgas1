@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added uncertainty-stress-test optimization page covering mock parallelism, live-oriented timing output, 43.4s-to-24.7s estimated parallel result, cache assumptions, hardcoded historical paths, and no-literal-key finding.
 * **Ingest** | Added uncertainty-stress-test setup page covering Neo4j Docker manager, one-click setup helpers, complete demo script, demo password, optional Docker volume deletion path, fragile sibling-validator import, and missing demo-output caveats.
 * **Ingest** | Added uncertainty-stress-test docs page covering methodology/specification files, formula/design content, CERQual/Bayesian/cross-modal rationale, unchecked implementation checklist, performance-target boundary, and uncorroborated validation-claim caveats.
 * **Ingest** | Added uncertainty-stress-test Bayesian page covering three psychological-trait Bayesian prototype scripts, simulated LLM likelihood-ratio methods, research-prior update pattern, and "real"/"production" label caveats.
