@@ -38,6 +38,7 @@ Prompt outputs are not evidence by themselves. A detector becomes useful only af
 
 - [Lit Review Prompt Variation Model Routing](/wiki/sources/lit-review-prompt-variation-model-routing.md)
 - [Lit Review Testing Code](/wiki/sources/lit-review-testing-code.md)
+- [Lit Review Experimental Testing Corpus](/wiki/sources/lit-review-experimental-testing-corpus.md)
 - [Model Form Routing](/wiki/concepts/model-form-routing.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 

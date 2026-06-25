@@ -93,10 +93,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `8c4adc7` ingested the data/examples grounding slice, including 17-file data hash, 11-file examples hash, source papers, test texts, Carter examples, hybrid schemas, OWL/causal stress tests, UI requirements, and model-form negative evidence.
 - `521a2e2` ingested the evidence corpus inventory slice, including 114-file aggregate hash, six phase aggregates, Phase 1 purpose-classification summary, and links to existing Phase 2-6 pages.
 - `d55fb34` ingested the debug_improved/analysis_results slice, including 9-file debug hash, Carter and Semantic Hypergraph phase counts, and empty analysis_results caveat.
-- Pending commit: results corpus slice, including top-level results hash, semantic_hypergraph and young1996 subtree hashes, WorldView/Carter application assessments, cognitive-mapping critiques, and simplified meta-schema findings.
+- `843f17d` ingested the results corpus slice, including top-level results hash, semantic_hypergraph and young1996 subtree hashes, WorldView/Carter application assessments, cognitive-mapping critiques, and simplified meta-schema findings.
+- Pending commit: experimental_testing corpus slice, including 41-file aggregate hash, top-level validation/optimization summaries, architecture comparison/prompt variation hashes, and empty retesting link.
 
 ## Next
 
-1. Run wiki lint, commit, and push the results corpus slice.
-2. Next recommended step: inspect remaining lit-review directories with limited coverage: `experimental_testing/` as a whole, `multi_agent_system/` deeper inventory, and `archive/` subfolders already not covered by legacy/old-schema pages.
+1. Run wiki lint, commit, and push the experimental_testing corpus slice.
+2. Next recommended step: inspect `multi_agent_system/` deeper inventory, because the current page covers the system concept but not the 648-file corpus structure.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
