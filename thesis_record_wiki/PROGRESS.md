@@ -172,11 +172,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `f83a5a8` ingested the archived-experimental-tests slice, including redundant-functional/stress/root-test inventory, MCP/PDF workflow tests, TORC/adversarial stress methodology, API/contract/configuration checks, PageRank/vertical-slice caveats, empty-directory notes, and no-literal-key finding.
 - `895754c` ingested the demos-examples-2025-08 slice, including ontology Streamlit UI, Neo4j/SQLite transaction demo, reliability demonstration, direct Gemini validators, natural-language-to-DAG proof, sample documents, multimodal output JSON, and no-literal-key finding.
 - `0f4fa2f` ingested the archived-implementations-ui slice, including four Streamlit/PDF-upload UI remnants, vertical-slice UI, standardized phase-interface UI, simple debug UI, smoke test, and no-literal-key finding.
-- Pending commit: doc-generation-scripts slice, including architecture concatenation, architecture split, ADR extraction/indexing, Gemini architecture review script, generated-doc provenance caveats, and no-literal-key finding.
+- `5e70807` ingested the doc-generation-scripts slice, including architecture concatenation, architecture split, ADR extraction/indexing, Gemini architecture review script, generated-doc provenance caveats, and no-literal-key finding.
+- Pending commit: temp-debug-files slice, including database/debug/structured-output/claim-validation/reliability inventory, facade POC transcript fragment, overlap caveats, and no-literal-key finding.
 
 ## Next
 
-1. Run wiki lint, commit, and push the doc-generation-scripts slice.
-2. Next recommended step: inspect `archive/temp_debug_files/`, the last not-yet-represented top-level archive queue from the current audit.
+1. Run wiki lint, commit, and push the temp-debug-files slice.
+2. Next recommended step: stop broad top-level archive ingestion and produce a synthesis/checkpoint: what the thesis record wiki now says about KGAS evolution, what remains uncertain, and which deep dives would be highest value.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

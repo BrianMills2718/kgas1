@@ -52,7 +52,7 @@ The following top-level archive areas were not found in the wiki index by this a
 | `archived_experimental/` | 33 | 576,378 | Covered by archived-experimental-tests page; deeper replay remains optional. |
 | `proposal_rewrite_condensed/` | 25 | 333,418 | Covered by proposal-rewrite-condensed page; overlaps with theoretical exploration full-example material. |
 | `old_docs_2025_08/` | 12 | 289,025 | Covered by old-docs-2025-08 page; deeper IC uncertainty extraction remains optional. |
-| `temp_debug_files/` | 32 | 169,254 | Low unless it contains unique failure evidence. |
+| `temp_debug_files/` | 32 | 169,254 | Covered by temp-debug-files page; mostly overlap plus facade POC transcript fragment. |
 | `old_claude_md_versions/` | 7 | 123,514 | Covered by old-CLAUDE-md-versions page. |
 | `demos_examples_2025_08/` | 13 | 63,774 | Covered by demos-examples-2025-08 page; overlaps with scripts archive. |
 | `archived_implementations/` | 4 | 53,730 | Covered by archived-implementations-ui page; all four files are UI remnants. |
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next inspect `temp_debug_files/`, the last not-yet-represented top-level archive queue from this audit. It may only need a negative/low-value page if it is scratch debugging. [1]
+All top-level directories identified by this audit are now represented at overview level. Recommended next work is not more top-level coverage; it is either a targeted deep dive into a high-value represented area or a current-state synthesis across the wiki. [1]
 
 # Relationship To Wiki
 
@@ -84,6 +84,7 @@ Next inspect `temp_debug_files/`, the last not-yet-represented top-level archive
 - [Digimon Lineage Demos Examples 2025 08](/wiki/sources/digimon-lineage-demos-examples-2025-08.md): small demo/example corpus with ontology UI and validation leftovers.
 - [Digimon Lineage Archived Implementations UI](/wiki/sources/digimon-lineage-archived-implementations-ui.md): small archived Streamlit UI implementation-remnants bundle.
 - [Digimon Lineage Doc Generation Scripts](/wiki/sources/digimon-lineage-doc-generation-scripts.md): generated architecture/ADR bundle script provenance.
+- [Digimon Lineage Temp Debug Files](/wiki/sources/digimon-lineage-temp-debug-files.md): low-priority temp debug and claim-validation scratch archive.
 - [Digimon Lineage Root Cleanup 2025 08 29](/wiki/sources/digimon-lineage-root-cleanup-2025-08-29.md): root cleanup and duplicate entry-point archive overview.
 - [Digimon Lineage Old Claude Md Versions](/wiki/sources/digimon-lineage-old-claude-md-versions.md): historical agent-instruction archive overview.
 - [Digimon Lineage Old Docs 2025 08](/wiki/sources/digimon-lineage-old-docs-2025-08.md): superseded old-docs archive covering contract-first, structured-output, operations, and uncertainty notes.
