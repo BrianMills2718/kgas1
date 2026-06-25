@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added old-backups-output-reports page covering Phase A/B generated validation success reports and the tool-registry report showing 12/123 tools implemented.
 * **Verification** | Added old-backups-empty-monitoring-output page documenting that `monitoring_output/` exists but contains zero files.
 * **Ingest** | Added old-backups-error-reports page covering 22 generated escalation reports, validation load-test dominance, registered recovery strategies, and 0/55 successful recoveries.
 * **Verification** | Added old-backups-empty-benchmark-results page documenting that `benchmark_results/` exists but contains zero files.
