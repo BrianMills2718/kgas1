@@ -76,10 +76,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `2184edf` ingested the influence-operations corpus slice, including folder inventory, RAND Chapter 6-7 generated artifacts, schema/debug counts, and multi-level-influence-modeling concept.
 - `704edff` ingested the social-marketing corpus slice, including CORE/sharedProps/post_process artifacts, missing configured YAML caveat, and analyst-assembler-pattern update.
 - `09c25a4` ingested the remaining literature folders grouped slice, including 23-folder inventory, poliheuristic schema note, framing schema note, and literature-corpus-as-theory-testbed update.
-- Pending commit: mature schemas corpus inventory, including 54-file count, subfolder inventory, aggregate hash, ELM summary note, Young execution prompt note, and schema-extraction-pipeline-evolution update.
+- `da010a0` ingested the mature schemas corpus inventory, including 54-file count, subfolder inventory, aggregate hash, ELM summary note, Young execution prompt note, and schema-extraction-pipeline-evolution update.
+- Pending commit: Turner social-identity extraction comparison, including extracted/extracted_single aggregate hashes, six-theory nested output, single Self-Categorization Theory output, and multi-theory-extraction-split concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the schemas corpus inventory slice.
-2. Next recommended step: deep-dive `schemas/extracted` and `schemas/extracted_single` together, because they appear to preserve the Turner/social-identity multi-theory versus single-theory extraction comparison.
+1. Run wiki lint, commit, and push the Turner social-identity extraction comparison.
+2. Next recommended step: inspect `schemas/social_identity_theory/` as the adjacent smaller Turner/SIT schema slice, then compare it with the extracted/extracted_single outputs.
 3. Later slices: selected generated-code directories and remaining experiment directories.

@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added Turner social-identity extraction comparison and multi-theory-extraction-split concept.
 * **Ingest** | Added schemas-corpus inventory and updated schema-extraction-pipeline-evolution.
 * **Ingest** | Added grouped remaining-literature-folders slice and updated literature-corpus-as-theory-testbed.
 * **Ingest** | Added social-marketing corpus slice and updated analyst-assembler-pattern with common-ontology injection evidence.

@@ -50,6 +50,7 @@
 * [Lit Review Social Marketing Corpus](sources/lit-review-social-marketing-corpus.md) - social-marketing source folder with CORE/sharedProps/post-processing common ontology artifacts.
 * [Lit Review Remaining Literature Folders](sources/lit-review-remaining-literature-folders.md) - grouped inventory of remaining smaller literature folders and two remaining generated schemas.
 * [Lit Review Schemas Corpus Inventory](sources/lit-review-schemas-corpus-inventory.md) - mature schema corpus inventory with Young, semantic hypergraph, Turner/social identity, ELM, and extracted-theory artifacts.
+* [Lit Review Turner Social Identity Extraction](sources/lit-review-turner-social-identity-extraction.md) - Turner/Oakes multi-theory versus single-theory extraction comparison.
 
 # Entities
 
@@ -95,6 +96,7 @@
 * [Literature Corpus As Theory Testbed](concepts/literature-corpus-as-theory-testbed.md) - heterogeneous corpus as stress test for theory-to-schema representation methods.
 * [Schema Variant Drift](concepts/schema-variant-drift.md) - multiple extraction passes over the same source preserve different theory content.
 * [Multi-Level Influence Modeling](concepts/multi-level-influence-modeling.md) - representation pattern for campaign-level influence theories spanning actors, messages, strategies, and metrics.
+* [Multi Theory Extraction Split](concepts/multi-theory-extraction-split.md) - design choice between preserving multiple related theories and producing one primary executable theory.
 
 # Timeline
 
