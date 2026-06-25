@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, currently working through lit-review archive and literature-corpus slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, currently working through archived uncertainty stress-test slices.
 
 ## Completed
 
@@ -129,11 +129,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `5a28850` ingested the old-backups Carter analysis output slice, including generated themes/rhetoric/insights and empty evidence-sidecar caveat.
 - `fb682d2` expanded the archived UI corpus record, including `archive/ui`, near-duplicate `ui_archive_2025_08`, archived implementations, logs/uploads/exports, and readiness-vs-backend caveats.
 - `7e85506` ingested the uncertainty-stress-test root slice, including IC-inspired tests, CERQual/Bayesian/LLM services, Davis validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.
-- Pending commit: uncertainty-stress-test analysis slice, including Davis rapid analysis, 157 prepared chunks, six agent notes, synthesis findings, and 3.8% coverage caveat.
+- `82f9d71` ingested the uncertainty-stress-test analysis slice, including Davis rapid analysis, 157 prepared chunks, six agent notes, synthesis findings, and 3.8% coverage caveat.
+- Pending commit: uncertainty-stress-test core-services slice, including six Python implementation files, Bayesian/CERQual/LLM-native service roles, direct GPT-4 API patterns, fallback/default behavior, and optimized-engine runtime caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the uncertainty-stress-test analysis slice.
-2. Next recommended step: continue with `archive/uncertainty_stress_test/core_services/`, then `validation/`, because those determine whether the Davis/uncertainty methodology was represented in code and test outputs.
+1. Run wiki lint, commit, and push the uncertainty-stress-test core-services slice.
+2. Next recommended step: continue with `archive/uncertainty_stress_test/validation/`, then `testing/`, because those determine whether the code-level uncertainty services have preserved validation outputs.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

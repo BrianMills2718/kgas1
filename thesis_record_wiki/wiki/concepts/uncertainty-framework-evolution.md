@@ -22,6 +22,8 @@ The archived uncertainty stress test adds an intermediate implementation arc: CE
 
 The stress-test analysis directory explains where the Davis turn came from: six-paper rapid analysis, targeted agent extraction notes, and a synthesis explicitly mapping Davis's multi-method uncertainty ideas onto KGAS. See [Digimon Lineage Uncertainty Stress Test Analysis](/wiki/sources/digimon-lineage-uncertainty-stress-test-analysis.md).
 
+The stress-test core-services directory shows the corresponding implementation experiment: Bayesian aggregation, CERQual assessment, formal Bayesian updating with LLM-estimated parameters, LLM-native contextual confidence, and a cached/parallel optimization attempt. It is implementation evidence, not current runtime proof. See [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md).
+
 # Evolution
 
 1. **Contract normalization**: ADR-004 tried to make all tools report confidence through one Pydantic model. This addressed interface compatibility but not deeper research uncertainty. [1]
@@ -53,6 +55,7 @@ Several files cite an ADR-029 IC-informed uncertainty framework, but that direct
 - [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md)
 - [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md)
 - [Digimon Lineage Uncertainty Stress Test Analysis](/wiki/sources/digimon-lineage-uncertainty-stress-test-analysis.md)
+- [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md)
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md)

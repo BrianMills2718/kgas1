@@ -46,6 +46,8 @@ The focused uncertainty/quality ADR slice shows the historical reason for this c
 
 The archived uncertainty stress test is the implementation-side counterpart: it contains root reports claiming working IC-inspired uncertainty features and core services, but also a validation-status report that identifies critical sample-size and language-complexity biases before external review. See [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md).
 
+The core-services slice shows both progress and traceability risk at code level. Several services preserve explicit reasoning/report structures, but they also rely on direct GPT-4 calls, JSON substring parsing, and default-return fallbacks after exceptions or parse failures. See [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md).
+
 # Relationship To Other Threads
 
 This concept connects to:
@@ -56,6 +58,7 @@ This concept connects to:
 - [Contract-First Migration](/wiki/concepts/contract-first-migration.md): traceable confidence and provenance require stable contracts.
 - [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md): focused ADR slice for confidence, quality, and entity-resolution uncertainty.
 - [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md): implementation/result slice for uncertainty services, tests, Davis validation, and bias-readiness caveats.
+- [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md): implementation-code slice for Bayesian, CERQual, LLM-native, and optimized uncertainty services.
 
 # Citations
 
