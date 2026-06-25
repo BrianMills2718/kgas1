@@ -147,11 +147,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `0897fd4` ingested the archive-before-cleanup-2025-08-05 overview slice, including roadmap status claims, cleanup caveats, directory counts, theory-integration status, and sub-slice queue.
 - `f571924` ingested the proposal-rewrite-2025-08-12 thesis lineage slice, including proposal positioning, critique incorporation, IC/uncertainty planning tension, validation matrices, HSPC/reference inventory, and concept links.
 - `13c32a1` ingested the archive-before-cleanup phases slice, including 75-file phase inventory, Phase C completion caveats, reliability freeze, TDD migration, fail-fast, theory-to-code, universal LLM, and placeholder-key caveat.
-- Pending commit: archive-before-cleanup initiatives slice, including theory extraction integration, uncertainty, two-stage analysis, bi-store/PostgreSQL, concurrency, dynamic orchestration, import failures, identity variants, risk, metrics, and no-literal-key finding.
+- `2541db4` ingested the archive-before-cleanup initiatives slice, including theory extraction integration, uncertainty, two-stage analysis, bi-store/PostgreSQL, concurrency, dynamic orchestration, import failures, identity variants, risk, metrics, and no-literal-key finding.
+- Pending commit: archive-before-cleanup archived-investigations slice, including service-investigation cleanup inventory, duplicate/consolidation categories, template-only markers, and status-tension caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the archive-before-cleanup initiatives slice.
-2. Next recommended step: ingest `archive/ARCHIVE_BEFORE_CLEANUP_20250805/archived/` as a bounded service-investigation/consolidation slice.
+1. Run wiki lint, commit, and push the archive-before-cleanup archived-investigations slice.
+2. Next recommended step: ingest `archive/ARCHIVE_BEFORE_CLEANUP_20250805/analysis/` as a bounded analysis/report slice.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
