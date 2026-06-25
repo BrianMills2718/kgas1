@@ -161,11 +161,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `fc73c4f` ingested the theoretical-exploration schema-v14 post-MVP slice, including operationalization clarity, parameter uncertainty, method selection, multidimensional uncertainty, IC-at-execution, DAG-aware propagation, and no-literal-key finding.
 - `2101506` ingested the gemini-review-tool archive overview, including 166-file inventory, review-tool purpose, workflow fixes, validation findings, generated docs-review caveats, roadmap critique config, and no-literal-key finding.
 - `1e4eb0f` ingested the docs-architecture-cleanup-2025-08-29 overview, including generated-document cleanup rationale, over-engineered service-guide archival, IC uncertainty ADR-to-abandonment arc, category-error critique, and no-literal-key finding.
-- Pending commit: generated-outputs-2025-08 slice, including performance/SLA JSON, real-vector proof, provenance/reasoning-trace SQLite schema and row counts, repomix-bundle caveats, and no-literal-key finding.
+- `3687a70` ingested the generated-outputs-2025-08 slice, including performance/SLA JSON, real-vector proof, provenance/reasoning-trace SQLite schema and row counts, repomix-bundle caveats, and no-literal-key finding.
+- Pending commit: analysis-validation-2025-08 slice, including validation archive inventory, development-standards validation, three Gemini claim validations, reliability/MCP/final validation configs, chronology/supersession caveat, and no-literal-key finding.
 
 ## Next
 
-1. Run wiki lint, commit, and push the generated-outputs-2025-08 slice.
-2. Next recommended step: move to `archive/analysis_validation_2025_08/` for the next validation/evidence archive slice.
+1. Run wiki lint, commit, and push the analysis-validation-2025-08 slice.
+2. Next recommended step: move to `archive/agent_stress_testing/` for agent workflow/memory/research stress-test history, unless cleanup/policy lineage is higher priority.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

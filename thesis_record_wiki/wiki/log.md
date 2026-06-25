@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added analysis-validation-2025-08 slice, including 40-file validation archive inventory, development-standards validation, three Gemini claim validations, reliability/MCP/final validation configs, chronology/supersession caveat, and no-literal-key finding.
 * **Ingest** | Added generated-outputs-2025-08 slice, including 10-file inventory, performance/SLA JSON, real-vector proof, provenance and reasoning-trace SQLite schema/row counts, repomix-bundle caveats, and no-literal-key finding.
 * **Ingest** | Added docs-architecture-cleanup-2025-08-29 archive overview, including 62-file inventory, generated-document cleanup rationale, over-engineered service-guide archival, IC uncertainty ADR-to-abandonment arc, category-error critique, and no-literal-key finding.
 * **Ingest** | Added gemini-review-tool archive overview, including 166-file inventory, tool purpose, preview/path workflow fixes, Phase 2.1/reliability/provenance validation findings, generated docs-review caveats, roadmap critique config, and no-literal-key finding.
