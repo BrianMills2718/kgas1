@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from the lit-review schema-creation production path into validation/source-output comparison sub-slices or architecture ADR topical sub-slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from lit-review validation results into either deeper phase evidence or architecture ADR topical sub-slices.
 
 ## Completed
 
@@ -46,10 +46,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `bf80bf9` ingested the evidence archive slice, including false-claim correction and evidence validation-level concept.
 - `54d1422` ingested first `experiments/lit_review` slice, including automated theory extraction source summary, schema/application method concept, and validation-claim caveats.
 - `c780da3` ingested `experiments/lit_review/carter_analysis_output`, including concrete generated output artifacts and multi-theory application artifact concept.
-- Pending commit: `experiments/lit_review/src/schema_creation` production-path slice, including prompt structure, information-loss fix, v13 extractors, and schema extraction pipeline evolution concept.
+- `603f173` ingested `experiments/lit_review/src/schema_creation`, including prompt structure, information-loss fix, v13 extractors, and schema extraction pipeline evolution concept.
+- Pending commit: `experiments/lit_review/validation_results` slice, including Young/framing/Lofland reports, selected baseline outputs, and complexity/accuracy pattern concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the schema-creation production-path slice.
-2. Next recommended ingest slice: `experiments/lit_review/validation_results/academic_papers` and `validation_results/cross_domain`, because these can connect generated outputs to validation comparisons rather than only code intent.
-3. Later slices: `experiments/lit_review/evidence/` deeper phase evidence, `docs/architecture/adrs/`, and UI/recovered components.
+1. Run wiki lint, commit, and push the validation-results slice.
+2. Next recommended ingest slice: `experiments/lit_review/evidence/phase2_vocabulary_extraction` and `phase3_schema_generation` if present, because validation exposed model-type and vocabulary-preservation issues that phase evidence may clarify.
+3. Later slices: `docs/architecture/adrs/`, `experiments/lit_review/multi_agent_system/`, and UI/recovered components.

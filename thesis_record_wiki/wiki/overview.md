@@ -72,6 +72,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Multi-Theory Application Artifact](/wiki/concepts/multi-theory-application-artifact.md) - evidence form for checking whether theory extraction/application produced concrete inspectable outputs.
 - [Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md) - code and prompt slice documenting how schema extraction was produced or evolved.
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md) - information-loss correction, no-truncation extraction, and adaptive model-type selection thread.
+- [Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md) - reports and outputs for Young 1996, framing effects, and Lofland-Stark validation cases.
+- [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md) - conservative validation lesson that simple theories are the best automation target.
 
 # Current Cautions
 

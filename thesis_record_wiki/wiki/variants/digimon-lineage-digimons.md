@@ -28,6 +28,8 @@ The `experiments/lit_review/carter_analysis_output` slice is a concrete generate
 
 The `experiments/lit_review/src/schema_creation` slice documents production-path evolution behind those outputs: prompt externalization, improved multiphase extraction, information-loss correction, v13 single/multi-theory extractors, and caveats around hardcoded historical paths. See [Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md).
 
+The `experiments/lit_review/validation_results` slice records validation reports and outputs. The conservative finding is a complexity/accuracy pattern rather than blanket success: Lofland-Stark sequence worked especially well, framing effects exposed a model-type error, and Young 1996 worked as a property graph case. See [Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

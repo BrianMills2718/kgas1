@@ -37,6 +37,8 @@ The Carter output sub-slice shows one concrete generated artifact from that line
 
 The schema-creation source slice documents the production-path side of that line: external prompts, full-vocabulary handoff between phases, no-truncation extractor variants, and adaptive model-type selection. See [Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md) and [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md).
 
+The validation-results slice gives the first conservative validation pattern: simple theories appear better suited to automation, while medium/cross-domain theories can still miss model type. See [Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md) and [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

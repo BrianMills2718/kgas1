@@ -36,6 +36,8 @@ The direction of travel is:
 
 This thread explains why the lit-review experiment was not merely "make an ontology from a paper." It became a pipeline-design problem: preserve theoretical vocabulary, choose the right representation, handle multiple theories, and make generated schemas operational enough to apply to texts.
 
+[Lit Review Validation Results](/wiki/sources/lit-review-validation-results.md) gives the first ingested empirical reason for this design pressure: model-type selection can be right for Young and Lofland-Stark while wrong for framing effects.
+
 # Caveat
 
 The archive also shows an unfinished transition to stronger engineering discipline: hardcoded paths, multiple extractor generations, and `json_object` usage coexist with better prompt externalization and Pydantic parsing. Treat the pipeline as historically valuable and conceptually mature in places, but not cleanly productionized without further verification.
