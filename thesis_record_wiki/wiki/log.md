@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added large-lineage ops scaffolding slice covering GitHub Actions, Docker deployment files, requirements locks, and deployment/status caveats.
 * **Ingest** | Added lit-review local repo metadata page for nested `sb_ontologies` git provenance, trip-backup branch, and `.claude` timeout settings.
 * **Ingest** | Added full multi_agent_system corpus inventory, including nested V5.2 evidence packages, templates, tests, and remediation/evaluation caveats.
 * **Ingest** | Added experimental_testing corpus inventory with top-level validation/optimization summaries and links to routing/retesting detail pages.

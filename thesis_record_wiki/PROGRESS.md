@@ -96,10 +96,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `843f17d` ingested the results corpus slice, including top-level results hash, semantic_hypergraph and young1996 subtree hashes, WorldView/Carter application assessments, cognitive-mapping critiques, and simplified meta-schema findings.
 - `75a160a` ingested the experimental_testing corpus slice, including 41-file aggregate hash, top-level validation/optimization summaries, architecture comparison/prompt variation hashes, and empty retesting link.
 - `32a5da2` ingested the multi_agent_system corpus slice, including 648-file aggregate hash, outer lit-review harness inventory, nested V5.2 evidence package inventory, template/test inventory, and evaluation/remediation caveats.
-- Pending commit: lit-review local repo metadata slice, including nested `sb_ontologies` remote, trip-backup branch, commit-summary provenance, and local `.claude` timeout settings.
+- `8a3367e` ingested the lit-review local repo metadata slice, including nested `sb_ontologies` remote, trip-backup branch, commit-summary provenance, and local `.claude` timeout settings.
+- Pending commit: large-lineage ops scaffolding slice, including `.github`, `docker`, and `requirements` inventories plus deployment/status caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the local repo metadata slice.
-2. Next recommended step: inspect whether the top-level `results/` source page should be split further for the unexamined non-top-level files, because the current page summarizes 61 files but focuses primarily on top-level, `semantic_hypergraph/`, and `young1996/`.
+1. Run wiki lint, commit, and push the ops scaffolding slice.
+2. Next recommended step: inspect `config/` and `contracts/` as a separate slice, because they appear to contain theory schemas, tool contract schemas, phase interface code, and validation logic.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.

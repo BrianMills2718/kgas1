@@ -31,6 +31,7 @@
 * [Digimon Lineage Uncertainty Quality ADRs](sources/digimon-lineage-uncertainty-quality-adrs.md) - uncertainty, quality, and entity-resolution ADR slice with supersession caveats.
 * [Digimon Lineage Tool Orchestration ADRs](sources/digimon-lineage-tool-orchestration-adrs.md) - contract, adapter, MCP, and structured-output ADR slice.
 * [Digimon Lineage Analysis Expansion ADRs](sources/digimon-lineage-analysis-expansion-adrs.md) - cross-modal, schema, ABM, statistics, and local API ADR slice.
+* [Digimon Lineage Ops Scaffolding](sources/digimon-lineage-ops-scaffolding.md) - GitHub Actions, Docker deployment, and pip-tools requirements scaffolding with deployment/status caveats.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
 * [Lit Review Multi Agent System Corpus](sources/lit-review-multi-agent-system-corpus.md) - corpus-level inventory of the 648-file multi-agent harness, nested V5.2 evidence packages, templates, tests, and remediation records.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.
