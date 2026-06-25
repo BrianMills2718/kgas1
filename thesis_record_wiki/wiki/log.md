@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added uncertainty-stress-test validation page covering basic connectivity output, formal Bayesian examples, LLM-native comparison, SocialMaze mock-mode output, validator scripts, missing ground-truth/bias output files, and hardcoded-path caveats.
 * **Ingest** | Added uncertainty-stress-test core-services page covering six Python implementation files, direct GPT-4 API patterns, Bayesian/CERQual/LLM-native service roles, fallback/default behavior, and optimized-engine runtime caveats.
 * **Ingest** | Added uncertainty-stress-test analysis page covering Davis rapid analysis, 157 prepared chunks, six agent extraction notes, synthesis findings, and 3.8% coverage/internal-synthesis caveats.
 * **Ingest** | Added uncertainty-stress-test root page covering IC-inspired uncertainty tests, CERQual/Bayesian/LLM implementation claims, Davis-enhanced validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.

@@ -130,11 +130,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `fb682d2` expanded the archived UI corpus record, including `archive/ui`, near-duplicate `ui_archive_2025_08`, archived implementations, logs/uploads/exports, and readiness-vs-backend caveats.
 - `7e85506` ingested the uncertainty-stress-test root slice, including IC-inspired tests, CERQual/Bayesian/LLM services, Davis validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.
 - `82f9d71` ingested the uncertainty-stress-test analysis slice, including Davis rapid analysis, 157 prepared chunks, six agent notes, synthesis findings, and 3.8% coverage caveat.
-- Pending commit: uncertainty-stress-test core-services slice, including six Python implementation files, Bayesian/CERQual/LLM-native service roles, direct GPT-4 API patterns, fallback/default behavior, and optimized-engine runtime caveats.
+- `4ea7913` ingested the uncertainty-stress-test core-services slice, including six Python implementation files, Bayesian/CERQual/LLM-native service roles, direct GPT-4 API patterns, fallback/default behavior, and optimized-engine runtime caveats.
+- Pending commit: uncertainty-stress-test validation slice, including preserved connectivity, formal Bayesian, LLM-native comparison, SocialMaze mock-mode outputs, validator scripts, missing-output caveats, and hardcoded-path caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the uncertainty-stress-test core-services slice.
-2. Next recommended step: continue with `archive/uncertainty_stress_test/validation/`, then `testing/`, because those determine whether the code-level uncertainty services have preserved validation outputs.
+1. Run wiki lint, commit, and push the uncertainty-stress-test validation slice.
+2. Next recommended step: continue with `archive/uncertainty_stress_test/testing/`, then `bayesian/`, because those should capture the remaining test harnesses and Bayesian-specific artifacts.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

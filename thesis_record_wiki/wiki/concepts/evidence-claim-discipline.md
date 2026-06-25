@@ -34,6 +34,8 @@ The old-backups stress-test slice gives a compact example inside one directory: 
 
 The uncertainty core-services slice adds a code-level version of the same rule: six service files exist and contain real API-call implementations, but fallback/default paths and an optimized-engine helper/import mismatch mean the right claim is "implementation artifact exists," not "runtime verified here." See [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md).
 
+The uncertainty validation slice adds an output-presence rule: LLM-native 7/7 and SocialMaze excellent-calibration claims have preserved result files, but SocialMaze is mock mode and the detailed ground-truth/bias-analysis output files are absent from that directory. See [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -63,6 +65,7 @@ Future summaries must name the validation level.
 - [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md): current functionality requires direct checkout and runtime checks.
 - [Digimon Lineage Old Backups Stress Test Framework](/wiki/sources/digimon-lineage-old-backups-stress-test-framework.md): mock-mode fallbacks and registry/schema disagreement as claim-level caveats.
 - [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md): source-code implementation evidence constrained by runtime caveats.
+- [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md): preserved validation outputs versus validation scripts and missing-output boundaries.
 
 # Citations
 
