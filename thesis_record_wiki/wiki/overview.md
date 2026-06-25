@@ -55,6 +55,9 @@ After the first small-variant ingest, two organizing themes are visible:
 - [GraphRAG Upstream Lineage](/wiki/concepts/graphrag-upstream-lineage.md) - local Digimon/KGAS should be read as connected to JayLZhou GraphRAG / DIGIMON, not as an isolated origin.
 - [Contract-First Migration](/wiki/concepts/contract-first-migration.md) - `digimon_core_sparse` records a formal attempt to collapse split tool interfaces into KGASTool contracts.
 - [Relationship Extraction Bottleneck](/wiki/concepts/relationship-extraction-bottleneck.md) - sparse-variant stress tests show a critical failure mode where entities were extracted but relationships were not.
+- [Adaptive Operator Routing](/wiki/concepts/adaptive-operator-routing.md) - `digimon_autoloop` sharpens the thesis into a falsifiable benchmark question and records negative development evidence.
+- [MCP Autoloop Interface](/wiki/concepts/mcp-autoloop-interface.md) - autoloop preserves early MCP/UKRF integration plans and later MCP/direct tool-surface status.
+- [Graph Build Manifest](/wiki/concepts/graph-build-manifest.md) - later DIGIMON docs require tool exposure to be driven by persisted graph build facts rather than assumed capability.
 
 # Current Cautions
 

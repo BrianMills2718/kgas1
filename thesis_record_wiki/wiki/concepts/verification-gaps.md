@@ -28,6 +28,10 @@ The initial recovery metadata is strong enough to establish that the archive was
 
 The `digimon_core_sparse` `.git` file points to `/home/brian/projects/Digimons/.git/worktrees/digimon_core_sparse`, which is absent from this preserved repo location. This likely explains the recorded `ERROR` git head. Preserve that fact as part of the record; do not rewrite the `.git` pointer unless Brian explicitly asks for a recovery operation.
 
+# Autoloop Variant Git Pointer
+
+The `digimon_autoloop` `.git` file points to `/home/brian/projects/Digimon_for_KG_application/.git/worktrees/Digimon_for_KG_application__autoloop`, which is absent from this preserved repo location. This likely explains the recorded `ERROR` git head. Treat it as provenance damage in the preserved archive, not as permission to repair or rewrite the worktree metadata.
+
 # Next Actions
 
 - Inspect error-head variants with non-destructive commands.

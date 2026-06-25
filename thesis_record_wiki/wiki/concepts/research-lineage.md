@@ -37,6 +37,9 @@ Two through-lines are now visible from the first small-variant ingest:
 - [GraphRAG Upstream Lineage](/wiki/concepts/graphrag-upstream-lineage.md): Brian's note that much local Digimon work extends or forks JayLZhou GraphRAG / DIGIMON.
 - [Contract-First Migration](/wiki/concepts/contract-first-migration.md): the sparse variant's formal migration from split interfaces to KGASTool contracts.
 - [Relationship Extraction Bottleneck](/wiki/concepts/relationship-extraction-bottleneck.md): stress-test evidence that the graph layer could fail by extracting entities but no relationships.
+- [Adaptive Operator Routing](/wiki/concepts/adaptive-operator-routing.md): the autoloop variant's sharpened, falsifiable thesis that per-question operator selection should beat fixed pipelines.
+- [MCP Autoloop Interface](/wiki/concepts/mcp-autoloop-interface.md): early MCP/UKRF integration planning preserved alongside later MCP/direct retrieval interfaces.
+- [Graph Build Manifest](/wiki/concepts/graph-build-manifest.md): a later contract for exposing tools only when graph topology, attributes, and artifacts support them.
 
 # Open Interpretive Work
 

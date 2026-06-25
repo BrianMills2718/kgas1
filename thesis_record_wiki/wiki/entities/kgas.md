@@ -23,6 +23,8 @@ Brian clarified that much of the Digimon material extends or forks JayLZhou Grap
 
 The `digimon_core_sparse` slice adds a contract-first migration thread and a concrete graph-construction warning: entity extraction can work while relationship extraction fails or is not invoked. See [Contract-First Migration](/wiki/concepts/contract-first-migration.md) and [Relationship Extraction Bottleneck](/wiki/concepts/relationship-extraction-bottleneck.md).
 
+The `digimon_autoloop` slice captures a later operators-first DIGIMON state: 28 typed operators, MCP/direct tool access, benchmark modes, two-model graph-build/query design, and an explicit go/no-go plan for adaptive routing. See [Digimon Autoloop Operator Routing](/wiki/sources/digimon-autoloop-operator-routing.md), [Adaptive Operator Routing](/wiki/concepts/adaptive-operator-routing.md), and [Graph Build Manifest](/wiki/concepts/graph-build-manifest.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

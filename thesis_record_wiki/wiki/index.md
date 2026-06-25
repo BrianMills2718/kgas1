@@ -12,6 +12,7 @@
 * [Tool Compatibility Decision](sources/tool-compatibility-decision.md) - type-based composition decision and POC context.
 * [JayLZhou GraphRAG Upstream](sources/jaylzhou-graphrag-upstream.md) - external DIGIMON / GraphRAG reference repository.
 * [Digimon Core Sparse Contract Layer](sources/digimon-core-sparse-contract-layer.md) - sparse variant contract-first migration, evidence, and bottleneck findings.
+* [Digimon Autoloop Operator Routing](sources/digimon-autoloop-operator-routing.md) - later operators-first DIGIMON state, benchmark evidence, and supported-surface boundary.
 
 # Entities
 
@@ -27,6 +28,9 @@
 * [GraphRAG Upstream Lineage](concepts/graphrag-upstream-lineage.md) - how local Digimon/KGAS work relates to JayLZhou GraphRAG and DIGIMON method decomposition.
 * [Contract-First Migration](concepts/contract-first-migration.md) - migration from split tool interfaces toward KGASTool contracts.
 * [Relationship Extraction Bottleneck](concepts/relationship-extraction-bottleneck.md) - evidence that graph construction failed when relationship extraction was missing or silent.
+* [Adaptive Operator Routing](concepts/adaptive-operator-routing.md) - falsifiable thesis that per-question operator routing should beat fixed graph and non-graph baselines.
+* [MCP Autoloop Interface](concepts/mcp-autoloop-interface.md) - historical MCP/UKRF plans and later MCP tool-surface status.
+* [Graph Build Manifest](concepts/graph-build-manifest.md) - build-manifest and tool-gating contract for truthful graph capability exposure.
 
 # Timeline
 
