@@ -50,6 +50,7 @@
 * [Digimon Lineage Old Backups Results](sources/digimon-lineage-old-backups-results.md) - nine-file old-backups results slice with provenance traces, Phase D success report, validation failures, performance outputs, and tool-interface audit.
 * [Digimon Lineage Old Backups Current Coverage](sources/digimon-lineage-old-backups-coverage-current.md) - preserved 21 MB HTML coverage report for old-backups src/core, showing 206 files and 2.99% total coverage.
 * [Digimon Lineage Old Backups Validation Reports](sources/digimon-lineage-old-backups-validation-reports.md) - two old-backups validation reports critiquing Phase 2 and Phase 3 claims, including simulated processing, placeholders, shallow tests, and overclaiming.
+* [Digimon Lineage Old Backups Empty Benchmark Results](sources/digimon-lineage-old-backups-empty-benchmark-results.md) - negative evidence that the old-backups benchmark_results directory exists but contains no files.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
 * [Lit Review Multi Agent System Corpus](sources/lit-review-multi-agent-system-corpus.md) - corpus-level inventory of the 648-file multi-agent harness, nested V5.2 evidence packages, templates, tests, and remediation records.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.

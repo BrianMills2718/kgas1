@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Verification** | Added old-backups-empty-benchmark-results page documenting that `benchmark_results/` exists but contains zero files.
 * **Ingest** | Added old-backups-validation-reports page covering Phase 2 and Phase 3 skeptical validation reports, including simulated processing, placeholders, shallow tests, and overclaiming caveats.
 * **Ingest** | Added old-backups-current-coverage page documenting the 215-file coverage.py HTML report, 206 indexed `src/core` files, and 2.99% broad coverage result.
 * **Ingest** | Added old-backups-results page with provenance traces, Phase D success report, 0/6 validation report, failed end-to-end workflow, production-readiness caveat, and 22.2% tool-interface compliance audit.
