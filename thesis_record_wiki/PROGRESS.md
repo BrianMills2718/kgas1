@@ -167,11 +167,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `6005315` ingested the root-cleanup-2025-08-29 slice, including duplicate app entry-point cleanup rationale, tool-composition checkpoint, archived apps/Twitter explorer/k8s material, cross-modal test output, placeholder-secret caveat, and no-literal-key finding.
 - `4f4717d` ingested the old-CLAUDE-md-versions slice, including contract-first migration guidance, MVP Day 1 guide, Phase 2.1 completion tasks, evidence-first repair policy, current-policy caveat, and no-literal-key finding.
 - `ddd5d9f` ingested the old-docs-2025-08 slice, including contract-first interface split, service API drift, structured-output migration, documentation/status separation, operations-label caveat, IC uncertainty notes, and placeholder-key finding.
-- Pending commit: proposal-rewrite-condensed slice, including SCT full-example DAGs, StructGPT-inspired schema discovery/data interfaces, graph fusion, dynamic tool generation, uncertainty-framework notes, pure-LLM uncertainty critique, and no-literal-key finding.
+- `c2c768f` ingested the proposal-rewrite-condensed slice, including SCT full-example DAGs, StructGPT-inspired schema discovery/data interfaces, graph fusion, dynamic tool generation, uncertainty-framework notes, pure-LLM uncertainty critique, and no-literal-key finding.
+- Pending commit: scripts-archive-2025-08 slice, including debug/demo/fix/old-analysis/test inventory, repair-script policy lineage, DAG/cross-modal/LLM/Neo4j/MCP harnesses, relationship-debugging notes, hardcoded-path caveats, and no-literal-key finding.
 
 ## Next
 
-1. Run wiki lint, commit, and push the proposal-rewrite-condensed slice.
-2. Next recommended step: move to `archive/scripts_archive_2025_08/` before `archived_experimental/`, because scripts are more likely to explain generated claims and validation mechanics.
+1. Run wiki lint, commit, and push the scripts-archive-2025-08 slice.
+2. Next recommended step: move to `archive/archived_experimental/` for the remaining medium-low experimental tests/utilities corpus.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

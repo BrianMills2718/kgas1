@@ -48,7 +48,7 @@ The following top-level archive areas were not found in the wiki index by this a
 | `root_cleanup_2025_08_29/` | 63 | 1,413,590 | Covered by root-cleanup page; deeper specialized Twitter explorer review remains optional. |
 | `analysis_validation_2025_08/` | 40 | 1,122,878 | Covered by analysis-validation page; deeper bundle/script-level validation remains optional. |
 | `agent_stress_testing/` | 52 | 977,712 | Covered by agent-stress-testing page; deeper replay/test-level validation remains optional. |
-| `scripts_archive_2025_08/` | 67 | 626,156 | Medium-low: script archive likely best handled as corpus inventory. |
+| `scripts_archive_2025_08/` | 67 | 626,156 | Covered by scripts-archive-2025-08 page; deeper per-script replay remains optional. |
 | `archived_experimental/` | 33 | 576,378 | Medium-low: experimental tests/utilities; likely corpus inventory. |
 | `proposal_rewrite_condensed/` | 25 | 333,418 | Covered by proposal-rewrite-condensed page; overlaps with theoretical exploration full-example material. |
 | `old_docs_2025_08/` | 12 | 289,025 | Covered by old-docs-2025-08 page; deeper IC uncertainty extraction remains optional. |
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next choose between `scripts_archive_2025_08/` and `archived_experimental/` for lower-priority corpus inventory. Prefer `scripts_archive_2025_08/` first because scripts are more likely to explain how generated claims were produced. [1]
+Next move to `archived_experimental/` for the remaining medium-low experimental tests/utilities corpus, then reassess whether lower-priority demo/example and implementation remnants are worth dedicated pages. [1]
 
 # Relationship To Wiki
 
@@ -79,6 +79,7 @@ Next choose between `scripts_archive_2025_08/` and `archived_experimental/` for 
 - [Digimon Lineage Generated Outputs 2025 08](/wiki/sources/digimon-lineage-generated-outputs-2025-08.md): generated output artifacts, SQLite schemas, and repomix bundle caveats.
 - [Digimon Lineage Analysis Validation 2025 08](/wiki/sources/digimon-lineage-analysis-validation-2025-08.md): validation archive with claim checks, configs, bundles, and scripts.
 - [Digimon Lineage Agent Stress Testing](/wiki/sources/digimon-lineage-agent-stress-testing.md): agent workflow/adaptive-planning stress-test archive overview.
+- [Digimon Lineage Scripts Archive 2025 08](/wiki/sources/digimon-lineage-scripts-archive-2025-08.md): archived debug/demo/fix/old-analysis/test scripts corpus.
 - [Digimon Lineage Root Cleanup 2025 08 29](/wiki/sources/digimon-lineage-root-cleanup-2025-08-29.md): root cleanup and duplicate entry-point archive overview.
 - [Digimon Lineage Old Claude Md Versions](/wiki/sources/digimon-lineage-old-claude-md-versions.md): historical agent-instruction archive overview.
 - [Digimon Lineage Old Docs 2025 08](/wiki/sources/digimon-lineage-old-docs-2025-08.md): superseded old-docs archive covering contract-first, structured-output, operations, and uncertainty notes.
