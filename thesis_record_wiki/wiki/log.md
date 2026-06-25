@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added uncertainty-stress-test analysis page covering Davis rapid analysis, 157 prepared chunks, six agent extraction notes, synthesis findings, and 3.8% coverage/internal-synthesis caveats.
 * **Ingest** | Added uncertainty-stress-test root page covering IC-inspired uncertainty tests, CERQual/Bayesian/LLM implementation claims, Davis-enhanced validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.
 * **Ingest** | Expanded UI recovered-components page to cover the full 95-file `archive/ui` corpus, 91-file near-duplicate `ui_archive_2025_08`, archived implementation scripts, logs/uploads/exports, and readiness-vs-backend caveats.
 * **Ingest** | Added old-backups Carter analysis output page for the single Gemini-generated speech-analysis JSON, including theme/rhetoric/insight structure and empty database/evidence sidecar caveat.

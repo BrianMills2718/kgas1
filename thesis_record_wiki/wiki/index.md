@@ -65,6 +65,7 @@
 * [Lit Review Multi Agent System Corpus](sources/lit-review-multi-agent-system-corpus.md) - corpus-level inventory of the 648-file multi-agent harness, nested V5.2 evidence packages, templates, tests, and remediation records.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material, including full `archive/ui` and near-duplicate `ui_archive_2025_08` corpus status.
 * [Digimon Lineage Uncertainty Stress Test Root](sources/digimon-lineage-uncertainty-stress-test-root.md) - root uncertainty stress-test docs/results covering IC features, CERQual/Bayesian/LLM services, Davis integration, SocialM MaZE exploration, and bias/readiness caveats.
+* [Digimon Lineage Uncertainty Stress Test Analysis](sources/digimon-lineage-uncertainty-stress-test-analysis.md) - Davis methodology extraction/synthesis layer with rapid analysis, 157 prepared chunks, six agent extraction notes, and coverage caveats.
 * [Current Code Verification 2026-06-25](sources/current-code-verification-2026-06-25.md) - focused current-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
 * [Current Runtime Import Check 2026-06-25](sources/current-runtime-import-check-2026-06-25.md) - import-only runtime check for current contract, cross-modal API, and MCP modules.
 * [Current Runtime Repair Plan 2026-06-25](sources/current-runtime-repair-plan-2026-06-25.md) - non-invasive source-level plan for repairing first import/runtime blockers.

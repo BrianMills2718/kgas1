@@ -128,11 +128,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `65665ee` ingested the old-backups stress-test root/framework slices, including 30-file subtree inventory, integration-score progression, cross-modal preservation failure/patch reports, support schemas/theory/tool-capability files, and mock-mode caveats.
 - `5a28850` ingested the old-backups Carter analysis output slice, including generated themes/rhetoric/insights and empty evidence-sidecar caveat.
 - `fb682d2` expanded the archived UI corpus record, including `archive/ui`, near-duplicate `ui_archive_2025_08`, archived implementations, logs/uploads/exports, and readiness-vs-backend caveats.
-- Pending commit: uncertainty-stress-test root slice, including IC-inspired tests, CERQual/Bayesian/LLM services, Davis validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.
+- `7e85506` ingested the uncertainty-stress-test root slice, including IC-inspired tests, CERQual/Bayesian/LLM services, Davis validation, SocialM MaZE artifacts, 75% readiness warning, and bias caveats.
+- Pending commit: uncertainty-stress-test analysis slice, including Davis rapid analysis, 157 prepared chunks, six agent notes, synthesis findings, and 3.8% coverage caveat.
 
 ## Next
 
-1. Run wiki lint, commit, and push the uncertainty-stress-test root slice.
-2. Next recommended step: split `archive/uncertainty_stress_test/analysis/`, `core_services/`, and `validation/` into follow-up pages, starting with `analysis/` because it preserves Davis extraction/synthesis inputs.
+1. Run wiki lint, commit, and push the uncertainty-stress-test analysis slice.
+2. Next recommended step: continue with `archive/uncertainty_stress_test/core_services/`, then `validation/`, because those determine whether the Davis/uncertainty methodology was represented in code and test outputs.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

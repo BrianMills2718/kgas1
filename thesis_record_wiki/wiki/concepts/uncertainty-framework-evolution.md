@@ -20,6 +20,8 @@ KGAS uncertainty architecture changed because early confidence approaches were e
 
 The archived uncertainty stress test adds an intermediate implementation arc: CERQual/Bayesian/LLM services, IC-inspired analytical tests, bias analysis, and Davis multi-resolution/multi-perspective validation. It shows both the ambition and the reason later summaries must preserve bias/readiness caveats. See [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md).
 
+The stress-test analysis directory explains where the Davis turn came from: six-paper rapid analysis, targeted agent extraction notes, and a synthesis explicitly mapping Davis's multi-method uncertainty ideas onto KGAS. See [Digimon Lineage Uncertainty Stress Test Analysis](/wiki/sources/digimon-lineage-uncertainty-stress-test-analysis.md).
+
 # Evolution
 
 1. **Contract normalization**: ADR-004 tried to make all tools report confidence through one Pydantic model. This addressed interface compatibility but not deeper research uncertainty. [1]
@@ -50,6 +52,7 @@ Several files cite an ADR-029 IC-informed uncertainty framework, but that direct
 
 - [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md)
 - [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md)
+- [Digimon Lineage Uncertainty Stress Test Analysis](/wiki/sources/digimon-lineage-uncertainty-stress-test-analysis.md)
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md)
