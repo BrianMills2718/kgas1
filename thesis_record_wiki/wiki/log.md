@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added focused large-lineage integration-tests page with 74-file inventory, active-main-system claim, README/index/count mismatch, and unknown runtime-status caveat.
 * **Ingest** | Added large-lineage tests corpus inventory with test-category hashes, no-mocks principles, integration index caveats, and runtime-proof caveat.
 * **Ingest** | Added large-lineage scripts corpus slice covering validation, verification, repair, demos, analysis, monitoring, and testing scripts.
 * **Ingest** | Added legacy-tools duplicate slice documenting byte-identical `tools/` and `config/legacy_tools/` operational tooling trees.
