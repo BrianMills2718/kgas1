@@ -30,6 +30,10 @@ This is only an inventory slice. The directory is large enough that semantic sub
 | `elaboration_likelihood_model` | 2 | 16K | ELM schema and summary |
 | root file | 1 | 4K | `test_simple_schema.yml` |
 
+# Root Test Fixture
+
+The root `test_simple_schema.yml` is a synthetic/simple hypergraph fixture: citation `Test Author (2024), "Simple Hypergraph Theory"`, model type `property_graph`, and a generic schema for hypergraphs, vertices, hyperedges, incidence, adjacency, arity, uniformity, order, size, degree, and related measures/actions. Treat it as a pipeline/test artifact rather than a substantive thesis literature source. [4]
+
 # Notable Evidence
 
 The ELM summary presents a compact theory schema with classification, entities, relationships, and four analysis steps. It classifies ELM as Micro level, Effect component, and Interdependent metatheory, with entities for receiver, message, route, and attitude-change outcome. [2]
@@ -60,4 +64,5 @@ This supports [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extra
 
 [1] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/schemas/`  
 [2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/schemas/elaboration_likelihood_model/elm_v10_summary.txt`  
-[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/schemas/young1996/execution_prompt_example.txt`
+[3] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/schemas/young1996/execution_prompt_example.txt`  
+[4] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/experiments/lit_review/schemas/test_simple_schema.yml`

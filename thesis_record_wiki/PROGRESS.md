@@ -81,10 +81,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `6e7052b` ingested the social-identity-theory schema slice, including three-file aggregate hash, SIT JSON/YAML schema shape, and relationship to Turner extracted/extracted_single outputs.
 - `63f37ea` ingested the Young1996 schema-family slice, including six-file aggregate hash, computational/enhanced/multi-pass variants, execution prompt, and schema-variant-drift update.
 - `fb6bc1b` ingested the ELM schema slice, including two-file aggregate hash, compact sequential schema shape, and model-form-routing update.
-- Pending commit: semantic-hypergraph schema-family slice, including 19-file aggregate hash, enhanced/multi-pass/option variants, debug-output inventory, and formal-notation concept link.
+- `893f3d8` ingested the semantic-hypergraph schema-family slice, including 19-file aggregate hash, enhanced/multi-pass/option variants, debug-output inventory, and formal-notation concept link.
+- Pending commit: simple schema fixture caveat, documenting `schemas/test_simple_schema.yml` as a synthetic hypergraph test artifact rather than substantive source.
 
 ## Next
 
-1. Run wiki lint, commit, and push the semantic-hypergraph schema-family slice.
-2. Next recommended step: inspect the root `test_simple_schema.yml` and then consider the `src/` code directories; the major `schemas/` subfolders now have bounded wiki coverage.
+1. Run wiki lint, commit, and push the simple schema fixture caveat.
+2. Next recommended step: inspect `experiments/lit_review/src/` at directory level, then deep-dive `src/schema_application/` because it connects schemas to execution/application.
 3. Later slices: selected generated-code directories and remaining experiment directories.
