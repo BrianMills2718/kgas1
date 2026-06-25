@@ -39,6 +39,7 @@
 * [Lit Review Semantic Hypergraph Application Results](sources/lit-review-semantic-hypergraph-application-results.md) - semantic-hypergraph extraction/application results, critiques, visualizations, and scripts.
 * [Lit Review Universal Theory Applicator](sources/lit-review-universal-theory-applicator.md) - schema-driven universal theory application framework, critique, and Young 1996 result.
 * [Lit Review Model Form Detection Results](sources/lit-review-model-form-detection-results.md) - optimized experimental outputs for sequence/table/graph/hybrid model-form detection.
+* [Lit Review Prompt Variation Model Routing](sources/lit-review-prompt-variation-model-routing.md) - prompt-calibration artifacts for theory-count, model-form, confidence, and hybrid routing.
 
 # Entities
 
@@ -77,6 +78,7 @@
 * [Formal Notation As Theory Content](concepts/formal-notation-as-theory-content.md) - lesson that formal notation and algorithms are first-class schema content for formal theories.
 * [Complexity Conservation In Theory Application](concepts/complexity-conservation-in-theory-application.md) - lesson that universal frameworks move rather than eliminate theory-specific complexity.
 * [Model Form Routing](concepts/model-form-routing.md) - routing theories to sequence, table, graph, statistical, or hybrid forms instead of forcing one representation.
+* [Prompt Calibration Loop](concepts/prompt-calibration-loop.md) - detector-prompt pattern: test known cases, identify bias, refine criteria, and add arbitration logic.
 
 # Timeline
 

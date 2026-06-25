@@ -65,10 +65,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `2d7a878` added the non-invasive runtime repair plan for cross-modal API import/calling-contract mismatch and MCP dependency readiness.
 - `7142a69` ingested the semantic-hypergraph application-results slice, including extraction critiques, notation inventory, application scripts, visualized instances, and formal-notation-as-theory-content concept.
 - `dab78d3` ingested the universal theory applicator slice, including schema-driven stage architecture, critique, enhancement template, Young 1996 result, and complexity-conservation concept.
-- Pending commit: model-form detection slice, including Lofland-Stark sequential-funnel result, Heilman/framing internal inconsistency caveat, empty sibling result directories, and model-form-routing concept.
+- `bfaa496` ingested the model-form detection slice, including Lofland-Stark sequential-funnel result, Heilman/framing internal inconsistency caveat, empty sibling result directories, and model-form-routing concept.
+- Pending commit: prompt-variation model-routing slice, including theory-count detection, specialized detector calibration, confidence integration, hybrid detection, and generated Young 1996 hybrid schema.
 
 ## Next
 
-1. Run wiki lint, commit, and push the model-form detection slice.
-2. Next recommended step: ingest `experimental_testing/prompt_variations`, because it likely explains how theory-count detection, hybrid integration, sequential refinement, and specialized model detection prompts evolved.
+1. Run wiki lint, commit, and push the prompt-variation model-routing slice.
+2. Next recommended step: ingest `experimental_testing/validation_retesting`, because it likely shows whether the calibrated prompts improved actual validation outcomes.
 3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.

@@ -103,6 +103,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Complexity Conservation In Theory Application](/wiki/concepts/complexity-conservation-in-theory-application.md) - lesson that generalization shifts theory-specific work into schemas, prompts, validation, and metrics.
 - [Lit Review Model Form Detection Results](/wiki/sources/lit-review-model-form-detection-results.md) - optimized experimental outputs for classifying theory representational form, with an internal consistency caveat.
 - [Model Form Routing](/wiki/concepts/model-form-routing.md) - rule that schema/application form should follow the theory structure rather than platform preference.
+- [Lit Review Prompt Variation Model Routing](/wiki/sources/lit-review-prompt-variation-model-routing.md) - prompt-variation work for theory count, specialized detectors, confidence integration, and hybrid schemas.
+- [Prompt Calibration Loop](/wiki/concepts/prompt-calibration-loop.md) - method for turning detector prompts into calibrated routing components.
 
 # Current Cautions
 
