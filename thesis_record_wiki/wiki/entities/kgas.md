@@ -47,6 +47,8 @@ The Phase 5 slice extends that pipeline into cross-purpose reasoning and synthes
 
 The Phase 6 slice records internal production validation and deployment simulation. It is useful as a final evidence package for the lit-review subsystem, but not proof of external production deployment. See [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md).
 
+The ADR map clarifies that KGAS architecture intentionally centered academic proof-of-concept use: local single-node deployment, fail-fast errors, two-layer theory architecture, human question-driven analysis, and layered tools. See [Digimon Lineage Architecture ADRs Map](/wiki/sources/digimon-lineage-architecture-adrs-map.md) and [Academic Proof Of Concept Scope](/wiki/concepts/academic-proof-of-concept-scope.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

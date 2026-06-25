@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from lit-review Phase 6 production validation into architecture ADR topical sub-slices or lit-review multi-agent/source-code slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from the first architecture ADR map into topical ADR sub-slices.
 
 ## Completed
 
@@ -51,10 +51,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `02e5258` ingested lit-review Phase 2-3 evidence slice, including vocabulary/schema balance claims, stored test outputs, and Phase 2 summary/test contradiction.
 - `eb2165c` ingested lit-review Phase 4 integration pipeline slice, including integration claims, test artifacts, certification caveats, and remediation chronology.
 - `6f1ba35` ingested lit-review Phase 5 reasoning engine slice, including cross-purpose reasoners, balance/integration metrics, and demo-scale caveats.
-- Pending commit: lit-review Phase 6 production validation slice, including production-validation claims, final remediation results, and stress-test/deployment caveats.
+- `c4463a0` ingested lit-review Phase 6 production validation slice, including production-validation claims, final remediation results, and stress-test/deployment caveats.
+- Pending commit: first architecture ADR map slice, including scope/deployment/errors/theory/purpose/tool-layer backbone and academic proof-of-concept scope.
 
 ## Next
 
-1. Run wiki lint, commit, and push the Phase 6 production-validation slice.
-2. Next recommended ingest slice: `docs/architecture/adrs/`, because the lit-review evidence chain is now covered through Phase 6 and ADRs should explain the architectural decision history.
-3. Later slices: `experiments/lit_review/multi_agent_system/`, lit-review deployment/config code, and UI/recovered components.
+1. Run wiki lint, commit, and push the first ADR map slice.
+2. Next recommended ingest slice: ADR data/storage decisions (`ADR-003`, `ADR-009`, `ADR-030`) because they explain Neo4j/SQLite/PostgreSQL evolution and connect to current KGAS storage status.
+3. Later slices: uncertainty/quality ADRs, tool/orchestration ADRs, analysis-expansion ADRs, `experiments/lit_review/multi_agent_system/`, and UI/recovered components.

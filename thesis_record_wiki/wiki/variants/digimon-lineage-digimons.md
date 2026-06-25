@@ -38,6 +38,8 @@ The `experiments/lit_review/evidence/phase5_reasoning_engine` slice records cros
 
 The `experiments/lit_review/evidence/phase6_production_validation` slice records production validation and deployment simulation. It reports final remediated production-certified status, while benchmarks preserve stress-load limits and timeout/error rates. See [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md).
 
+The `docs/architecture/adrs` map slice records the decision backbone behind the architecture: academic proof-of-concept, single-node local deployment, fail-fast transparency, two-layer theory analysis, analytical purpose clarification, and tool-interface layering. See [Digimon Lineage Architecture ADRs Map](/wiki/sources/digimon-lineage-architecture-adrs-map.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

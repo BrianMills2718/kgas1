@@ -79,6 +79,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md) - integration evidence whose test, certification, and remediation claims need time-indexed reading.
 - [Lit Review Phase 5 Reasoning Engine](/wiki/sources/lit-review-phase5-reasoning-engine.md) - cross-purpose reasoning evidence with internally consistent but demo-scale production claims.
 - [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md) - internal production-validation/deployment-simulation package with remediated final claims and stress-test limits.
+- [Digimon Lineage Architecture ADRs Map](/wiki/sources/digimon-lineage-architecture-adrs-map.md) - ADR backbone for scope, deployment, errors, theory architecture, analytical purpose, and tool layers.
+- [Academic Proof Of Concept Scope](/wiki/concepts/academic-proof-of-concept-scope.md) - reason to read "production" claims as internal academic readiness unless external deployment evidence exists.
 
 # Current Cautions
 

@@ -26,6 +26,7 @@
 * [Lit Review Phase 4 Integration Pipeline](sources/lit-review-phase4-integration-pipeline.md) - integration pipeline evidence with certification/status caveats.
 * [Lit Review Phase 5 Reasoning Engine](sources/lit-review-phase5-reasoning-engine.md) - cross-purpose reasoning engine evidence and demo-scale caveats.
 * [Lit Review Phase 6 Production Validation](sources/lit-review-phase6-production-validation.md) - production validation evidence package and deployment-claim caveats.
+* [Digimon Lineage Architecture ADRs Map](sources/digimon-lineage-architecture-adrs-map.md) - first ADR decision-history slice for large lineage architecture docs.
 
 # Entities
 
@@ -53,6 +54,7 @@
 * [Schema Extraction Pipeline Evolution](concepts/schema-extraction-pipeline-evolution.md) - evolution toward full-vocabulary, model-adaptive, no-truncation theory extraction.
 * [Complexity Accuracy Pattern](concepts/complexity-accuracy-pattern.md) - validation pattern that simpler theories are more reliable automation targets.
 * [Balance Driven Validation](concepts/balance-driven-validation.md) - five-purpose balance metric pattern and its evidence/overfitting risk.
+* [Academic Proof Of Concept Scope](concepts/academic-proof-of-concept-scope.md) - scope decision prioritizing academic correctness, provenance, and local reproducibility.
 
 # Timeline
 
