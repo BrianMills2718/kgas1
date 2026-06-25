@@ -118,10 +118,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `e8b4778` ingested the old-backups-current-coverage slice, including 215-file/21 MB coverage HTML report, 206 indexed `src/core` files, 27,115 statements, and 2.99% total coverage.
 - `3a025f6` ingested the old-backups-validation-reports slice, including two skeptical Phase 2/Phase 3 validation reports about simulated processing, placeholders, shallow tests, and overclaiming.
 - `778cd27` documented the empty old-backups benchmark-results slice, showing that `benchmark_results/` exists but contains zero files.
-- Pending commit: old-backups-error-reports slice, including 22 generated JSON escalation reports, validation load-test dominance, six recovery strategies, and 0/55 successful recoveries.
+- `5c790b5` ingested the old-backups-error-reports slice, including 22 generated JSON escalation reports, validation load-test dominance, six recovery strategies, and 0/55 successful recoveries.
+- Pending commit: old-backups-empty-monitoring-output slice, documenting that `monitoring_output/` exists but contains zero files.
 
 ## Next
 
-1. Run wiki lint, commit, and push the old-backups-error-reports slice.
-2. Next recommended step: inspect `archive/old_backups_2025_08/monitoring_output/`, because it may pair with the error reports and clarify observed runtime metrics.
+1. Run wiki lint, commit, and push the old-backups-empty-monitoring-output slice.
+2. Next recommended step: inspect `archive/old_backups_2025_08/outputs/reports/`, because it may contain generated operational reports and has a bounded `tool-registry` subdirectory.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.
