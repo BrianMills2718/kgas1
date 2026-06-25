@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added old-backups-error-reports page covering 22 generated escalation reports, validation load-test dominance, registered recovery strategies, and 0/55 successful recoveries.
 * **Verification** | Added old-backups-empty-benchmark-results page documenting that `benchmark_results/` exists but contains zero files.
 * **Ingest** | Added old-backups-validation-reports page covering Phase 2 and Phase 3 skeptical validation reports, including simulated processing, placeholders, shallow tests, and overclaiming caveats.
 * **Ingest** | Added old-backups-current-coverage page documenting the 215-file coverage.py HTML report, 206 indexed `src/core` files, and 2.99% broad coverage result.

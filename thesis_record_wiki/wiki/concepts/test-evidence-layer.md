@@ -20,12 +20,13 @@ sources:
   - /wiki/sources/digimon-lineage-old-backups-results.md
   - /wiki/sources/digimon-lineage-old-backups-coverage-current.md
   - /wiki/sources/digimon-lineage-old-backups-validation-reports.md
+  - /wiki/sources/digimon-lineage-old-backups-error-reports.md
   - /wiki/concepts/evidence-claim-discipline.md
   - /wiki/concepts/current-status-verification-discipline.md
 confidence: high
 ---
 
-> Sources consulted: [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) · [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) · [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) · [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) · [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) · [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) · [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) · [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) · [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) · [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md) · [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md) · [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md) · [Digimon Lineage Old Backups Current Coverage](/wiki/sources/digimon-lineage-old-backups-coverage-current.md) · [Digimon Lineage Old Backups Validation Reports](/wiki/sources/digimon-lineage-old-backups-validation-reports.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md). Other wiki pages were not consulted for this synthesis because the scope is the test evidence layer, not the full KGAS/Digimons thesis record. Status: updated after old-backups-validation-reports ingest.
+> Sources consulted: [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) · [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) · [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) · [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) · [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) · [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) · [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) · [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) · [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) · [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md) · [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md) · [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md) · [Digimon Lineage Old Backups Current Coverage](/wiki/sources/digimon-lineage-old-backups-coverage-current.md) · [Digimon Lineage Old Backups Validation Reports](/wiki/sources/digimon-lineage-old-backups-validation-reports.md) · [Digimon Lineage Old Backups Error Reports](/wiki/sources/digimon-lineage-old-backups-error-reports.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md). Other wiki pages were not consulted for this synthesis because the scope is the test evidence layer, not the full KGAS/Digimons thesis record. Status: updated after old-backups-error-reports ingest.
 
 # Summary
 
@@ -52,6 +53,8 @@ The test layer has three different kinds of evidence:
 [Digimon Lineage Old Backups Current Coverage](/wiki/sources/digimon-lineage-old-backups-coverage-current.md) adds a broad coverage-output category: generated HTML coverage where the overall surface, not just selected tools, is visible.
 
 [Digimon Lineage Old Backups Validation Reports](/wiki/sources/digimon-lineage-old-backups-validation-reports.md) adds skeptical claim-review evidence: reports that inspect whether claims are real behavior, shallow structure, placeholders, or simulated processing.
+
+[Digimon Lineage Old Backups Error Reports](/wiki/sources/digimon-lineage-old-backups-error-reports.md) adds generated error/escalation evidence: operational reports with registered recovery strategies, load-test-like validation failures, and measured recovery-success gaps.
 
 Future summaries should never collapse these three into one label.
 
@@ -81,6 +84,7 @@ Weaknesses and caveats:
 - Old-backups result files show why same-directory outputs still need claim-level reading: one Phase D report says 7/7 passed, while validation says 0/6 passed, end-to-end analysis fails with zero entities/relationships, and the tool-interface audit reports 22.2% compliance. [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md)
 - Broad old-backups coverage reports can sharply undercut narrower coverage claims: the preserved `src/core` HTML report has 206 indexed files and 2.99% total coverage. [Digimon Lineage Old Backups Current Coverage](/wiki/sources/digimon-lineage-old-backups-coverage-current.md)
 - Validation reports can be more valuable than pass/fail outputs when they explain why a pass is shallow: the old-backups Phase 3 review marks all five main claims partially resolved because much of the validation checks structure rather than behavior. [Digimon Lineage Old Backups Validation Reports](/wiki/sources/digimon-lineage-old-backups-validation-reports.md)
+- Error reports show observability machinery without proving resilience: the old-backups bundle records 55 recovery attempts and 0 successful recoveries. [Digimon Lineage Old Backups Error Reports](/wiki/sources/digimon-lineage-old-backups-error-reports.md)
 
 # Claim Discipline Rule
 
@@ -97,6 +101,7 @@ For any KGAS/Digimons test claim, name the evidence level:
 - "preserved result file says pass/fail, with adjacent contradictory result files checked"
 - "coverage report says X%, with the measured code surface named"
 - "claim-review report says resolved/partial/not resolved, with the tested claim and depth of validation named"
+- "error/escalation report says observed failures/recoveries, with synthetic load-test context separated from real-user workflow context"
 
 This is a direct application of [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) and [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md).
 
