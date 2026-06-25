@@ -49,7 +49,7 @@ The README names four major preserved concept families:
 This overview marks `theoretical_exploration/` represented at directory level, but the contents are too intellectually dense for a single summary. Recommended bounded follow-ups:
 
 1. `proposal_materials/`: represented by a proposal-materials page; HSPC and validation materials remain good candidates for deeper follow-up if needed. [1]
-2. `archived_proposal_materials/full_example_architecture/`: high value because it preserves complete worked examples, uncertainty decisions, DAGs, and schema/application artifacts. [1]
+2. `archived_proposal_materials/full_example_architecture/`: represented by a full-example architecture page; deeper per-file pages remain optional if specific uncertainty or DAG questions arise. [1]
 3. `thinking_out_loud/`: high value for reconstructing the evolution of analysis philosophy, cross-modal orchestration, six-level automation, and theory-to-code claims. [1]
 4. `archived_proposal_materials/fragments/` and historical versions: valuable for proposal evolution, critique incorporation, and style/tone decisions. [1]
 5. `post_mvp_concepts/`: small, should be ingested with schema-evolution material. [1]
@@ -68,6 +68,7 @@ The most important caution is to preserve the archive's own boundary: do not re-
 
 - [Digimon Lineage Archive Coverage Audit 2026-06-25](digimon-lineage-archive-coverage-audit-2026-06-25.md): queue-control page that identified this as the next high-priority archive slice.
 - [Digimon Lineage Theoretical Exploration Proposal Materials](digimon-lineage-theoretical-exploration-proposal-materials.md): proposal-materials sub-slice from this archive.
+- [Digimon Lineage Theoretical Exploration Full Example Architecture](digimon-lineage-theoretical-exploration-full-example-architecture.md): full-example architecture sub-slice from this archive.
 - [Digimon Lineage Proposal Rewrite 2025 08 12](digimon-lineage-proposal-rewrite-2025-08-12.md): related thesis proposal and uncertainty rewrite subtree.
 - [Academic Proof Of Concept Scope](../concepts/academic-proof-of-concept-scope.md): relevant guardrail for proposal framing and claim discipline.
 - [Evidence Claim Discipline](../concepts/evidence-claim-discipline.md): relevant because this archive contains implementation and validation claims separated from working-system proof.
