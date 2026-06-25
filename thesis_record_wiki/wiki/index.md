@@ -52,6 +52,7 @@
 * [Lit Review Schemas Corpus Inventory](sources/lit-review-schemas-corpus-inventory.md) - mature schema corpus inventory with Young, semantic hypergraph, Turner/social identity, ELM, and extracted-theory artifacts.
 * [Lit Review Turner Social Identity Extraction](sources/lit-review-turner-social-identity-extraction.md) - Turner/Oakes multi-theory versus single-theory extraction comparison.
 * [Lit Review Social Identity Theory Schema](sources/lit-review-social-identity-theory-schema.md) - adjacent Turner/Oakes Self-Categorization Theory schema pass.
+* [Lit Review Young1996 Schema Family](sources/lit-review-young1996-schema-family.md) - mature Young/WorldView schema variants and execution prompt.
 
 # Entities
 

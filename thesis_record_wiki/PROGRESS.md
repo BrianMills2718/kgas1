@@ -78,10 +78,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `09c25a4` ingested the remaining literature folders grouped slice, including 23-folder inventory, poliheuristic schema note, framing schema note, and literature-corpus-as-theory-testbed update.
 - `da010a0` ingested the mature schemas corpus inventory, including 54-file count, subfolder inventory, aggregate hash, ELM summary note, Young execution prompt note, and schema-extraction-pipeline-evolution update.
 - `65f5de8` ingested the Turner social-identity extraction comparison, including extracted/extracted_single aggregate hashes, six-theory nested output, single Self-Categorization Theory output, and multi-theory-extraction-split concept.
-- Pending commit: social-identity-theory schema slice, including three-file aggregate hash, SIT JSON/YAML schema shape, and relationship to Turner extracted/extracted_single outputs.
+- `6e7052b` ingested the social-identity-theory schema slice, including three-file aggregate hash, SIT JSON/YAML schema shape, and relationship to Turner extracted/extracted_single outputs.
+- Pending commit: Young1996 schema-family slice, including six-file aggregate hash, computational/enhanced/multi-pass variants, execution prompt, and schema-variant-drift update.
 
 ## Next
 
-1. Run wiki lint, commit, and push the social-identity-theory schema slice.
-2. Next recommended step: inspect `schemas/young1996/`, because Young has repeated schema variants plus an execution prompt and is central to validation/application continuity.
-3. Later slices: `schemas/elaboration_likelihood_model/`, selected generated-code directories, and remaining experiment directories.
+1. Run wiki lint, commit, and push the Young1996 schema-family slice.
+2. Next recommended step: inspect `schemas/elaboration_likelihood_model/`, because it is small and likely gives a clean contrast to Young's complex schema family.
+3. Later slices: selected generated-code directories and remaining experiment directories.

@@ -23,9 +23,12 @@ This is not just output variance. In theory modeling, a schema is an interpretat
 
 Schema variant drift implies that validation must compare generated schemas against source-specific requirements, not only ask whether the output is valid YAML or has a plausible `model_type`.
 
+[Lit Review Young1996 Schema Family](/wiki/sources/lit-review-young1996-schema-family.md) shows a constructive form of variant drift: Young 1996 variants serve different operational roles, including theory-only description, simplified network schema, multi-pass extraction record, universal-applicator schema, computational algorithm spec, and execution prompt.
+
 # Links
 
 - [Lit Review Operational Code Corpus](/wiki/sources/lit-review-operational-code-corpus.md)
+- [Lit Review Young1996 Schema Family](/wiki/sources/lit-review-young1996-schema-family.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Model Form Routing](/wiki/concepts/model-form-routing.md)
