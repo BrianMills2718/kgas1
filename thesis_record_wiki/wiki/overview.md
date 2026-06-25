@@ -123,6 +123,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Schemas Corpus Inventory](/wiki/sources/lit-review-schemas-corpus-inventory.md) - mature schema corpus with variant families, debug JSON, fulltext sidecars, and execution prompts.
 - [Lit Review Turner Social Identity Extraction](/wiki/sources/lit-review-turner-social-identity-extraction.md) - paired extraction outputs showing six-theory nested extraction versus single Self-Categorization Theory extraction.
 - [Multi Theory Extraction Split](/wiki/concepts/multi-theory-extraction-split.md) - extraction-mode design choice between theoretical landscape preservation and executable single-theory output.
+- [Lit Review Social Identity Theory Schema](/wiki/sources/lit-review-social-identity-theory-schema.md) - smaller adjacent Self-Categorization Theory schema pass over the same Turner/Oakes source.
 
 # Current Cautions
 

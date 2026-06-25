@@ -24,9 +24,12 @@ The two outputs optimize for different uses:
 
 Neither is universally correct. The extraction mode should be selected from the user's analysis goal and the paper's actual theory structure.
 
+[Lit Review Social Identity Theory Schema](/wiki/sources/lit-review-social-identity-theory-schema.md) adds a third Turner/Oakes pass: a focused Self-Categorization Theory schema using an earlier/different top-level schema shape. This shows the split is not just multi versus single; schema structure also changes across extraction generations.
+
 # Links
 
 - [Lit Review Turner Social Identity Extraction](/wiki/sources/lit-review-turner-social-identity-extraction.md)
+- [Lit Review Social Identity Theory Schema](/wiki/sources/lit-review-social-identity-theory-schema.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Prompt Calibration Loop](/wiki/concepts/prompt-calibration-loop.md)
 - [Model Form Routing](/wiki/concepts/model-form-routing.md)

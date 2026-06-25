@@ -77,10 +77,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `704edff` ingested the social-marketing corpus slice, including CORE/sharedProps/post_process artifacts, missing configured YAML caveat, and analyst-assembler-pattern update.
 - `09c25a4` ingested the remaining literature folders grouped slice, including 23-folder inventory, poliheuristic schema note, framing schema note, and literature-corpus-as-theory-testbed update.
 - `da010a0` ingested the mature schemas corpus inventory, including 54-file count, subfolder inventory, aggregate hash, ELM summary note, Young execution prompt note, and schema-extraction-pipeline-evolution update.
-- Pending commit: Turner social-identity extraction comparison, including extracted/extracted_single aggregate hashes, six-theory nested output, single Self-Categorization Theory output, and multi-theory-extraction-split concept.
+- `65f5de8` ingested the Turner social-identity extraction comparison, including extracted/extracted_single aggregate hashes, six-theory nested output, single Self-Categorization Theory output, and multi-theory-extraction-split concept.
+- Pending commit: social-identity-theory schema slice, including three-file aggregate hash, SIT JSON/YAML schema shape, and relationship to Turner extracted/extracted_single outputs.
 
 ## Next
 
-1. Run wiki lint, commit, and push the Turner social-identity extraction comparison.
-2. Next recommended step: inspect `schemas/social_identity_theory/` as the adjacent smaller Turner/SIT schema slice, then compare it with the extracted/extracted_single outputs.
-3. Later slices: selected generated-code directories and remaining experiment directories.
+1. Run wiki lint, commit, and push the social-identity-theory schema slice.
+2. Next recommended step: inspect `schemas/young1996/`, because Young has repeated schema variants plus an execution prompt and is central to validation/application continuity.
+3. Later slices: `schemas/elaboration_likelihood_model/`, selected generated-code directories, and remaining experiment directories.
