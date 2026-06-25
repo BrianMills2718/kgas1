@@ -81,6 +81,7 @@
 * [Digimon Lineage Archive Coverage Audit 2026-06-25](sources/digimon-lineage-archive-coverage-audit-2026-06-25.md) - top-level archive coverage audit identifying represented areas and not-yet-represented archive queues.
 * [Digimon Lineage Temp Analysis 2025 08](sources/digimon-lineage-temp-analysis-2025-08.md) - August 2025 mechanical archive-analysis bundle with large file listings, uncommitted-file inventory, history examples, and helper/debug scripts.
 * [Digimon Lineage Archive Before Cleanup 2025 08 05 Overview](sources/digimon-lineage-archive-before-cleanup-2025-08-05-overview.md) - pre-cleanup roadmap archive overview with status-claim caveats, directory structure, and sub-slice queue.
+* [Digimon Lineage Proposal Rewrite 2025 08 12](sources/digimon-lineage-proposal-rewrite-2025-08-12.md) - thesis proposal rewrite subtree with academic-integrity guardrails, critique incorporation, uncertainty framework, IC integration planning, validation matrices, and worked examples.
 * [Current Code Verification 2026-06-25](sources/current-code-verification-2026-06-25.md) - focused current-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
 * [Current Runtime Import Check 2026-06-25](sources/current-runtime-import-check-2026-06-25.md) - import-only runtime check for current contract, cross-modal API, and MCP modules.
 * [Current Runtime Repair Plan 2026-06-25](sources/current-runtime-repair-plan-2026-06-25.md) - non-invasive source-level plan for repairing first import/runtime blockers.

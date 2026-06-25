@@ -56,6 +56,8 @@ The archived uncertainty datasets slice is a data-provenance caution: large vali
 
 The archived uncertainty experiments code-delta slice is a diagnostic-evidence caution: a direct spaCy test can isolate wrapper issues, and a mock-capable SocialMaze harness can produce useful designed outputs, but neither establishes broad integrated runtime success. See [Digimon Lineage Archived Uncertainty Experiments Code Delta](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-code-delta.md).
 
+The proposal-rewrite subtree adds the dissertation-writing version of this rule: local guidance and critique notes explicitly forbid functional/production-ready claims and require designed/proposed framing, while adjacent IC and capability planning documents still use stronger readiness language. See [Digimon Lineage Proposal Rewrite 2025 08 12](/wiki/sources/digimon-lineage-proposal-rewrite-2025-08-12.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -96,6 +98,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Archived Uncertainty Experiments Docs And Validation](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-docs-validation.md): coexisting production-ready, fix-bias-first, and limited-evidence claims.
 - [Digimon Lineage Archived Uncertainty Datasets](/wiki/sources/digimon-lineage-archived-uncertainty-datasets.md): sensitive validation data requiring manifest-level treatment by default.
 - [Digimon Lineage Archived Uncertainty Experiments Code Delta](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-code-delta.md): unique diagnostic/mock-capable tests versus duplicated code.
+- [Digimon Lineage Proposal Rewrite 2025 08 12](/wiki/sources/digimon-lineage-proposal-rewrite-2025-08-12.md): proposal/future-tense claim discipline versus adjacent readiness language.
 
 # Citations
 
