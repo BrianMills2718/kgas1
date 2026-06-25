@@ -92,6 +92,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Digimon Lineage Ops Scaffolding](/wiki/sources/digimon-lineage-ops-scaffolding.md) - CI, docs governance, interface validation, Docker deployment, and dependency-locking surfaces with status caveats.
 - [Digimon Lineage Config And Contracts](/wiki/sources/digimon-lineage-config-contracts.md) - central config loader/settings, orchestration/monitoring configs, phase interfaces, theory validator, and partial tool-contract graph.
 - [Digimon Lineage Config Schemas](/wiki/sources/digimon-lineage-config-schemas.md) - config-level theory meta-schema lineage, V11 theoretical-honesty/applicability shift, and curated theory examples.
+- [Digimon Lineage Legacy Tools Duplicate](/wiki/sources/digimon-lineage-legacy-tools-duplicate.md) - duplicate preserved operational tooling under both `tools/` and `config/legacy_tools/`.
 - [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
 - [Lit Review Multi Agent System Corpus](/wiki/sources/lit-review-multi-agent-system-corpus.md) - full 648-file inventory separating the outer lit-review harness from the nested V5.2 generator/evidence/remediation corpus.
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md) - procedural evidence pattern for isolated implementation, external evaluation, remediation, and 100/100 gates.
