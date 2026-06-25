@@ -27,12 +27,15 @@ Schema variant drift implies that validation must compare generated schemas agai
 
 [Lit Review Debug Improved Results](/wiki/sources/lit-review-debug-improved-results.md) adds an intermediate-output version of the same pattern: two Semantic Hypergraph debug runs both route to `hypergraph`, but preserve substantially different Phase 2 and Phase 3 counts.
 
+[Lit Review Results Corpus](/wiki/sources/lit-review-results-corpus.md) adds an application-result version: WorldView/Carter outputs improve substantially as more schema context and operational examples are supplied, showing that application output can drift as much as schema output.
+
 # Links
 
 - [Lit Review Operational Code Corpus](/wiki/sources/lit-review-operational-code-corpus.md)
 - [Lit Review Young1996 Schema Family](/wiki/sources/lit-review-young1996-schema-family.md)
 - [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md)
 - [Lit Review Debug Improved Results](/wiki/sources/lit-review-debug-improved-results.md)
+- [Lit Review Results Corpus](/wiki/sources/lit-review-results-corpus.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
 - [Model Form Routing](/wiki/concepts/model-form-routing.md)

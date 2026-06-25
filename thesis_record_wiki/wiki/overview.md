@@ -137,6 +137,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Data And Examples](/wiki/sources/lit-review-data-examples.md) - 28-file grounding slice with source papers, test texts, Carter examples, hybrid schemas, OWL/causal stress tests, and Grusch prompt material.
 - [Lit Review Evidence Corpus](/wiki/sources/lit-review-evidence-corpus.md) - 114-file six-phase evidence corpus, including Phase 1 purpose classification and links to detailed Phase 2-6 pages.
 - [Lit Review Debug Improved Results](/wiki/sources/lit-review-debug-improved-results.md) - 9 JSON intermediate phase outputs for Carter and Semantic Hypergraph cases, with empty `analysis_results/` negative evidence.
+- [Lit Review Results Corpus](/wiki/sources/lit-review-results-corpus.md) - top-level result files showing WorldView/Carter application attempts, cognitive-mapping critique, simplified meta-schema findings, and generated Iran/influence/SH artifacts.
 
 # Current Cautions
 

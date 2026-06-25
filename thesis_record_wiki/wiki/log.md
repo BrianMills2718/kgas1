@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added results corpus inventory with WorldView/Carter application attempts, cognitive-mapping critique, simplified meta-schema findings, and result-subtree hashes.
 * **Ingest** | Added debug_improved and empty analysis_results slice with three-phase Carter/SH intermediate outputs and empty-directory caveat.
 * **Ingest** | Added evidence corpus inventory with Phase 1 purpose-classification summary and links to existing Phase 2-6 detail pages.
 * **Ingest** | Added data/examples grounding slice with paper texts, test texts, UI requirements, Carter examples, hybrid schemas, OWL/causal stress tests, and model-form negative evidence.

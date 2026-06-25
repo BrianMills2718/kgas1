@@ -92,10 +92,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `0b500fa` ingested the lit-review docs bundle slice, including 13-file aggregate hash, meta-schema, extraction methodology, n-ary relation guide, universal-applicator critique, archived strategies, TypeDB PDFs, and Carter visualization artifacts.
 - `8c4adc7` ingested the data/examples grounding slice, including 17-file data hash, 11-file examples hash, source papers, test texts, Carter examples, hybrid schemas, OWL/causal stress tests, UI requirements, and model-form negative evidence.
 - `521a2e2` ingested the evidence corpus inventory slice, including 114-file aggregate hash, six phase aggregates, Phase 1 purpose-classification summary, and links to existing Phase 2-6 pages.
-- Pending commit: debug_improved/analysis_results slice, including 9-file debug hash, Carter and Semantic Hypergraph phase counts, and empty analysis_results caveat.
+- `d55fb34` ingested the debug_improved/analysis_results slice, including 9-file debug hash, Carter and Semantic Hypergraph phase counts, and empty analysis_results caveat.
+- Pending commit: results corpus slice, including top-level results hash, semantic_hypergraph and young1996 subtree hashes, WorldView/Carter application assessments, cognitive-mapping critiques, and simplified meta-schema findings.
 
 ## Next
 
-1. Run wiki lint, commit, and push the debug_improved/analysis_results slice.
-2. Next recommended step: inspect remaining `experiments/lit_review/results/` subtrees not already covered by Semantic Hypergraph, universal-applicator, model-form, and validation pages.
+1. Run wiki lint, commit, and push the results corpus slice.
+2. Next recommended step: inspect remaining lit-review directories with limited coverage: `experimental_testing/` as a whole, `multi_agent_system/` deeper inventory, and `archive/` subfolders already not covered by legacy/old-schema pages.
 3. Security follow-up: treat the preserved `.env` credential as compromised before any public sharing or archive export.

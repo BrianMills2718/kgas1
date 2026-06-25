@@ -50,6 +50,7 @@ The archive also shows an unfinished transition to stronger engineering discipli
 - [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md)
 - [Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md)
 - [Lit Review Schemas Corpus Inventory](/wiki/sources/lit-review-schemas-corpus-inventory.md)
+- [Lit Review Results Corpus](/wiki/sources/lit-review-results-corpus.md)
 - [Multi-Theory Application Artifact](/wiki/concepts/multi-theory-application-artifact.md)
 
 # Citations
