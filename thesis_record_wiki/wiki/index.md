@@ -19,6 +19,7 @@
 * [Digimon Lineage Architecture Docs](sources/digimon-lineage-architecture-docs.md) - large lineage architecture target-design docs and uncertainty/traceability critical review.
 * [Digimon Lineage Evidence Archives](sources/digimon-lineage-evidence-archives.md) - evidence archive slice focused on false-claim correction and system-level validation discipline.
 * [Lit Review Theory Extraction Experiment](sources/lit-review-theory-extraction-experiment.md) - lit_review experiment subsystem for automated theory extraction, schema generation, and validation claims.
+* [Carter Theory Analysis Output](sources/carter-theory-analysis-output.md) - generated Carter speech outputs applying cognitive mapping and framing theory.
 
 # Entities
 
@@ -42,6 +43,7 @@
 * [Uncertainty Traceability Architecture](concepts/uncertainty-traceability-architecture.md) - KGAS uncertainty, provenance, traceability, and over-engineering tension.
 * [Evidence Claim Discipline](concepts/evidence-claim-discipline.md) - rule that claims must match component, integration, workflow, or benchmark validation level.
 * [Automated Theory Extraction](concepts/automated-theory-extraction.md) - lit-review experiment line for extracting theory schemas from papers and applying them to data.
+* [Multi-Theory Application Artifact](concepts/multi-theory-application-artifact.md) - concrete generated-output pattern for applying multiple theories to one empirical text.
 
 # Timeline
 

@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from the first lit-review overview slice into narrower lit-review evidence/output sub-slices or architecture ADR topical sub-slices.
+Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, moving from the Carter generated-output slice into narrower lit-review validation/source-code sub-slices or architecture ADR topical sub-slices.
 
 ## Completed
 
@@ -44,10 +44,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `41fcead` ingested `digimon_lineage_Digimons/tool_compatability`, including large-bundle source summary and updates to type-based composition.
 - `871f7e9` ingested `digimon_lineage_Digimons/docs/architecture` top-level slice, including architecture source summary and uncertainty traceability concept.
 - `bf80bf9` ingested the evidence archive slice, including false-claim correction and evidence validation-level concept.
-- Pending commit: first `experiments/lit_review` slice, including automated theory extraction source summary, schema/application method concept, and validation-claim caveats.
+- `54d1422` ingested first `experiments/lit_review` slice, including automated theory extraction source summary, schema/application method concept, and validation-claim caveats.
+- Pending commit: `experiments/lit_review/carter_analysis_output` slice, including concrete generated output artifacts and multi-theory application artifact concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the first lit-review slice.
-2. Next recommended ingest slice: `experiments/lit_review/carter_analysis_output`, because it likely preserves concrete application outputs for a named theory/case and should ground the high-level validation claims.
-3. Later slices: `experiments/lit_review/evidence/` deeper phase evidence, `docs/architecture/adrs/`, and UI/recovered components.
+1. Run wiki lint, commit, and push the Carter output slice.
+2. Next recommended ingest slice: `experiments/lit_review/src/schema_creation` plus adjacent prompt/config files, because the generated Carter artifacts need their production path documented before their scores can be trusted.
+3. Later slices: `experiments/lit_review/evidence/` deeper phase evidence, `validation_results/`, `docs/architecture/adrs/`, and UI/recovered components.

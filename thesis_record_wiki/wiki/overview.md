@@ -68,6 +68,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) - evidence archive correction showing that component success was incorrectly overstated as system integration success.
 - [Lit Review Theory Extraction Experiment](/wiki/sources/lit-review-theory-extraction-experiment.md) - separate experiment subsystem for extracting theory schemas from academic papers and applying them to data.
 - [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md) - a thesis-core method thread connecting schema extraction, model-type selection, and evidence discipline.
+- [Carter Theory Analysis Output](/wiki/sources/carter-theory-analysis-output.md) - generated output slice applying two academic theories to one Carter speech.
+- [Multi-Theory Application Artifact](/wiki/concepts/multi-theory-application-artifact.md) - evidence form for checking whether theory extraction/application produced concrete inspectable outputs.
 
 # Current Cautions
 

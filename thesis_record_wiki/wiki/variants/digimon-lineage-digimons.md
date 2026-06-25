@@ -24,6 +24,8 @@ The evidence-archive slice shows that some success claims were later archived as
 
 The `experiments/lit_review` slice is a separate 51M experiment subsystem with 2,768 files and its own `.git` directory. It preserves automated theory extraction/application work, schema-based ontology docs, validation summaries, and phase completion evidence. See [Lit Review Theory Extraction Experiment](/wiki/sources/lit-review-theory-extraction-experiment.md) and [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md).
 
+The `experiments/lit_review/carter_analysis_output` slice is a concrete generated-output sub-slice: six files applying Young 1996 cognitive mapping and Chong & Druckman 2007 framing theory to a Carter speech, then integrating the results. See [Carter Theory Analysis Output](/wiki/sources/carter-theory-analysis-output.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

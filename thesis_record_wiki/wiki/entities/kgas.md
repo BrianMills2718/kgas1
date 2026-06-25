@@ -33,6 +33,8 @@ The evidence-archive slice captures the verification-quality side: evidence file
 
 The `experiments/lit_review` slice captures a separate thesis experiment line focused directly on automated theory extraction and application: papers become schemas, schemas are applied to data, and results are compared to the source paper. See [Lit Review Theory Extraction Experiment](/wiki/sources/lit-review-theory-extraction-experiment.md) and [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md).
 
+The Carter output sub-slice shows one concrete generated artifact from that line: cognitive mapping and framing theory applied to a Carter speech, then integrated. See [Carter Theory Analysis Output](/wiki/sources/carter-theory-analysis-output.md) and [Multi-Theory Application Artifact](/wiki/concepts/multi-theory-application-artifact.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).
