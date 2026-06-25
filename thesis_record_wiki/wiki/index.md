@@ -79,6 +79,7 @@
 * [Digimon Lineage Archived Uncertainty Datasets](sources/digimon-lineage-archived-uncertainty-datasets.md) - structural provenance and privacy review for 100-user and 84-user Twitter-like psychological datasets, config, and July 27 test result without raw tweet text.
 * [Digimon Lineage Archived Uncertainty Experiments Code Delta](sources/digimon-lineage-archived-uncertainty-experiments-code-delta.md) - difference-focused record for unique experiment test files: direct spaCy NER diagnostic and mock-capable SocialMaze harness.
 * [Digimon Lineage Archive Coverage Audit 2026-06-25](sources/digimon-lineage-archive-coverage-audit-2026-06-25.md) - top-level archive coverage audit identifying represented areas and not-yet-represented archive queues.
+* [Digimon Lineage Temp Analysis 2025 08](sources/digimon-lineage-temp-analysis-2025-08.md) - August 2025 mechanical archive-analysis bundle with large file listings, uncommitted-file inventory, history examples, and helper/debug scripts.
 * [Current Code Verification 2026-06-25](sources/current-code-verification-2026-06-25.md) - focused current-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
 * [Current Runtime Import Check 2026-06-25](sources/current-runtime-import-check-2026-06-25.md) - import-only runtime check for current contract, cross-modal API, and MCP modules.
 * [Current Runtime Repair Plan 2026-06-25](sources/current-runtime-repair-plan-2026-06-25.md) - non-invasive source-level plan for repairing first import/runtime blockers.
