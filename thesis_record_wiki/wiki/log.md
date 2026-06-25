@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Audit** | Added large-lineage archive coverage audit identifying represented archive areas and not-yet-represented queues, with `temp_analysis_2025_08/`, `ARCHIVE_BEFORE_CLEANUP_20250805/`, and `theoretical_exploration/` as recommended next slices.
 * **Ingest** | Added archived uncertainty experiments code-delta page documenting that remaining experiment code is mostly subset/duplicate material, with only `test_ner_direct.py` and `test_socialmaze_uncertainty.py` unique versus the reorganized copy.
 * **Ingest** | Added archived uncertainty datasets page covering file hashes, dataset structure, tweet/object counts, identifier/privacy risks, count inconsistencies, empty-key config, and July 27 root test result without quoting raw tweet text.
 * **Ingest** | Added archived uncertainty experiments docs/validation page covering 13 non-duplicate docs, 17 validation files, 75%-ready versus production-ready status tension, Kunst validation claims, LLM-native 7/7 result, mock SocialMaze caveat, and hardcoded-path/API rerun caveats.

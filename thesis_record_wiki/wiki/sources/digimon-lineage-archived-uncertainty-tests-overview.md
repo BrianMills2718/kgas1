@@ -63,6 +63,7 @@ A targeted literal-key scan found placeholder API-key examples but no literal Op
 - [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md): already covers the duplicate reorganized tree at the root/result level.
 - [Digimon Lineage Uncertainty Stress Test Analysis](/wiki/sources/digimon-lineage-uncertainty-stress-test-analysis.md): already covers the duplicate analysis subtree.
 - [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md): already covers much of the duplicate validation subtree.
+- [Digimon Lineage Archive Coverage Audit 2026-06-25](/wiki/sources/digimon-lineage-archive-coverage-audit-2026-06-25.md): records that this archived uncertainty bundle is now represented and identifies remaining top-level archive queues.
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md): cleanup proposals and "zero risk" deletion claims need preservation-policy context.
 
 # Citations

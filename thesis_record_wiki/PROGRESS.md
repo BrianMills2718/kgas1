@@ -141,11 +141,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `fc4b9d2` ingested the archived-uncertainty-tests overview, including duplicate reorganized copy, 2025-07 experiments datasets/config/results, incomplete personality-prediction checkout, cleanup/deletion recommendations, and privacy/security caveats.
 - `b0f9fc4` ingested the archived uncertainty experiments docs/validation slice, including 13-doc/17-validation inventory, production-ready versus fix-bias-first status tension, Kunst claims, LLM-native 7/7 result, mock SocialMaze caveat, and rerun caveats.
 - `a5a2029` ingested the archived uncertainty datasets slice, including per-file hashes, dataset structure, tweet/object counts, identifier/privacy risk, count inconsistencies, empty-key config, and July 27 result summary.
-- Pending commit: archived uncertainty experiments code-delta slice, including subset/difference analysis and the two unique experiment tests: direct spaCy NER diagnostic and mock-capable SocialMaze harness.
+- `cab7b79` ingested the archived uncertainty experiments code-delta slice, including subset/difference analysis and the two unique experiment tests: direct spaCy NER diagnostic and mock-capable SocialMaze harness.
+- Pending commit: large-lineage archive coverage audit, including represented/not-yet-represented top-level archive directories and recommended next slices.
 
 ## Next
 
-1. Run wiki lint, commit, and push the archived uncertainty experiments code-delta slice.
-2. Next recommended step: mark the archived uncertainty datasets commit complete in progress, then run a coverage check for remaining large-lineage archive directories not represented in the wiki index.
+1. Run wiki lint, commit, and push the large-lineage archive coverage audit.
+2. Next recommended step: mark the archived uncertainty experiments code-delta commit complete in progress, then ingest `archive/temp_analysis_2025_08/` as the next bounded slice.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
