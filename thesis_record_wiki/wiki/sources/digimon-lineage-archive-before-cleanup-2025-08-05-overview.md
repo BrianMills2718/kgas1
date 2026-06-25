@@ -55,7 +55,7 @@ A targeted raw-source scan found one placeholder API-key example in a Phase 1 en
 This overview is enough to mark the top-level directory represented, but it is not a substitute for detailed ingest of the major subtrees. Recommended bounded follow-ups:
 
 1. `proposal_rewrite_20250812_about_to_drop_all_complex_uncerainty/`: highest intellectual-lineage value; 121 files, about 6.5 MB, aggregate hash `364a274bf7e4874a19c6bada9a813833ccbc57a1672341283c19999018c67aa0`. [7]
-2. `phases/`: 75 phase files tying claims to implementation/evidence chronology. [1]
+2. `phases/`: represented by a phase/evidence chronology page; deeper per-task pages remain optional if a later question needs them. [1]
 3. `initiatives/`: 19 cross-cutting plans, especially theory extraction, uncertainty, risk, storage, and import resolution. [1]
 4. `archived/`: service-investigation consolidation and template-only investigation caveats. [4]
 
@@ -63,6 +63,7 @@ This overview is enough to mark the top-level directory represented, but it is n
 
 - [Digimon Lineage Archive Coverage Audit 2026-06-25](digimon-lineage-archive-coverage-audit-2026-06-25.md): queue-control page that identified this directory as high priority.
 - [Digimon Lineage Temp Analysis 2025 08](digimon-lineage-temp-analysis-2025-08.md): file-list provenance page that pointed to the proposal-rewrite subtree.
+- [Digimon Lineage Archive Before Cleanup Phases](digimon-lineage-archive-before-cleanup-phases.md): phase/evidence chronology sub-slice from this archive.
 - [Lit Review Multi Agent System Corpus](lit-review-multi-agent-system-corpus.md): supporting record for the experimental theory-extraction validation line.
 - [Evidence Claim Discipline](../concepts/evidence-claim-discipline.md): relevant because this archive mixes roadmap status claims, plans, evidence summaries, and runtime claims.
 - [Current Status Verification Discipline](../concepts/current-status-verification-discipline.md): relevant caution for separating archived status documents from current runtime verification.
