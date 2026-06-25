@@ -56,6 +56,7 @@
 * [Lit Review ELM Schema](sources/lit-review-elm-schema.md) - compact Elaboration Likelihood Model schema and summary.
 * [Lit Review Semantic Hypergraph Schema Family](sources/lit-review-semantic-hypergraph-schema-family.md) - semantic-hypergraph schema variants and debug-output inventory.
 * [Lit Review Src Code Inventory](sources/lit-review-src-code-inventory.md) - directory-level inventory of schema creation/application/testing/UI/visualization source code.
+* [Lit Review Schema Application Code](sources/lit-review-schema-application-code.md) - schema_application code inventory and universal-applicator implementation notes.
 
 # Entities
 
