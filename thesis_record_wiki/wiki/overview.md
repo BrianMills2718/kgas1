@@ -114,6 +114,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Analyst Assembler Pattern](/wiki/concepts/analyst-assembler-pattern.md) - workflow split between LLM interpretation and deterministic schema assembly.
 - [Lit Review Literature Corpus Inventory](/wiki/sources/lit-review-literature-corpus-inventory.md) - 73-file preserved corpus with 47 indexed papers across theory, persuasion, intervention, information, and behavior-change domains.
 - [Literature Corpus As Theory Testbed](/wiki/concepts/literature-corpus-as-theory-testbed.md) - corpus-level explanation for why model routing and hybrid representations became necessary.
+- [Lit Review Operational Code Corpus](/wiki/sources/lit-review-operational-code-corpus.md) - operational-code/WorldView source family and Young 1996 schema-variant comparison.
+- [Schema Variant Drift](/wiki/concepts/schema-variant-drift.md) - evidence that extraction pass, prompt, and representation frame can preserve different theory content for the same source.
 
 # Current Cautions
 

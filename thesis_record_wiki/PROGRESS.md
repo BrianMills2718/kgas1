@@ -71,10 +71,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `9e17ffd` ingested the Grusch/UAP information-disorder output slice, including structured generated analysis and empty `analysis_results/` caveat.
 - `5fa54dc` ingested the old schema archive inventory slice, including 56 YAML schemas, 55 parseable dictionaries, one malformed file, aggregate directory hash, and old-schema-corpus-breadth concept.
 - `9b2fb37` ingested the legacy-system framing slice, including Analyst/Assembler methodology, post-processing guide, project overview, archived CLAUDE validation problems, and analyst-assembler-pattern concept.
-- Pending commit: literature corpus inventory slice, including 73 preserved files, 47 indexed papers, topical folder counts, schema-location caveat, and literature-corpus-as-theory-testbed concept.
+- `bb67108` ingested the literature corpus inventory slice, including 73 preserved files, 47 indexed papers, topical folder counts, schema-location caveat, and literature-corpus-as-theory-testbed concept.
+- Pending commit: operational-code corpus slice, including five source texts, four Young schema variants, schema-variant-drift concept, and YAML truth-value parsing caveat.
 
 ## Next
 
-1. Run wiki lint, commit, and push the literature corpus inventory slice.
-2. Next recommended step: inspect `literature/operational_code_analysis/` as the first semantic deep dive, because Young/operational-code artifacts recur in current validation, prompt variation, and schema evolution pages.
-3. Later slices: `literature/influence_operations/`, `literature/social_marketing/`, selected generated-code directories, and remaining experiment directories.
+1. Run wiki lint, commit, and push the operational-code corpus slice.
+2. Next recommended step: inspect `literature/influence_operations/`, because it is the largest literature folder and includes both source texts and generated/debug artifacts.
+3. Later slices: `literature/social_marketing/`, selected generated-code directories, and remaining experiment directories.

@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added operational-code corpus slice and schema-variant-drift concept.
 * **Ingest** | Added lit-review literature corpus inventory and literature-corpus-as-theory-testbed concept.
 * **Ingest** | Added legacy-system framing slice and analyst-assembler-pattern concept.
 * **Ingest** | Added old schema archive inventory slice and old-schema-corpus-breadth concept.

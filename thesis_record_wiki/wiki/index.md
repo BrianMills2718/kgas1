@@ -45,6 +45,7 @@
 * [Lit Review Old Schema Archive Inventory](sources/lit-review-old-schema-archive-inventory.md) - inventory of 56 archived early theory schemas and parseability caveats.
 * [Lit Review Legacy System Framing](sources/lit-review-legacy-system-framing.md) - archived early methodology and project framing for Analyst/Assembler schema generation.
 * [Lit Review Literature Corpus Inventory](sources/lit-review-literature-corpus-inventory.md) - inventory of the preserved annotated literature corpus, topical folders, and schema-location caveats.
+* [Lit Review Operational Code Corpus](sources/lit-review-operational-code-corpus.md) - operational-code and Young WorldView literature slice with schema-variant comparison.
 
 # Entities
 
@@ -88,6 +89,7 @@
 * [Old Schema Corpus Breadth](concepts/old-schema-corpus-breadth.md) - early broad theory-schema corpus before later validation/routing discipline.
 * [Analyst Assembler Pattern](concepts/analyst-assembler-pattern.md) - LLM for semantic interpretation, deterministic code for schema assembly and validation.
 * [Literature Corpus As Theory Testbed](concepts/literature-corpus-as-theory-testbed.md) - heterogeneous corpus as stress test for theory-to-schema representation methods.
+* [Schema Variant Drift](concepts/schema-variant-drift.md) - multiple extraction passes over the same source preserve different theory content.
 
 # Timeline
 
