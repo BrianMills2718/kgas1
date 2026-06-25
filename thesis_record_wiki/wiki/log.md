@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added old-backups-theory-output page covering the Prospect Theory JSON/report/CSV bundle and its transportation-vs-climate-policy probability drift caveat.
 * **Ingest** | Added old-backups-logs page covering the 44,622-line `super_digimon.log`, operational counts, Neo4j/API failures, successful pipeline traces, and credential-leak caveat.
 * **Ingest** | Added old-backups-output-reports page covering Phase A/B generated validation success reports and the tool-registry report showing 12/123 tools implemented.
 * **Verification** | Added old-backups-empty-monitoring-output page documenting that `monitoring_output/` exists but contains zero files.
