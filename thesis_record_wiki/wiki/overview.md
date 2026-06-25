@@ -76,6 +76,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Complexity Accuracy Pattern](/wiki/concepts/complexity-accuracy-pattern.md) - conservative validation lesson that simple theories are the best automation target.
 - [Lit Review Phase 2-3 Evidence](/wiki/sources/lit-review-phase2-3-evidence.md) - balanced vocabulary/schema evidence with a Phase 2 summary-versus-test contradiction.
 - [Balance Driven Validation](/wiki/concepts/balance-driven-validation.md) - validation metric pattern useful for bias detection but insufficient alone for theory fidelity.
+- [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md) - integration evidence whose test, certification, and remediation claims need time-indexed reading.
 
 # Current Cautions
 

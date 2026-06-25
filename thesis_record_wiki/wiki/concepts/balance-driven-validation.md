@@ -26,6 +26,8 @@ The pattern is valuable because it makes bias visible. Phase 2 explicitly identi
 
 The same pattern can over-optimize for score balance. Phase 2's remediation summary says 100% success, but the stored test results show one failing integration-quality test. That means a balanced count distribution did not automatically imply high cross-purpose integration quality. [1][2]
 
+Phase 4 adds another caution: test pass rate, certification rate, and later remediation score can diverge across artifacts. See [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md).
+
 # Working Rule
 
 Use balance metrics as one validation layer, not as the definition of success. A credible theory-extraction validation stack needs:

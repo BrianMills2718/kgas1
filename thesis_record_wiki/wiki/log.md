@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added lit-review Phase 4 integration pipeline slice with certification/status caveats.
 * **Ingest** | Added lit-review Phase 2-3 evidence slice. Created balanced vocabulary/schema evidence page and balance-driven validation concept.
 * **Ingest** | Added `experiments/lit_review/validation_results` slice. Created validation source page and complexity/accuracy concept.
 * **Ingest** | Added `experiments/lit_review/src/schema_creation` production-path slice. Created schema creation source page and schema extraction pipeline evolution concept.

@@ -23,6 +23,7 @@
 * [Lit Review Schema Creation Production Path](sources/lit-review-schema-creation-production-path.md) - schema_creation code and prompts behind the lit-review extraction pipeline.
 * [Lit Review Validation Results](sources/lit-review-validation-results.md) - validation reports for Young 1996, framing effects, and Lofland-Stark complexity testing.
 * [Lit Review Phase 2-3 Evidence](sources/lit-review-phase2-3-evidence.md) - evidence artifacts for balanced vocabulary extraction and schema generation.
+* [Lit Review Phase 4 Integration Pipeline](sources/lit-review-phase4-integration-pipeline.md) - integration pipeline evidence with certification/status caveats.
 
 # Entities
 

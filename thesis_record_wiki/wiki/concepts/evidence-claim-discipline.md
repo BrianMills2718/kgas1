@@ -18,6 +18,8 @@ Evidence claim discipline is the rule that a claim must match the level of valid
 
 The lit-review Phase 2 evidence adds a second example: a remediation summary can claim 100% success while a stored test result still records a failing integration-quality test. See [Lit Review Phase 2-3 Evidence](/wiki/sources/lit-review-phase2-3-evidence.md).
 
+Phase 4 adds the same lesson at integration scale: stored tests can pass while certification reports remain weak, and later remediation may supersede earlier benchmark claims. See [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]

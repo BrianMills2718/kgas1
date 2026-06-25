@@ -32,6 +32,8 @@ The `experiments/lit_review/validation_results` slice records validation reports
 
 The `experiments/lit_review/evidence/phase2_vocabulary_extraction` and `phase3_schema_generation` slice records balance-driven evidence. Phase 3 has consistent 8/8 passing test artifacts; Phase 2 preserves a contradiction between 100% remediation claims and a failing stored test result. See [Lit Review Phase 2-3 Evidence](/wiki/sources/lit-review-phase2-3-evidence.md).
 
+The `experiments/lit_review/evidence/phase4_integration_pipeline` slice records integrated-pipeline evidence. It should be read time-indexed because benchmark/balance reports preserve certification weaknesses while remediation/completion summaries claim later 100/100 resolution. See [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

@@ -41,6 +41,8 @@ The validation-results slice gives the first conservative validation pattern: si
 
 The Phase 2-3 evidence slice shows how KGAS/lit-review tried to operationalize balanced descriptive, explanatory, predictive, causal, and intervention purposes. See [Lit Review Phase 2-3 Evidence](/wiki/sources/lit-review-phase2-3-evidence.md) and [Balance Driven Validation](/wiki/concepts/balance-driven-validation.md).
 
+The Phase 4 slice shows an integrated balanced-purpose pipeline, but its archived evidence mixes passing tests, weak certification metrics, and later remediation claims. See [Lit Review Phase 4 Integration Pipeline](/wiki/sources/lit-review-phase4-integration-pipeline.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).
