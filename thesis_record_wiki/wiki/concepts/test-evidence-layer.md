@@ -18,12 +18,13 @@ sources:
   - /wiki/sources/digimon-lineage-current-evidence-archive.md
   - /wiki/sources/digimon-lineage-evidence-reports-2025-08.md
   - /wiki/sources/digimon-lineage-old-backups-results.md
+  - /wiki/sources/digimon-lineage-old-backups-coverage-current.md
   - /wiki/concepts/evidence-claim-discipline.md
   - /wiki/concepts/current-status-verification-discipline.md
 confidence: high
 ---
 
-> Sources consulted: [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) · [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) · [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) · [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) · [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) · [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) · [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) · [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) · [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) · [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md) · [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md) · [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md). Other wiki pages were not consulted for this synthesis because the scope is the test evidence layer, not the full KGAS/Digimons thesis record. Status: updated after old-backups-results ingest.
+> Sources consulted: [Digimon Lineage Tests Corpus](/wiki/sources/digimon-lineage-tests-corpus.md) · [Digimon Lineage Integration Tests](/wiki/sources/digimon-lineage-integration-tests.md) · [Digimon Lineage Archived Root Tests](/wiki/sources/digimon-lineage-archived-root-tests.md) · [Digimon Lineage Functional Tests](/wiki/sources/digimon-lineage-functional-tests.md) · [Digimon Lineage Reliability Tests](/wiki/sources/digimon-lineage-reliability-tests.md) · [Digimon Lineage Performance Tests](/wiki/sources/digimon-lineage-performance-tests.md) · [Digimon Lineage Error Scenarios Tests](/wiki/sources/digimon-lineage-error-scenarios-tests.md) · [Digimon Lineage Security Tests](/wiki/sources/digimon-lineage-security-tests.md) · [Digimon Lineage Generated Reports](/wiki/sources/digimon-lineage-generated-reports.md) · [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md) · [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md) · [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md) · [Digimon Lineage Old Backups Current Coverage](/wiki/sources/digimon-lineage-old-backups-coverage-current.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md). Other wiki pages were not consulted for this synthesis because the scope is the test evidence layer, not the full KGAS/Digimons thesis record. Status: updated after old-backups-current-coverage ingest.
 
 # Summary
 
@@ -46,6 +47,8 @@ The test layer has three different kinds of evidence:
 [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md) adds a curated report category: compact dated reports that mix DAG/traceability demonstrations with explicit architectural and coverage caveats.
 
 [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md) adds an output-artifact category: small preserved JSON/text result files where pass/fail evidence can contradict within the same directory.
+
+[Digimon Lineage Old Backups Current Coverage](/wiki/sources/digimon-lineage-old-backups-coverage-current.md) adds a broad coverage-output category: generated HTML coverage where the overall surface, not just selected tools, is visible.
 
 Future summaries should never collapse these three into one label.
 
@@ -73,6 +76,7 @@ Weaknesses and caveats:
 - Current evidence records preserve failed full integration at 40% success and corrected speedup claims around 1.17x-1.24x, which directly constrains stronger system-success narratives. [Digimon Lineage Current Evidence Archive](/wiki/sources/digimon-lineage-current-evidence-archive.md)
 - The August 2025 evidence-report bundle preserves both DAG success reports and a critical bottleneck report where 25 documents yielded 398 entities but zero relationships. [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md)
 - Old-backups result files show why same-directory outputs still need claim-level reading: one Phase D report says 7/7 passed, while validation says 0/6 passed, end-to-end analysis fails with zero entities/relationships, and the tool-interface audit reports 22.2% compliance. [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md)
+- Broad old-backups coverage reports can sharply undercut narrower coverage claims: the preserved `src/core` HTML report has 206 indexed files and 2.99% total coverage. [Digimon Lineage Old Backups Current Coverage](/wiki/sources/digimon-lineage-old-backups-coverage-current.md)
 
 # Claim Discipline Rule
 
@@ -87,6 +91,7 @@ For any KGAS/Digimons test claim, name the evidence level:
 - "timestamped historical verification record reports success/failure, with hash/system info named"
 - "curated historical evidence report says success/partial/failure, with report date and caveat named"
 - "preserved result file says pass/fail, with adjacent contradictory result files checked"
+- "coverage report says X%, with the measured code surface named"
 
 This is a direct application of [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) and [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md).
 
