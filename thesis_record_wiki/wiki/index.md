@@ -35,6 +35,7 @@
 * [Digimon Lineage Config And Contracts](sources/digimon-lineage-config-contracts.md) - core configuration, orchestration, monitoring, phase interfaces, validation code, and nine preserved tool contracts.
 * [Digimon Lineage Config Schemas](sources/digimon-lineage-config-schemas.md) - theory meta-schema versions, V11 applicability shift, curated theory examples, and tool-contract schema.
 * [Digimon Lineage Legacy Tools Duplicate](sources/digimon-lineage-legacy-tools-duplicate.md) - byte-identical `tools/` and `config/legacy_tools/` operational demos, scripts, examples, and verification tooling.
+* [Digimon Lineage Scripts Corpus](sources/digimon-lineage-scripts-corpus.md) - 127-file operational script corpus for validation, verification, demos, analysis, repair, and runtime checks.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
 * [Lit Review Multi Agent System Corpus](sources/lit-review-multi-agent-system-corpus.md) - corpus-level inventory of the 648-file multi-agent harness, nested V5.2 evidence packages, templates, tests, and remediation records.
 * [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.

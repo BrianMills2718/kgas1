@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added large-lineage scripts corpus slice covering validation, verification, repair, demos, analysis, monitoring, and testing scripts.
 * **Ingest** | Added legacy-tools duplicate slice documenting byte-identical `tools/` and `config/legacy_tools/` operational tooling trees.
 * **Ingest** | Added config/schemas slice with meta-schema versions, V11 theoretical-honesty shift, concrete theory examples, and tool-contract schema.
 * **Ingest** | Added config/contracts slice with core config inventory, orchestration/monitoring notes, theory-aware phase interfaces, validator, and nine tool contracts.
