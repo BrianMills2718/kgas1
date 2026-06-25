@@ -138,11 +138,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `2808973` ingested the uncertainty-stress-test setup slice, including Neo4j Docker manager, one-click setup helpers, complete demo script, demo password, optional Docker volume deletion path, fragile sibling-validator import, and missing demo-output caveats.
 - `d615339` ingested the uncertainty-stress-test optimization slice, including mock parallelism, preserved estimated speedup JSON, cache assumptions, hardcoded historical paths, and no-literal-key finding.
 - `0ae4fde` ingested the uncertainty-stress-test organization slice, including useful/non-useful symlink classification, 48/53 broken symlink caveat, and follow-on pointer to archived personality-prediction material.
-- Pending commit: archived-uncertainty-tests overview, including duplicate reorganized copy, 2025-07 experiments datasets/config/results, incomplete personality-prediction checkout, cleanup/deletion recommendations, and privacy/security caveats.
+- `fc4b9d2` ingested the archived-uncertainty-tests overview, including duplicate reorganized copy, 2025-07 experiments datasets/config/results, incomplete personality-prediction checkout, cleanup/deletion recommendations, and privacy/security caveats.
+- Pending commit: archived uncertainty experiments docs/validation slice, including 13-doc/17-validation inventory, production-ready versus fix-bias-first status tension, Kunst claims, LLM-native 7/7 result, mock SocialMaze caveat, and rerun caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the archived-uncertainty-tests overview slice.
-2. Next recommended step: inspect the non-duplicate 2025-07 experiments docs and validation outputs in more detail, then decide whether the large datasets need only manifest-level treatment or a dedicated dataset ethics/provenance page.
+1. Run wiki lint, commit, and push the archived uncertainty experiments docs/validation slice.
+2. Next recommended step: mark the archived-uncertainty overview commit complete in progress, then inspect the experiments root datasets/config/test-result slice for whether a dedicated dataset ethics/provenance page is warranted.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

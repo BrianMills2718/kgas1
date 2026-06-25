@@ -50,6 +50,8 @@ The uncertainty organization slice is a cleanup-provenance caution: historical "
 
 The archived uncertainty-tests overview is a deletion-policy caution: historical documents recommend "zero risk" deletion after value extraction, but the thesis record policy preserves raw material and records those recommendations as provenance rather than executing them. See [Digimon Lineage Archived Uncertainty Tests Overview](/wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md).
 
+The archived uncertainty experiments docs/validation slice is a status-tension caution: the same bundle contains production-ready framing, 75%-ready/fix-bias-first framing, and limited/mock validation outputs. See [Digimon Lineage Archived Uncertainty Experiments Docs And Validation](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-docs-validation.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -87,6 +89,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Uncertainty Stress Test Optimization](/wiki/sources/digimon-lineage-uncertainty-stress-test-optimization.md): performance claims split into mock demonstration, estimated parallel timing, and assumed cache effects.
 - [Digimon Lineage Uncertainty Stress Test Organization](/wiki/sources/digimon-lineage-uncertainty-stress-test-organization.md): historical useful/non-useful classification labels with broken symlink caveats.
 - [Digimon Lineage Archived Uncertainty Tests Overview](/wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md): archived cleanup/deletion recommendations preserved as provenance, not executed.
+- [Digimon Lineage Archived Uncertainty Experiments Docs And Validation](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-docs-validation.md): coexisting production-ready, fix-bias-first, and limited-evidence claims.
 
 # Citations
 
