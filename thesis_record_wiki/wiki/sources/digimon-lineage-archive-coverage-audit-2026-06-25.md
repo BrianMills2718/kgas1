@@ -50,7 +50,7 @@ The following top-level archive areas were not found in the wiki index by this a
 | `agent_stress_testing/` | 52 | 977,712 | Covered by agent-stress-testing page; deeper replay/test-level validation remains optional. |
 | `scripts_archive_2025_08/` | 67 | 626,156 | Medium-low: script archive likely best handled as corpus inventory. |
 | `archived_experimental/` | 33 | 576,378 | Medium-low: experimental tests/utilities; likely corpus inventory. |
-| `proposal_rewrite_condensed/` | 25 | 333,418 | Medium-low but conceptually important; likely overlaps with theoretical exploration. |
+| `proposal_rewrite_condensed/` | 25 | 333,418 | Covered by proposal-rewrite-condensed page; overlaps with theoretical exploration full-example material. |
 | `old_docs_2025_08/` | 12 | 289,025 | Covered by old-docs-2025-08 page; deeper IC uncertainty extraction remains optional. |
 | `temp_debug_files/` | 32 | 169,254 | Low unless it contains unique failure evidence. |
 | `old_claude_md_versions/` | 7 | 123,514 | Covered by old-CLAUDE-md-versions page. |
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next move to `proposal_rewrite_condensed/` for proposal-compression lineage, then choose between `scripts_archive_2025_08/` and `archived_experimental/` for lower-priority corpus inventory. [1]
+Next choose between `scripts_archive_2025_08/` and `archived_experimental/` for lower-priority corpus inventory. Prefer `scripts_archive_2025_08/` first because scripts are more likely to explain how generated claims were produced. [1]
 
 # Relationship To Wiki
 
@@ -73,6 +73,7 @@ Next move to `proposal_rewrite_condensed/` for proposal-compression lineage, the
 - [Digimon Lineage Theoretical Exploration Thinking Out Loud](/wiki/sources/digimon-lineage-theoretical-exploration-thinking-out-loud.md): exploratory analysis-philosophy, architecture, and implementation-claim sub-slice from theoretical exploration.
 - [Digimon Lineage Theoretical Exploration Proposal Evolution](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-evolution.md): proposal fragments, assessments, historical versions, and critique-response sub-slice from theoretical exploration.
 - [Digimon Lineage Theoretical Exploration Schema v14 Post MVP](/wiki/sources/digimon-lineage-theoretical-exploration-schema-v14-post-mvp.md): post-MVP schema-evolution sub-slice from theoretical exploration.
+- [Digimon Lineage Proposal Rewrite Condensed](/wiki/sources/digimon-lineage-proposal-rewrite-condensed.md): condensed SCT full-example, StructGPT, uncertainty, and dynamic-tool archive.
 - [Digimon Lineage Gemini Review Tool Archive](/wiki/sources/digimon-lineage-gemini-review-tool-archive.md): Gemini review/validation tool archive and generated critique overview.
 - [Digimon Lineage Docs Architecture Cleanup 2025 08 29](/wiki/sources/digimon-lineage-docs-architecture-cleanup-2025-08-29.md): architecture cleanup archive and IC uncertainty supersession overview.
 - [Digimon Lineage Generated Outputs 2025 08](/wiki/sources/digimon-lineage-generated-outputs-2025-08.md): generated output artifacts, SQLite schemas, and repomix bundle caveats.
