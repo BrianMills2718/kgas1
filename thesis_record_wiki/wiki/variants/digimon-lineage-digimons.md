@@ -50,6 +50,8 @@ The analysis-expansion ADR slice records broad research-platform ambitions: cros
 
 The `experiments/lit_review/multi_agent_system` slice records a reusable multi-agent harness and six clean evaluation results for the lit-review phase sequence, with caveats around historical paths and one Phase 2 internal inconsistency. See [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md).
 
+The UI recovered-components slice records archived standalone UI files, recovered React components, and dashboard evidence. See [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

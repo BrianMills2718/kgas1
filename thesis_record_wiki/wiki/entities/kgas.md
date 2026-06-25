@@ -59,6 +59,8 @@ The analysis-expansion ADR slice shows the larger KGAS thesis ambition: graph/ta
 
 The lit-review multi-agent slice adds a procedural verification layer: isolated implementation agents, external evaluation agents, remediation, and 100/100 gates were used around the six lit-review phases. See [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) and [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md).
 
+The recovered UI slice preserves human-facing demo and inspection surfaces: static/mock UI, FastAPI backend UI, Streamlit dashboard, and a React analysis dashboard component. See [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md) and [Recovered UI Demo Surface](/wiki/concepts/recovered-ui-demo-surface.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

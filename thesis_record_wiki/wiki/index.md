@@ -32,6 +32,7 @@
 * [Digimon Lineage Tool Orchestration ADRs](sources/digimon-lineage-tool-orchestration-adrs.md) - contract, adapter, MCP, and structured-output ADR slice.
 * [Digimon Lineage Analysis Expansion ADRs](sources/digimon-lineage-analysis-expansion-adrs.md) - cross-modal, schema, ABM, statistics, and local API ADR slice.
 * [Lit Review Multi Agent System](sources/lit-review-multi-agent-system.md) - isolated multi-agent implementation/evaluation harness and six-phase evaluation record.
+* [Digimon Lineage UI Recovered Components](sources/digimon-lineage-ui-recovered-components.md) - archived and recovered KGAS UI/demo/dashboard material.
 
 # Entities
 
@@ -65,6 +66,7 @@
 * [Layered Tool Interface Architecture](concepts/layered-tool-interface-architecture.md) - three-layer reconciliation of implementation tools, internal contracts, and MCP access.
 * [Analysis Expansion Architecture](concepts/analysis-expansion-architecture.md) - KGAS expansion from graph extraction to cross-modal, schema, simulation, statistical, and local automation modes.
 * [Multi Agent Evidence Harness](concepts/multi-agent-evidence-harness.md) - isolated implementation/evaluation pattern used to enforce 100/100 phase gates.
+* [Recovered UI Demo Surface](concepts/recovered-ui-demo-surface.md) - preserved static, FastAPI, Streamlit, and React UI/demo surfaces.
 
 # Timeline
 

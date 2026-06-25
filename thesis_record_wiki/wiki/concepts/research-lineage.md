@@ -52,6 +52,7 @@ Two through-lines are now visible from the first small-variant ingest:
 - [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md): tool architecture thread reconciling raw implementations, internal contracts, and MCP exposure.
 - [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md): research-platform expansion thread from graph extraction to cross-modal, schema, ABM, statistics, and local automation.
 - [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md): procedural verification thread using isolated implementation and external evaluation agents.
+- [Recovered UI Demo Surface](/wiki/concepts/recovered-ui-demo-surface.md): human-facing demo/inspection thread preserved through archived and recovered UI files.
 
 # Open Interpretive Work
 
