@@ -157,11 +157,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `efbd845` ingested the theoretical-exploration proposal-materials slice, including dissertation framing, academic guidance, validation critiques/matrix, HSPC pointer, worked examples, safety framework, deprecated concepts, and no-literal-key finding.
 - `87ba2b5` ingested the theoretical-exploration full-example architecture slice, including dynamic tool generation, uncertainty decisions, DAG execution/assessment, schema/source artifacts, and no-literal-key finding.
 - `89a3604` ingested the theoretical-exploration thinking-out-loud slice, including analysis-philosophy, two-stage-analysis, cross-modal orchestration, six-level automation, implementation-claim caveats, and no-literal-key finding.
-- Pending commit: theoretical-exploration proposal-evolution slice, including fragments, assessment documentation, historical versions, critique-response mapping, proof-of-concept tone edits, and no-literal-key finding.
+- `27f2bba` ingested the theoretical-exploration proposal-evolution slice, including fragments, assessment documentation, historical versions, critique-response mapping, proof-of-concept tone edits, and no-literal-key finding.
+- Pending commit: theoretical-exploration schema-v14 post-MVP slice, including operationalization clarity, parameter uncertainty, method selection, multidimensional uncertainty, IC-at-execution, DAG-aware propagation, and no-literal-key finding.
 
 ## Next
 
-1. Run wiki lint, commit, and push the theoretical-exploration proposal-evolution slice.
-2. Next recommended step: ingest the remaining small schema/future-work material under `archive/theoretical_exploration/post_mvp_concepts/`, `archived_proposal_materials/meta_schema_v14_notes.md`, and adjacent uncertainty/schema notes if present.
+1. Run wiki lint, commit, and push the theoretical-exploration schema-v14 post-MVP slice.
+2. Next recommended step: move to the next top-level archive area, likely `archive/gemini-review-tool/` for external review/critique provenance or `archive/docs_architecture_cleanup_2025_08_29/` for architecture-cleanup lineage.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

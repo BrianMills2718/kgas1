@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added theoretical-exploration schema-v14 post-MVP slice, including operationalization clarity, parameter uncertainty, method-selection guidance, multidimensional uncertainty, IC-at-execution, DAG-aware propagation, and no-literal-key finding.
 * **Ingest** | Added theoretical-exploration proposal-evolution slice, including 25-file fragments/assessment/historical-version inventory, critique-response mapping, proof-of-concept tone edits, final-submission packaging, citation choices, and no-literal-key finding.
 * **Ingest** | Added theoretical-exploration thinking-out-loud slice, including 13-file inventory, text-internal/text-external analysis distinction, two-stage SIT critique, cross-modal orchestration planning, six-level theory automation, implementation-claim caveats, and no-literal-key finding.
 * **Ingest** | Added theoretical-exploration full-example architecture slice, including 29-file inventory, dynamic tool generation design, uncertainty decision evolution, DAG execution/assessment, schema/source artifacts, and no-literal-key finding.

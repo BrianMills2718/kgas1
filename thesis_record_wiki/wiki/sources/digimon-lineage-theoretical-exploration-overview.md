@@ -23,7 +23,7 @@ Its README is unusually explicit about the archive decision: these materials pre
 | `archived_proposal_materials/` | 54 | 1,324,485 | `09a1a7ee836141bb58467b7e795d2da503c4a192377fb8d159906ad03742ed74` | Historical proposal versions, fragments, full-example architecture, and assessment documentation. [1] |
 | `proposal_materials/` | 38 | 4,374,296 | `a0fd57fa2a9b08009c36466e04db381666a7fddb7471673904a6cb544c300687` | Academic guidance, HSPC/validation material, proposal architecture, examples, analysis, deprecated concepts, and safety notes. [1] |
 | `thinking_out_loud/` | 13 | 133,979 | `b88f2d053e51ec4286c8c5d854165024a07edb91f30dec6b0adde9e6a0656eb2` | July 2025 analysis philosophy, architectural exploration, and implementation-claim notes. [1] |
-| `post_mvp_concepts/` | 1 | 15,559 | `92f94fcdb1facf5e5bf5ffbc8117a30e2da6b87233f0388595e1f0b7f15781c9` | Theory schema v14 evolution as explicitly post-MVP complexity. [1] |
+| `post_mvp_concepts/` | 1 | 15,559 | `92f94fcdb1facf5e5bf5ffbc8117a30e2da6b87233f0388595e1f0b7f15781c9` | Theory schema v14 evolution as explicitly post-MVP complexity; represented by schema-v14 post-MVP page. [1] |
 | Root README | 1 | 6,463 | included in top hash | Archive rationale and future-use guidelines. [2] |
 
 # Archive Logic
@@ -52,7 +52,7 @@ This overview marks `theoretical_exploration/` represented at directory level, b
 2. `archived_proposal_materials/full_example_architecture/`: represented by a full-example architecture page; deeper per-file pages remain optional if specific uncertainty or DAG questions arise. [1]
 3. `thinking_out_loud/`: represented by a thinking-out-loud page; deeper per-file pages remain optional if analysis-philosophy or theory-to-code lineage becomes the immediate research focus. [1]
 4. `archived_proposal_materials/fragments/`, assessment documentation, and historical versions: represented by a proposal-evolution page; deeper per-draft comparison remains optional if the proposal text itself becomes the focus. [1]
-5. `post_mvp_concepts/`: small, should be ingested with schema-evolution material. [1]
+5. `post_mvp_concepts/`: represented by a schema-v14 post-MVP page. [1]
 
 # Credential Scan
 
@@ -69,6 +69,7 @@ The most important caution is to preserve the archive's own boundary: do not re-
 - [Digimon Lineage Archive Coverage Audit 2026-06-25](digimon-lineage-archive-coverage-audit-2026-06-25.md): queue-control page that identified this as the next high-priority archive slice.
 - [Digimon Lineage Theoretical Exploration Proposal Materials](digimon-lineage-theoretical-exploration-proposal-materials.md): proposal-materials sub-slice from this archive.
 - [Digimon Lineage Theoretical Exploration Full Example Architecture](digimon-lineage-theoretical-exploration-full-example-architecture.md): full-example architecture sub-slice from this archive.
+- [Digimon Lineage Theoretical Exploration Schema v14 Post MVP](digimon-lineage-theoretical-exploration-schema-v14-post-mvp.md): post-MVP schema-evolution sub-slice from this archive.
 - [Digimon Lineage Proposal Rewrite 2025 08 12](digimon-lineage-proposal-rewrite-2025-08-12.md): related thesis proposal and uncertainty rewrite subtree.
 - [Academic Proof Of Concept Scope](../concepts/academic-proof-of-concept-scope.md): relevant guardrail for proposal framing and claim discipline.
 - [Evidence Claim Discipline](../concepts/evidence-claim-discipline.md): relevant because this archive contains implementation and validation claims separated from working-system proof.
