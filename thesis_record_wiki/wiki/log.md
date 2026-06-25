@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added archived-uncertainty-tests overview covering the 57 MB bundle, duplicate reorganized copy, 2025-07 experiments tree, datasets, incomplete personality-prediction checkout, cleanup/deletion recommendations, and privacy/security caveats.
 * **Ingest** | Added uncertainty-stress-test organization page covering the symlink classification layer, useful/non-useful judgments, 53 symlinks with 48 broken at this path, and follow-on pointers to archived personality-prediction material.
 * **Ingest** | Added uncertainty-stress-test optimization page covering mock parallelism, live-oriented timing output, 43.4s-to-24.7s estimated parallel result, cache assumptions, hardcoded historical paths, and no-literal-key finding.
 * **Ingest** | Added uncertainty-stress-test setup page covering Neo4j Docker manager, one-click setup helpers, complete demo script, demo password, optional Docker volume deletion path, fragile sibling-validator import, and missing demo-output caveats.

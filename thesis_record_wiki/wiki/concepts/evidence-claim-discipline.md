@@ -48,6 +48,8 @@ The uncertainty optimization slice is a performance-evidence caution: one preser
 
 The uncertainty organization slice is a cleanup-provenance caution: historical "useful" and "production-ready" labels are valuable triage signals, but many symlink targets are broken at the preserved path and the labels need source-level verification. See [Digimon Lineage Uncertainty Stress Test Organization](/wiki/sources/digimon-lineage-uncertainty-stress-test-organization.md).
 
+The archived uncertainty-tests overview is a deletion-policy caution: historical documents recommend "zero risk" deletion after value extraction, but the thesis record policy preserves raw material and records those recommendations as provenance rather than executing them. See [Digimon Lineage Archived Uncertainty Tests Overview](/wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -84,6 +86,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Uncertainty Stress Test Setup](/wiki/sources/digimon-lineage-uncertainty-stress-test-setup.md): setup/demo automation without preserved successful demo outputs.
 - [Digimon Lineage Uncertainty Stress Test Optimization](/wiki/sources/digimon-lineage-uncertainty-stress-test-optimization.md): performance claims split into mock demonstration, estimated parallel timing, and assumed cache effects.
 - [Digimon Lineage Uncertainty Stress Test Organization](/wiki/sources/digimon-lineage-uncertainty-stress-test-organization.md): historical useful/non-useful classification labels with broken symlink caveats.
+- [Digimon Lineage Archived Uncertainty Tests Overview](/wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md): archived cleanup/deletion recommendations preserved as provenance, not executed.
 
 # Citations
 
