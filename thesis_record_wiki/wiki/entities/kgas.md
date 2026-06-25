@@ -65,6 +65,8 @@ The current-code verification slice checks the cleaned checkout directly and fin
 
 The runtime import slice adds first execution evidence for the cleaned checkout: `src.core.tool_contract` imports, `src.api.cross_modal_api` fails on `AnalysisRequest` export wiring, and `src.mcp_server` fails because `neo4j` is not installed in the active environment. A direct `AnalysisRequest` import from `src.analytics.cross_modal_orchestrator` succeeds, narrowing the API issue to package exports. See [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md).
 
+After broad top-level archive coverage, [KGAS Evolution Checkpoint 2026-06-25](/wiki/concepts/kgas-evolution-checkpoint-2026-06-25.md) summarizes the current synthesized reading: GraphRAG/DIGIMON lineage, theory-extraction expansion, evidence/status caveats, relationship-extraction and uncertainty risks, and recommended deep dives.
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

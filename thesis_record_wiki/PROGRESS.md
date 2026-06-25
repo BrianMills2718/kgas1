@@ -174,10 +174,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `0f4fa2f` ingested the archived-implementations-ui slice, including four Streamlit/PDF-upload UI remnants, vertical-slice UI, standardized phase-interface UI, simple debug UI, smoke test, and no-literal-key finding.
 - `5e70807` ingested the doc-generation-scripts slice, including architecture concatenation, architecture split, ADR extraction/indexing, Gemini architecture review script, generated-doc provenance caveats, and no-literal-key finding.
 - `9ad6de6` ingested the temp-debug-files slice, including database/debug/structured-output/claim-validation/reliability inventory, facade POC transcript fragment, overlap caveats, and no-literal-key finding.
+- Pending commit: KGAS evolution checkpoint synthesis, including top-level archive coverage completion, GraphRAG-to-theory-system arc, evidence/status caveats, relationship-extraction and uncertainty risks, and recommended deep dives.
 
 ## Next
 
-1. Produce a synthesis/checkpoint: what the thesis record wiki now says about KGAS evolution, what remains uncertain, and which deep dives would be highest value.
-2. After the synthesis checkpoint, choose one high-value deep dive rather than continuing broad archive ingestion.
+1. Run wiki lint, commit, and push the KGAS evolution checkpoint synthesis.
+2. Recommended next deep dive: current runtime repair and verification, because it turns high-level status claims into current runtime evidence before deeper historical interpretation.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

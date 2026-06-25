@@ -159,6 +159,7 @@
 * [GraphRAG Upstream Lineage](concepts/graphrag-upstream-lineage.md) - how local Digimon/KGAS work relates to JayLZhou GraphRAG and DIGIMON method decomposition.
 * [Contract-First Migration](concepts/contract-first-migration.md) - migration from split tool interfaces toward KGASTool contracts.
 * [Relationship Extraction Bottleneck](concepts/relationship-extraction-bottleneck.md) - evidence that graph construction failed when relationship extraction was missing or silent.
+* [KGAS Evolution Checkpoint 2026 06 25](concepts/kgas-evolution-checkpoint-2026-06-25.md) - bounded synthesis after top-level archive coverage, summarizing the KGAS evolution arc, remaining uncertainty, and recommended deep dives.
 * [Adaptive Operator Routing](concepts/adaptive-operator-routing.md) - falsifiable thesis that per-question operator routing should beat fixed graph and non-graph baselines.
 * [MCP Autoloop Interface](concepts/mcp-autoloop-interface.md) - historical MCP/UKRF plans and later MCP tool-surface status.
 * [Graph Build Manifest](concepts/graph-build-manifest.md) - build-manifest and tool-gating contract for truthful graph capability exposure.
