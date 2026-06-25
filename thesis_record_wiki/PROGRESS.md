@@ -85,10 +85,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `24fef8c` documented the simple schema fixture caveat for `schemas/test_simple_schema.yml` as a synthetic hypergraph test artifact rather than substantive source.
 - `f674a43` ingested the lit-review src code inventory, including 90-file aggregate hash and subdirectory roles for schema_creation, schema_application, testing, ui, and visualization.
 - `31ff970` ingested the schema_application code slice, including 24-script aggregate hash, direct OpenAI/hardcoded path counts, universal applicator implementation, and caveats.
-- Pending commit: visualization code slice, including 9-script aggregate hash, Carter cognitive-map visualization scripts, Semantic Hypergraph visualization scripts, and hardcoded-path caveats.
+- `5efdb91` ingested the visualization code slice, including 9-script aggregate hash, Carter cognitive-map visualization scripts, Semantic Hypergraph visualization scripts, and hardcoded-path caveats.
+- Pending commit: UI code slice, including 3-file aggregate hash, Streamlit schema-analysis review surface, YAML corpus statistics script, and launcher caveats.
 
 ## Next
 
-1. Run wiki lint, commit, and push the visualization code slice.
-2. Next recommended step: deep-dive `src/ui/`, because it preserves the human review surface around YAML/schema inspection.
-3. Later slices: `src/testing/` and selected remaining experiment directories.
+1. Run wiki lint, commit, and push the UI code slice.
+2. Next recommended step: deep-dive `src/testing/`, because it preserves debugging and comparison scripts that explain how schema-generation and application behavior was checked.
+3. Later slices: selected remaining experiment directories.

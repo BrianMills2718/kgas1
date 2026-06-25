@@ -58,6 +58,7 @@
 * [Lit Review Src Code Inventory](sources/lit-review-src-code-inventory.md) - directory-level inventory of schema creation/application/testing/UI/visualization source code.
 * [Lit Review Schema Application Code](sources/lit-review-schema-application-code.md) - schema_application code inventory and universal-applicator implementation notes.
 * [Lit Review Visualization Code](sources/lit-review-visualization-code.md) - visualization scripts for Carter cognitive maps and Semantic Hypergraph instances.
+* [Lit Review UI Code](sources/lit-review-ui-code.md) - Streamlit review surface and YAML statistics script for schema analysis.
 
 # Entities
 

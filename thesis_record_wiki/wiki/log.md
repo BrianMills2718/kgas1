@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added UI code slice with Streamlit schema-analysis review surface and YAML statistics script.
 * **Ingest** | Added visualization code slice with Carter cognitive-map and Semantic Hypergraph inspection scripts.
 * **Ingest** | Added schema_application code slice with universal-applicator and hardcoded-path caveats.
 * **Ingest** | Added lit-review src code inventory.
