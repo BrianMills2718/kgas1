@@ -48,6 +48,7 @@
 * [Lit Review Operational Code Corpus](sources/lit-review-operational-code-corpus.md) - operational-code and Young WorldView literature slice with schema-variant comparison.
 * [Lit Review Influence Operations Corpus](sources/lit-review-influence-operations-corpus.md) - influence-operations source folder and generated Chapter 6-7 framework artifacts.
 * [Lit Review Social Marketing Corpus](sources/lit-review-social-marketing-corpus.md) - social-marketing source folder with CORE/sharedProps/post-processing common ontology artifacts.
+* [Lit Review Remaining Literature Folders](sources/lit-review-remaining-literature-folders.md) - grouped inventory of remaining smaller literature folders and two remaining generated schemas.
 
 # Entities
 

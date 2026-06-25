@@ -26,9 +26,14 @@ The corpus breadth explains several later findings:
 
 This connects the early annotated bibliography and old-schema corpus to later validation problems rather than treating them as unrelated artifacts.
 
+# Remaining-Folder Evidence
+
+[Lit Review Remaining Literature Folders](/wiki/sources/lit-review-remaining-literature-folders.md) shows that many preserved folders are text-only, while the remaining generated schemas outside the already-ingested deep slices are poliheuristic decision analysis and Chong/Druckman framing theory. That supports a staged ingest strategy: inventory the text-only corpus, then deep-dive generated schemas and code-like artifacts first. [1][2]
+
 # Links
 
 - [Lit Review Literature Corpus Inventory](/wiki/sources/lit-review-literature-corpus-inventory.md)
+- [Lit Review Remaining Literature Folders](/wiki/sources/lit-review-remaining-literature-folders.md)
 - [Old Schema Corpus Breadth](/wiki/concepts/old-schema-corpus-breadth.md)
 - [Model Form Routing](/wiki/concepts/model-form-routing.md)
 - [Prompt Calibration Loop](/wiki/concepts/prompt-calibration-loop.md)

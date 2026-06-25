@@ -74,10 +74,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `bb67108` ingested the literature corpus inventory slice, including 73 preserved files, 47 indexed papers, topical folder counts, schema-location caveat, and literature-corpus-as-theory-testbed concept.
 - `d2bb70a` ingested the operational-code corpus slice, including five source texts, four Young schema variants, schema-variant-drift concept, and YAML truth-value parsing caveat.
 - `2184edf` ingested the influence-operations corpus slice, including folder inventory, RAND Chapter 6-7 generated artifacts, schema/debug counts, and multi-level-influence-modeling concept.
-- Pending commit: social-marketing corpus slice, including CORE/sharedProps/post_process artifacts, missing configured YAML caveat, and analyst-assembler-pattern update.
+- `704edff` ingested the social-marketing corpus slice, including CORE/sharedProps/post_process artifacts, missing configured YAML caveat, and analyst-assembler-pattern update.
+- Pending commit: remaining literature folders grouped slice, including 23-folder inventory, poliheuristic schema note, framing schema note, and literature-corpus-as-theory-testbed update.
 
 ## Next
 
-1. Run wiki lint, commit, and push the social-marketing corpus slice.
-2. Next recommended step: inspect the remaining small `literature/` folders in a grouped inventory slice, then reserve separate deep dives only for folders with generated schemas or code artifacts.
+1. Run wiki lint, commit, and push the grouped remaining literature folders slice.
+2. Next recommended step: leave `literature/` for now and inspect `experiments/lit_review/schemas/`, because it likely contains the mature schema corpus that connects literature sources to universal applicator and validation outputs.
 3. Later slices: selected generated-code directories and remaining experiment directories.
