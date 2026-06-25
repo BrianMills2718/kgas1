@@ -27,6 +27,8 @@ The `digimon_autoloop` slice captures a later operators-first DIGIMON state: 28 
 
 The first `digimon_lineage_Digimons` slice captures the September 2025 active state: a large repository with root KGAS README/CLAUDE guidance, an evidence log, a consolidated conservative roadmap, and operations investigations that corrected implementation-status claims. See [Digimon Lineage Active State](/wiki/sources/digimon-lineage-active-state.md), [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md), and [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md).
 
+The architecture-docs slice captures the target design side of KGAS: theory automation, cross-modal analysis, bi-store storage, agent workflows, ADR cascades, and an internal uncertainty/traceability critique. See [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md) and [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

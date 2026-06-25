@@ -63,6 +63,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md) - `digimon_lineage_Digimons` records a September 2025 correction sequence around inflated implementation claims and roadmap consolidation.
 - [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md) - the large lineage bundle preserves a simple verified vertical slice alongside a more complex main-system architecture.
 - [Digimon Lineage Tool Compatibility](/wiki/sources/digimon-lineage-tool-compatibility.md) - the large bundle connects type-based composition to the active vertical-slice framework path.
+- [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md) - architecture target-design docs, ADR cascades, limitations, and critical uncertainty review.
+- [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md) - the internal critique of uncertainty modeling, provenance gaps, and research decision support.
 
 # Current Cautions
 

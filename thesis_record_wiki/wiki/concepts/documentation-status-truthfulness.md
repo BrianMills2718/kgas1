@@ -19,6 +19,8 @@ Documentation status truthfulness is a recurring KGAS theme: architecture docume
 
 The `digimon_lineage_Digimons` ingest extends this theme with a September 2025 correction chain: a narrow tool reality check warned that only the vertical slice was verified, a later roadmap consolidation investigation concluded that estimate was too narrow, and the conservative roadmap became the later source of truth while still preserving gaps. See [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md).
 
+The same large lineage architecture docs enforce the design/status boundary directly: `docs/architecture/` is target architecture, while roadmap docs carry implementation status. See [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md).
+
 # Pattern
 
 The pattern appears in several forms:
@@ -37,6 +39,7 @@ For reconstructing the thesis work, this means status claims must be time-indexe
 - [Digimons Documentation Repository](/wiki/sources/digimons-docs-documentation-repository.md)
 - [Digimons Minimal Clean Reference](/wiki/sources/digimons-minimal-clean-reference.md)
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md)
+- [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md)
 - [Research Lineage](/wiki/concepts/research-lineage.md)
 
 # Citations

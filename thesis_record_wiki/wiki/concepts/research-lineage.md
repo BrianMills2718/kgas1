@@ -43,6 +43,7 @@ Two through-lines are now visible from the first small-variant ingest:
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md): the large lineage bundle's sequence of documentation corrections, overcorrections, and roadmap consolidation.
 - [Vertical Slice vs Main System](/wiki/concepts/vertical-slice-vs-main-system.md): the architectural split that made implementation status hard to summarize in one number.
 - [Digimon Lineage Tool Compatibility](/wiki/sources/digimon-lineage-tool-compatibility.md): large-bundle copy of the type-based composition direction, tied to active vertical-slice work.
+- [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md): architecture thread where uncertainty sophistication ran into provenance and implementation practicality gaps.
 
 # Open Interpretive Work
 

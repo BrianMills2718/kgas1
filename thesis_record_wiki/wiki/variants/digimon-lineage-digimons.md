@@ -18,6 +18,8 @@ Focused root ingest shows this bundle preserves a September 2025 active KGAS sta
 
 The `tool_compatability` slice shows the same type-based composition decision seen in `Digimons_clean_for_real`, but with active local context: the subtree is explicitly marked as the adapter/framework direction and the nested `poc/vertical_slice` path is marked as the active proof-of-concept framework. See [Digimon Lineage Tool Compatibility](/wiki/sources/digimon-lineage-tool-compatibility.md).
 
+The architecture-docs slice confirms that `docs/architecture/` is target design, not status tracking, and adds a critical internal review of uncertainty/provenance over-engineering. See [Digimon Lineage Architecture Docs](/wiki/sources/digimon-lineage-architecture-docs.md) and [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.
