@@ -89,6 +89,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md) - three-layer interpretation of KGAS tool surfaces and status caveats.
 - [Digimon Lineage Analysis Expansion ADRs](/wiki/sources/digimon-lineage-analysis-expansion-adrs.md) - cross-modal, schema, simulation, statistical, and local API architecture ambitions.
 - [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md) - thesis-level expansion from graph building toward multi-representation social theory analysis.
+- [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) - multi-agent implementation/evaluation harness and six-phase external evaluation record.
+- [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md) - procedural evidence pattern for isolated implementation, external evaluation, remediation, and 100/100 gates.
 
 # Current Cautions
 

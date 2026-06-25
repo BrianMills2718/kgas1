@@ -57,6 +57,8 @@ The tool/orchestration ADR slice explains the intended agent-drivable surface: r
 
 The analysis-expansion ADR slice shows the larger KGAS thesis ambition: graph/table/vector movement, multiple schema paradigms, theory-to-ABM simulation, SEM/statistical analysis, and local automation interfaces. See [Digimon Lineage Analysis Expansion ADRs](/wiki/sources/digimon-lineage-analysis-expansion-adrs.md) and [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md).
 
+The lit-review multi-agent slice adds a procedural verification layer: isolated implementation agents, external evaluation agents, remediation, and 100/100 gates were used around the six lit-review phases. See [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md) and [Multi Agent Evidence Harness](/wiki/concepts/multi-agent-evidence-harness.md).
+
 # Historical Position
 
 KGAS appears to be the cleaned and renamed/organized continuation of earlier Digimons work. The preservation layer keeps multiple Digimons variants so the conceptual and implementation lineage can be reconstructed rather than inferred from the clean repo alone. See [Research Lineage](/wiki/concepts/research-lineage.md).

@@ -48,6 +48,8 @@ The tool/orchestration ADR slice records how KGAS reconciled contract-first tool
 
 The analysis-expansion ADR slice records broad research-platform ambitions: cross-modal graph/table/vector views, ABM simulation, statistical/SEM tooling, schema-paradigm ecosystem, and a local-only REST API. See [Digimon Lineage Analysis Expansion ADRs](/wiki/sources/digimon-lineage-analysis-expansion-adrs.md).
 
+The `experiments/lit_review/multi_agent_system` slice records a reusable multi-agent harness and six clean evaluation results for the lit-review phase sequence, with caveats around historical paths and one Phase 2 internal inconsistency. See [Lit Review Multi Agent System](/wiki/sources/lit-review-multi-agent-system.md).
+
 # Shallow Contents
 
 Shallow inspection shows archive, archived, config, contracts, data, dev, docker, docs, evidence, examples, experiments, investigation, logs, requirements, research, scripts, src, tests, tool compatibility material, tools, and recovered UI components.

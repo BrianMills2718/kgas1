@@ -56,10 +56,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `9bbc0e9` ingested the data/storage ADR slice, including vector-store consolidation, Neo4j + SQLite bi-store rationale, and PostgreSQL migration threshold.
 - `28bed51` ingested the uncertainty/quality ADR slice, including confidence ontology, CERQual supersession, quality-system supersession, entity resolution, later local-assessment uncertainty model, and missing ADR-029 caveat.
 - `c2b9aad` ingested the tool/orchestration ADR slice, including contract-first Layer 2, pipeline adapters, MCP Layer 3, structured output migration, and three-layer interface reconciliation.
-- Pending commit: analysis-expansion ADR slice, including cross-modal analysis, ABM simulation, statistical/SEM expansion, schema ecosystem, and local-only REST API.
+- `1fcdd0d` ingested the analysis-expansion ADR slice, including cross-modal analysis, ABM simulation, statistical/SEM expansion, schema ecosystem, and local-only REST API.
+- Pending commit: lit-review multi-agent system slice, including isolated implementation/evaluation harness, current status claims, six phase evaluation results, and Phase 2 11/12-vs-100/100 caveat.
 
 ## Next
 
-1. Run wiki lint, commit, and push the analysis-expansion ADR slice.
-2. Next recommended ingest slice: `experiments/lit_review/multi_agent_system/` because it likely connects the automated theory-extraction work to agent orchestration and should clarify whether the lit-review subsystem had a multi-agent execution layer.
-3. Later slices: UI/recovered components and current-code verification of claims made by ADRs.
+1. Run wiki lint, commit, and push the lit-review multi-agent system slice.
+2. Next recommended ingest slice: UI/recovered components because they may preserve the human-facing thesis demo or inspection surface.
+3. Later slices: current-code verification of claims made by ADRs and selected deep dives into preserved generated code.
