@@ -41,6 +41,7 @@
 * [Lit Review Model Form Detection Results](sources/lit-review-model-form-detection-results.md) - optimized experimental outputs for sequence/table/graph/hybrid model-form detection.
 * [Lit Review Prompt Variation Model Routing](sources/lit-review-prompt-variation-model-routing.md) - prompt-calibration artifacts for theory-count, model-form, confidence, and hybrid routing.
 * [Lit Review Validation Retesting Empty Directories](sources/lit-review-validation-retesting-empty.md) - negative evidence that preserved validation_retesting subdirectories contain no files.
+* [Grusch UAP Information Disorder Output](sources/grusch-uap-information-disorder-output.md) - structured generated analysis of UAP hearing narratives, actors, credibility, and information disorder.
 
 # Entities
 
@@ -80,6 +81,7 @@
 * [Complexity Conservation In Theory Application](concepts/complexity-conservation-in-theory-application.md) - lesson that universal frameworks move rather than eliminate theory-specific complexity.
 * [Model Form Routing](concepts/model-form-routing.md) - routing theories to sequence, table, graph, statistical, or hybrid forms instead of forcing one representation.
 * [Prompt Calibration Loop](concepts/prompt-calibration-loop.md) - detector-prompt pattern: test known cases, identify bias, refine criteria, and add arbitration logic.
+* [Information Disorder Application Artifact](concepts/information-disorder-application-artifact.md) - generated-output pattern for public-information events and narrative contestation.
 
 # Timeline
 

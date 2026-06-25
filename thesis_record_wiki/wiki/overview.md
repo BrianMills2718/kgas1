@@ -106,6 +106,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Lit Review Prompt Variation Model Routing](/wiki/sources/lit-review-prompt-variation-model-routing.md) - prompt-variation work for theory count, specialized detectors, confidence integration, and hybrid schemas.
 - [Prompt Calibration Loop](/wiki/concepts/prompt-calibration-loop.md) - method for turning detector prompts into calibrated routing components.
 - [Lit Review Validation Retesting Empty Directories](/wiki/sources/lit-review-validation-retesting-empty.md) - negative evidence that the preserved retesting subtree has directories but no files.
+- [Grusch UAP Information Disorder Output](/wiki/sources/grusch-uap-information-disorder-output.md) - structured generated application output over a UAP hearing/public-information case.
+- [Information Disorder Application Artifact](/wiki/concepts/information-disorder-application-artifact.md) - generated-output pattern for actors, messages, interpreters, credibility, transparency, and narrative contestation.
 
 # Current Cautions
 

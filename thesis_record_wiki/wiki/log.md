@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added Grusch/UAP information-disorder output slice and information-disorder-application-artifact concept.
 * **Verification** | Added negative evidence page for empty lit-review validation_retesting directories.
 * **Ingest** | Added prompt-variation model-routing slice and prompt-calibration-loop concept.
 * **Ingest** | Added model-form detection results slice and model-form-routing concept.
