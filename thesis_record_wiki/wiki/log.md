@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Synthesis** | Added test-evidence-layer concept page synthesizing the test corpus as broad verification intent with uneven runtime proof and explicit claim-level rules.
 * **Ingest** | Added security-tests page with 5-file inventory, API/injection/credential/production-security themes, negative credential-scan evidence, and public-export caveat.
 * **Ingest** | Added error-scenarios-tests page with 8-file failure-mode inventory, edge-case/recovery/resilience themes, and runtime-proof caveat.
 * **Ingest** | Added performance-tests page with 16-file benchmark-definition inventory, async/parallel/load/production-scale themes, and benchmark-output caveat.
