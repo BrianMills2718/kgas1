@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added universal theory applicator slice and complexity-conservation-in-theory-application concept.
 * **Ingest** | Added semantic-hypergraph application-results slice and formal-notation-as-theory-content concept.
 * **Plan** | Added current runtime repair plan for cross-modal API and MCP import blockers.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.

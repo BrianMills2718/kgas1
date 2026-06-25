@@ -63,10 +63,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `236d6f5` added the runtime import check slice, including successful `src.core.tool_contract` import and failed `src.api.cross_modal_api` / `src.mcp_server` imports.
 - `42e29c0` documented active-environment follow-up on the runtime import slice, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 - `2d7a878` added the non-invasive runtime repair plan for cross-modal API import/calling-contract mismatch and MCP dependency readiness.
-- Pending commit: semantic-hypergraph application-results slice, including extraction critiques, notation inventory, application scripts, visualized instances, and formal-notation-as-theory-content concept.
+- `7142a69` ingested the semantic-hypergraph application-results slice, including extraction critiques, notation inventory, application scripts, visualized instances, and formal-notation-as-theory-content concept.
+- Pending commit: universal theory applicator slice, including schema-driven stage architecture, critique, enhancement template, Young 1996 result, and complexity-conservation concept.
 
 ## Next
 
-1. Run wiki lint, commit, and push the semantic-hypergraph application-results slice.
-2. Next recommended step: continue documentation-only with the `src/schema_application` universal applicator slice, because it is the natural bridge from theory schemas to empirical application outputs.
+1. Run wiki lint, commit, and push the universal theory applicator slice.
+2. Next recommended step: ingest the `experimental_testing/architecture_comparison` slice, because it likely tests sequential vs parallel vs hybrid extraction/application architectures.
 3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.
