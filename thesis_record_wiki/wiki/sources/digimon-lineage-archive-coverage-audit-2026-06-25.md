@@ -34,7 +34,7 @@ The following top-level archive areas are already represented by dedicated wiki 
 | `validation-reports/` | 2 | 30,030 | Covered by old-backups validation reports page. |
 | `temp_analysis_2025_08/` | 16 | 19,659,025 | Covered by temp-analysis provenance page. |
 | `ARCHIVE_BEFORE_CLEANUP_20250805/` | 261 | 8,286,966 | Covered by overview plus proposal-rewrite, phases, initiatives, archived-investigations, analysis, residual-planning, and root-files sub-slices. |
-| `theoretical_exploration/` | 107 | 5,854,782 | Covered by overview, proposal-materials, full-example architecture, and thinking-out-loud pages; HSPC, proposal fragments, historical versions, and schema-evolution/post-MVP material remain optional follow-ups. |
+| `theoretical_exploration/` | 107 | 5,854,782 | Covered by overview, proposal-materials, full-example architecture, thinking-out-loud, and proposal-evolution pages; HSPC and schema-evolution/post-MVP material remain optional follow-ups. |
 
 # Not-Yet-Represented Areas
 
@@ -60,7 +60,7 @@ The following top-level archive areas were not found in the wiki index by this a
 
 # Recommended Next Slice
 
-Next ingest `theoretical_exploration/archived_proposal_materials/fragments/`, `theoretical_exploration/archived_proposal_materials/assessment_documentation/`, and, if size remains manageable, `theoretical_exploration/archived_proposal_materials/historical_versions/` as the next proposal-evolution slice. These directories should preserve how the dissertation framing, critiques, and proposal language changed over time. [1]
+Next ingest the remaining small theoretical-exploration schema/future-work material: `theoretical_exploration/post_mvp_concepts/`, `theoretical_exploration/archived_proposal_materials/meta_schema_v14_notes.md`, and related uncertainty/schema notes if present outside already-covered full-example architecture. This should close the high-value theoretical-exploration queue before moving to the next top-level archive area. [1]
 
 # Relationship To Wiki
 
@@ -71,6 +71,7 @@ Next ingest `theoretical_exploration/archived_proposal_materials/fragments/`, `t
 - [Digimon Lineage Theoretical Exploration Proposal Materials](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-materials.md): proposal-writing and research-planning sub-slice from theoretical exploration.
 - [Digimon Lineage Theoretical Exploration Full Example Architecture](/wiki/sources/digimon-lineage-theoretical-exploration-full-example-architecture.md): full-example architecture sub-slice from theoretical exploration.
 - [Digimon Lineage Theoretical Exploration Thinking Out Loud](/wiki/sources/digimon-lineage-theoretical-exploration-thinking-out-loud.md): exploratory analysis-philosophy, architecture, and implementation-claim sub-slice from theoretical exploration.
+- [Digimon Lineage Theoretical Exploration Proposal Evolution](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-evolution.md): proposal fragments, assessments, historical versions, and critique-response sub-slice from theoretical exploration.
 - [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md): start of the old-backups represented slice family.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md): represented UI/archive UI slice.
 - [Progress](../../PROGRESS.md): working queue and commit-level progress tracker.

@@ -51,7 +51,7 @@ This overview marks `theoretical_exploration/` represented at directory level, b
 1. `proposal_materials/`: represented by a proposal-materials page; HSPC and validation materials remain good candidates for deeper follow-up if needed. [1]
 2. `archived_proposal_materials/full_example_architecture/`: represented by a full-example architecture page; deeper per-file pages remain optional if specific uncertainty or DAG questions arise. [1]
 3. `thinking_out_loud/`: represented by a thinking-out-loud page; deeper per-file pages remain optional if analysis-philosophy or theory-to-code lineage becomes the immediate research focus. [1]
-4. `archived_proposal_materials/fragments/` and historical versions: valuable for proposal evolution, critique incorporation, and style/tone decisions. [1]
+4. `archived_proposal_materials/fragments/`, assessment documentation, and historical versions: represented by a proposal-evolution page; deeper per-draft comparison remains optional if the proposal text itself becomes the focus. [1]
 5. `post_mvp_concepts/`: small, should be ingested with schema-evolution material. [1]
 
 # Credential Scan
