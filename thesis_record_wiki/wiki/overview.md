@@ -97,6 +97,8 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md) - import-only runtime evidence: tool contracts import, cross-modal API import fails on `AnalysisRequest`, and MCP import fails on missing `neo4j`.
 - [Current Runtime Repair Plan 2026-06-25](/wiki/sources/current-runtime-repair-plan-2026-06-25.md) - conservative repair order for cross-modal API import/calling-contract mismatch and MCP dependency readiness.
 - [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md) - status rule separating architecture intent, evidence reports, current files, and runtime proof.
+- [Lit Review Semantic Hypergraph Application Results](/wiki/sources/lit-review-semantic-hypergraph-application-results.md) - semantic-hypergraph extraction/application results showing notation, table, algorithm, and application-fidelity gaps.
+- [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md) - schema-fidelity rule for formal theories with notation systems and pattern languages.
 
 # Current Cautions
 

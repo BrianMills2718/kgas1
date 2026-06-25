@@ -44,6 +44,7 @@ The archive also shows an unfinished transition to stronger engineering discipli
 
 # Links
 
+- [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Automated Theory Extraction](/wiki/concepts/automated-theory-extraction.md)
 - [Lit Review Schema Creation Production Path](/wiki/sources/lit-review-schema-creation-production-path.md)
 - [Multi-Theory Application Artifact](/wiki/concepts/multi-theory-application-artifact.md)

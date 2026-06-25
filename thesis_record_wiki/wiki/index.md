@@ -36,6 +36,7 @@
 * [Current Code Verification 2026-06-25](sources/current-code-verification-2026-06-25.md) - focused current-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
 * [Current Runtime Import Check 2026-06-25](sources/current-runtime-import-check-2026-06-25.md) - import-only runtime check for current contract, cross-modal API, and MCP modules.
 * [Current Runtime Repair Plan 2026-06-25](sources/current-runtime-repair-plan-2026-06-25.md) - non-invasive source-level plan for repairing first import/runtime blockers.
+* [Lit Review Semantic Hypergraph Application Results](sources/lit-review-semantic-hypergraph-application-results.md) - semantic-hypergraph extraction/application results, critiques, visualizations, and scripts.
 
 # Entities
 
@@ -71,6 +72,7 @@
 * [Multi Agent Evidence Harness](concepts/multi-agent-evidence-harness.md) - isolated implementation/evaluation pattern used to enforce 100/100 phase gates.
 * [Recovered UI Demo Surface](concepts/recovered-ui-demo-surface.md) - preserved static, FastAPI, Streamlit, and React UI/demo surfaces.
 * [Current Status Verification Discipline](concepts/current-status-verification-discipline.md) - rule for separating architecture, evidence, current code, and runtime status.
+* [Formal Notation As Theory Content](concepts/formal-notation-as-theory-content.md) - lesson that formal notation and algorithms are first-class schema content for formal theories.
 
 # Timeline
 

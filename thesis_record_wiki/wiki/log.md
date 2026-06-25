@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Ingest** | Added semantic-hypergraph application-results slice and formal-notation-as-theory-content concept.
 * **Plan** | Added current runtime repair plan for cross-modal API and MCP import blockers.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
