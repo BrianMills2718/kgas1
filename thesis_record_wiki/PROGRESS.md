@@ -66,10 +66,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `7142a69` ingested the semantic-hypergraph application-results slice, including extraction critiques, notation inventory, application scripts, visualized instances, and formal-notation-as-theory-content concept.
 - `dab78d3` ingested the universal theory applicator slice, including schema-driven stage architecture, critique, enhancement template, Young 1996 result, and complexity-conservation concept.
 - `bfaa496` ingested the model-form detection slice, including Lofland-Stark sequential-funnel result, Heilman/framing internal inconsistency caveat, empty sibling result directories, and model-form-routing concept.
-- Pending commit: prompt-variation model-routing slice, including theory-count detection, specialized detector calibration, confidence integration, hybrid detection, and generated Young 1996 hybrid schema.
+- `d700688` ingested the prompt-variation model-routing slice, including theory-count detection, specialized detector calibration, confidence integration, hybrid detection, and generated Young 1996 hybrid schema.
+- Pending commit: negative-evidence page for empty `experimental_testing/validation_retesting` subdirectories.
 
 ## Next
 
-1. Run wiki lint, commit, and push the prompt-variation model-routing slice.
-2. Next recommended step: ingest `experimental_testing/validation_retesting`, because it likely shows whether the calibrated prompts improved actual validation outcomes.
+1. Run wiki lint, commit, and push the validation-retesting negative-evidence slice.
+2. Next recommended step: inspect `analysis_results/` and top-level `grusch_analysis_results.json`, because those may preserve additional concrete application outputs outside the schema-application subtree.
 3. Later slices: selected deep dives into preserved generated code and remaining experiment directories.

@@ -40,6 +40,7 @@
 * [Lit Review Universal Theory Applicator](sources/lit-review-universal-theory-applicator.md) - schema-driven universal theory application framework, critique, and Young 1996 result.
 * [Lit Review Model Form Detection Results](sources/lit-review-model-form-detection-results.md) - optimized experimental outputs for sequence/table/graph/hybrid model-form detection.
 * [Lit Review Prompt Variation Model Routing](sources/lit-review-prompt-variation-model-routing.md) - prompt-calibration artifacts for theory-count, model-form, confidence, and hybrid routing.
+* [Lit Review Validation Retesting Empty Directories](sources/lit-review-validation-retesting-empty.md) - negative evidence that preserved validation_retesting subdirectories contain no files.
 
 # Entities
 

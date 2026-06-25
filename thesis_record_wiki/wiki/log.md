@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Verification** | Added negative evidence page for empty lit-review validation_retesting directories.
 * **Ingest** | Added prompt-variation model-routing slice and prompt-calibration-loop concept.
 * **Ingest** | Added model-form detection results slice and model-form-routing concept.
 * **Ingest** | Added universal theory applicator slice and complexity-conservation-in-theory-application concept.

@@ -105,6 +105,7 @@ After the first small-variant ingest, two organizing themes are visible:
 - [Model Form Routing](/wiki/concepts/model-form-routing.md) - rule that schema/application form should follow the theory structure rather than platform preference.
 - [Lit Review Prompt Variation Model Routing](/wiki/sources/lit-review-prompt-variation-model-routing.md) - prompt-variation work for theory count, specialized detectors, confidence integration, and hybrid schemas.
 - [Prompt Calibration Loop](/wiki/concepts/prompt-calibration-loop.md) - method for turning detector prompts into calibrated routing components.
+- [Lit Review Validation Retesting Empty Directories](/wiki/sources/lit-review-validation-retesting-empty.md) - negative evidence that the preserved retesting subtree has directories but no files.
 
 # Current Cautions
 
