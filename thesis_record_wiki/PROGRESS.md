@@ -211,7 +211,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `5ad2b1c` migrated the FastAPI startup hook to lifespan initialization, removing the runtime deprecation warning while preserving four-format live smoke coverage.
 - `9faecf1` added the Plan #1 closeout review, marking current safe runtime gates complete and selecting `/api/batch/analyze` wiring as the next safe local slice.
 - `972e373` wired `/api/batch/analyze` to the proven single-document path with per-file results/errors, job-status coverage, and a live TXT batch smoke test.
-- Pending commit marked Plan #1 safe local runtime work verified and blocked only on Brian-gated public/export, live LLM recommendation, and cleanup execution decisions.
+- `52db850` marked Plan #1 safe local runtime work verified and blocked only on Brian-gated public/export, live LLM recommendation, and cleanup execution decisions.
 
 ## Deferred Risk Decisions
 
