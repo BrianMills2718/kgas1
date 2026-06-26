@@ -243,6 +243,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added a private public/portfolio narrative outline for KGAS as theory-aware GraphRAG, explicitly marked not for publication and bounded by claim/privacy review rules.
 - `this commit` added a private one-page KGAS portfolio narrative draft derived from the outline, explicitly not for publication/export and constrained by evidence/privacy review notes.
 - `this commit` added a private KGAS README-style draft as the safest default target artifact, keeping public/export stop lines explicit.
+- `this commit` added a claim-level audit for the private KGAS README draft, mapping claims to source support, evidence grade, and public-use stop lines.
 
 ## Deferred Risk Decisions
 
@@ -252,7 +253,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: review [Private KGAS README Draft 2026 06 26](/wiki/concepts/private-kgas-readme-draft-2026-06-26.md) as the safest internal orientation artifact.
+1. Next recommended step: review [Private KGAS README Claim Audit 2026 06 26](/wiki/concepts/private-kgas-readme-claim-audit-2026-06-26.md), then read [Private KGAS README Draft 2026 06 26](/wiki/concepts/private-kgas-readme-draft-2026-06-26.md).
 2. If external sharing becomes the goal, derive a separate export candidate from the private README rather than copying it directly.
 3. Before any public release, review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` and decide what security/history detail stays private.
 4. Implementation maintenance remains optional and separate from preservation: Pydantic v2 confidence-model warnings, broader current-runtime suite, and any Neo4j cleanup must be planned as their own slices.

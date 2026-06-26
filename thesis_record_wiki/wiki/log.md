@@ -185,6 +185,7 @@
 * **Draft** | Added private public/portfolio narrative outline for KGAS as theory-aware GraphRAG, with claim boundaries and publication review checklist.
 * **Draft** | Added private one-page KGAS portfolio narrative draft, explicitly not for publication/export and bounded by evidence/privacy review notes.
 * **Draft** | Added private KGAS README-style draft for future review, keeping public/export stop lines explicit.
+* **Audit** | Added claim-level audit for the private KGAS README draft, mapping claims to sources, evidence grade, and public-use stop lines.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
