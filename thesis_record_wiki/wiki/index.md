@@ -116,6 +116,7 @@
 * [Current Code Verification 2026-06-25](sources/current-code-verification-2026-06-25.md) - focused current-checkout verification of storage, tool, API/MCP, UI, entry-point, and test claims.
 * [Current Runtime Import Check 2026-06-25](sources/current-runtime-import-check-2026-06-25.md) - import-only runtime check for current contract, cross-modal API, and MCP modules.
 * [Current Runtime Repair Plan 2026-06-25](sources/current-runtime-repair-plan-2026-06-25.md) - non-invasive source-level plan for repairing first import/runtime blockers.
+* [Current Uncertainty Code Path Map 2026 06 26](sources/current-uncertainty-code-path-map-2026-06-26.md) - current-checkout source map for confidence/uncertainty code paths and runtime-status boundaries.
 * [Lit Review Semantic Hypergraph Application Results](sources/lit-review-semantic-hypergraph-application-results.md) - semantic-hypergraph extraction/application results, critiques, visualizations, and scripts.
 * [Lit Review Universal Theory Applicator](sources/lit-review-universal-theory-applicator.md) - schema-driven universal theory application framework, critique, and Young 1996 result.
 * [Lit Review Model Form Detection Results](sources/lit-review-model-form-detection-results.md) - optimized experimental outputs for sequence/table/graph/hybrid model-form detection.

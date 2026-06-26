@@ -176,6 +176,7 @@
 * **Synthesis** | Added theory-schema/application lineage synthesis, connecting paper-to-schema extraction, model-form routing, schema variants, universal application, generated outputs, and validation caveats.
 * **Synthesis** | Added uncertainty-framework consolidation, separating superseded ADRs, accepted entity-resolution design, stress-test implementations, preserved validation outputs, sensitive datasets, and current-status caveats.
 * **Verification** | Located ADR-029 outside the initially inspected primary ADR tree and recorded its byte-identical recovered copies plus later architecture-cleanup abandonment status.
+* **Verification** | Added current uncertainty code-path map, distinguishing current confidence-scoring code and source-ref provenance from archived ADR-029 IC uncertainty claims.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
