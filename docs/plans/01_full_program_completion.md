@@ -71,7 +71,7 @@ The full program is complete only when all gates below are satisfied or explicit
 |---|---|---|---|
 | Preservation | Raw `archive_full_record/` is not rewritten; wiki remains navigable and source-cited; public-export boundary exists. | wiki lint 100/100; `thesis_record_wiki/PROGRESS.md`; public-export concept | Mostly satisfied; ongoing maintenance |
 | Runtime Environment | Local setup has reproducible Python deps, local Neo4j credentials, and backup procedure. | `.env` ignored locally; Neo4j dump path/hash; `pip check` | Satisfied locally |
-| Narrow E2E Pipeline | `.txt`, tiny `.pdf`, and tiny `.md` upload/API paths run real document-loading/T15/T23/T27/T31/T34/T49 stages with Neo4j source scoping. | live source-scoped smoke tests pass | Satisfied for `.txt`, tiny `.pdf`, and tiny `.md` |
+| Narrow E2E Pipeline | `.txt`, tiny `.pdf`, tiny `.md`, and tiny `.docx` upload/API paths run real document-loading/T15/T23/T27/T31/T34/T49 stages with Neo4j source scoping. | live source-scoped smoke tests pass | Satisfied for `.txt`, tiny `.pdf`, tiny `.md`, and tiny `.docx` |
 | Query Isolation | New graph writes carry `source_refs`; T49 can filter by `source_refs`; old smoke data cannot satisfy scoped proof. | current-runtime tests; live smoke result | Satisfied for tested path |
 | Cleanup Safety | Any cleanup command is source-scoped, dry-run capable, backed by tests, and never broad-deletes graph data. | future cleanup test + command docs | Planned, safe if scoped |
 | API Honesty | Unsupported/unwired endpoints return explicit 501/503 rather than mock success. | current-runtime API tests | Mostly satisfied for known endpoints |
@@ -165,6 +165,19 @@ Evidence: `src/api/cross_modal_api.py`, `tests/current_runtime/test_cross_modal_
 
 Evidence: `src/analytics/complete_pipeline.py`, `src/tools/phase1/t03_text_loader_unified.py`, `tests/current_runtime/test_cross_modal_api_contract.py`, focused API tests 23 passed / 3 skipped, live TXT+PDF+Markdown smoke 3 passed, full `tests/current_runtime` count 60 passed / 4 skipped, and `pip check` clean after adding `chardet>=5.0.0`.
 
+### Slice 8 - Narrow DOCX Analyze Proof
+
+**Status:** Complete
+
+**Safe scope:** route `.docx` uploads through the existing T02 Word loader and the same downstream complete-pipeline stages. Do not claim legacy `.doc` support.
+
+**Done when:**
+- [x] focused API tests prove `.docx` dispatch preserves suffix and source traceability;
+- [x] live Neo4j-backed smoke proves a tiny generated DOCX reaches graph/query stages;
+- [x] legacy `.doc` remains explicit 501.
+
+Evidence: `src/analytics/complete_pipeline.py`, `src/tools/phase1/t02_word_loader_unified.py`, `tests/current_runtime/test_cross_modal_api_contract.py`, focused API tests 24 passed / 4 skipped, live TXT+PDF+Markdown+DOCX smoke 4 passed, full `tests/current_runtime` count 61 passed / 5 skipped, and `pip check` clean.
+
 ---
 
 ## Required Tests
@@ -208,7 +221,7 @@ Evidence: `src/analytics/complete_pipeline.py`, `src/tools/phase1/t03_text_loade
 | C2 | Public export could leak preserved credentials, `.env`, logs, or sensitive datasets. | Privacy/security/publication risk | Human review required; use public-export boundary. |
 | C3 | LLM-backed recommendation can spend money and may require live API keys. | Cost/credential risk | Human approval required. |
 | C4 | Historical docs overclaim capabilities relative to current runtime. | False completion claim | Review gate must separate current runtime proof from archive evidence. |
-| C5 | Word formats (`.docx`, `.doc`) remain unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 until separately proven. |
+| C5 | Legacy Word `.doc` remains unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 unless a real legacy `.doc` loader is proven. |
 | C6 | Source-scoped cleanup exists, but executing it against real smoke-test source refs is still destructive for those scoped records. | Scoped data deletion | Keep as operator-triggered; do not execute automatically. |
 | C7 | `/api/batch/analyze` is intentionally 501 until it wraps a proven single-document path. | Runtime gap | Defer batch work until more single-document formats are proven. |
 | C8 | FastAPI startup/shutdown deprecation warnings remain in runtime tests. | Maintenance debt | Modernize lifecycle hooks after completion gates are stable. |

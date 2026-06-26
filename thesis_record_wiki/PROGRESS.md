@@ -206,6 +206,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `0761bca` added the Plan #1 runtime completion review, classifying the current `.txt` runtime as locally proven while leaving non-text formats, batch analysis, public/export, and live LLM recommendation as explicit deferred gates.
 - `5ba418f` proved narrow `.pdf` `/api/analyze` support using the existing complete-pipeline/T01 path, a tiny generated PDF fixture, and live Neo4j-backed TXT+PDF smoke tests.
 - `1734ce1` proved narrow `.md` `/api/analyze` support through the existing T03 text-compatible loader, added `chardet`, and repaired phase-1 loader provenance calls from `used={}` to `inputs=[]`.
+- Pending commit proved narrow `.docx` `/api/analyze` support through the existing T02 Word loader and live Neo4j-backed TXT/PDF/Markdown/DOCX smoke tests.
 
 ## Deferred Risk Decisions
 
@@ -215,7 +216,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: run a narrow Word `.docx` analyze capability probe only if `python-docx` and the existing T02 loader can be proven through the same complete-pipeline boundary; otherwise keep Word formats at 501.
+1. Next recommended step: update the runtime review/status summary to reflect proven `.txt`, `.pdf`, `.md`, and `.docx` support, then decide whether legacy `.doc` should stay permanently out of scope.
 2. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
 3. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured and budget-approved.
 4. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.

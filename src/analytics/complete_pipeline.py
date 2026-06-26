@@ -18,6 +18,7 @@ from pathlib import Path
 from src.analytics.graph_builder import GraphBuilder
 from src.analytics.graph_query_engine import GraphQueryEngine
 from src.tools.phase1.t01_pdf_loader_unified import T01PDFLoaderUnified
+from src.tools.phase1.t02_word_loader_unified import T02WordLoaderUnified
 from src.tools.phase1.t03_text_loader_unified import T03TextLoaderUnified
 from src.tools.phase1.t15a_text_chunker_unified import T15ATextChunkerUnified
 from src.tools.phase1.t23a_spacy_ner_unified import T23ASpacyNERUnified
@@ -50,6 +51,7 @@ class CompleteGraphRAGPipeline:
         
         # Initialize all pipeline components
         self.pdf_loader = T01PDFLoaderUnified(self.service_manager)
+        self.word_loader = T02WordLoaderUnified(self.service_manager)
         self.text_loader = T03TextLoaderUnified(self.service_manager)
         self.text_chunker = T15ATextChunkerUnified(self.service_manager)
         self.ner_extractor = T23ASpacyNERUnified(self.service_manager)
@@ -283,6 +285,8 @@ class CompleteGraphRAGPipeline:
     def _select_document_loader(self, document_path: str) -> Any:
         """Select the proven phase-1 loader for a supported document extension."""
         suffix = Path(document_path).suffix.lower()
+        if suffix == ".docx":
+            return self.word_loader
         if suffix in {".md", ".markdown"}:
             return self.text_loader
         return self.pdf_loader
@@ -681,6 +685,8 @@ class CompleteGraphRAGPipeline:
             await self.query_engine.cleanup()
         if self.pdf_loader:
             self.pdf_loader.cleanup()
+        if self.word_loader:
+            self.word_loader.cleanup()
         if self.text_loader:
             self.text_loader.cleanup()
         if self.ner_extractor:

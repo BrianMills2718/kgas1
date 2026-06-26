@@ -45,6 +45,17 @@ def _tiny_pdf_bytes(text: str) -> bytes:
     return bytes(content)
 
 
+def _tiny_docx_bytes(text: str) -> bytes:
+    """Build a tiny DOCX fixture in memory using the project dependency."""
+    import docx
+
+    buffer = BytesIO()
+    document = docx.Document()
+    document.add_paragraph(text)
+    document.save(buffer)
+    return buffer.getvalue()
+
+
 def test_cross_modal_api_imports_without_registry_runtime_dependencies() -> None:
     """The API module should import before optional service-registry dependencies are installed."""
     assert api.app.title == "KGAS Cross-Modal Analysis API"
@@ -242,6 +253,61 @@ async def test_analyze_document_runs_complete_pipeline_for_markdown(monkeypatch)
 
 
 @pytest.mark.asyncio
+async def test_analyze_document_runs_complete_pipeline_for_docx(monkeypatch) -> None:
+    """DOCX uploads should preserve the real suffix and run through the complete-pipeline adapter."""
+    calls = []
+
+    class _FakePipeline:
+        async def process_document(self, document_path):
+            calls.append(document_path)
+            assert Path(document_path).exists()
+            assert Path(document_path).suffix == ".docx"
+            return {
+                "status": "success",
+                "transaction_id": "tx-docx-test",
+                "pipeline_stats": {
+                    "chunks_created": 1,
+                    "entities_extracted": 2,
+                    "relationships_extracted": 1,
+                    "graph_nodes_created": 2,
+                    "graph_edges_created": 1,
+                    "queries_answered": 1,
+                },
+                "pipeline_results": {
+                    "document_loading": {"document_ref": "storage://document/docx-test"},
+                    "relationship_extraction": {"relationship_count": 1},
+                },
+                "validation": {"pipeline_complete": True, "neo4j_verified": True},
+                "proof_of_completion": {
+                    "all_steps_executed": True,
+                    "real_operations_confirmed": True,
+                    "neo4j_integration_verified": True,
+                    "end_to_end_success": True,
+                },
+            }
+
+    monkeypatch.setattr(api, "_create_complete_pipeline", lambda: _FakePipeline())
+
+    response = await api.analyze_document(
+        background_tasks=None,
+        file=api.UploadFile(file=BytesIO(_tiny_docx_bytes("Alice works for Acme.")), filename="sample.docx"),
+        target_format="graph",
+        task="extract entities",
+        optimization_level="standard",
+        validation_level="standard",
+    )
+
+    assert calls
+    assert not Path(calls[0]).exists()
+    assert response["workflow_id"] == "tx-docx-test"
+    assert response["source_traceability"] == {
+        "filename": "sample.docx",
+        "file_type": ".docx",
+        "document_ref": "storage://document/docx-test",
+    }
+
+
+@pytest.mark.asyncio
 @pytest.mark.skipif(not os.getenv("NEO4J_PASSWORD"), reason="requires local Neo4j credentials")
 async def test_analyze_document_txt_upload_runs_live_complete_pipeline() -> None:
     """The API should expose the proven `.txt` complete-pipeline path when Neo4j is configured."""
@@ -333,8 +399,39 @@ async def test_analyze_document_markdown_upload_runs_live_complete_pipeline() ->
 
 
 @pytest.mark.asyncio
+@pytest.mark.skipif(not os.getenv("NEO4J_PASSWORD"), reason="requires local Neo4j credentials")
+async def test_analyze_document_docx_upload_runs_live_complete_pipeline() -> None:
+    """The API should expose a proven tiny `.docx` complete-pipeline path when Neo4j is configured."""
+    response = await api.analyze_document(
+        background_tasks=None,
+        file=api.UploadFile(
+            file=BytesIO(_tiny_docx_bytes("Alice works for Acme Corporation. Bob founded Beta Labs in Seattle.")),
+            filename="sample.docx",
+        ),
+        target_format="graph",
+        task="extract entities",
+        optimization_level="standard",
+        validation_level="standard",
+    )
+
+    stats = response["results"]["pipeline_stats"]
+    proof = response["results"]["proof_of_completion"]
+    assert response["selected_mode"] == "complete_graphrag_pipeline"
+    assert stats["entities_extracted"] >= 4
+    assert stats["relationships_extracted"] >= 1
+    assert stats["graph_nodes_created"] >= 4
+    assert stats["graph_edges_created"] >= 1
+    assert stats["queries_answered"] >= 1
+    assert proof["neo4j_integration_verified"] is True
+    assert proof["end_to_end_success"] is True
+    assert response["source_traceability"]["filename"] == "sample.docx"
+    assert response["source_traceability"]["file_type"] == ".docx"
+    assert response["source_traceability"]["document_ref"].startswith("storage://document/")
+
+
+@pytest.mark.asyncio
 async def test_analyze_document_returns_explicit_501_for_unwired_document_formats(monkeypatch) -> None:
-    """The analyze endpoint should not claim unproven DOCX upload support."""
+    """The analyze endpoint should not claim unproven legacy DOC upload support."""
     def fail_get_registry():
         raise AssertionError("registry should not be loaded")
 
@@ -343,7 +440,7 @@ async def test_analyze_document_returns_explicit_501_for_unwired_document_format
     with pytest.raises(HTTPException) as exc_info:
         await api.analyze_document(
             background_tasks=None,
-            file=api.UploadFile(file=BytesIO(b"docx"), filename="sample.docx"),
+            file=api.UploadFile(file=BytesIO(b"doc"), filename="sample.doc"),
             target_format="graph",
             task="extract entities",
             optimization_level="standard",
@@ -351,7 +448,7 @@ async def test_analyze_document_returns_explicit_501_for_unwired_document_format
         )
 
     assert exc_info.value.status_code == 501
-    assert "only for .txt, .pdf, and .md" in exc_info.value.detail
+    assert "only for .txt, .pdf, .md, and .docx" in exc_info.value.detail
 
 
 @pytest.mark.asyncio
