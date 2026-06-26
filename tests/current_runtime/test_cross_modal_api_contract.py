@@ -120,6 +120,7 @@ async def test_analyze_document_txt_upload_runs_live_complete_pipeline() -> None
     assert stats["relationships_extracted"] >= 1
     assert stats["graph_nodes_created"] >= 4
     assert stats["graph_edges_created"] >= 1
+    assert stats["queries_answered"] >= 1
     assert proof["neo4j_integration_verified"] is True
     assert proof["end_to_end_success"] is True
     assert response["source_traceability"]["filename"] == "sample.txt"

@@ -192,10 +192,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - This commit repaired complete-pipeline T23A-to-T27 chunk grouping, added a Neo4j manager read-query compatibility alias, and verified the tiny `.txt` pipeline now extracts 5 relationships, creates 5 Neo4j edges, and reports `end_to_end_success=True`.
 - Pending commit wired `/api/analyze` for `.txt` uploads only through `CompleteGraphRAGPipeline.process_document(...)`, with temp-file cleanup, live Neo4j-backed API coverage, and explicit 501 status for unproven non-text document formats.
 - Pending commit classified request-time graph connectivity validation as a bounded summary, avoiding the prior validator-blocked and hang-prone `CALL { ... }` connected-component query while preserving entity/edge Neo4j proof.
+- Pending commit changed default complete-pipeline query smoke tests to use extracted entity names and count only non-empty query results as answered; live `.txt` probe now returns results for `Alice` and `Bob`.
 
 ## Next
 
-1. Next recommended step: audit `GraphQueryEngine` query result quality, because current canned complete-pipeline queries execute successfully but return zero discovered paths.
+1. Next recommended step: improve or bound T49 natural-language query entity extraction; current regex misses questions like "Who is connected to Alice?" by extracting greedy capitalized fragments.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
 4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.

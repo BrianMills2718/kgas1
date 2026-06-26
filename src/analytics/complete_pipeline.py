@@ -88,11 +88,8 @@ class CompleteGraphRAGPipeline:
             Complete pipeline results with proof of real operations
         """
         tx_id = transaction_id or f"complete_pipeline_{int(time.time())}"
-        test_queries = test_queries or [
-            "What entities are mentioned in the document?",
-            "What relationships exist between entities?",
-            "Who works for which organizations?"
-        ]
+        use_entity_derived_queries = test_queries is None
+        test_queries = test_queries or []
         
         logger.info(f"Starting complete GraphRAG pipeline execution for: {document_path}")
         
@@ -128,6 +125,8 @@ class CompleteGraphRAGPipeline:
             
             all_mentions = normalize_entities_for_t27(entity_result["mentions"])
             self.entities_extracted = len(all_mentions)
+            if use_entity_derived_queries:
+                test_queries = self._build_default_test_queries(all_mentions)
             
             # STEP 4: Relationship Extraction (T27 - Real relationship processing)
             logger.info("STEP 4: Extracting relationships with T27...")
@@ -184,7 +183,7 @@ class CompleteGraphRAGPipeline:
                 else:
                     logger.warning(f"Query failed: {query_text} - {query_result.get('error')}")
             
-            self.queries_answered = len(query_results)
+            self.queries_answered = sum(1 for result in query_results if result.get("result_count", 0) > 0)
             
             # STEP 8: Pipeline Validation
             logger.info("STEP 8: Validating complete pipeline...")
@@ -466,7 +465,9 @@ class CompleteGraphRAGPipeline:
             validation_checks["entity_extraction_success"] = entity_result.get("status") == "success"
             validation_checks["relationship_extraction_success"] = relationship_result.get("status") == "success"
             validation_checks["graph_building_success"] = graph_build_result.get("status") == "success"
-            validation_checks["query_execution_success"] = len(query_results) > 0
+            validation_checks["query_execution_success"] = any(
+                result.get("result_count", 0) > 0 for result in query_results
+            )
             
             # Check data flow continuity
             validation_checks["data_flow_maintained"] = (
@@ -505,7 +506,9 @@ class CompleteGraphRAGPipeline:
                     "relationships_found": relationship_result.get("relationship_count", 0) > 0,
                     "neo4j_nodes_created": graph_build_result.get("entity_count", 0) > 0,
                     "neo4j_edges_created": graph_build_result.get("edge_count", 0) > 0,
-                    "queries_answered": len(query_results) > 0
+                    "queries_answered": any(
+                        result.get("result_count", 0) > 0 for result in query_results
+                    )
                 }
             }
             
@@ -532,6 +535,23 @@ class CompleteGraphRAGPipeline:
             rel_type = relationship.get("relationship_type", "UNKNOWN")
             type_counts[rel_type] = type_counts.get(rel_type, 0) + 1
         return type_counts
+
+    def _build_default_test_queries(self, mentions: List[Dict[str, Any]]) -> List[str]:
+        """Build query smoke tests from entities actually found in the document."""
+        entity_names = []
+        seen = set()
+        for mention in mentions:
+            name = mention.get("text") or mention.get("surface_form")
+            if not name or name in seen:
+                continue
+            seen.add(name)
+            entity_names.append(name)
+
+        return entity_names[:3] or [
+            "What entities are mentioned in the document?",
+            "What relationships exist between entities?",
+            "Who works for which organizations?"
+        ]
     
     def _get_pipeline_stats(self) -> Dict[str, Any]:
         """Get comprehensive pipeline execution statistics"""

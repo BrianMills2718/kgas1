@@ -134,6 +134,29 @@ Previously accepted but unproven extensions (`.pdf`, `.docx`, `.doc`, `.md`) now
 
 The live API test exposed a graph-validation concern: `_analyze_graph_connectivity(...)` used a `CALL { ... }` variable-length traversal that the current input validator blocked as a dangerous pattern. Allowing that trusted internal query made the live pipeline hang on the accumulated local graph, so the repair classified full connected-component analysis as not computed during request-time validation. Graph validation now uses a bounded node/relationship summary query, returns `connectivity_check="not_computed_unbounded_traversal_skipped"`, and leaves entity/edge verification as the Neo4j proof basis. [9][13]
 
+### Query result quality repair
+
+The complete pipeline originally used generic canned queries:
+
+```text
+What entities are mentioned in the document?
+What relationships exist between entities?
+Who works for which organizations?
+```
+
+T49's query entity extractor only searches around concrete entities it can extract from the query and look up in Neo4j. Empirical checks showed those generic questions yielded no query entities and therefore zero paths, even though the graph contained Alice, Acme Corporation, Bob, and Seattle. Entity-name queries such as `Alice` and `Bob` returned related-entity paths. [3]
+
+The repair now derives default smoke queries from extracted entity names when the caller does not supply `test_queries`, and `queries_answered` counts only successful query executions with non-empty result sets. A live `.txt` probe now reports:
+
+```text
+queries_answered: 2
+query Alice count 10
+query Acme Corporation count 0
+query Bob count 10
+```
+
+This does not make T49 a general natural-language QA system, but it stops treating empty generic query executions as answered questions and proves at least some graph query results are returned from the built graph. [3][12][14]
+
 ## Recommendation
 
 Do not broaden `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The current safe slice is `.txt` only and backed by `CompleteGraphRAGPipeline.process_document(...)`. The next safe implementation slice is either a live API-level `.txt` test with Neo4j credentials available or a similarly narrow `.pdf` acceptance fixture after PDF behavior is proven through T01 and the complete pipeline.
@@ -143,6 +166,8 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 ## Open Questions
 
 - Should `GraphQueryEngine` query-stat helpers get the same read-query compatibility audit, or is the current successful-but-zero-path query result sufficient for the first `/api/analyze` slice?
+- Should T49 query-entity extraction be improved so natural-language questions like "Who is connected to Alice?" extract `Alice` instead of greedy capitalized fragments?
+- Should complete-pipeline query smoke tests prefer relationship endpoints such as source/target pairs rather than single-entity related-neighbor queries?
 - Should there be an explicit non-Neo4j test service manager for document-loader and text-only adapter tests?
 - Should `/api/analyze` keep using the generic `AnalysisResponse` wrapper, or should a new endpoint expose complete-pipeline execution with a response model that exactly matches actual pipeline stages?
 - Should `.docx`, `.doc`, and `.md` stay in the API validation list only after dedicated loaders are wired?

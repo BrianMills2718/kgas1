@@ -256,6 +256,8 @@ The first `/api/analyze` real-pipeline wiring is now complete for `.txt` uploads
 
 The graph-connectivity caveat was classified during the follow-up repair. The original connectivity query used `CALL { ... }` plus variable-length traversal; bypassing user-query validation made that query run but hang on the accumulated local graph. Request-time graph validation now uses a bounded node/relationship summary and explicitly returns `connectivity_check="not_computed_unbounded_traversal_skipped"` instead of claiming full connected-component analysis. Entity and edge verification remain the basis for Neo4j proof. [15]
 
+The query-quality follow-up repaired another proof weakness. The complete pipeline previously used generic canned questions that contained no document entities, so T49 executed successfully but returned zero discovered paths. Default smoke queries are now derived from extracted entity names when the caller does not provide explicit `test_queries`, and `queries_answered` counts only query executions with non-empty result sets. A live `.txt` probe returned `queries_answered=2`, with `Alice` and `Bob` each producing 10 related-entity results. [15]
+
 Verification:
 
 ```text

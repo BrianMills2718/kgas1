@@ -370,3 +370,20 @@ async def test_complete_pipeline_entity_stage_reads_current_t23a_shape() -> None
     assert result["mention_count"] == 1
     assert result["mentions"][0]["surface_form"] == "Alice"
     assert result["entity_types"] == {"PERSON": 1}
+
+
+def test_complete_pipeline_default_queries_use_extracted_entity_names() -> None:
+    """Default query smoke tests should target entities that T49 can look up."""
+    pipeline = object.__new__(CompleteGraphRAGPipeline)
+    mentions = [
+        {"text": "Alice", "entity_type": "PERSON"},
+        {"text": "Acme Corporation", "entity_type": "ORG"},
+        {"text": "Alice", "entity_type": "PERSON"},
+        {"text": "Seattle", "entity_type": "GPE"},
+    ]
+
+    assert pipeline._build_default_test_queries(mentions) == [
+        "Alice",
+        "Acme Corporation",
+        "Seattle",
+    ]
