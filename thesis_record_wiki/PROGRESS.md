@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage_Digimons`, currently working through archived uncertainty stress-test slices.
+Guarded handoff after runtime repair and preservation-wiki consolidation. Remaining work is either a scoped design/implementation slice with explicit isolation, or deferred until Brian approves destructive cleanup or live credential/LLM use.
 
 ## Completed
 
@@ -197,6 +197,8 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `3ba5387` deduplicated T49 semantic results before final ranking so repeated local smoke-test nodes no longer dominate results with ID-distinct copies of `Alice -> Seattle`.
 - `cb9a09b` added a focused T27 dependency-parser fixture proving the spaCy subject-verb-object path can emit a dependency-parsing relationship without Neo4j/service-manager setup.
 - `ff56240` added a public-export security boundary: raw PhD/KGAS archives remain preserved, while shareable exports must be derived, scanned, documented, and reviewed without in-place archive sanitization.
+- `87060f3` recorded the public-export boundary commit hash in this progress file.
+- Pending commit added a runtime verification isolation boundary: future Neo4j-backed smoke tests should use run/source scoping or isolated test graphs instead of deleting accumulated local graph state.
 
 ## Deferred Risk Decisions
 
@@ -204,6 +206,6 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 
 ## Next
 
-1. Next recommended step: isolate or clean up live Neo4j smoke-test subgraphs so repeated verification runs do not keep accumulating duplicate Alice/Acme/Bob/Seattle nodes.
+1. Next recommended step: implement source-scoped Neo4j smoke-test verification using the runtime verification isolation boundary.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.

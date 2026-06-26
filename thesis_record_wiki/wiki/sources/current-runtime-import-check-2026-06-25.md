@@ -264,6 +264,8 @@ The T49 result ranker now deduplicates semantic results before final ranking. Th
 
 The parser-derived T27 relationship path now has focused coverage. A direct current-runtime fixture calls `_extract_dependency_relationships(...)` with `Alice admired Bob.`, proving the installed spaCy model can drive the dependency-parsing path without Neo4j or service-manager setup. [25]
 
+The remaining Neo4j cleanup question is a safety boundary, not an immediate cleanup task. Repeated smoke tests have accumulated local graph nodes, but deleting shared graph state would be destructive. Future runtime verification should use per-run/source scoping or an isolated test graph before adding cleanup behavior. See [Runtime Verification Isolation Boundary](/wiki/concepts/runtime-verification-isolation-boundary.md).
+
 Verification:
 
 ```text
@@ -277,6 +279,7 @@ tests/current_runtime/test_cross_modal_api_contract.py .................... [100
 - [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md)
 - [Layered Tool Interface Architecture](/wiki/concepts/layered-tool-interface-architecture.md)
 - [Analysis Expansion Architecture](/wiki/concepts/analysis-expansion-architecture.md)
+- [Runtime Verification Isolation Boundary](/wiki/concepts/runtime-verification-isolation-boundary.md)
 
 # Citations
 

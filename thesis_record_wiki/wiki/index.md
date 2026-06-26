@@ -182,6 +182,7 @@
 * [Multi Agent Evidence Harness](concepts/multi-agent-evidence-harness.md) - isolated implementation/evaluation pattern used to enforce 100/100 phase gates.
 * [Recovered UI Demo Surface](concepts/recovered-ui-demo-surface.md) - preserved static, FastAPI, Streamlit, and React UI/demo surfaces.
 * [Current Status Verification Discipline](concepts/current-status-verification-discipline.md) - rule for separating architecture, evidence, current code, and runtime status.
+* [Runtime Verification Isolation Boundary](concepts/runtime-verification-isolation-boundary.md) - safe Neo4j/runtime verification rule: isolate new test data instead of deleting accumulated local graph state.
 * [Formal Notation As Theory Content](concepts/formal-notation-as-theory-content.md) - lesson that formal notation and algorithms are first-class schema content for formal theories.
 * [Complexity Conservation In Theory Application](concepts/complexity-conservation-in-theory-application.md) - lesson that universal frameworks move rather than eliminate theory-specific complexity.
 * [Model Form Routing](concepts/model-form-routing.md) - routing theories to sequence, table, graph, statistical, or hybrid forms instead of forcing one representation.
