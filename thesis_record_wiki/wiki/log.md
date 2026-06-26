@@ -150,6 +150,7 @@
 * **Review** | Refreshed the runtime completion review to list `.txt`, `.pdf`, `.md`, and `.docx` as proven live paths, while keeping legacy `.doc`, batch, public/export, and live LLM recommendation deferred.
 * **Repair** | Migrated the cross-modal API startup hook to FastAPI lifespan initialization, removing `@app.on_event` deprecation warnings while preserving runtime smoke coverage.
 * **Review** | Added Plan #1 closeout review, separating completed safe runtime gates from human-gated public/export and LLM decisions, and selecting batch analysis wiring as the next safe slice.
+* **Repair** | Wired `/api/batch/analyze` to the proven single-document path with in-memory upload capture, per-file results/errors, job-status reporting, and live TXT batch smoke coverage.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.

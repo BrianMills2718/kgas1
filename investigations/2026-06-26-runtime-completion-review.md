@@ -161,8 +161,8 @@ Updated runtime status:
 | `.md` `/api/analyze` | Proven for tiny Markdown as text-compatible input through live complete pipeline. |
 | `.docx` `/api/analyze` | Proven for a tiny generated DOCX through live complete pipeline. |
 | `.doc` `/api/analyze` | Still explicit 501; no legacy binary Word loader is proven. |
-| `/api/batch/analyze` | Still explicit 501. |
+| `/api/batch/analyze` | Proven for local in-process jobs with per-file results/errors; live TXT batch smoke passed. |
 | `/api/recommend` live LLM selector | Still deferred for credential/cost approval. |
 | public/export bundle | Still deferred for human review. |
 
-The current recommendation changes accordingly: do not spend more effort on legacy `.doc` unless Brian explicitly wants old binary Word support. The next safe engineering slice is FastAPI lifespan modernization, because runtime tests consistently pass with `@app.on_event` deprecation warnings.
+The current recommendation changes accordingly: do not spend more effort on legacy `.doc` unless Brian explicitly wants old binary Word support. After later batch and lifespan slices, remaining blockers are public/export review, live LLM recommendation approval, and operator-triggered cleanup execution.

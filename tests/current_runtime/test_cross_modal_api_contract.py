@@ -727,23 +727,128 @@ async def test_get_statistics_preserves_registry_unavailable_status(monkeypatch)
 
 
 @pytest.mark.asyncio
-async def test_batch_analyze_returns_explicit_501() -> None:
-    """Batch analysis should fail honestly until wired to the current pipeline."""
-    with pytest.raises(HTTPException) as exc_info:
-        await api.batch_analyze(
-            background_tasks=None,
-            files=[],
-            target_format="graph",
-            task="extract entities",
-        )
+async def test_batch_analyze_processes_files_through_complete_pipeline(monkeypatch) -> None:
+    """Batch analysis should compose the proven single-document pipeline path."""
+    calls = []
 
-    assert exc_info.value.status_code == 501
-    assert "not wired" in exc_info.value.detail
+    class _FakePipeline:
+        async def process_document(self, document_path):
+            calls.append(Path(document_path).suffix)
+            return {
+                "status": "success",
+                "transaction_id": f"tx-{len(calls)}",
+                "pipeline_stats": {
+                    "chunks_created": 1,
+                    "entities_extracted": 2,
+                    "relationships_extracted": 1,
+                    "graph_nodes_created": 2,
+                    "graph_edges_created": 1,
+                    "queries_answered": 1,
+                },
+                "pipeline_results": {
+                    "document_loading": {"document_ref": f"storage://document/batch-{len(calls)}"},
+                    "relationship_extraction": {"relationship_count": 1},
+                },
+                "validation": {"pipeline_complete": True, "neo4j_verified": True},
+                "proof_of_completion": {
+                    "all_steps_executed": True,
+                    "real_operations_confirmed": True,
+                    "neo4j_integration_verified": True,
+                    "end_to_end_success": True,
+                },
+            }
+
+    monkeypatch.setattr(api, "_create_complete_pipeline", lambda: _FakePipeline())
+
+    response = await api.batch_analyze(
+        background_tasks=None,
+        files=[
+            api.UploadFile(file=BytesIO(b"Alice works for Acme."), filename="one.txt"),
+            api.UploadFile(file=BytesIO(_tiny_pdf_bytes("Bob founded Beta Labs.")), filename="two.pdf"),
+        ],
+        target_format="graph",
+        task="extract entities",
+    )
+
+    job = api.jobs[response.job_id]
+    try:
+        assert response.status == "completed"
+        assert job["processed_files"] == 2
+        assert [result["filename"] for result in job["results"]] == ["one.txt", "two.pdf"]
+        assert job["errors"] == []
+        assert calls == [".txt", ".pdf"]
+    finally:
+        api.jobs.pop(response.job_id, None)
 
 
 @pytest.mark.asyncio
-async def test_process_batch_analysis_does_not_create_demo_results() -> None:
-    """The background helper should not emit mock entities or relationships."""
+@pytest.mark.skipif(not os.getenv("NEO4J_PASSWORD"), reason="requires local Neo4j credentials")
+async def test_batch_analyze_runs_live_complete_pipeline_for_txt_upload() -> None:
+    """Batch analysis should run at least one upload through the live complete pipeline."""
+    response = await api.batch_analyze(
+        background_tasks=None,
+        files=[
+            api.UploadFile(
+                file=BytesIO(b"Alice works for Acme Corporation. Bob founded Beta Labs in Seattle."),
+                filename="batch.txt",
+            )
+        ],
+        target_format="graph",
+        task="extract entities",
+    )
+
+    job = api.jobs[response.job_id]
+    try:
+        assert job["status"] == "completed"
+        assert job["processed_files"] == 1
+        assert not job["errors"]
+        result = job["results"][0]["result"]
+        assert result["results"]["proof_of_completion"]["neo4j_integration_verified"] is True
+        assert result["results"]["proof_of_completion"]["end_to_end_success"] is True
+    finally:
+        api.jobs.pop(response.job_id, None)
+
+
+@pytest.mark.asyncio
+async def test_batch_analyze_records_per_file_errors(monkeypatch) -> None:
+    """Unsupported files should become per-file errors without aborting the whole batch."""
+    class _FakePipeline:
+        async def process_document(self, document_path):
+            return {
+                "status": "success",
+                "transaction_id": "tx-ok",
+                "pipeline_stats": {},
+                "pipeline_results": {"document_loading": {"document_ref": "storage://document/ok"}},
+                "validation": {},
+                "proof_of_completion": {},
+            }
+
+    monkeypatch.setattr(api, "_create_complete_pipeline", lambda: _FakePipeline())
+
+    response = await api.batch_analyze(
+        background_tasks=None,
+        files=[
+            api.UploadFile(file=BytesIO(b"Alice works for Acme."), filename="one.txt"),
+            api.UploadFile(file=BytesIO(b"legacy"), filename="legacy.doc"),
+        ],
+        target_format="graph",
+        task="extract entities",
+    )
+
+    job = api.jobs[response.job_id]
+    try:
+        assert job["status"] == "completed"
+        assert job["processed_files"] == 2
+        assert len(job["results"]) == 1
+        assert job["errors"][0]["filename"] == "legacy.doc"
+        assert job["errors"][0]["status_code"] == 501
+    finally:
+        api.jobs.pop(response.job_id, None)
+
+
+@pytest.mark.asyncio
+async def test_process_batch_analysis_status_for_all_failed_files() -> None:
+    """A batch with only unsupported files should be marked failed and create no demo results."""
     api.jobs["job-test"] = {
         "id": "job-test",
         "status": "pending",
@@ -755,10 +860,48 @@ async def test_process_batch_analysis_does_not_create_demo_results() -> None:
     }
 
     try:
-        await api.process_batch_analysis("job-test", [], "graph", "extract entities")
+        await api.process_batch_analysis(
+            "job-test",
+            [{"filename": "legacy.doc", "content": b"legacy"}],
+            "graph",
+            "extract entities",
+        )
 
         assert api.jobs["job-test"]["status"] == "failed"
         assert api.jobs["job-test"]["results"] == []
-        assert "not wired" in api.jobs["job-test"]["errors"][0]["error"]
+        assert api.jobs["job-test"]["errors"][0]["status_code"] == 501
+        assert "only for .txt" in api.jobs["job-test"]["errors"][0]["error"]
     finally:
         api.jobs.pop("job-test", None)
+
+
+@pytest.mark.asyncio
+async def test_get_job_status_returns_completed_batch_results(monkeypatch) -> None:
+    """Job status should expose completed batch results and progress."""
+    class _FakePipeline:
+        async def process_document(self, document_path):
+            return {
+                "status": "success",
+                "transaction_id": "tx-status",
+                "pipeline_stats": {},
+                "pipeline_results": {"document_loading": {"document_ref": "storage://document/status"}},
+                "validation": {},
+                "proof_of_completion": {},
+            }
+
+    monkeypatch.setattr(api, "_create_complete_pipeline", lambda: _FakePipeline())
+
+    response = await api.batch_analyze(
+        background_tasks=None,
+        files=[api.UploadFile(file=BytesIO(b"Alice works for Acme."), filename="one.txt")],
+        target_format="graph",
+        task="extract entities",
+    )
+
+    try:
+        status = await api.get_job_status(response.job_id)
+        assert status["status"] == "completed"
+        assert status["progress"]["percentage"] == 100
+        assert status["results"][0]["filename"] == "one.txt"
+    finally:
+        api.jobs.pop(response.job_id, None)

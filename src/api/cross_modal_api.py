@@ -13,6 +13,7 @@ import uuid
 import tempfile
 from contextlib import asynccontextmanager
 from datetime import datetime
+from io import BytesIO
 from typing import Dict, Any, List, Optional, Union
 from pathlib import Path
 import logging
@@ -270,9 +271,27 @@ async def batch_analyze(
     
     Returns a job ID to track progress.
     """
-    raise HTTPException(
-        status_code=501,
-        detail="Batch analysis endpoint is not wired to the current document analysis pipeline"
+    _parse_enum(DataFormat, target_format, "target format")
+    job_id = f"job_{uuid.uuid4().hex[:12]}"
+    payloads = await _read_batch_uploads(files)
+    jobs[job_id] = {
+        "id": job_id,
+        "status": "pending",
+        "created_at": datetime.now().isoformat(),
+        "total_files": len(payloads),
+        "processed_files": 0,
+        "results": [],
+        "errors": [],
+    }
+    if background_tasks is not None:
+        background_tasks.add_task(process_batch_analysis, job_id, payloads, target_format, task)
+    else:
+        await process_batch_analysis(job_id, payloads, target_format, task)
+    return JobResponse(
+        job_id=job_id,
+        status=jobs[job_id]["status"],
+        created_at=jobs[job_id]["created_at"],
+        message=f"Batch analysis queued for {len(payloads)} file(s)",
     )
 
 # Job status endpoint
@@ -521,20 +540,60 @@ def _serialize_validation_report(report: Any) -> Dict[str, Any]:
         }
     return {"report": _serialize_results(report)}
 
-async def process_batch_analysis(job_id: str, files: List[UploadFile], target_format: str, task: str):
+async def _read_batch_uploads(files: List[UploadFile]) -> List[Dict[str, Any]]:
+    """Read upload payloads while request-owned file handles are still valid."""
+    return [
+        {
+            "filename": file.filename or "upload",
+            "content": await file.read(),
+        }
+        for file in files
+    ]
+
+
+async def process_batch_analysis(job_id: str, files: List[Dict[str, Any]], target_format: str, task: str):
     """Process batch analysis in background"""
     job = jobs[job_id]
     job["status"] = "processing"
-    
-    try:
-        job["status"] = "failed"
-        job["errors"].append({
-            "error": "Batch analysis is not wired to the current document analysis pipeline"
-        })
-        
-    except Exception as e:
-        job["status"] = "failed"
-        job["errors"].append({"error": str(e)})
+
+    for index, file_payload in enumerate(files):
+        filename = file_payload["filename"]
+        file_ext = Path(filename).suffix.lower()
+        try:
+            upload = UploadFile(file=BytesIO(file_payload["content"]), filename=filename)
+            result = await analyze_document(
+                background_tasks=None,
+                file=upload,
+                target_format=target_format,
+                task=task,
+                optimization_level="standard",
+                validation_level="standard",
+            )
+            job["results"].append({
+                "index": index,
+                "filename": filename,
+                "result": result,
+            })
+        except HTTPException as exc:
+            job["errors"].append({
+                "index": index,
+                "filename": filename,
+                "file_type": file_ext,
+                "status_code": exc.status_code,
+                "error": exc.detail,
+            })
+        except Exception as e:
+            job["errors"].append({
+                "index": index,
+                "filename": filename,
+                "file_type": file_ext,
+                "status_code": 500,
+                "error": str(e),
+            })
+        finally:
+            job["processed_files"] += 1
+
+    job["status"] = "completed" if job["results"] or not job["errors"] else "failed"
 
 # Main entry point for development
 if __name__ == "__main__":

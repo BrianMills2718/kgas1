@@ -74,7 +74,7 @@ The full program is complete only when all gates below are satisfied or explicit
 | Narrow E2E Pipeline | `.txt`, tiny `.pdf`, tiny `.md`, and tiny `.docx` upload/API paths run real document-loading/T15/T23/T27/T31/T34/T49 stages with Neo4j source scoping. | live source-scoped smoke tests pass | Satisfied for `.txt`, tiny `.pdf`, tiny `.md`, and tiny `.docx` |
 | Query Isolation | New graph writes carry `source_refs`; T49 can filter by `source_refs`; old smoke data cannot satisfy scoped proof. | current-runtime tests; live smoke result | Satisfied for tested path |
 | Cleanup Safety | Any cleanup command is source-scoped, dry-run capable, backed by tests, and never broad-deletes graph data. | future cleanup test + command docs | Planned, safe if scoped |
-| API Honesty | Unsupported/unwired endpoints return explicit 501/503 rather than mock success. | current-runtime API tests | Mostly satisfied for known endpoints |
+| API Honesty | Unsupported/unwired endpoints return explicit 501/503 rather than mock success. | current-runtime API tests | Satisfied for known endpoints |
 | Review Gate | Code review pass covers security, destructive actions, LLM boundaries, and remaining stale/mock claims. | review report in `investigations/` or wiki source page | Complete for safe runtime scope |
 | Public/Export | Any shareable bundle is derived, scanned, documented, and excludes/separates raw credential-bearing archives. | export manifest + scan output | Human-review required |
 | LLM/Recommendation | Real `/api/recommend` is tested only after selector credentials/cost are approved. | credential-aware test report | Deferred |
@@ -215,6 +215,20 @@ Evidence: `src/api/cross_modal_api.py`, API contract tests 24 passed / 4 skipped
 
 Evidence: `investigations/2026-06-26-plan1-closeout-review.md`.
 
+### Slice 12 - Batch Analyze Wiring
+
+**Status:** Complete
+
+**Safe scope:** wire `/api/batch/analyze` to the proven single-document analyze path, using in-memory request payloads and per-file results/errors. Do not introduce new persistence, graph cleanup, archive mutation, or external LLM calls.
+
+**Done when:**
+- [x] batch endpoint creates a job and processes files through the complete-pipeline adapter;
+- [x] per-file unsupported format errors are recorded without aborting successful files;
+- [x] job-status endpoint reports completed batch results and progress;
+- [x] live batch smoke proves at least one upload reaches the real complete pipeline.
+
+Evidence: `src/api/cross_modal_api.py`, `tests/current_runtime/test_cross_modal_api_contract.py`, focused API tests 26 passed / 5 skipped, full `tests/current_runtime` count 63 passed / 6 skipped, live batch TXT smoke 1 passed, and `pip check` clean.
+
 ---
 
 ## Required Tests
@@ -260,7 +274,7 @@ Evidence: `investigations/2026-06-26-plan1-closeout-review.md`.
 | C4 | Historical docs overclaim capabilities relative to current runtime. | False completion claim | Review gate must separate current runtime proof from archive evidence. |
 | C5 | Legacy Word `.doc` remains unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 unless a real legacy `.doc` loader is proven. |
 | C6 | Source-scoped cleanup exists, but executing it against real smoke-test source refs is still destructive for those scoped records. | Scoped data deletion | Keep as operator-triggered; do not execute automatically. |
-| C7 | `/api/batch/analyze` is intentionally 501 until it wraps a proven single-document path. | Runtime gap | Next safe slice now that single-document formats are proven. |
+| C7 | `/api/batch/analyze` was intentionally 501 until it wrapped a proven single-document path. | Runtime gap | Resolved by Slice 12 batch wiring. |
 | C8 | FastAPI startup/shutdown deprecation warnings remained in runtime tests. | Maintenance debt | Resolved by Slice 10 lifespan migration. |
 | C9 | Legacy `.doc` support would require a separate loader/proof path for old binary Word files. | Runtime gap / scope creep | Keep explicit 501 unless Brian asks for legacy binary Word support. |
 | C10 | Public/export and live LLM recommendation are not engineering guesses; they require Brian's privacy/budget decisions. | Human-gated blocker | Do not bypass; continue only safe local runtime work. |

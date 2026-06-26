@@ -210,6 +210,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `def3ea1` refreshed the runtime completion review to reflect proven `.txt`, `.pdf`, `.md`, and `.docx` support, with legacy `.doc`, batch, public/export, and live LLM recommendation still deferred.
 - `5ad2b1c` migrated the FastAPI startup hook to lifespan initialization, removing the runtime deprecation warning while preserving four-format live smoke coverage.
 - `9faecf1` added the Plan #1 closeout review, marking current safe runtime gates complete and selecting `/api/batch/analyze` wiring as the next safe local slice.
+- Pending commit wired `/api/batch/analyze` to the proven single-document path with per-file results/errors, job-status coverage, and a live TXT batch smoke test.
 
 ## Deferred Risk Decisions
 
@@ -219,7 +220,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: wire `/api/batch/analyze` to the proven single-document path with per-file results/errors and job-status coverage.
+1. Next recommended step: run a final verification sweep and mark safe local runtime work complete, leaving only human-gated public/export, live LLM recommendation, and operator-triggered cleanup execution.
 2. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
 3. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured and budget-approved.
 4. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.
