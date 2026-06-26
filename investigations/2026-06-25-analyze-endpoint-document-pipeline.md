@@ -191,6 +191,15 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 - Should `/api/analyze` keep using the generic `AnalysisResponse` wrapper, or should a new endpoint expose complete-pipeline execution with a response model that exactly matches actual pipeline stages?
 - Should `.docx`, `.doc`, and `.md` stay in the API validation list only after dedicated loaders are wired?
 
+## Deferred Risk Decisions
+
+Neo4j smoke-test cleanup is intentionally deferred. The local database has accumulated repeated Alice/Acme/Bob/Seattle nodes from live verification runs, but deleting them is destructive shared state. Safer future work should use one of these approaches before any cleanup:
+
+- source-scoped query filtering based on per-run source refs;
+- per-run labels or namespaces for smoke-test graph writes;
+- an isolated test database/container for live Neo4j runtime tests;
+- explicit Brian approval for deleting known smoke-test subgraphs.
+
 ## Assumptions Register
 
 | # | Assumption | Confidence | How to verify | Round | Status |

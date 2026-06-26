@@ -189,12 +189,16 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `3609419` investigated the future `/api/analyze` backing path and identified `CompleteGraphRAGPipeline.process_document()` plus a narrow `.txt` adapter as the safest next slice.
 - `7301f7e` ran the tiny `.txt` complete-pipeline probe; it blocks before T01 loading because `ServiceManager.identity_service` requires live Neo4j-backed services.
 - `b58a599` used the existing local Neo4j container, repaired DTM and complete-pipeline adapter drift, and verified a tiny `.txt` file executes real pipeline stages through Neo4j node creation and query execution.
-- This commit repaired complete-pipeline T23A-to-T27 chunk grouping, added a Neo4j manager read-query compatibility alias, and verified the tiny `.txt` pipeline now extracts 5 relationships, creates 5 Neo4j edges, and reports `end_to_end_success=True`.
-- Pending commit wired `/api/analyze` for `.txt` uploads only through `CompleteGraphRAGPipeline.process_document(...)`, with temp-file cleanup, live Neo4j-backed API coverage, and explicit 501 status for unproven non-text document formats.
-- Pending commit classified request-time graph connectivity validation as a bounded summary, avoiding the prior validator-blocked and hang-prone `CALL { ... }` connected-component query while preserving entity/edge Neo4j proof.
-- Pending commit changed default complete-pipeline query smoke tests to use extracted entity names and count only non-empty query results as answered; live `.txt` probe now returns results for `Alice` and `Bob`.
-- Pending commit repaired T49 query entity extraction so simple natural-language questions like "Who is connected to Alice?" extract Alice and return live graph query results.
-- Pending commit deduplicated T49 semantic results before final ranking so repeated local smoke-test nodes no longer dominate results with ID-distinct copies of `Alice -> Seattle`.
+- `b4edc61` repaired complete-pipeline T23A-to-T27 chunk grouping, added a Neo4j manager read-query compatibility alias, and verified the tiny `.txt` pipeline now extracts 5 relationships, creates 5 Neo4j edges, and reports `end_to_end_success=True`.
+- `5de954e` wired `/api/analyze` for `.txt` uploads only through `CompleteGraphRAGPipeline.process_document(...)`, with temp-file cleanup, live Neo4j-backed API coverage, and explicit 501 status for unproven non-text document formats.
+- `a5f3a36` classified request-time graph connectivity validation as a bounded summary, avoiding the prior validator-blocked and hang-prone `CALL { ... }` connected-component query while preserving entity/edge Neo4j proof.
+- `f85fe4d` changed default complete-pipeline query smoke tests to use extracted entity names and count only non-empty query results as answered; live `.txt` probe now returns results for `Alice` and `Bob`.
+- `f38358e` repaired T49 query entity extraction so simple natural-language questions like "Who is connected to Alice?" extract Alice and return live graph query results.
+- `3ba5387` deduplicated T49 semantic results before final ranking so repeated local smoke-test nodes no longer dominate results with ID-distinct copies of `Alice -> Seattle`.
+
+## Deferred Risk Decisions
+
+- Neo4j smoke-test graph cleanup is deferred because deleting accumulated local graph nodes is destructive shared state. Safe next work should prefer source-scoped query filtering, per-run labels/source refs, or a new isolated test database/container over deleting existing nodes without Brian's explicit approval.
 
 ## Next
 
