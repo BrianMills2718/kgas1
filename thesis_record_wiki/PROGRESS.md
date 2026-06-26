@@ -215,7 +215,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `6d155a5` added the blocked-gates decision brief, separating public/export, live LLM recommendation, Neo4j cleanup execution, and legacy `.doc` support into explicit Brian approval decisions with safe defaults.
 - `abc2b94` added public-export readiness docs and a draft manifest, defining a documentation-first export candidate, excluded raw-risk paths, scan commands, and private-by-default publication posture.
 - `936e892` added Plan #2 safe-organization completion criteria and the public-export review artifact for the local docs-only candidate: 251 files, 2.4M, 74 review-needed pattern hits, and no forbidden file types.
-- `PENDING` completed Plan #2 closeout: wiki/plan/export gates pass, public/export remains unapproved, and all remaining work is bounded to Brian approval gates.
+- `fc3431b` completed Plan #2 closeout: wiki/plan/export gates pass, public/export remains unapproved, and all remaining work is bounded to Brian approval gates.
 
 ## Deferred Risk Decisions
 
