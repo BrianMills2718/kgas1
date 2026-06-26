@@ -75,7 +75,7 @@ The full program is complete only when all gates below are satisfied or explicit
 | Query Isolation | New graph writes carry `source_refs`; T49 can filter by `source_refs`; old smoke data cannot satisfy scoped proof. | current-runtime tests; live smoke result | Satisfied for tested path |
 | Cleanup Safety | Any cleanup command is source-scoped, dry-run capable, backed by tests, and never broad-deletes graph data. | future cleanup test + command docs | Planned, safe if scoped |
 | API Honesty | Unsupported/unwired endpoints return explicit 501/503 rather than mock success. | current-runtime API tests | Mostly satisfied for known endpoints |
-| Review Gate | Code review pass covers security, destructive actions, LLM boundaries, and remaining stale/mock claims. | review report in `investigations/` or wiki source page | Planned |
+| Review Gate | Code review pass covers security, destructive actions, LLM boundaries, and remaining stale/mock claims. | review report in `investigations/` or wiki source page | Complete for safe runtime scope |
 | Public/Export | Any shareable bundle is derived, scanned, documented, and excludes/separates raw credential-bearing archives. | export manifest + scan output | Human-review required |
 | LLM/Recommendation | Real `/api/recommend` is tested only after selector credentials/cost are approved. | credential-aware test report | Deferred |
 
@@ -202,6 +202,19 @@ Evidence: `investigations/2026-06-26-runtime-completion-review.md` addendum.
 
 Evidence: `src/api/cross_modal_api.py`, API contract tests 24 passed / 4 skipped, full `tests/current_runtime` count 61 passed / 5 skipped, and live four-format smoke 4 passed.
 
+### Slice 11 - Plan #1 Closeout Review
+
+**Status:** Complete
+
+**Safe scope:** separate completed runtime gates from human-gated blockers and select the next safe runtime slice.
+
+**Done when:**
+- [x] closeout review lists gate status;
+- [x] unsafe/human-gated work remains deferred;
+- [x] next safe slice is identified.
+
+Evidence: `investigations/2026-06-26-plan1-closeout-review.md`.
+
 ---
 
 ## Required Tests
@@ -247,9 +260,10 @@ Evidence: `src/api/cross_modal_api.py`, API contract tests 24 passed / 4 skipped
 | C4 | Historical docs overclaim capabilities relative to current runtime. | False completion claim | Review gate must separate current runtime proof from archive evidence. |
 | C5 | Legacy Word `.doc` remains unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 unless a real legacy `.doc` loader is proven. |
 | C6 | Source-scoped cleanup exists, but executing it against real smoke-test source refs is still destructive for those scoped records. | Scoped data deletion | Keep as operator-triggered; do not execute automatically. |
-| C7 | `/api/batch/analyze` is intentionally 501 until it wraps a proven single-document path. | Runtime gap | Defer batch work until more single-document formats are proven. |
+| C7 | `/api/batch/analyze` is intentionally 501 until it wraps a proven single-document path. | Runtime gap | Next safe slice now that single-document formats are proven. |
 | C8 | FastAPI startup/shutdown deprecation warnings remained in runtime tests. | Maintenance debt | Resolved by Slice 10 lifespan migration. |
 | C9 | Legacy `.doc` support would require a separate loader/proof path for old binary Word files. | Runtime gap / scope creep | Keep explicit 501 unless Brian asks for legacy binary Word support. |
+| C10 | Public/export and live LLM recommendation are not engineering guesses; they require Brian's privacy/budget decisions. | Human-gated blocker | Do not bypass; continue only safe local runtime work. |
 
 ---
 
