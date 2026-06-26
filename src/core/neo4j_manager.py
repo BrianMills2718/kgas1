@@ -109,6 +109,10 @@ class Neo4jDockerManager:
     def execute_query(self, query: str, params: Dict[str, Any] = None) -> List[Dict[str, Any]]:
         """Legacy method name - redirects to secure execution."""
         return self.query_executor.execute_query(query, params)
+
+    async def execute_read_query(self, query: str, params: Dict[str, Any] = None) -> List[Dict[str, Any]]:
+        """Compatibility async read-query API used by graph analytics callers."""
+        return self.execute_query(query, params)
     
     # Performance Monitoring Delegation
     def get_health_status(self) -> Dict[str, Any]:

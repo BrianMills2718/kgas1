@@ -281,6 +281,41 @@ async def test_complete_pipeline_relationship_stage_sends_t27_entities() -> None
 
 
 @pytest.mark.asyncio
+async def test_complete_pipeline_relationship_stage_groups_current_t23a_chunk_refs() -> None:
+    """Current T23A entities use chunk_ref, so complete-pipeline must group by it."""
+    fake_extractor = _FakeRelationshipExtractor()
+    pipeline = object.__new__(CompleteGraphRAGPipeline)
+    pipeline.relationship_extractor = fake_extractor
+    chunks = [{"chunk_ref": "chunk-1", "text": "Alice works at Acme Corp.", "confidence": 0.9}]
+    mentions = [
+        {
+            "surface_form": "Alice",
+            "entity_type": "PERSON",
+            "chunk_ref": "chunk-1",
+            "start_pos": 0,
+            "end_pos": 5,
+            "confidence": 0.91,
+        },
+        {
+            "surface_form": "Acme Corp",
+            "entity_type": "ORG",
+            "chunk_ref": "chunk-1",
+            "start_pos": 15,
+            "end_pos": 24,
+            "confidence": 0.93,
+        },
+    ]
+
+    result = await pipeline._execute_relationship_extraction(chunks, mentions)
+
+    assert result["status"] == "success"
+    assert result["relationship_count"] == 1
+    sent_input = fake_extractor.requests[0].input_data
+    assert sent_input["chunk_ref"] == "chunk-1"
+    assert [entity["text"] for entity in sent_input["entities"]] == ["Alice", "Acme Corp"]
+
+
+@pytest.mark.asyncio
 async def test_complete_pipeline_document_loading_reads_current_t01_shape() -> None:
     """CompleteGraphRAGPipeline should adapt the current nested T01 document output."""
     pipeline = object.__new__(CompleteGraphRAGPipeline)

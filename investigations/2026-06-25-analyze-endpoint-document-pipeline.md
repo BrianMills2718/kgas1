@@ -13,6 +13,7 @@ What real document extraction path should eventually back `/api/analyze`, now th
 | A1 | Does `/api/analyze` currently call a real document parser? | none | Answered |
 | A2 | Which current code path performs real document loading plus downstream KG extraction? | none | Answered |
 | A3 | Can that path be safely wired to `/api/analyze` as a small follow-up? | A1, A2 | Answered |
+| A4 | Why did the Neo4j-backed `.txt` probe create entities but no relationships/edges? | A2 | Answered |
 
 ## Evidence
 
@@ -80,7 +81,7 @@ After configuring the existing local Neo4j Docker container through `NEO4J_PASSW
 - Graph building expected `text` mention fields, while T23A emits `surface_form`; complete-pipeline now normalizes extracted entities before relationship extraction and graph building. [3]
 - `GraphBuilder` treated zero relationships as fatal by invoking T34 with an empty list; it now treats node-only graph construction as successful and skips T34 when there are no relationships. [9]
 
-Current Neo4j-backed `.txt` probe result:
+The first Neo4j-backed `.txt` probe result:
 
 ```text
 STATUS success
@@ -91,20 +92,46 @@ proof {'all_steps_executed': True, 'real_operations_confirmed': True, 'neo4j_int
 
 Interpretation: the real `.txt` pipeline now executes all stages and creates Neo4j nodes. The fixture does not produce relationships, so the pipeline correctly remains a partial semantic success: real operations are confirmed, but `end_to_end_success` stays false because edge/relationship validation is not satisfied.
 
+### A4: relationship/edge proof repair
+
+Direct T23A + T27 probing with the same text showed that current T27 can extract relationships when it receives entities grouped with the right chunk provenance:
+
+```text
+Alice works for Acme Corporation. Bob founded Beta Labs in Seattle.
+T27 status success count 5
+Alice WORKS_FOR Acme Corporation
+Bob CREATED Seattle
+```
+
+The complete-pipeline miss was an adapter bug. `T23ASpacyNERUnified` emits current entity records with `chunk_ref`, while `CompleteGraphRAGPipeline._execute_relationship_extraction(...)` grouped mentions only by `source_ref`. That caused each real chunk to appear to have fewer than two entities, so T27 was skipped. The repair groups by `source_ref` or `chunk_ref`, preserving historical source-ref callers while accepting the current T23A shape. [3][5]
+
+The same slice repaired a proof-wiring issue: `GraphBuilder` called `Neo4jDockerManager.execute_read_query(...)`, but the manager exposed only `execute_query(...)` and async query variants. Adding the async read-query compatibility alias lets graph validation and statistics use the existing secure query executor. `CompleteGraphRAGPipeline._validate_complete_pipeline(...)` also now returns top-level `neo4j_verified` for the proof payload and treats end-to-end semantic success as requiring at least one relationship and one edge. [3][9][11]
+
+Current Neo4j-backed `.txt` probe result after the repair:
+
+```text
+STATUS success
+pipeline_stats {'documents_processed': 1, 'chunks_created': 1, 'entities_extracted': 4, 'relationships_extracted': 5, 'graph_nodes_created': 4, 'graph_edges_created': 5, 'queries_answered': 3, 'pipeline_stages_completed': 7, 'real_operations_confirmed': True}
+proof {'all_steps_executed': True, 'real_operations_confirmed': True, 'neo4j_integration_verified': True, 'end_to_end_success': True}
+relationship_types {'WORKS_FOR': 1, 'CREATED': 1, 'RELATED_TO': 3}
+```
+
+Focused tests now cover the current T23A `chunk_ref` grouping, the Neo4j manager compatibility alias, and the live Neo4j smoke requires at least one relationship, one edge, `neo4j_integration_verified=True`, and `end_to_end_success=True`. [12][13][14]
+
 ## Recommendation
 
 Do not re-enable `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The next safe implementation slice is:
 
 1. Add a project-local adapter that takes a filesystem path plus task/format options and calls `CompleteGraphRAGPipeline.process_document(...)`.
-2. Start with `.txt` only, because it avoids PDF fixture complexity and is now proven through the Neo4j-backed runtime smoke test.
+2. Start with `.txt` only, because it avoids PDF fixture complexity and is now proven through the Neo4j-backed runtime smoke test, including real relationships and Neo4j edges.
 3. Return a deliberately narrow response shape with real extracted counts/stage outputs, or adjust `AnalysisResponse` to match the complete-pipeline result instead of forcing old cross-modal fields.
 4. Preserve the current skip-safe Neo4j runtime smoke test and add API-level coverage only after the response contract is chosen.
 
-Confidence: high for path identification; high that the `.txt` complete-pipeline path executes real stages when Neo4j is configured.
+Confidence: high for path identification; high that the `.txt` complete-pipeline path executes real stages, extracts relationships, creates Neo4j edges, and reports end-to-end proof when Neo4j is configured.
 
 ## Open Questions
 
-- Can a richer fixture produce at least one relationship/edge so `end_to_end_success` becomes true?
+- Should `GraphQueryEngine` query-stat helpers get the same read-query compatibility audit, or is the current successful-but-zero-path query result sufficient for the first `/api/analyze` slice?
 - Should there be an explicit non-Neo4j test service manager for document-loader and text-only adapter tests?
 - Should `/api/analyze` remain a high-level document-analysis endpoint, or should a new endpoint expose complete-pipeline execution with a response model that matches actual pipeline stages?
 - Should `.docx`, `.doc`, and `.md` stay in the API validation list only after dedicated loaders are wired?
@@ -113,9 +140,10 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 
 | # | Assumption | Confidence | How to verify | Round | Status |
 |---|---|---|---|---|---|
-| 1 | `CompleteGraphRAGPipeline` is the intended real end-to-end document path. | High | Run a tiny `.txt` fixture through `process_document()` and inspect stage output. | 1 | Verified for real-stage execution with Neo4j configured. |
+| 1 | `CompleteGraphRAGPipeline` is the intended real end-to-end document path. | High | Run a tiny `.txt` fixture through `process_document()` and inspect stage output. | 1 | Verified for real-stage execution, relationship extraction, edge creation, and proof flags with Neo4j configured. |
 | 2 | Starting with `.txt` is safer than PDF for the first API adapter test. | High | Compare fixture/setup complexity and T01 support. | 1 | Verified by passing `.txt` runtime smoke test. |
-| 3 | Current graph build/query dependencies may block full pipeline execution. | High | Run the tiny fixture in the isolated `.venv` and capture the first real failure. | 1 | Resolved for node-only graph execution; relationship/edge-producing fixture remains open. |
+| 3 | Current graph build/query dependencies may block full pipeline execution. | High | Run the tiny fixture in the isolated `.venv` and capture the first real failure. | 1 | Resolved for entity and edge graph execution; query execution succeeds but returns zero discovered paths for the canned queries. |
+| 4 | Zero relationships were caused by fixture weakness rather than adapter grouping. | Medium | Compare direct T23A+T27 probe with complete-pipeline grouping. | 2 | Wrong; direct T27 extracted relationships, while complete-pipeline grouped current T23A `chunk_ref` entities under `unknown`. |
 
 ## Files Consulted
 
@@ -129,3 +157,7 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 - [8] `src/core/service_manager.py`
 - [9] `src/analytics/graph_builder.py`
 - [10] `src/core/distributed_transaction_manager.py`
+- [11] `src/core/neo4j_manager.py`
+- [12] `tests/current_runtime/test_analysis_agent_t27_contract.py`
+- [13] `tests/current_runtime/test_neo4j_manager_compat.py`
+- [14] `tests/current_runtime/test_complete_pipeline_neo4j_runtime.py`

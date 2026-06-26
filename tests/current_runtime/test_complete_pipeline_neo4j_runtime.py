@@ -26,7 +26,11 @@ async def test_complete_pipeline_processes_tiny_txt_with_neo4j() -> None:
     assert result["status"] == "success"
     assert result["pipeline_stats"]["chunks_created"] == 1
     assert result["pipeline_stats"]["entities_extracted"] >= 4
+    assert result["pipeline_stats"]["relationships_extracted"] >= 1
     assert result["pipeline_stats"]["graph_nodes_created"] >= 4
+    assert result["pipeline_stats"]["graph_edges_created"] >= 1
     assert result["pipeline_stats"]["queries_answered"] == 3
     assert result["proof_of_completion"]["all_steps_executed"] is True
     assert result["proof_of_completion"]["real_operations_confirmed"] is True
+    assert result["proof_of_completion"]["neo4j_integration_verified"] is True
+    assert result["proof_of_completion"]["end_to_end_success"] is True

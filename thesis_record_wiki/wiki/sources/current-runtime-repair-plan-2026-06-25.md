@@ -22,6 +22,9 @@ sources:
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
   - ../tests/current_runtime/test_real_dag_t27_dataflow.py
   - ../tests/current_runtime/test_spacy_model_dependency.py
+  - ../src/core/neo4j_manager.py
+  - ../tests/current_runtime/test_complete_pipeline_neo4j_runtime.py
+  - ../tests/current_runtime/test_neo4j_manager_compat.py
 confidence: high
 ---
 
@@ -130,7 +133,7 @@ The convert/stats endpoint follow-up is complete at the API-contract layer: `/ap
 
 The analyze endpoint follow-up is complete at the status-honesty layer: `/api/analyze` no longer saves an uploaded document, discards its content, and sends a metadata-only placeholder graph into the orchestrator. It validates file type and enum parameters, then returns explicit 501 until real document parsing and extraction are wired. The stale `balanced` optimization default was also aligned to the current `standard` enum value. [16]
 
-The analyze document-pipeline investigation identifies `CompleteGraphRAGPipeline.process_document()` / `execute_complete_pipeline()` as the likely real backing path. Because that path is file-path-oriented and currently relies on T01 support for `.pdf` and `.txt`, the recommended implementation slice is a narrow `.txt` adapter and fixture before broader upload support. With the existing local Neo4j Docker container and `NEO4J_PASSWORD` in the shell environment, the tiny `.txt` complete-pipeline smoke test now executes all real stages and creates Neo4j nodes. Remaining proof gap: the tiny fixture produces zero relationships/edges, so full `end_to_end_success` needs a richer relationship-producing fixture. [18]
+The analyze document-pipeline investigation identifies `CompleteGraphRAGPipeline.process_document()` / `execute_complete_pipeline()` as the likely real backing path. Because that path is file-path-oriented and currently relies on T01 support for `.pdf` and `.txt`, the recommended implementation slice is a narrow `.txt` adapter and fixture before broader upload support. With the existing local Neo4j Docker container and `NEO4J_PASSWORD` in the shell environment, the tiny `.txt` complete-pipeline smoke test now executes all real stages, extracts five relationships, creates five Neo4j edges, verifies Neo4j integration, and reports `end_to_end_success=True`. The key adapter repair was grouping current T23A `chunk_ref` entities for T27 instead of looking only for historical `source_ref`. [18][19][20][21]
 
 # Links
 
@@ -158,3 +161,6 @@ The analyze document-pipeline investigation identifies `CompleteGraphRAGPipeline
 [16] `../src/api/cross_modal_api.py`
 [17] `../src/analytics/cross_modal_converter.py`
 [18] `../investigations/2026-06-25-analyze-endpoint-document-pipeline.md`
+[19] `../src/core/neo4j_manager.py`
+[20] `../tests/current_runtime/test_complete_pipeline_neo4j_runtime.py`
+[21] `../tests/current_runtime/test_neo4j_manager_compat.py`

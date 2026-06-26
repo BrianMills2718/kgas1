@@ -366,7 +366,7 @@ class CompleteGraphRAGPipeline:
             # Group mentions by chunk for relationship extraction
             mentions_by_chunk = {}
             for mention in mentions:
-                chunk_ref = mention.get("source_ref", "unknown")
+                chunk_ref = mention.get("source_ref") or mention.get("chunk_ref", "unknown")
                 if chunk_ref not in mentions_by_chunk:
                     mentions_by_chunk[chunk_ref] = []
                 mentions_by_chunk[chunk_ref].append(mention)
@@ -472,8 +472,9 @@ class CompleteGraphRAGPipeline:
             validation_checks["data_flow_maintained"] = (
                 chunking_result.get("chunk_count", 0) > 0 and
                 entity_result.get("mention_count", 0) > 0 and
-                relationship_result.get("relationship_count", 0) >= 0 and  # Relationships might be 0
-                graph_build_result.get("entity_count", 0) > 0
+                relationship_result.get("relationship_count", 0) > 0 and
+                graph_build_result.get("entity_count", 0) > 0 and
+                graph_build_result.get("edge_count", 0) > 0
             )
             
             # Check real operations evidence
@@ -497,12 +498,13 @@ class CompleteGraphRAGPipeline:
                 "validation_checks": validation_checks,
                 "validation_score": sum(validation_checks.values()) / len(validation_checks),
                 "pipeline_complete": validation_checks["pipeline_complete"],
+                "neo4j_verified": validation_checks["neo4j_verified"],
                 "evidence_of_real_operations": {
                     "document_processed": document_result.get("processing_method") != "simulated",
                     "entities_extracted": entity_result.get("mention_count", 0) > 0,
-                    "relationships_found": relationship_result.get("relationship_count", 0) >= 0,
+                    "relationships_found": relationship_result.get("relationship_count", 0) > 0,
                     "neo4j_nodes_created": graph_build_result.get("entity_count", 0) > 0,
-                    "neo4j_edges_created": graph_build_result.get("edge_count", 0) >= 0,
+                    "neo4j_edges_created": graph_build_result.get("edge_count", 0) > 0,
                     "queries_answered": len(query_results) > 0
                 }
             }

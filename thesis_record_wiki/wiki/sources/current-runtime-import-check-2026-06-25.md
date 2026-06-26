@@ -23,6 +23,9 @@ sources:
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
   - ../tests/current_runtime/test_real_dag_t27_dataflow.py
   - ../tests/current_runtime/test_spacy_model_dependency.py
+  - ../src/core/neo4j_manager.py
+  - ../tests/current_runtime/test_complete_pipeline_neo4j_runtime.py
+  - ../tests/current_runtime/test_neo4j_manager_compat.py
 confidence: high
 ---
 
@@ -247,7 +250,7 @@ The same pass aligned the stale `optimization_level` default from `balanced` to 
 
 A follow-up investigation identified `CompleteGraphRAGPipeline.process_document()` / `execute_complete_pipeline()` as the likely real backing path for a future `/api/analyze` implementation. That path runs file-path-oriented T01 document loading, chunking, entity extraction, relationship extraction, graph build, and query stages; `T01PDFLoaderUnified` currently supports `.pdf` and `.txt`, so the safest first API wiring slice is a narrow `.txt` adapter with a real fixture rather than broad upload support. [20]
 
-After using the existing local Neo4j Docker container with `NEO4J_PASSWORD` supplied through the shell environment, the tiny `.txt` complete-pipeline probe now succeeds through all real stages: one chunk, four extracted entities, four Neo4j nodes, PageRank/query stages, and three query executions. The probe still reports `end_to_end_success=False` because the tiny fixture extracts zero relationships/edges, so the next proof target is a richer fixture that creates at least one relationship. The repair pass also fixed DTM legacy method compatibility, T01/T15/T23 adapter drift, T23-to-graph mention normalization, and node-only graph building. [20]
+After using the existing local Neo4j Docker container with `NEO4J_PASSWORD` supplied through the shell environment, the tiny `.txt` complete-pipeline probe now succeeds through all real stages: one chunk, four extracted entities, five extracted relationships, four Neo4j nodes, five Neo4j edges, PageRank/query stages, and three query executions. The probe reports `neo4j_integration_verified=True` and `end_to_end_success=True`. The key relationship/edge repair was not a richer fixture; it was a current-shape adapter bug where complete-pipeline grouped T23A entities only by historical `source_ref` even though current T23A emits `chunk_ref`. The same pass added a Neo4j manager `execute_read_query(...)` compatibility alias and made the proof payload return top-level `neo4j_verified`. [15][20][21][22]
 
 Verification:
 
@@ -285,3 +288,5 @@ tests/current_runtime/test_cross_modal_api_contract.py .................... [100
 [18] `../tests/current_runtime/test_real_dag_t27_dataflow.py`
 [19] `../src/analytics/cross_modal_converter.py`
 [20] `../investigations/2026-06-25-analyze-endpoint-document-pipeline.md`
+[21] `../src/core/neo4j_manager.py`
+[22] `../tests/current_runtime/test_neo4j_manager_compat.py`
