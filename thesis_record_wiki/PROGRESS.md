@@ -241,6 +241,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added the safe thesis organization closeout checkpoint, marking autonomous safe organization complete to the current boundary and listing remaining Brian-gated decisions.
 - `this commit` added a thesis artifact decision brief recommending a private technical archive plus separate reviewed public/portfolio narrative as the safest default.
 - `this commit` added a private public/portfolio narrative outline for KGAS as theory-aware GraphRAG, explicitly marked not for publication and bounded by claim/privacy review rules.
+- `this commit` added a private one-page KGAS portfolio narrative draft derived from the outline, explicitly not for publication/export and constrained by evidence/privacy review notes.
 
 ## Deferred Risk Decisions
 
@@ -250,7 +251,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: review [Private Public Portfolio Narrative Outline 2026 06 26](/wiki/concepts/private-public-portfolio-narrative-outline-2026-06-26.md).
-2. If the frame feels right, draft a one-page private narrative from that outline; do not publish.
+1. Next recommended step: review [Private KGAS Portfolio Narrative Draft 2026 06 26](/wiki/concepts/private-kgas-portfolio-narrative-draft-2026-06-26.md) for tone, audience, and claim level.
+2. If the narrative direction is right, choose a target artifact type: portfolio page, technical blog post, academic note, or private README.
 3. Before any public release, review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` and decide what security/history detail stays private.
 4. Implementation maintenance remains optional and separate from preservation: Pydantic v2 confidence-model warnings, broader current-runtime suite, and any Neo4j cleanup must be planned as their own slices.
