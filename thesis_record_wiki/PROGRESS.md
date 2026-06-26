@@ -4,7 +4,7 @@ title: Thesis Record Wiki Progress
 description: Durable mission, acceptance criteria, completed commits, and next slices for the thesis record wiki.
 tags: [progress, mission, thesis-record]
 created: 2026-06-25
-updated: 2026-06-25
+updated: 2026-06-26
 confidence: high
 ---
 
@@ -202,14 +202,18 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `4d6f02a` added non-destructive source-ref propagation for new T31/T34 Neo4j writes, plus current-runtime tests proving new entity nodes and relationship edges carry `source_refs`; live Neo4j tests remain credential-gated.
 - `8270f08` added optional `source_refs` filtering through T49 query entity lookup, path expansion, and complete-pipeline smoke queries, with no-database current-runtime coverage for scoped query behavior.
 - `6b63c2f` recorded the 2026-06-26 Neo4j safety checkpoint: database dump created at `~/archive/phd_thesis_work/neo4j/20260626-075357/neo4j.dump`, SHA-256 `553d57c74eb1ac3619755e3af41be81ebc1dd00fd52e2005b21f7d5cbbb630dc`, container restarted healthy, and two live source-scoped smoke tests passed with the local ignored `.env` credentials.
-- Pending commit added `scripts/neo4j_source_cleanup.py`, a dry-run-first source-scoped cleanup helper that rejects broad scopes and deletes only exact-source-ref relationships plus isolated exact-source-ref nodes when explicitly run with `--execute`.
+- `67c30e0` added `scripts/neo4j_source_cleanup.py`, a dry-run-first source-scoped cleanup helper that rejects broad scopes and deletes only exact-source-ref relationships plus isolated exact-source-ref nodes when explicitly run with `--execute`.
+- Pending commit added the Plan #1 runtime completion review, classifying the current `.txt` runtime as locally proven while leaving non-text formats, batch analysis, public/export, and live LLM recommendation as explicit deferred gates.
 
 ## Deferred Risk Decisions
 
 - Neo4j smoke-test graph cleanup is deferred because deleting accumulated local graph nodes is destructive shared state. Safe next work should prefer source-scoped query filtering, per-run labels/source refs, or a new isolated test database/container over deleting existing nodes without Brian's explicit approval.
+- Public/export remains deferred because raw PhD/KGAS archives can contain credentials, logs, local paths, and sensitive historical material. Any shareable bundle must be derived, scanned, documented, and reviewed.
+- Live LLM-backed recommendation remains deferred until Brian approves the provider and budget.
 
 ## Next
 
-1. Next recommended step: run a review report over Plan #1 runtime completion gates; keep scoped cleanup as an operator-triggered command, not an automatic action.
-2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
-3. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.
+1. Next recommended step: run a narrow `.pdf` analyze capability probe without touching preserved archive content; if the loader path is ambiguous, document the blocker and keep `.pdf` at 501.
+2. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
+3. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured and budget-approved.
+4. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.

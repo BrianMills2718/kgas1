@@ -143,6 +143,7 @@
 * **Repair** | Added semantic T49 result deduplication so repeated local smoke-test nodes do not dominate ranked query results.
 * **Verification** | Added focused T27 dependency-parser fixture proving spaCy subject-verb-object extraction emits a dependency-parsing relationship without Neo4j setup.
 * **Risk** | Deferred Neo4j smoke-test graph cleanup because deleting accumulated local nodes is destructive shared state; future work should use source scoping, per-run labels, an isolated test database, or explicit approval.
+* **Review** | Added the Plan #1 runtime completion review, confirming the narrow `.txt` Neo4j-backed runtime proof while deferring non-text analysis, batch analysis, public/export, and live LLM recommendation.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.

@@ -109,14 +109,16 @@ Evidence: `scripts/neo4j_source_cleanup.py`, `tests/current_runtime/test_neo4j_s
 
 ### Slice 3 - Runtime Review Bundle
 
-**Status:** Planned
+**Status:** Complete
 
 **Safe scope:** generate a review report over current runtime status, endpoint honesty, and remaining unproven formats. No code changes unless review findings are unambiguous.
 
 **Done when:**
-- report lists tests run, pass/fail counts, remaining 501/503 endpoints, and evidence grades;
-- current-runtime tests pass;
-- wiki records the review result.
+- [x] report lists tests run, pass/fail counts, remaining 501/503 endpoints, and evidence grades;
+- [x] current-runtime tests pass;
+- [x] wiki records the review result.
+
+Evidence: `investigations/2026-06-26-runtime-completion-review.md`, latest `tests/current_runtime` pass count 58 passed / 2 skipped, live Neo4j smoke result 2 passed, and wiki lint health 100/100.
 
 ### Slice 4 - Public/Export Plan
 
@@ -181,6 +183,8 @@ Evidence: `scripts/neo4j_source_cleanup.py`, `tests/current_runtime/test_neo4j_s
 | C4 | Historical docs overclaim capabilities relative to current runtime. | False completion claim | Review gate must separate current runtime proof from archive evidence. |
 | C5 | Some formats (`.pdf`, `.docx`, `.md`) remain unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 until separately proven. |
 | C6 | Source-scoped cleanup exists, but executing it against real smoke-test source refs is still destructive for those scoped records. | Scoped data deletion | Keep as operator-triggered; do not execute automatically. |
+| C7 | `/api/batch/analyze` is intentionally 501 until it wraps a proven single-document path. | Runtime gap | Defer batch work until more single-document formats are proven. |
+| C8 | FastAPI startup/shutdown deprecation warnings remain in runtime tests. | Maintenance debt | Modernize lifecycle hooks after completion gates are stable. |
 
 ---
 
