@@ -2,6 +2,7 @@
 
 ## 2026-06-26
 
+* **Review** | Built and scanned a local docs-only public-export candidate under ignored `exports/`, recorded the 251-file/2.4M inventory, 74 review-needed secret-pattern hits, and no forbidden file types in the committed export review artifact.
 * **Security** | Added public-export readiness docs and draft manifest defining a documentation-first export candidate, excluded raw-risk paths, scan commands, and private-by-default publication posture.
 * **Review** | Added blocked-gates decision brief separating public/export, live LLM recommendation, Neo4j cleanup execution, and legacy `.doc` support, with safe defaults and approval paths.
 * **Repair** | Added dry-run-first source-scoped Neo4j cleanup helper and tests; broad cleanup remains forbidden and execution remains operator-triggered.

@@ -7,6 +7,7 @@ Track all implementation work here.
 | # | Name | Priority | Status | Blocks |
 |---|------|----------|--------|--------|
 | 1 | [Full Program Completion](01_full_program_completion.md) | High | ⏸️ Blocked | runtime hardening, review gate, public/export packaging |
+| 2 | [Safe Organization Completion](02_safe_organization_completion.md) | High | 🚧 In Progress | final safe organization closeout |
 
 ## Status Key
 

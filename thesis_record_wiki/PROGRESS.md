@@ -214,6 +214,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `52db850` marked Plan #1 safe local runtime work verified and blocked only on Brian-gated public/export, live LLM recommendation, and cleanup execution decisions.
 - `6d155a5` added the blocked-gates decision brief, separating public/export, live LLM recommendation, Neo4j cleanup execution, and legacy `.doc` support into explicit Brian approval decisions with safe defaults.
 - `abc2b94` added public-export readiness docs and a draft manifest, defining a documentation-first export candidate, excluded raw-risk paths, scan commands, and private-by-default publication posture.
+- `PENDING` added Plan #2 safe-organization completion criteria and the public-export review artifact for the local docs-only candidate: 251 files, 2.4M, 74 review-needed pattern hits, and no forbidden file types.
 
 ## Deferred Risk Decisions
 
@@ -223,7 +224,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: Brian should review `docs/public_export/EXPORT_MANIFEST_DRAFT.md` and decide whether to approve building a temporary documentation-only export candidate for scan review.
-2. Recommended order after export review: live LLM recommendation only if recommendation behavior matters; Neo4j cleanup only for exact source refs; legacy `.doc` only if a specific old Word file is needed.
-3. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
-4. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.
+1. Next recommended step: finish Plan #2 verification and closeout, then stop at Brian approval gates.
+2. Brian should review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` before any export publication or private export repo creation.
+3. Recommended order after safe organization closeout: live LLM recommendation only if recommendation behavior matters; Neo4j cleanup only for exact source refs; legacy `.doc` only if a specific old Word file is needed.
+4. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
