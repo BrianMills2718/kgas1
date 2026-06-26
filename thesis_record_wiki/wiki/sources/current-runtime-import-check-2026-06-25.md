@@ -252,6 +252,10 @@ A follow-up investigation identified `CompleteGraphRAGPipeline.process_document(
 
 After using the existing local Neo4j Docker container with `NEO4J_PASSWORD` supplied through the shell environment, the tiny `.txt` complete-pipeline probe now succeeds through all real stages: one chunk, four extracted entities, five extracted relationships, four Neo4j nodes, five Neo4j edges, PageRank/query stages, and three query executions. The probe reports `neo4j_integration_verified=True` and `end_to_end_success=True`. The key relationship/edge repair was not a richer fixture; it was a current-shape adapter bug where complete-pipeline grouped T23A entities only by historical `source_ref` even though current T23A emits `chunk_ref`. The same pass added a Neo4j manager `execute_read_query(...)` compatibility alias and made the proof payload return top-level `neo4j_verified`. [15][20][21][22]
 
+The first `/api/analyze` real-pipeline wiring is now complete for `.txt` uploads only. The endpoint writes the upload to a controlled temporary `.txt` file, calls `CompleteGraphRAGPipeline.process_document(...)`, removes the temp file in `finally`, and serializes the real complete-pipeline output into the existing `AnalysisResponse` wrapper. Non-text document extensions that were previously accepted at validation time remain explicit 501s until their loader and pipeline behavior are separately proven. Focused API tests cover dispatch, temp cleanup, response fields, invalid target-format 400s, unsupported extension 400s, and non-text 501s. A skip-safe live API test also runs the `.txt` endpoint path with Neo4j credentials and asserts relationships, edges, Neo4j proof, and end-to-end success. [2][7][15]
+
+Remaining caveat: the live API/pipeline path logs that graph connectivity analysis is blocked by the current Cypher input validator because the internal connectivity query uses `CALL { ... }`. This does not block entity/edge verification or end-to-end proof, but it means connectivity statistics remain a separate validation-policy repair target. [15]
+
 Verification:
 
 ```text

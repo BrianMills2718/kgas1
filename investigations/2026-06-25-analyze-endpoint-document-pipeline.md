@@ -118,22 +118,34 @@ relationship_types {'WORKS_FOR': 1, 'CREATED': 1, 'RELATED_TO': 3}
 
 Focused tests now cover the current T23A `chunk_ref` grouping, the Neo4j manager compatibility alias, and the live Neo4j smoke requires at least one relationship, one edge, `neo4j_integration_verified=True`, and `end_to_end_success=True`. [12][13][14]
 
+### API wiring slice: `.txt` only
+
+The first `/api/analyze` wiring slice is now deliberately narrow. The endpoint still validates target format, optimization level, and validation level, then dispatches only `.txt` uploads through `CompleteGraphRAGPipeline.process_document(...)`. The upload is written to a controlled temporary `.txt` path, passed to the file-path-oriented pipeline, and removed in a `finally` block. [1][3]
+
+The response maps the complete-pipeline output into the existing `AnalysisResponse` shape without inventing cross-modal orchestration fields:
+
+- `workflow_id`: complete-pipeline transaction ID
+- `selected_mode`: `complete_graphrag_pipeline`
+- `results`: real `pipeline_stats`, `pipeline_results`, and `proof_of_completion`
+- `validation`: complete-pipeline validation payload
+- `source_traceability`: original filename, `.txt`, and document ref from T01 loading
+
+Previously accepted but unproven extensions (`.pdf`, `.docx`, `.doc`, `.md`) now return 501 from `/api/analyze` with an explicit "only for .txt" message. Unsupported extensions such as `.exe` still return 400. Focused API tests prove temp-file cleanup, pipeline dispatch, response serialization, and non-text 501 behavior. A skip-safe live API test also calls `analyze_document(...)` with a `.txt` upload when `NEO4J_PASSWORD` is configured and asserts relationships, graph edges, Neo4j proof, and end-to-end success. [1][12]
+
+The live API test exposed a non-blocking graph-validation concern: `_analyze_graph_connectivity(...)` uses a `CALL { ... }` Cypher subquery that the current input validator blocks as a dangerous pattern. Entity and edge verification still succeed, `neo4j_integration_verified=True`, and `end_to_end_success=True`, but graph connectivity statistics should be audited separately rather than silently treated as validated. [9]
+
 ## Recommendation
 
-Do not re-enable `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The next safe implementation slice is:
+Do not broaden `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The current safe slice is `.txt` only and backed by `CompleteGraphRAGPipeline.process_document(...)`. The next safe implementation slice is either a live API-level `.txt` test with Neo4j credentials available or a similarly narrow `.pdf` acceptance fixture after PDF behavior is proven through T01 and the complete pipeline.
 
-1. Add a project-local adapter that takes a filesystem path plus task/format options and calls `CompleteGraphRAGPipeline.process_document(...)`.
-2. Start with `.txt` only, because it avoids PDF fixture complexity and is now proven through the Neo4j-backed runtime smoke test, including real relationships and Neo4j edges.
-3. Return a deliberately narrow response shape with real extracted counts/stage outputs, or adjust `AnalysisResponse` to match the complete-pipeline result instead of forcing old cross-modal fields.
-4. Preserve the current skip-safe Neo4j runtime smoke test and add API-level coverage only after the response contract is chosen.
-
-Confidence: high for path identification; high that the `.txt` complete-pipeline path executes real stages, extracts relationships, creates Neo4j edges, and reports end-to-end proof when Neo4j is configured.
+Confidence: high for path identification; high that the `.txt` complete-pipeline path executes real stages, extracts relationships, creates Neo4j edges, reports end-to-end proof when Neo4j is configured, and is now reachable through `/api/analyze` for `.txt` uploads.
 
 ## Open Questions
 
+- Should graph connectivity validation be rewritten to avoid the validator-blocked `CALL { ... }` subquery, or should that query be explicitly allowed as a trusted internal read?
 - Should `GraphQueryEngine` query-stat helpers get the same read-query compatibility audit, or is the current successful-but-zero-path query result sufficient for the first `/api/analyze` slice?
 - Should there be an explicit non-Neo4j test service manager for document-loader and text-only adapter tests?
-- Should `/api/analyze` remain a high-level document-analysis endpoint, or should a new endpoint expose complete-pipeline execution with a response model that matches actual pipeline stages?
+- Should `/api/analyze` keep using the generic `AnalysisResponse` wrapper, or should a new endpoint expose complete-pipeline execution with a response model that exactly matches actual pipeline stages?
 - Should `.docx`, `.doc`, and `.md` stay in the API validation list only after dedicated loaders are wired?
 
 ## Assumptions Register

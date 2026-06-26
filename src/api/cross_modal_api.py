@@ -10,6 +10,7 @@ This complements (not replaces) the MCP server interface.
 """
 
 import uuid
+import tempfile
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Union
 from pathlib import Path
@@ -163,13 +164,14 @@ async def analyze_document(
     _parse_enum(DataFormat, target_format, "target format")
     _parse_enum(WorkflowOptimizationLevel, optimization_level, "optimization level")
     _parse_enum(ValidationLevel, validation_level, "validation level")
-    raise HTTPException(
-        status_code=501,
-        detail=(
-            "/api/analyze is not wired to the current document extraction pipeline. "
-            "Use lower-level pipeline tools or implement real document parsing before enabling this endpoint."
-        ),
-    )
+
+    if file_ext != ".txt":
+        raise HTTPException(
+            status_code=501,
+            detail="/api/analyze is currently wired only for .txt uploads through the complete pipeline"
+        )
+
+    return await _analyze_txt_upload(file)
 
 # Format conversion endpoint
 @app.post("/api/convert")
@@ -358,6 +360,62 @@ def _initialize_cross_modal_services(config: Dict[str, Any]) -> Any:
     except ImportError as exc:
         raise HTTPException(status_code=503, detail=f"Cross-modal registry unavailable: {exc}") from exc
     return initialize_cross_modal_services(config)
+
+def _create_complete_pipeline() -> Any:
+    """Construct the current complete document pipeline only when analyze needs it."""
+    from src.analytics.complete_pipeline import CompleteGraphRAGPipeline
+    return CompleteGraphRAGPipeline()
+
+async def _analyze_txt_upload(file: UploadFile) -> Dict[str, Any]:
+    """Run a `.txt` upload through the current complete GraphRAG pipeline."""
+    document_path = None
+    try:
+        payload = await file.read()
+        with tempfile.NamedTemporaryFile("wb", suffix=".txt", delete=False) as temp_file:
+            temp_file.write(payload)
+            document_path = temp_file.name
+
+        pipeline = _create_complete_pipeline()
+        result = await pipeline.process_document(document_path)
+        if result.get("status") != "success":
+            raise HTTPException(
+                status_code=500,
+                detail=f"Complete pipeline failed: {result.get('error', 'unknown error')}"
+            )
+
+        return _serialize_complete_pipeline_analysis(result, file.filename or "upload.txt")
+    except HTTPException:
+        raise
+    except Exception as exc:
+        logger.error(f"Complete pipeline analyze failed: {exc}")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    finally:
+        if document_path:
+            Path(document_path).unlink(missing_ok=True)
+
+def _serialize_complete_pipeline_analysis(result: Dict[str, Any], filename: str) -> Dict[str, Any]:
+    """Map complete-pipeline output into the existing analysis response model."""
+    pipeline_results = result.get("pipeline_results", {})
+    document_loading = pipeline_results.get("document_loading", {})
+    return {
+        "workflow_id": result.get("transaction_id", str(uuid.uuid4())),
+        "selected_mode": "complete_graphrag_pipeline",
+        "results": {
+            "status": result.get("status"),
+            "pipeline_stats": result.get("pipeline_stats", {}),
+            "pipeline_results": pipeline_results,
+            "proof_of_completion": result.get("proof_of_completion", {}),
+        },
+        "validation": result.get("validation", {}),
+        "performance_metrics": {
+            "pipeline_stats": result.get("pipeline_stats", {}),
+        },
+        "source_traceability": {
+            "filename": filename,
+            "file_type": ".txt",
+            "document_ref": document_loading.get("document_ref"),
+        },
+    }
 
 def _parse_enum(enum_cls: Any, raw_value: str, label: str) -> Any:
     """Parse API strings against enum values, accepting case-insensitive values."""

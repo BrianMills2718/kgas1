@@ -190,10 +190,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `7301f7e` ran the tiny `.txt` complete-pipeline probe; it blocks before T01 loading because `ServiceManager.identity_service` requires live Neo4j-backed services.
 - `b58a599` used the existing local Neo4j container, repaired DTM and complete-pipeline adapter drift, and verified a tiny `.txt` file executes real pipeline stages through Neo4j node creation and query execution.
 - This commit repaired complete-pipeline T23A-to-T27 chunk grouping, added a Neo4j manager read-query compatibility alias, and verified the tiny `.txt` pipeline now extracts 5 relationships, creates 5 Neo4j edges, and reports `end_to_end_success=True`.
+- Pending commit wired `/api/analyze` for `.txt` uploads only through `CompleteGraphRAGPipeline.process_document(...)`, with temp-file cleanup, live Neo4j-backed API coverage, and explicit 501 status for unproven non-text document formats.
 
 ## Next
 
-1. Next recommended step: design the narrow `.txt` `/api/analyze` adapter response contract around `CompleteGraphRAGPipeline.process_document(...)`, then add API-level tests before enabling the endpoint.
+1. Next recommended step: repair or explicitly classify graph connectivity validation, whose internal `CALL { ... }` Cypher subquery is currently blocked by the input validator even though entity/edge proof passes.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
 4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.

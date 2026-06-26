@@ -126,6 +126,7 @@
 * **Ingest** | Added universal theory applicator slice and complexity-conservation-in-theory-application concept.
 * **Ingest** | Added semantic-hypergraph application-results slice and formal-notation-as-theory-content concept.
 * **Plan** | Added current runtime repair plan for cross-modal API and MCP import blockers.
+* **Repair** | Wired `/api/analyze` for `.txt` uploads through the complete GraphRAG pipeline, with temp-file cleanup, real pipeline response serialization, and explicit 501 status for unproven non-text document formats.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
