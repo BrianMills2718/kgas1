@@ -171,7 +171,14 @@ def _validate_file(
                 target_path = markdown_file
             else:
                 candidate = Path(decoded_path).expanduser()
-                target_path = candidate if candidate.is_absolute() else (markdown_file.parent / candidate)
+                if decoded_path == "/PROGRESS.md":
+                    target_path = repo_root / "thesis_record_wiki" / "PROGRESS.md"
+                elif decoded_path.startswith("/wiki/"):
+                    target_path = repo_root / "thesis_record_wiki" / decoded_path.lstrip("/")
+                elif candidate.is_absolute():
+                    target_path = candidate
+                else:
+                    target_path = markdown_file.parent / candidate
                 if not target_path.exists():
                     canonical_target = resolve_canonical_target_path(
                         target_path=target_path,
