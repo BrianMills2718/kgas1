@@ -122,6 +122,29 @@ An attempted eager import of `src.analytics.cross_modal_service_registry` expose
 
 The mode-recommendation endpoint now returns an explicit 501 because its old `DataContext` construction no longer matches the current `DataContext` dataclass. That is a truthful status boundary rather than a silent fallback.
 
+# Isolated Environment Follow-Up
+
+A project-local `.venv` was created and `requirements.txt` was installed there. The declared requirements installed successfully, but isolated import checks exposed three missing runtime dependencies that were not declared in `requirements.txt`: `python-multipart` for FastAPI file-upload routes, `fastmcp` for MCP server imports, and `psutil` for core/tool monitoring code. These were added to `requirements.txt` and installed into the local `.venv`. [2][3][6]
+
+The generated `config/default.yaml` contains empty credential fields and default local settings. It was created by the repo configuration manager during import and removed the earlier missing-config warning for subsequent runs.
+
+After the dependency additions, the isolated import check reports:
+
+```text
+OK src.core.tool_contract
+OK src.api.cross_modal_api
+OK src.mcp_server
+```
+
+The MCP import still logs a warning that `sympy` is unavailable and falls back to the enhanced parser. That warning does not block module import, but it should be tracked if formula parsing with SymPy support matters for MCP algorithm tools. [3]
+
+The focused current-runtime tests also pass in the isolated environment:
+
+```text
+tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
+8 passed, 2 warnings
+```
+
 # Links
 
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md)
@@ -138,3 +161,4 @@ The mode-recommendation endpoint now returns an explicit 501 because its old `Da
 [5] `../src/analytics/cross_modal_orchestrator.py`  
 [6] `../requirements.txt`
 [7] `../tests/current_runtime/test_cross_modal_api_contract.py`
+[8] `../config/default.yaml`
