@@ -204,7 +204,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `6b63c2f` recorded the 2026-06-26 Neo4j safety checkpoint: database dump created at `~/archive/phd_thesis_work/neo4j/20260626-075357/neo4j.dump`, SHA-256 `553d57c74eb1ac3619755e3af41be81ebc1dd00fd52e2005b21f7d5cbbb630dc`, container restarted healthy, and two live source-scoped smoke tests passed with the local ignored `.env` credentials.
 - `67c30e0` added `scripts/neo4j_source_cleanup.py`, a dry-run-first source-scoped cleanup helper that rejects broad scopes and deletes only exact-source-ref relationships plus isolated exact-source-ref nodes when explicitly run with `--execute`.
 - `0761bca` added the Plan #1 runtime completion review, classifying the current `.txt` runtime as locally proven while leaving non-text formats, batch analysis, public/export, and live LLM recommendation as explicit deferred gates.
-- Pending commit proved narrow `.pdf` `/api/analyze` support using the existing complete-pipeline/T01 path, a tiny generated PDF fixture, and live Neo4j-backed TXT+PDF smoke tests.
+- `5ba418f` proved narrow `.pdf` `/api/analyze` support using the existing complete-pipeline/T01 path, a tiny generated PDF fixture, and live Neo4j-backed TXT+PDF smoke tests.
 
 ## Deferred Risk Decisions
 
