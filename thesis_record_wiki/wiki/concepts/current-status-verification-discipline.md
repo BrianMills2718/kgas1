@@ -44,6 +44,7 @@ Do not collapse these into one status label.
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
 - [Current Runtime Repair Plan 2026-06-25](/wiki/sources/current-runtime-repair-plan-2026-06-25.md)
 - [Current Uncertainty Code Path Map 2026 06 26](/wiki/sources/current-uncertainty-code-path-map-2026-06-26.md)
+- [Current Confidence Smoke Rerun Plan 2026 06 26](/wiki/sources/current-confidence-smoke-rerun-plan-2026-06-26.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Documentation Status Truthfulness](/wiki/concepts/documentation-status-truthfulness.md)
 - [Reality Verification Arc](/wiki/concepts/reality-verification-arc.md)

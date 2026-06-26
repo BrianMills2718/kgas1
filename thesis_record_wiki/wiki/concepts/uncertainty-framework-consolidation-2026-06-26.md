@@ -20,6 +20,7 @@ sources:
   - /wiki/sources/digimon-lineage-archived-uncertainty-datasets.md
   - /wiki/sources/adr-029-location-verification-2026-06-26.md
   - /wiki/sources/current-uncertainty-code-path-map-2026-06-26.md
+  - /wiki/sources/current-confidence-smoke-rerun-plan-2026-06-26.md
   - /wiki/concepts/evidence-claim-discipline.md
   - /wiki/concepts/current-status-verification-discipline.md
 confidence: high
@@ -51,6 +52,7 @@ The safest reading is that KGAS uncertainty work evolved toward auditable, local
 | Archived uncertainty datasets | Corpus/provenance layer. | Preserves 100-user and 84-user Twitter-like psychological datasets plus ground truths and configuration. | Sensitive research data with identifiers, handles, tweet text, timestamps, and psychological scores; use manifest-level summaries by default. |
 | ADR-029 / Comprehensive7 | Recovered historical architecture layer. | Shows the accepted 2025-07 IC-informed framework: ICD-203/206, Heuer principles, root-sum-squares propagation, and single integrated LLM analysis. | The recovered bundle was later moved into an architecture-cleanup archive whose manifest says the IC uncertainty approach was abandoned. |
 | Current confidence code | Current source-code layer. | Contains ADR-004-derived `ConfidenceScore`, CERQual fields, ranges, temporal decay, combiners, calculators, and adapter/tool integration points. | Current code evidence does not prove ADR-029/Comprehensive7 runtime behavior; source-ref provenance is not the same as uncertainty propagation. |
+| Current confidence smoke | Observed no-IO runtime slice. | Imports the confidence package, creates a CERQual score, sets a range, and combines with medium confidence. | Smoke result proves only this tiny package path, not pipeline-wide uncertainty propagation or dissertation validation. |
 | Current-status verification discipline | Recovery rule. | Separates architecture claim, historical evidence claim, current code claim, and runtime claim. | No future summary should convert archived uncertainty evidence into current runtime status without rerunning or inspecting the checkout. |
 
 # Active Reading Rule
@@ -102,6 +104,7 @@ The next safe uncertainty work is read-only:
 - [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md)
 - [ADR 029 Location Verification 2026 06 26](/wiki/sources/adr-029-location-verification-2026-06-26.md)
 - [Current Uncertainty Code Path Map 2026 06 26](/wiki/sources/current-uncertainty-code-path-map-2026-06-26.md)
+- [Current Confidence Smoke Rerun Plan 2026 06 26](/wiki/sources/current-confidence-smoke-rerun-plan-2026-06-26.md)
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md)
