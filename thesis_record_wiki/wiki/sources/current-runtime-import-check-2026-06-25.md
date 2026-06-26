@@ -262,6 +262,8 @@ The T49 query-entity extractor also now handles simple natural-language question
 
 The T49 result ranker now deduplicates semantic results before final ranking. This addresses repeated local smoke-test nodes where the top results were ID-distinct but semantically identical `Alice -> Seattle` variants. The live `Who is connected to Alice?` probe now returns one semantic Alice-Seattle result rather than ten duplicate local-node variants. [24]
 
+The parser-derived T27 relationship path now has focused coverage. A direct current-runtime fixture calls `_extract_dependency_relationships(...)` with `Alice admired Bob.`, proving the installed spaCy model can drive the dependency-parsing path without Neo4j or service-manager setup. [25]
+
 Verification:
 
 ```text
@@ -302,3 +304,4 @@ tests/current_runtime/test_cross_modal_api_contract.py .................... [100
 [22] `../tests/current_runtime/test_neo4j_manager_compat.py`
 [23] `../src/tools/phase1/multihop_query/query_entity_extractor.py`
 [24] `../src/tools/phase1/multihop_query/result_ranker.py`
+[25] `../tests/current_runtime/test_t27_dependency_parser.py`

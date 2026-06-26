@@ -195,6 +195,7 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `f85fe4d` changed default complete-pipeline query smoke tests to use extracted entity names and count only non-empty query results as answered; live `.txt` probe now returns results for `Alice` and `Bob`.
 - `f38358e` repaired T49 query entity extraction so simple natural-language questions like "Who is connected to Alice?" extract Alice and return live graph query results.
 - `3ba5387` deduplicated T49 semantic results before final ranking so repeated local smoke-test nodes no longer dominate results with ID-distinct copies of `Alice -> Seattle`.
+- Pending commit added a focused T27 dependency-parser fixture proving the spaCy subject-verb-object path can emit a dependency-parsing relationship without Neo4j/service-manager setup.
 
 ## Deferred Risk Decisions
 
@@ -204,6 +205,5 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 
 1. Next recommended step: isolate or clean up live Neo4j smoke-test subgraphs so repeated verification runs do not keep accumulating duplicate Alice/Acme/Bob/Seattle nodes.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
-3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
-4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
-5. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
+3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
+4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

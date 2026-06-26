@@ -176,6 +176,10 @@ Repeated live smoke tests create multiple local Neo4j nodes with the same canoni
 
 The ranker now deduplicates after scoring and filtering but before final ranking. `related_entity` results are keyed by `(query_entity, related_entity, entity_type)`, and path results are keyed by path names plus relationship types. For duplicate candidates it keeps the strongest ranking/confidence/connection-count candidate. A live probe now returns one semantic `Alice -> Seattle` result instead of ten local-ID duplicates. [16]
 
+### T27 dependency-parser fixture
+
+The parser-derived T27 follow-up is now covered by a direct unit fixture that avoids service-manager and Neo4j setup. The test calls `_extract_dependency_relationships(...)` with `Alice admired Bob.`, current T27-shaped entity spans, and the installed `en_core_web_sm` model. The sentence does not match the existing high-level relationship regexes, so the passing result specifically proves the spaCy subject-verb-object dependency path emits one `dependency_parsing` relationship with verb `admire`. [17]
+
 ## Recommendation
 
 Do not broaden `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The current safe slice is `.txt` only and backed by `CompleteGraphRAGPipeline.process_document(...)`. The next safe implementation slice is either a live API-level `.txt` test with Neo4j credentials available or a similarly narrow `.pdf` acceptance fixture after PDF behavior is proven through T01 and the complete pipeline.
@@ -227,3 +231,4 @@ Neo4j smoke-test cleanup is intentionally deferred. The local database has accum
 - [14] `tests/current_runtime/test_complete_pipeline_neo4j_runtime.py`
 - [15] `src/tools/phase1/multihop_query/query_entity_extractor.py`
 - [16] `src/tools/phase1/multihop_query/result_ranker.py`
+- [17] `tests/current_runtime/test_t27_dependency_parser.py`
