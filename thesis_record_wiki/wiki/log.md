@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Repair** | Threaded optional `source_refs` filtering through T49 entity lookup, path expansion, and complete-pipeline query smoke tests, preserving default unscoped behavior and avoiding graph cleanup.
 * **Repair** | Added source-ref propagation for new T31/T34 Neo4j writes and current-runtime tests for source-scoped graph construction without deleting existing graph data.
 * **Safety** | Added runtime verification isolation boundary for Neo4j-backed smoke tests, deferring destructive graph cleanup and recommending run/source-scoped verification.
 * **Security** | Added public-export security boundary consolidating credential, `.env`, backup-tarball, and sensitive-dataset caveats into a no-in-place-sanitization rule for future shareable exports.

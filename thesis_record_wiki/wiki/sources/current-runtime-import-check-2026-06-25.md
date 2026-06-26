@@ -268,6 +268,8 @@ The remaining Neo4j cleanup question is a safety boundary, not an immediate clea
 
 The first source-scoping implementation is now additive. New T31 entity nodes and T34 relationship edges carry the graph-builder `source_refs` property, and current-runtime tests verify that propagation without a live database. The live complete-pipeline smoke fixture was also changed to use a unique source-scoped document payload and to assert source refs on graph entities/edges when Neo4j credentials are available. Query-layer filtering by `source_refs` remains a future slice. [26][27][28]
 
+The query-layer source-scoping slice then threaded optional `source_refs` through the T49 path: complete-pipeline query calls pass the document ref, `GraphQueryEngine` forwards it into T49 parameters, T49 entity lookup filters candidate entities by source refs, and path/related-entity Cypher filters traversed nodes and relationships by source refs when provided. Current-runtime tests cover the parameter propagation and generated Cypher without requiring a live Neo4j database. Live source-scoped Neo4j execution remains credential-gated. [15][29][30][31][32][33]
+
 Verification:
 
 ```text
@@ -313,3 +315,8 @@ tests/current_runtime/test_cross_modal_api_contract.py .................... [100
 [26] `../src/tools/phase1/t31_entity_builder_unified.py`
 [27] `../src/tools/phase1/t34_edge_builder_unified.py`
 [28] `../tests/current_runtime/test_graph_builder_contract.py`
+[29] `../src/analytics/graph_query_engine.py`
+[30] `../src/tools/phase1/multihop_query/multihop_query_tool.py`
+[31] `../src/tools/phase1/multihop_query/query_entity_extractor.py`
+[32] `../src/tools/phase1/multihop_query/path_finder.py`
+[33] `../src/tools/phase1/multihop_query/connection_manager.py`

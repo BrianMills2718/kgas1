@@ -47,7 +47,9 @@ A future code slice is safe if it can prove:
 
 The first safe implementation slice is additive: new T31 entity-node writes and T34 relationship-edge writes now carry `source_refs` from the graph-builder input. Focused current-runtime tests prove source refs are propagated without requiring a live Neo4j database.
 
-This does not delete or rewrite existing graph data, and it does not yet make T49 queries source-scoped. The next implementation step is query-layer filtering against `source_refs`, not cleanup of the accumulated graph.
+The second safe implementation slice threads optional `source_refs` filtering through T49 query entity lookup, path expansion, and complete-pipeline smoke queries. When no source refs are supplied, query behavior remains unchanged. When source refs are supplied, entity lookup and graph traversal are constrained to nodes and relationships carrying that source ref.
+
+This does not delete or rewrite existing graph data. The remaining live verification step is to run the Neo4j-backed smoke in an environment with `NEO4J_PASSWORD` set and confirm the scoped query path against an actual local graph.
 
 # Why This Matters
 
