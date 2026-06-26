@@ -19,7 +19,7 @@ This wiki is a derived navigation layer for Brian's KGAS / Digimons / PhD thesis
 
 The current tracked repo presents KGAS as an academic research GraphRAG system connected to the dissertation topic "Theoretical Foundations for LLM-Generated Ontologies and Analysis of Fringe Discourse." [2] The current `CLAUDE.md` also preserves older operational context about tool compatibility, vertical slices, uncertainty propagation, provenance, reasoning traces, and documentation cleanup. [3]
 
-For ongoing ingest state and next slices, see `thesis_record_wiki/PROGRESS.md`.
+For ongoing ingest state and next slices, see [Progress](/PROGRESS.md).
 
 # Preservation Model
 

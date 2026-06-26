@@ -90,7 +90,7 @@ All top-level directories identified by this audit are now represented at overvi
 - [Digimon Lineage Old Docs 2025 08](/wiki/sources/digimon-lineage-old-docs-2025-08.md): superseded old-docs archive covering contract-first, structured-output, operations, and uncertainty notes.
 - [Digimon Lineage Old Backups Results](/wiki/sources/digimon-lineage-old-backups-results.md): start of the old-backups represented slice family.
 - [Digimon Lineage UI Recovered Components](/wiki/sources/digimon-lineage-ui-recovered-components.md): represented UI/archive UI slice.
-- `thesis_record_wiki/PROGRESS.md`: working queue and commit-level progress tracker.
+- [Progress](../../PROGRESS.md): working queue and commit-level progress tracker.
 
 # Citations
 
