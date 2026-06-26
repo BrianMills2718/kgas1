@@ -170,6 +170,12 @@ How is Alice connected to Acme Corporation? -> Alice, Acme Corporation
 
 A live T49/GraphQueryEngine probe with Neo4j configured now returns five results for `Who is connected to Alice?`, with the top related-entity result connecting Alice to Seattle. [15]
 
+### T49 result deduplication repair
+
+Repeated live smoke tests create multiple local Neo4j nodes with the same canonical names, so graph query ranking could return many ID-distinct but semantically identical results. A live `Who is connected to Alice?` probe showed the top 10 results were all variants of `Alice -> Seattle`, differing only by repeated local `entity_id` values.
+
+The ranker now deduplicates after scoring and filtering but before final ranking. `related_entity` results are keyed by `(query_entity, related_entity, entity_type)`, and path results are keyed by path names plus relationship types. For duplicate candidates it keeps the strongest ranking/confidence/connection-count candidate. A live probe now returns one semantic `Alice -> Seattle` result instead of ten local-ID duplicates. [16]
+
 ## Recommendation
 
 Do not broaden `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The current safe slice is `.txt` only and backed by `CompleteGraphRAGPipeline.process_document(...)`. The next safe implementation slice is either a live API-level `.txt` test with Neo4j credentials available or a similarly narrow `.pdf` acceptance fixture after PDF behavior is proven through T01 and the complete pipeline.
@@ -180,7 +186,7 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 
 - Should `GraphQueryEngine` query-stat helpers get the same read-query compatibility audit, or is the current successful-but-zero-path query result sufficient for the first `/api/analyze` slice?
 - Should complete-pipeline query smoke tests prefer relationship endpoints such as source/target pairs rather than single-entity related-neighbor queries?
-- Should graph query ranking deduplicate repeated entities from accumulated smoke-test runs so result quality is not dominated by local duplicate nodes?
+- Should graph-build smoke tests clean up their temporary Neo4j subgraphs, or should tests use per-run labels/source refs to isolate query results?
 - Should there be an explicit non-Neo4j test service manager for document-loader and text-only adapter tests?
 - Should `/api/analyze` keep using the generic `AnalysisResponse` wrapper, or should a new endpoint expose complete-pipeline execution with a response model that exactly matches actual pipeline stages?
 - Should `.docx`, `.doc`, and `.md` stay in the API validation list only after dedicated loaders are wired?
@@ -211,3 +217,4 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 - [13] `tests/current_runtime/test_neo4j_manager_compat.py`
 - [14] `tests/current_runtime/test_complete_pipeline_neo4j_runtime.py`
 - [15] `src/tools/phase1/multihop_query/query_entity_extractor.py`
+- [16] `src/tools/phase1/multihop_query/result_ranker.py`

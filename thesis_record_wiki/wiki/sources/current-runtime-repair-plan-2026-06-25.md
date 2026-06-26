@@ -139,6 +139,8 @@ The query-result quality follow-up is complete for the default smoke path. Compl
 
 The first T49 natural-language extraction repair is also complete. The query entity extractor now avoids swallowing lowercase connective text in capitalized-phrase matches, so `Who is connected to Alice?` extracts Alice and a live GraphQueryEngine probe returns five related-entity results. Remaining graph-query quality work is result deduplication and richer relationship-focused answers. [22]
 
+The first T49 result deduplication repair is complete. The ranker now collapses semantically identical related-entity and path results before final ranking, so repeated local smoke-test nodes no longer produce ten ID-distinct copies of the same `Alice -> Seattle` result. Remaining graph-query quality work is test graph isolation/cleanup and richer relationship-focused answers. [23]
+
 # Links
 
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
@@ -169,3 +171,4 @@ The first T49 natural-language extraction repair is also complete. The query ent
 [20] `../tests/current_runtime/test_complete_pipeline_neo4j_runtime.py`
 [21] `../tests/current_runtime/test_neo4j_manager_compat.py`
 [22] `../src/tools/phase1/multihop_query/query_entity_extractor.py`
+[23] `../src/tools/phase1/multihop_query/result_ranker.py`

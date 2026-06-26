@@ -43,9 +43,12 @@ class ResultRanker:
         
         # Filter out very low scoring results
         filtered_results = self._filter_low_quality_results(scored_results, min_confidence)
+
+        # Collapse repeated local smoke-test nodes into semantic results.
+        deduplicated_results = self._deduplicate_semantic_results(filtered_results)
         
         # Sort by ranking score descending
-        ranked_results = sorted(filtered_results, key=lambda x: x.get("ranking_score", 0), reverse=True)
+        ranked_results = sorted(deduplicated_results, key=lambda x: x.get("ranking_score", 0), reverse=True)
         
         # Add final rankings
         for i, result in enumerate(ranked_results, 1):
@@ -55,6 +58,47 @@ class ResultRanker:
         self._update_ranking_stats(results, ranked_results)
         
         return ranked_results
+
+    def _deduplicate_semantic_results(self, results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Deduplicate results by semantic content instead of local Neo4j IDs."""
+        best_by_key = {}
+        for result in results:
+            key = self._semantic_result_key(result)
+            current = best_by_key.get(key)
+            if current is None or self._result_quality_tuple(result) > self._result_quality_tuple(current):
+                best_by_key[key] = result
+        return list(best_by_key.values())
+
+    def _semantic_result_key(self, result: Dict[str, Any]) -> tuple:
+        """Build a stable semantic key for path and related-entity results."""
+        result_type = result.get("result_type", "unknown")
+        if result_type == "related_entity":
+            return (
+                result_type,
+                str(result.get("query_entity", "")).lower(),
+                str(result.get("related_entity", "")).lower(),
+                str(result.get("entity_type", "")).lower(),
+            )
+        if result_type == "path":
+            return (
+                result_type,
+                tuple(str(name).lower() for name in result.get("path", [])),
+                tuple(str(rel).lower() for rel in result.get("relationship_types", [])),
+            )
+        return (
+            result_type,
+            str(result.get("canonical_name", "")).lower(),
+            str(result.get("entity_id", "")).lower(),
+        )
+
+    def _result_quality_tuple(self, result: Dict[str, Any]) -> tuple:
+        """Compare duplicate candidates while keeping the strongest evidence."""
+        return (
+            result.get("ranking_score", 0.0),
+            result.get("confidence", 0.0),
+            result.get("connection_count", 0),
+            result.get("pagerank_score", 0.0),
+        )
     
     def _calculate_ranking_scores(
         self, 

@@ -194,10 +194,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - Pending commit classified request-time graph connectivity validation as a bounded summary, avoiding the prior validator-blocked and hang-prone `CALL { ... }` connected-component query while preserving entity/edge Neo4j proof.
 - Pending commit changed default complete-pipeline query smoke tests to use extracted entity names and count only non-empty query results as answered; live `.txt` probe now returns results for `Alice` and `Bob`.
 - Pending commit repaired T49 query entity extraction so simple natural-language questions like "Who is connected to Alice?" extract Alice and return live graph query results.
+- Pending commit deduplicated T49 semantic results before final ranking so repeated local smoke-test nodes no longer dominate results with ID-distinct copies of `Alice -> Seattle`.
 
 ## Next
 
-1. Next recommended step: audit graph-query result deduplication/ranking, because repeated local smoke runs create duplicate entity nodes and can dominate related-entity results.
+1. Next recommended step: isolate or clean up live Neo4j smoke-test subgraphs so repeated verification runs do not keep accumulating duplicate Alice/Acme/Bob/Seattle nodes.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
 4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.

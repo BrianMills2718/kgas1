@@ -260,6 +260,8 @@ The query-quality follow-up repaired another proof weakness. The complete pipeli
 
 The T49 query-entity extractor also now handles simple natural-language questions more cleanly. The capitalized-phrase pattern no longer swallows lowercase connective text, and entity-indicator patterns no longer run case-insensitively. A live GraphQueryEngine probe for `Who is connected to Alice?` now extracts Alice and returns five related-entity results. [23]
 
+The T49 result ranker now deduplicates semantic results before final ranking. This addresses repeated local smoke-test nodes where the top results were ID-distinct but semantically identical `Alice -> Seattle` variants. The live `Who is connected to Alice?` probe now returns one semantic Alice-Seattle result rather than ten duplicate local-node variants. [24]
+
 Verification:
 
 ```text
@@ -299,3 +301,4 @@ tests/current_runtime/test_cross_modal_api_contract.py .................... [100
 [21] `../src/core/neo4j_manager.py`
 [22] `../tests/current_runtime/test_neo4j_manager_compat.py`
 [23] `../src/tools/phase1/multihop_query/query_entity_extractor.py`
+[24] `../src/tools/phase1/multihop_query/result_ranker.py`
