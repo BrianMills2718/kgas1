@@ -196,7 +196,7 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `f38358e` repaired T49 query entity extraction so simple natural-language questions like "Who is connected to Alice?" extract Alice and return live graph query results.
 - `3ba5387` deduplicated T49 semantic results before final ranking so repeated local smoke-test nodes no longer dominate results with ID-distinct copies of `Alice -> Seattle`.
 - `cb9a09b` added a focused T27 dependency-parser fixture proving the spaCy subject-verb-object path can emit a dependency-parsing relationship without Neo4j/service-manager setup.
-- Pending commit added a public-export security boundary: raw PhD/KGAS archives remain preserved, while shareable exports must be derived, scanned, documented, and reviewed without in-place archive sanitization.
+- `ff56240` added a public-export security boundary: raw PhD/KGAS archives remain preserved, while shareable exports must be derived, scanned, documented, and reviewed without in-place archive sanitization.
 
 ## Deferred Risk Decisions
 
