@@ -68,6 +68,63 @@ class _FakeRelationshipExtractor:
         )
 
 
+class _FakeDocumentLoader:
+    """Return the current nested T01 document shape without external services."""
+
+    def execute(self, request):
+        return _FakeToolResult(
+            status="success",
+            data={
+                "document": {
+                    "document_ref": "storage://document/test",
+                    "text": "Alice works for Acme Corporation.",
+                    "confidence": 0.88,
+                    "page_count": 1,
+                    "extraction_method": "text",
+                }
+            },
+        )
+
+
+class _FakeTextChunker:
+    """Capture T15 requests without external services."""
+
+    def __init__(self) -> None:
+        self.requests = []
+
+    def execute(self, request):
+        self.requests.append(request)
+        return _FakeToolResult(
+            status="success",
+            data={
+                "chunks": [{"chunk_ref": "chunk-1", "text": request.input_data["text"]}],
+                "total_chunks": 1,
+                "total_tokens": 5,
+            },
+        )
+
+
+class _FakeEntityExtractor:
+    """Return the current T23A entity output shape."""
+
+    def execute(self, request):
+        return _FakeToolResult(
+            status="success",
+            data={
+                "entities": [
+                    {
+                        "surface_form": "Alice",
+                        "entity_type": "PERSON",
+                        "source_ref": request.input_data["chunk_ref"],
+                        "start_pos": 0,
+                        "end_pos": 5,
+                    }
+                ],
+                "total_entities": 1,
+            },
+        )
+
+
 def test_t23a_entities_convert_to_t27_contract() -> None:
     """T23A output should be accepted by the analysis-agent relationship bridge."""
     entities = [
@@ -221,3 +278,60 @@ async def test_complete_pipeline_relationship_stage_sends_t27_entities() -> None
     assert sent_entities[0]["start"] == 0
     assert sent_entities[1]["text"] == "Acme Corp"
     assert sent_entities[1]["end"] == 24
+
+
+@pytest.mark.asyncio
+async def test_complete_pipeline_document_loading_reads_current_t01_shape() -> None:
+    """CompleteGraphRAGPipeline should adapt the current nested T01 document output."""
+    pipeline = object.__new__(CompleteGraphRAGPipeline)
+    pipeline.pdf_loader = _FakeDocumentLoader()
+
+    result = await pipeline._execute_document_loading("/tmp/sample.txt")
+
+    assert result == {
+        "status": "success",
+        "text_content": "Alice works for Acme Corporation.",
+        "document_ref": "storage://document/test",
+        "confidence": 0.88,
+        "pages_processed": 1,
+        "processing_method": "text",
+    }
+
+
+@pytest.mark.asyncio
+async def test_complete_pipeline_text_chunking_sends_current_t15_shape() -> None:
+    """CompleteGraphRAGPipeline should adapt to the current T15 input/output contract."""
+    fake_chunker = _FakeTextChunker()
+    pipeline = object.__new__(CompleteGraphRAGPipeline)
+    pipeline.text_chunker = fake_chunker
+
+    result = await pipeline._execute_text_chunking(
+        "storage://document/test",
+        "Alice works for Acme Corporation.",
+    )
+
+    assert result["status"] == "success"
+    assert result["chunk_count"] == 1
+    assert result["total_tokens"] == 5
+    sent_input = fake_chunker.requests[0].input_data
+    assert sent_input == {
+        "document_ref": "storage://document/test",
+        "text": "Alice works for Acme Corporation.",
+        "document_confidence": 0.9,
+    }
+
+
+@pytest.mark.asyncio
+async def test_complete_pipeline_entity_stage_reads_current_t23a_shape() -> None:
+    """CompleteGraphRAGPipeline should collect entities from current T23A output."""
+    pipeline = object.__new__(CompleteGraphRAGPipeline)
+    pipeline.ner_extractor = _FakeEntityExtractor()
+
+    result = await pipeline._execute_entity_extraction(
+        [{"chunk_ref": "chunk-1", "text": "Alice works for Acme.", "confidence": 0.9}]
+    )
+
+    assert result["status"] == "success"
+    assert result["mention_count"] == 1
+    assert result["mentions"][0]["surface_form"] == "Alice"
+    assert result["entity_types"] == {"PERSON": 1}

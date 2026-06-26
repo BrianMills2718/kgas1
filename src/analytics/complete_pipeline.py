@@ -126,7 +126,7 @@ class CompleteGraphRAGPipeline:
             if entity_result["status"] != "success":
                 raise CompletePipelineError(f"Entity extraction failed: {entity_result.get('error')}")
             
-            all_mentions = entity_result["mentions"]
+            all_mentions = normalize_entities_for_t27(entity_result["mentions"])
             self.entities_extracted = len(all_mentions)
             
             # STEP 4: Relationship Extraction (T27 - Real relationship processing)
@@ -258,13 +258,14 @@ class CompleteGraphRAGPipeline:
             result = self.pdf_loader.execute(request)
             
             if result.status == "success":
+                document = result.data.get("document", {})
                 return {
                     "status": "success",
-                    "text_content": result.data.get("text_content", ""),
-                    "document_ref": result.data.get("document_ref", f"doc_{int(time.time())}"),
-                    "confidence": result.data.get("confidence", 0.0),
-                    "pages_processed": result.data.get("pages", 0),
-                    "processing_method": result.data.get("processing_method", "unknown")
+                    "text_content": document.get("text", result.data.get("text_content", "")),
+                    "document_ref": document.get("document_ref", result.data.get("document_ref", f"doc_{int(time.time())}")),
+                    "confidence": document.get("confidence", result.data.get("confidence", 0.0)),
+                    "pages_processed": document.get("page_count", result.data.get("pages", 0)),
+                    "processing_method": document.get("extraction_method", result.data.get("processing_method", "unknown"))
                 }
             else:
                 return {
@@ -286,9 +287,9 @@ class CompleteGraphRAGPipeline:
                 tool_id="T15A",
                 operation="chunk_text",
                 input_data={
-                    "source_ref": document_ref,
-                    "text_content": text_content,
-                    "confidence": 0.9
+                    "document_ref": document_ref,
+                    "text": text_content,
+                    "document_confidence": 0.9
                 },
                 parameters={}
             )
@@ -299,7 +300,7 @@ class CompleteGraphRAGPipeline:
                 return {
                     "status": "success",
                     "chunks": result.data.get("chunks", []),
-                    "chunk_count": result.data.get("chunk_count", 0),
+                    "chunk_count": result.data.get("total_chunks", result.data.get("chunk_count", 0)),
                     "total_tokens": result.data.get("total_tokens", 0),
                     "processing_method": result.data.get("processing_method", "unknown")
                 }
@@ -336,7 +337,7 @@ class CompleteGraphRAGPipeline:
                 result = self.ner_extractor.execute(request)
                 
                 if result.status == "success":
-                    chunk_mentions = result.data.get("mentions", [])
+                    chunk_mentions = result.data.get("entities", result.data.get("mentions", []))
                     all_mentions.extend(chunk_mentions)
                 else:
                     logger.warning(f"Entity extraction failed for chunk: {result.error_message}")

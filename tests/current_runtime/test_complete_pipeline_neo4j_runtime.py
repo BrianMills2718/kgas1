@@ -1,0 +1,32 @@
+"""Neo4j-backed runtime smoke test for the complete text pipeline."""
+
+import os
+import tempfile
+from pathlib import Path
+
+import pytest
+
+from src.analytics.complete_pipeline import CompleteGraphRAGPipeline
+
+
+@pytest.mark.asyncio
+@pytest.mark.skipif(not os.getenv("NEO4J_PASSWORD"), reason="requires local Neo4j credentials")
+async def test_complete_pipeline_processes_tiny_txt_with_neo4j() -> None:
+    """A tiny text file should execute real loading, chunking, NER, graph, and query stages."""
+    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False) as temp_file:
+        temp_file.write("Alice works for Acme Corporation. Bob founded Beta Labs in Seattle.")
+        document_path = temp_file.name
+
+    try:
+        pipeline = CompleteGraphRAGPipeline()
+        result = await pipeline.process_document(document_path)
+    finally:
+        Path(document_path).unlink(missing_ok=True)
+
+    assert result["status"] == "success"
+    assert result["pipeline_stats"]["chunks_created"] == 1
+    assert result["pipeline_stats"]["entities_extracted"] >= 4
+    assert result["pipeline_stats"]["graph_nodes_created"] >= 4
+    assert result["pipeline_stats"]["queries_answered"] == 3
+    assert result["proof_of_completion"]["all_steps_executed"] is True
+    assert result["proof_of_completion"]["real_operations_confirmed"] is True

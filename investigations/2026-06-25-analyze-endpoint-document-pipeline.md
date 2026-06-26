@@ -59,7 +59,7 @@ Alice works for Acme Corporation. Bob founded Beta Labs in Seattle.
 Instantiate CompleteGraphRAGPipeline() and call process_document(path).
 ```
 
-Observed result:
+Initial observed result:
 
 ```text
 Neo4j connection failed: Unsupported authentication token, missing key `credentials`
@@ -71,20 +71,40 @@ EXC Neo4j connection required for IdentityService
 
 Interpretation: the first real blocker is service initialization, before T01 document loading runs. `CompleteGraphRAGPipeline.__init__` constructs `T01PDFLoaderUnified`, which immediately reads `service_manager.identity_service`; `ServiceManager.identity_service` requires a live Neo4j-backed `IdentityService` and raises when the driver is unavailable. [3][5][8]
 
+After configuring the existing local Neo4j Docker container through `NEO4J_PASSWORD`, the probe exposed and repaired several runtime contract drifts:
+
+- `DistributedTransactionManager` had current methods (`begin_transaction`, `commit_all`, `rollback_all`) while analytics callers used legacy names (`begin_distributed_transaction`, `commit_distributed_transaction`, `rollback_distributed_transaction`, `record_operation`). Compatibility methods now support logical operation recording and commit/rollback for these callers. [10]
+- `CompleteGraphRAGPipeline._execute_document_loading(...)` expected top-level `text_content`, while current T01 returns nested `data["document"]["text"]`. The adapter now reads the current nested shape. [3][5]
+- `_execute_text_chunking(...)` sent old `source_ref`/`text_content` keys, while current T15 requires `document_ref`/`text`/`document_confidence`. The adapter now sends the current shape and reads `total_chunks`. [3]
+- `_execute_entity_extraction(...)` read `mentions`, while current T23A returns `entities`. The adapter now accepts both. [3]
+- Graph building expected `text` mention fields, while T23A emits `surface_form`; complete-pipeline now normalizes extracted entities before relationship extraction and graph building. [3]
+- `GraphBuilder` treated zero relationships as fatal by invoking T34 with an empty list; it now treats node-only graph construction as successful and skips T34 when there are no relationships. [9]
+
+Current Neo4j-backed `.txt` probe result:
+
+```text
+STATUS success
+pipeline_result_keys ['document_loading', 'entity_extraction', 'graph_building', 'pagerank_calculation', 'query_execution', 'relationship_extraction', 'text_chunking']
+pipeline_stats {'documents_processed': 1, 'chunks_created': 1, 'entities_extracted': 4, 'relationships_extracted': 0, 'graph_nodes_created': 4, 'graph_edges_created': 0, 'queries_answered': 3, 'pipeline_stages_completed': 7, 'real_operations_confirmed': True}
+proof {'all_steps_executed': True, 'real_operations_confirmed': True, 'neo4j_integration_verified': False, 'end_to_end_success': False}
+```
+
+Interpretation: the real `.txt` pipeline now executes all stages and creates Neo4j nodes. The fixture does not produce relationships, so the pipeline correctly remains a partial semantic success: real operations are confirmed, but `end_to_end_success` stays false because edge/relationship validation is not satisfied.
+
 ## Recommendation
 
 Do not re-enable `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The next safe implementation slice is:
 
 1. Add a project-local adapter that takes a filesystem path plus task/format options and calls `CompleteGraphRAGPipeline.process_document(...)`.
-2. Start with `.txt` only, because it avoids PDF fixture complexity and is supported by `T01PDFLoaderUnified`.
+2. Start with `.txt` only, because it avoids PDF fixture complexity and is now proven through the Neo4j-backed runtime smoke test.
 3. Return a deliberately narrow response shape with real extracted counts/stage outputs, or adjust `AnalysisResponse` to match the complete-pipeline result instead of forcing old cross-modal fields.
-4. Add a current-runtime test that writes a temporary `.txt` file, runs the adapter, and proves no placeholder graph path is used.
+4. Preserve the current skip-safe Neo4j runtime smoke test and add API-level coverage only after the response contract is chosen.
 
-Confidence: high for path identification; high that a live/configured Neo4j service or a deliberate non-Neo4j service contract is required before direct API wiring.
+Confidence: high for path identification; high that the `.txt` complete-pipeline path executes real stages when Neo4j is configured.
 
 ## Open Questions
 
-- Does `CompleteGraphRAGPipeline` complete end-to-end when Neo4j credentials are configured and reachable?
+- Can a richer fixture produce at least one relationship/edge so `end_to_end_success` becomes true?
 - Should there be an explicit non-Neo4j test service manager for document-loader and text-only adapter tests?
 - Should `/api/analyze` remain a high-level document-analysis endpoint, or should a new endpoint expose complete-pipeline execution with a response model that matches actual pipeline stages?
 - Should `.docx`, `.doc`, and `.md` stay in the API validation list only after dedicated loaders are wired?
@@ -93,9 +113,9 @@ Confidence: high for path identification; high that a live/configured Neo4j serv
 
 | # | Assumption | Confidence | How to verify | Round | Status |
 |---|---|---|---|---|---|
-| 1 | `CompleteGraphRAGPipeline` is the intended real end-to-end document path. | High | Run a tiny `.txt` fixture through `process_document()` and inspect stage output. | 1 | Partially verified; initialization reaches this path but blocks on Neo4j. |
-| 2 | Starting with `.txt` is safer than PDF for the first API adapter test. | High | Compare fixture/setup complexity and T01 support. | 1 | Open |
-| 3 | Current graph build/query dependencies may block full pipeline execution. | High | Run the tiny fixture in the isolated `.venv` and capture the first real failure. | 1 | Verified earlier blocker: service initialization requires Neo4j. |
+| 1 | `CompleteGraphRAGPipeline` is the intended real end-to-end document path. | High | Run a tiny `.txt` fixture through `process_document()` and inspect stage output. | 1 | Verified for real-stage execution with Neo4j configured. |
+| 2 | Starting with `.txt` is safer than PDF for the first API adapter test. | High | Compare fixture/setup complexity and T01 support. | 1 | Verified by passing `.txt` runtime smoke test. |
+| 3 | Current graph build/query dependencies may block full pipeline execution. | High | Run the tiny fixture in the isolated `.venv` and capture the first real failure. | 1 | Resolved for node-only graph execution; relationship/edge-producing fixture remains open. |
 
 ## Files Consulted
 
@@ -107,3 +127,5 @@ Confidence: high for path identification; high that a live/configured Neo4j serv
 - [6] `src/tools/phase1/phase1_mcp_tools.py`
 - [7] `src/mcp_tools/pipeline_tools.py`
 - [8] `src/core/service_manager.py`
+- [9] `src/analytics/graph_builder.py`
+- [10] `src/core/distributed_transaction_manager.py`

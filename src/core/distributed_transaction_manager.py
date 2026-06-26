@@ -138,6 +138,20 @@ class DistributedTransactionManager:
             
             logger.info(f"Started distributed transaction: {tx_id}")
             return state.to_dict()
+
+    async def begin_distributed_transaction(self, tx_id: str) -> Dict[str, Any]:
+        """Compatibility wrapper for analytics callers using the legacy DTM API."""
+        return await self.begin_transaction(tx_id)
+
+    async def record_operation(self, tx_id: str, operation: Dict[str, Any]) -> Dict[str, Any]:
+        """Record a logical operation for callers that do not use prepare phases."""
+        async with self._lock:
+            state = self._transactions.get(tx_id)
+            if not state:
+                raise ValueError(f"Transaction {tx_id} not found")
+
+            state.sqlite_operations.append(operation)
+            return state.to_dict()
     
     async def prepare_neo4j(self, tx_id: str, operations: List[Dict[str, Any]]) -> None:
         """
@@ -318,6 +332,36 @@ class DistributedTransactionManager:
             await self._cleanup_transaction_resources(state)
         
         return result
+
+    async def commit_distributed_transaction(self, tx_id: str) -> Dict[str, Any]:
+        """Compatibility commit for legacy analytics callers.
+
+        Some higher-level analytics modules use the DTM as an operation log and
+        never call the explicit Neo4j/SQLite prepare methods. In that case there
+        are no open database transactions to commit, so this marks the tracked
+        transaction committed instead of failing the caller for missing prepare
+        state. Prepared transactions still use the full two-phase commit path.
+        """
+        async with self._lock:
+            state = self._transactions.get(tx_id)
+            if not state:
+                raise ValueError(f"Transaction {tx_id} not found")
+            should_use_two_phase = state.neo4j_prepared or state.sqlite_prepared
+
+            if not should_use_two_phase:
+                state.status = TransactionStatus.COMMITTED
+                result = {
+                    "tx_id": tx_id,
+                    "status": "committed",
+                    "neo4j_committed": False,
+                    "sqlite_committed": False,
+                    "operation_count": len(state.neo4j_operations) + len(state.sqlite_operations),
+                    "errors": [],
+                }
+                logger.info(f"Committed logical distributed transaction: {tx_id}")
+                return result
+
+        return await self.commit_all(tx_id)
     
     async def rollback_all(self, tx_id: str) -> Dict[str, Any]:
         """
@@ -366,6 +410,10 @@ class DistributedTransactionManager:
             await self._cleanup_transaction_resources(state)
         
         return result
+
+    async def rollback_distributed_transaction(self, tx_id: str) -> Dict[str, Any]:
+        """Compatibility rollback for legacy analytics callers."""
+        return await self.rollback_all(tx_id)
     
     async def get_transaction_state(self, tx_id: str) -> Optional[Dict[str, Any]]:
         """

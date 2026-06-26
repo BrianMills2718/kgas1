@@ -188,10 +188,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `3d6ef65` changed `/api/analyze` from metadata-only placeholder analysis to explicit 501 until real document extraction is wired, and aligned the optimization default to `standard`.
 - `3609419` investigated the future `/api/analyze` backing path and identified `CompleteGraphRAGPipeline.process_document()` plus a narrow `.txt` adapter as the safest next slice.
 - `7301f7e` ran the tiny `.txt` complete-pipeline probe; it blocks before T01 loading because `ServiceManager.identity_service` requires live Neo4j-backed services.
+- `PENDING` used the existing local Neo4j container, repaired DTM and complete-pipeline adapter drift, and verified a tiny `.txt` file executes real pipeline stages through Neo4j node creation and query execution.
 
 ## Next
 
-1. Next recommended step: decide whether to configure a real local Neo4j test service or introduce an explicit non-Neo4j test service manager before continuing `/api/analyze` wiring.
+1. Next recommended step: build a richer `.txt` fixture that produces at least one T27 relationship/Neo4j edge, then use that as the acceptance test before wiring `/api/analyze`.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
 4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.

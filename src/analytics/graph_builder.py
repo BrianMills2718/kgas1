@@ -204,6 +204,17 @@ class GraphBuilder:
         This replaces the simulated edge building with real Neo4j relationship creation.
         """
         try:
+            if not relationships:
+                return {
+                    "status": "success",
+                    "edges": [],
+                    "edge_count": 0,
+                    "confidence": 1.0,
+                    "neo4j_operations": 0,
+                    "weight_distribution": {},
+                    "relationship_types": {}
+                }
+
             # Create T34 tool request
             from src.tools.base_tool import ToolRequest
             
