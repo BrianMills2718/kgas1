@@ -95,15 +95,17 @@ The full program is complete only when all gates below are satisfied or explicit
 
 ### Slice 2 - Source-Scoped Cleanup Command
 
-**Status:** Planned
+**Status:** Complete
 
 **Safe scope:** implement a dry-run-first cleanup helper that accepts an explicit `source_ref` and deletes only relationships/nodes carrying that exact source ref. It must refuse empty or broad scope values.
 
 **Done when:**
-- tests prove empty/broad scope is rejected;
-- dry-run reports candidate counts;
-- execution deletes only the scoped data in a synthetic fixture;
-- docs say broad cleanup is forbidden.
+- [x] tests prove empty/broad scope is rejected;
+- [x] dry-run reports candidate counts;
+- [x] execution deletes only the scoped data in a synthetic fixture;
+- [x] docs say broad cleanup is forbidden.
+
+Evidence: `scripts/neo4j_source_cleanup.py`, `tests/current_runtime/test_neo4j_source_cleanup.py`, `tests/current_runtime` pass count 58 passed / 2 skipped, and dry-run `storage://document/nonexistent-dry-run-scope` reports zero candidates without deletion.
 
 ### Slice 3 - Runtime Review Bundle
 
@@ -178,6 +180,7 @@ The full program is complete only when all gates below are satisfied or explicit
 | C3 | LLM-backed recommendation can spend money and may require live API keys. | Cost/credential risk | Human approval required. |
 | C4 | Historical docs overclaim capabilities relative to current runtime. | False completion claim | Review gate must separate current runtime proof from archive evidence. |
 | C5 | Some formats (`.pdf`, `.docx`, `.md`) remain unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 until separately proven. |
+| C6 | Source-scoped cleanup exists, but executing it against real smoke-test source refs is still destructive for those scoped records. | Scoped data deletion | Keep as operator-triggered; do not execute automatically. |
 
 ---
 

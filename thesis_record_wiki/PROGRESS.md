@@ -202,6 +202,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `4d6f02a` added non-destructive source-ref propagation for new T31/T34 Neo4j writes, plus current-runtime tests proving new entity nodes and relationship edges carry `source_refs`; live Neo4j tests remain credential-gated.
 - `8270f08` added optional `source_refs` filtering through T49 query entity lookup, path expansion, and complete-pipeline smoke queries, with no-database current-runtime coverage for scoped query behavior.
 - `6b63c2f` recorded the 2026-06-26 Neo4j safety checkpoint: database dump created at `~/archive/phd_thesis_work/neo4j/20260626-075357/neo4j.dump`, SHA-256 `553d57c74eb1ac3619755e3af41be81ebc1dd00fd52e2005b21f7d5cbbb630dc`, container restarted healthy, and two live source-scoped smoke tests passed with the local ignored `.env` credentials.
+- Pending commit added `scripts/neo4j_source_cleanup.py`, a dry-run-first source-scoped cleanup helper that rejects broad scopes and deletes only exact-source-ref relationships plus isolated exact-source-ref nodes when explicitly run with `--execute`.
 
 ## Deferred Risk Decisions
 
@@ -209,6 +210,6 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: implement the source-scoped Neo4j cleanup command from Plan #1 with dry-run-first behavior and refusal of empty/broad scopes.
+1. Next recommended step: run a review report over Plan #1 runtime completion gates; keep scoped cleanup as an operator-triggered command, not an automatic action.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.

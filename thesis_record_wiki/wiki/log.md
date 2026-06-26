@@ -2,6 +2,7 @@
 
 ## 2026-06-26
 
+* **Repair** | Added dry-run-first source-scoped Neo4j cleanup helper and tests; broad cleanup remains forbidden and execution remains operator-triggered.
 * **Plan** | Added full-program completion plan with success gates, safe slice roadmap, review requirements, and concern register.
 * **Verification** | Created a Neo4j dump backup in `~/archive/phd_thesis_work/neo4j/20260626-075357/`, restarted the container healthy, and verified the two live source-scoped complete-pipeline smoke tests pass.
 

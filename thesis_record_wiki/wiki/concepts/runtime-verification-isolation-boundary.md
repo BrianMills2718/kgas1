@@ -51,6 +51,8 @@ The second safe implementation slice threads optional `source_refs` filtering th
 
 This does not delete or rewrite existing graph data. On 2026-06-26, the local Neo4j database was dumped to `~/archive/phd_thesis_work/neo4j/20260626-075357/neo4j.dump` before live verification, and the source-scoped complete-pipeline smoke tests passed against the running container. The remaining cleanup question is now whether to add a cleanup command limited to one explicit `source_refs` value.
 
+The cleanup helper now exists as `scripts/neo4j_source_cleanup.py`. It is dry-run-first, rejects empty/wildcard/broad source refs, deletes scoped relationships first, and deletes only scoped nodes that have no remaining relationships. It should remain an operator-triggered command because even scoped deletion is destructive for those scoped records.
+
 # Why This Matters
 
 The PhD record is partly about how claims evolved under real verification pressure. Local runtime artifacts are not as authoritative as the preserved archive, but they can still explain why later repairs were made. Isolation preserves that history while keeping future tests deterministic.
