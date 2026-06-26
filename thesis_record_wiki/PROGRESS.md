@@ -221,6 +221,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` created the private docs-only GitHub export at `BrianMills2718/kgas-thesis-record`, verified private visibility, recorded export commit `048568d`, and documented scan evidence in `docs/public_export/PRIVATE_GITHUB_EXPORT_2026-06-26.md`.
 - `this commit` wired `/api/recommend` mode selection to the governed `llm_client` adapter with default `gpt-5.4-mini`, proved the focused API contract tests, and ran a tiny live mode-selection smoke that returned `graph_analysis`.
 - `this commit` recorded the historical variant review program and Plan #5 no-data-loss preservation decisions: no Neo4j deletion without exact source refs and backup evidence, no raw archive mutation, and no legacy `.doc` silent drop.
+- `this commit` added the first proposal-framing difference review, comparing expansive architecture, academic-writing guidance, critique constraints, validation matrix, final-submission summaries, and archive-disposition notes without treating newer proposal variants as automatically better.
 
 ## Deferred Risk Decisions
 

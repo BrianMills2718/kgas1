@@ -163,6 +163,7 @@
 * **Verification** | Ran a tiny live mode-selection smoke through `gpt-5.4-mini`; result was `graph_analysis` with trace `kgas.mode_selection:5620148fdd7ef259`, 699 total tokens, and `$0.000699` recorded cost.
 * **Review** | Added the historical variant review program, preserving provenance as claim-level comparison rather than treating newer docs as automatically better.
 * **Safety** | Recorded Plan #5 preservation decisions: no Neo4j deletion executed, cleanup execution still requires exact source refs plus backup evidence, and no `.doc`/`.docx` files were found under `archive_full_record/`.
+* **Synthesis** | Added proposal-framing difference review, distinguishing claim softening, scope compression, validation substitution, terminology stabilization, and older-variant provenance value across the August 2025 proposal materials.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
