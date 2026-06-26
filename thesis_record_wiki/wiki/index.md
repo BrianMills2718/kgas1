@@ -1,5 +1,10 @@
 # Overview
 
+**Authority boundary:** this is a project-record wiki for KGAS/thesis lineage
+and preservation. It is a navigation and synthesis layer over the historical
+record, not normal repo documentation. Raw archives, current repo docs,
+verification records, and `../PROGRESS.md` remain source truth.
+
 * [Overview](overview.md) - top-level map of the thesis work record and preservation strategy.
 * [Progress](../PROGRESS.md) - durable mission, acceptance criteria, completed commits, and next slices for the thesis record wiki.
 
