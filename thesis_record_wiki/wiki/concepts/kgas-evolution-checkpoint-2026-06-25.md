@@ -61,7 +61,7 @@ The top-level archive queue from the large Digimons lineage is now represented a
 2. **Relationship extraction bottleneck**: trace T27 invocation and relationship extraction across current code, archived evidence, and the facade/debug fragments. This is the most central GraphRAG technical risk.
 3. **Theory schema/application lineage**: synthesize the lit-review schema families, model-form routing, universal applicator critique, and concrete Carter/Young/Semantic Hypergraph outputs into a thesis-facing story.
 4. **Uncertainty framework consolidation**: produce a dated map of superseded, active, and experimental uncertainty frameworks so future summaries stop treating uncertainty as one stable object.
-5. **Security/export readiness**: before any public sharing, isolate preserved credential-bearing logs, `.env` files, backup tarballs, and sensitive uncertainty datasets into a redaction/export plan.
+5. **Security/export readiness**: before any public sharing, isolate preserved credential-bearing logs, `.env` files, backup tarballs, and sensitive uncertainty datasets into a redaction/export plan. Use the [Public Export Security Boundary](/wiki/concepts/public-export-security-boundary.md) as the operating rule: preserve raw internal sources, and derive scanned public bundles separately.
 
 # Interpretation
 
@@ -73,6 +73,7 @@ The next productive phase is selective deep work. Broad ingest has made the arch
 
 - [Thesis Record Overview](/wiki/overview.md)
 - [KGAS](/wiki/entities/kgas.md)
+- [Public Export Security Boundary](/wiki/concepts/public-export-security-boundary.md)
 - [Evolution Timeline](/wiki/timeline/evolution-timeline.md)
 - [Digimon Lineage Archive Coverage Audit 2026-06-25](/wiki/sources/digimon-lineage-archive-coverage-audit-2026-06-25.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)

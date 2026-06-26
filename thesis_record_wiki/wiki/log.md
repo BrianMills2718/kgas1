@@ -2,6 +2,7 @@
 
 ## 2026-06-25
 
+* **Security** | Added public-export security boundary consolidating credential, `.env`, backup-tarball, and sensitive-dataset caveats into a no-in-place-sanitization rule for future shareable exports.
 * **Ingest** | Added old-CLAUDE-md-versions slice, including seven-file instruction-history inventory, contract-first migration guidance, MVP Day 1 guide, Phase 2.1 completion tasks, evidence-first repair policy, current-policy caveat, and no-literal-key finding.
 * **Ingest** | Added old-docs-2025-08 slice, including contract-first interface split, service API drift, structured-output migration, documentation/status separation, operations-label caveat, IC uncertainty notes, and placeholder-key finding.
 * **Ingest** | Added root-cleanup-2025-08-29 slice, including 63-file inventory, duplicate app entry-point cleanup rationale, tool-composition checkpoint, archived apps/Twitter explorer/k8s material, cross-modal test output, placeholder-secret caveat, and no-literal-key finding.
