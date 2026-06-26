@@ -71,7 +71,7 @@ The full program is complete only when all gates below are satisfied or explicit
 |---|---|---|---|
 | Preservation | Raw `archive_full_record/` is not rewritten; wiki remains navigable and source-cited; public-export boundary exists. | wiki lint 100/100; `thesis_record_wiki/PROGRESS.md`; public-export concept | Mostly satisfied; ongoing maintenance |
 | Runtime Environment | Local setup has reproducible Python deps, local Neo4j credentials, and backup procedure. | `.env` ignored locally; Neo4j dump path/hash; `pip check` | Satisfied locally |
-| Narrow E2E Pipeline | `.txt` upload/API path runs real T01/T15/T23/T27/T31/T34/T49 stages with Neo4j source scoping. | live source-scoped smoke tests pass | Satisfied for `.txt` |
+| Narrow E2E Pipeline | `.txt` and tiny `.pdf` upload/API paths run real T01/T15/T23/T27/T31/T34/T49 stages with Neo4j source scoping. | live source-scoped smoke tests pass | Satisfied for `.txt` and tiny `.pdf` |
 | Query Isolation | New graph writes carry `source_refs`; T49 can filter by `source_refs`; old smoke data cannot satisfy scoped proof. | current-runtime tests; live smoke result | Satisfied for tested path |
 | Cleanup Safety | Any cleanup command is source-scoped, dry-run capable, backed by tests, and never broad-deletes graph data. | future cleanup test + command docs | Planned, safe if scoped |
 | API Honesty | Unsupported/unwired endpoints return explicit 501/503 rather than mock success. | current-runtime API tests | Mostly satisfied for known endpoints |
@@ -138,6 +138,19 @@ Evidence: `investigations/2026-06-26-runtime-completion-review.md`, latest `test
 - recommendation endpoint has one live cost-bounded test;
 - cost/result is recorded.
 
+### Slice 6 - Narrow PDF Analyze Proof
+
+**Status:** Complete
+
+**Safe scope:** preserve the existing complete-pipeline path and prove `.pdf` uploads by passing the real temp-file suffix into T01. Do not modify raw archive documents or broaden support to `.docx`, `.doc`, or `.md`.
+
+**Done when:**
+- [x] focused API tests prove `.pdf` dispatch preserves suffix and source traceability;
+- [x] live Neo4j-backed smoke proves a tiny text-bearing PDF reaches graph/query stages;
+- [x] unproven `.docx`, `.doc`, and `.md` formats remain explicit 501.
+
+Evidence: `src/api/cross_modal_api.py`, `tests/current_runtime/test_cross_modal_api_contract.py`, focused API tests 22 passed / 2 skipped, live TXT+PDF smoke 2 passed, and full `tests/current_runtime` count 59 passed / 3 skipped.
+
 ---
 
 ## Required Tests
@@ -181,7 +194,7 @@ Evidence: `investigations/2026-06-26-runtime-completion-review.md`, latest `test
 | C2 | Public export could leak preserved credentials, `.env`, logs, or sensitive datasets. | Privacy/security/publication risk | Human review required; use public-export boundary. |
 | C3 | LLM-backed recommendation can spend money and may require live API keys. | Cost/credential risk | Human approval required. |
 | C4 | Historical docs overclaim capabilities relative to current runtime. | False completion claim | Review gate must separate current runtime proof from archive evidence. |
-| C5 | Some formats (`.pdf`, `.docx`, `.md`) remain unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 until separately proven. |
+| C5 | Some formats (`.docx`, `.doc`, `.md`) remain unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 until separately proven. |
 | C6 | Source-scoped cleanup exists, but executing it against real smoke-test source refs is still destructive for those scoped records. | Scoped data deletion | Keep as operator-triggered; do not execute automatically. |
 | C7 | `/api/batch/analyze` is intentionally 501 until it wraps a proven single-document path. | Runtime gap | Defer batch work until more single-document formats are proven. |
 | C8 | FastAPI startup/shutdown deprecation warnings remain in runtime tests. | Maintenance debt | Modernize lifecycle hooks after completion gates are stable. |

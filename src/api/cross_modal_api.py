@@ -165,13 +165,13 @@ async def analyze_document(
     _parse_enum(WorkflowOptimizationLevel, optimization_level, "optimization level")
     _parse_enum(ValidationLevel, validation_level, "validation level")
 
-    if file_ext != ".txt":
+    if file_ext not in {".txt", ".pdf"}:
         raise HTTPException(
             status_code=501,
-            detail="/api/analyze is currently wired only for .txt uploads through the complete pipeline"
+            detail="/api/analyze is currently wired only for .txt and .pdf uploads through the complete pipeline"
         )
 
-    return await _analyze_txt_upload(file)
+    return await _analyze_document_upload(file, file_ext)
 
 # Format conversion endpoint
 @app.post("/api/convert")
@@ -366,12 +366,12 @@ def _create_complete_pipeline() -> Any:
     from src.analytics.complete_pipeline import CompleteGraphRAGPipeline
     return CompleteGraphRAGPipeline()
 
-async def _analyze_txt_upload(file: UploadFile) -> Dict[str, Any]:
-    """Run a `.txt` upload through the current complete GraphRAG pipeline."""
+async def _analyze_document_upload(file: UploadFile, file_ext: str) -> Dict[str, Any]:
+    """Run a proven document upload through the current complete GraphRAG pipeline."""
     document_path = None
     try:
         payload = await file.read()
-        with tempfile.NamedTemporaryFile("wb", suffix=".txt", delete=False) as temp_file:
+        with tempfile.NamedTemporaryFile("wb", suffix=file_ext, delete=False) as temp_file:
             temp_file.write(payload)
             document_path = temp_file.name
 
@@ -383,7 +383,7 @@ async def _analyze_txt_upload(file: UploadFile) -> Dict[str, Any]:
                 detail=f"Complete pipeline failed: {result.get('error', 'unknown error')}"
             )
 
-        return _serialize_complete_pipeline_analysis(result, file.filename or "upload.txt")
+        return _serialize_complete_pipeline_analysis(result, file.filename or f"upload{file_ext}", file_ext)
     except HTTPException:
         raise
     except Exception as exc:
@@ -393,7 +393,7 @@ async def _analyze_txt_upload(file: UploadFile) -> Dict[str, Any]:
         if document_path:
             Path(document_path).unlink(missing_ok=True)
 
-def _serialize_complete_pipeline_analysis(result: Dict[str, Any], filename: str) -> Dict[str, Any]:
+def _serialize_complete_pipeline_analysis(result: Dict[str, Any], filename: str, file_ext: str = ".txt") -> Dict[str, Any]:
     """Map complete-pipeline output into the existing analysis response model."""
     pipeline_results = result.get("pipeline_results", {})
     document_loading = pipeline_results.get("document_loading", {})
@@ -412,7 +412,7 @@ def _serialize_complete_pipeline_analysis(result: Dict[str, Any], filename: str)
         },
         "source_traceability": {
             "filename": filename,
-            "file_type": ".txt",
+            "file_type": file_ext,
             "document_ref": document_loading.get("document_ref"),
         },
     }

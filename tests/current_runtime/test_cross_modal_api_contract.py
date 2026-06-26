@@ -12,6 +12,39 @@ from src.api import cross_modal_api as api
 from src.analytics.mode_selection_service import AnalysisMode, ConfidenceLevel, ModeSelectionResult
 
 
+def _tiny_pdf_bytes(text: str) -> bytes:
+    """Build a tiny text-bearing PDF fixture without adding test dependencies."""
+    objects = [
+        b"1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n",
+        b"2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n",
+        b"3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] "
+        b"/Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>\nendobj\n",
+        b"4 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\n",
+    ]
+    stream = f"BT /F1 24 Tf 72 720 Td ({text}) Tj ET".encode()
+    objects.append(
+        b"5 0 obj\n<< /Length "
+        + str(len(stream)).encode()
+        + b" >>\nstream\n"
+        + stream
+        + b"\nendstream\nendobj\n"
+    )
+    content = bytearray(b"%PDF-1.4\n")
+    offsets = [0]
+    for obj in objects:
+        offsets.append(len(content))
+        content.extend(obj)
+    xref_offset = len(content)
+    content.extend(f"xref\n0 {len(objects) + 1}\n".encode())
+    content.extend(b"0000000000 65535 f \n")
+    for offset in offsets[1:]:
+        content.extend(f"{offset:010d} 00000 n \n".encode())
+    content.extend(
+        f"trailer\n<< /Size {len(objects) + 1} /Root 1 0 R >>\nstartxref\n{xref_offset}\n%%EOF\n".encode()
+    )
+    return bytes(content)
+
+
 def test_cross_modal_api_imports_without_registry_runtime_dependencies() -> None:
     """The API module should import before optional service-registry dependencies are installed."""
     assert api.app.title == "KGAS Cross-Modal Analysis API"
@@ -98,6 +131,61 @@ async def test_analyze_document_runs_complete_pipeline_for_txt(monkeypatch) -> N
 
 
 @pytest.mark.asyncio
+async def test_analyze_document_runs_complete_pipeline_for_pdf(monkeypatch) -> None:
+    """PDF uploads should preserve the real suffix and run through the complete-pipeline adapter."""
+    calls = []
+
+    class _FakePipeline:
+        async def process_document(self, document_path):
+            calls.append(document_path)
+            assert Path(document_path).exists()
+            assert Path(document_path).suffix == ".pdf"
+            return {
+                "status": "success",
+                "transaction_id": "tx-pdf-test",
+                "pipeline_stats": {
+                    "chunks_created": 1,
+                    "entities_extracted": 2,
+                    "relationships_extracted": 1,
+                    "graph_nodes_created": 2,
+                    "graph_edges_created": 1,
+                    "queries_answered": 1,
+                },
+                "pipeline_results": {
+                    "document_loading": {"document_ref": "storage://document/pdf-test"},
+                    "relationship_extraction": {"relationship_count": 1},
+                },
+                "validation": {"pipeline_complete": True, "neo4j_verified": True},
+                "proof_of_completion": {
+                    "all_steps_executed": True,
+                    "real_operations_confirmed": True,
+                    "neo4j_integration_verified": True,
+                    "end_to_end_success": True,
+                },
+            }
+
+    monkeypatch.setattr(api, "_create_complete_pipeline", lambda: _FakePipeline())
+
+    response = await api.analyze_document(
+        background_tasks=None,
+        file=api.UploadFile(file=BytesIO(_tiny_pdf_bytes("Alice works for Acme.")), filename="sample.pdf"),
+        target_format="graph",
+        task="extract entities",
+        optimization_level="standard",
+        validation_level="standard",
+    )
+
+    assert calls
+    assert not Path(calls[0]).exists()
+    assert response["workflow_id"] == "tx-pdf-test"
+    assert response["source_traceability"] == {
+        "filename": "sample.pdf",
+        "file_type": ".pdf",
+        "document_ref": "storage://document/pdf-test",
+    }
+
+
+@pytest.mark.asyncio
 @pytest.mark.skipif(not os.getenv("NEO4J_PASSWORD"), reason="requires local Neo4j credentials")
 async def test_analyze_document_txt_upload_runs_live_complete_pipeline() -> None:
     """The API should expose the proven `.txt` complete-pipeline path when Neo4j is configured."""
@@ -127,8 +215,39 @@ async def test_analyze_document_txt_upload_runs_live_complete_pipeline() -> None
 
 
 @pytest.mark.asyncio
+@pytest.mark.skipif(not os.getenv("NEO4J_PASSWORD"), reason="requires local Neo4j credentials")
+async def test_analyze_document_pdf_upload_runs_live_complete_pipeline() -> None:
+    """The API should expose a proven tiny `.pdf` complete-pipeline path when Neo4j is configured."""
+    response = await api.analyze_document(
+        background_tasks=None,
+        file=api.UploadFile(
+            file=BytesIO(_tiny_pdf_bytes("Alice works for Acme Corporation. Bob founded Beta Labs in Seattle.")),
+            filename="sample.pdf",
+        ),
+        target_format="graph",
+        task="extract entities",
+        optimization_level="standard",
+        validation_level="standard",
+    )
+
+    stats = response["results"]["pipeline_stats"]
+    proof = response["results"]["proof_of_completion"]
+    assert response["selected_mode"] == "complete_graphrag_pipeline"
+    assert stats["entities_extracted"] >= 4
+    assert stats["relationships_extracted"] >= 1
+    assert stats["graph_nodes_created"] >= 4
+    assert stats["graph_edges_created"] >= 1
+    assert stats["queries_answered"] >= 1
+    assert proof["neo4j_integration_verified"] is True
+    assert proof["end_to_end_success"] is True
+    assert response["source_traceability"]["filename"] == "sample.pdf"
+    assert response["source_traceability"]["file_type"] == ".pdf"
+    assert response["source_traceability"]["document_ref"].startswith("storage://document/")
+
+
+@pytest.mark.asyncio
 async def test_analyze_document_returns_explicit_501_for_unwired_document_formats(monkeypatch) -> None:
-    """The analyze endpoint should not claim unproven PDF/DOCX/Markdown upload support."""
+    """The analyze endpoint should not claim unproven DOCX/Markdown upload support."""
     def fail_get_registry():
         raise AssertionError("registry should not be loaded")
 
@@ -137,7 +256,7 @@ async def test_analyze_document_returns_explicit_501_for_unwired_document_format
     with pytest.raises(HTTPException) as exc_info:
         await api.analyze_document(
             background_tasks=None,
-            file=api.UploadFile(file=BytesIO(b"%PDF"), filename="sample.pdf"),
+            file=api.UploadFile(file=BytesIO(b"# Heading"), filename="sample.md"),
             target_format="graph",
             task="extract entities",
             optimization_level="standard",
@@ -145,7 +264,7 @@ async def test_analyze_document_returns_explicit_501_for_unwired_document_format
         )
 
     assert exc_info.value.status_code == 501
-    assert "only for .txt" in exc_info.value.detail
+    assert "only for .txt and .pdf" in exc_info.value.detail
 
 
 @pytest.mark.asyncio
