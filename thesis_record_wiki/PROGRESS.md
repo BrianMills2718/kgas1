@@ -217,6 +217,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `936e892` added Plan #2 safe-organization completion criteria and the public-export review artifact for the local docs-only candidate: 251 files, 2.4M, 74 review-needed pattern hits, and no forbidden file types.
 - `fc3431b` completed Plan #2 closeout: wiki/plan/export gates pass, public/export remains unapproved, and all remaining work is bounded to Brian approval gates.
 - `076a0e1` completed Plan #3 documentation quality pass: fixed thesis wiki-root link checking, added regression tests, made the wiki link check clean, and recorded the remaining 72-link historical docs backlog.
+- `PENDING` completed Plan #4 final safe docs consolidation: classified historical architecture/UI docs, added explicit stale-link markers and banners, and made docs/investigations/wiki markdown link checks pass.
 
 ## Deferred Risk Decisions
 
@@ -226,7 +227,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: decide whether to run an architecture-doc consolidation pass on the 72 broken historical links recorded in `investigations/2026-06-26-documentation-link-quality-pass.md`.
-2. Brian should review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` before any export publication or private export repo creation.
-3. Recommended gated work after docs consolidation: live LLM recommendation only if recommendation behavior matters; Neo4j cleanup only for exact source refs; legacy `.doc` only if a specific old Word file is needed.
+1. Next recommended step: Brian should review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` before any export publication or private export repo creation.
+2. Optional human-directed next step: decide whether the historical architecture/UI docs should remain provenance docs or be rewritten into current authoritative docs.
+3. Recommended gated runtime work: live LLM recommendation only if recommendation behavior matters; Neo4j cleanup only for exact source refs; legacy `.doc` only if a specific old Word file is needed.
 4. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.

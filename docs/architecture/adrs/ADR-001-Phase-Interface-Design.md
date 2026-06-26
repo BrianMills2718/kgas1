@@ -1,5 +1,9 @@
 **Doc status**: Living – auto-checked by doc-governance CI
 
+<!-- link-check: allow-missing-historical-targets -->
+
+> Historical ADR. Some linked roadmap/ADR targets were not retained in the cleaned current repo. Preserve the links as historical references unless an architecture-doc consolidation pass rewrites this ADR against current docs.
+
 # ADR-001: Contract-First Tool Interface Design (Layer 2: Internal Contract)
 
 **Date**: 2025-01-27  

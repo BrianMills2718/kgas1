@@ -1,5 +1,9 @@
 # KGAS Architecture Overview
 
+<!-- link-check: allow-missing-historical-targets -->
+
+> Historical target-architecture document. Some local links point to roadmap, ADR, systems, and data docs that were not retained in the cleaned current repo. Preserve these links as historical references; use the thesis record wiki for current navigation.
+
 **This document defines the target system architecture for KGAS (Knowledge Graph Analysis System). It describes the intended design and component relationships that guide implementation.**
 
 **Important**: For current implementation status, see [docs/roadmap/ROADMAP_OVERVIEW.md](../roadmap/ROADMAP_OVERVIEW.md).

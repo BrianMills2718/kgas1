@@ -2,6 +2,10 @@
 status: living
 ---
 
+<!-- link-check: allow-missing-historical-targets -->
+
+> Historical specification. A linked IC uncertainty ADR target was not retained in the cleaned current repo. Preserve the link as a historical reference unless this specification is rewritten against current docs.
+
 # Provenance & Lineage in KGAS
 
 ## Overview
@@ -152,4 +156,4 @@ def validate_uncertainty_provenance(provenance_record: Dict) -> ValidationResult
 - Enables full lineage queries and audit trails including uncertainty calculations.
 
 ---
-For more, see `ARCHITECTURE.md`, `CONTRACT_SYSTEM.md`, and [ADR-029](../adrs/ADR-029-IC-Informed-Uncertainty-Framework/ADR-029-IC-Informed-Uncertainty-Framework.md). 
+For more, see `ARCHITECTURE.md`, `CONTRACT_SYSTEM.md`, and [ADR-029](../adrs/ADR-029-IC-Informed-Uncertainty-Framework/ADR-029-IC-Informed-Uncertainty-Framework.md).

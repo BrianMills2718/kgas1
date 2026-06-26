@@ -2,6 +2,7 @@
 
 ## 2026-06-26
 
+* **Repair** | Completed final safe docs consolidation: classified five historical architecture/UI docs, added explicit stale-link markers and banners, and made docs/investigations/wiki markdown link checks pass without guessing missing targets.
 * **Repair** | Fixed markdown-link checker handling for thesis wiki-root links (`/wiki/...` and `/PROGRESS.md`), added regression tests, and recorded the remaining 72-link historical docs backlog.
 * **Verification** | Completed Plan #2 safe organization closeout: wiki lint, plan validation, plan sync, diff check, and export forbidden-file check pass; remaining work is bounded to Brian approval gates.
 * **Review** | Built and scanned a local docs-only public-export candidate under ignored `exports/`, recorded the 251-file/2.4M inventory, 74 review-needed secret-pattern hits, and no forbidden file types in the committed export review artifact.

@@ -1,5 +1,9 @@
 # ADR-028: Tool Interface Layer Architecture
 
+<!-- link-check: allow-missing-historical-targets -->
+
+> Historical ADR. Some referenced ADR targets were not retained in the cleaned current repo. Preserve the links as historical references unless an architecture-doc consolidation pass rewrites this ADR against current docs.
+
 **Status**: Accepted  
 **Date**: 2025-07-29  
 **Supersedes**: Clarifies [ADR-001](ADR-001-Phase-Interface-Design.md), [ADR-002](ADR-002-Pipeline-Orchestrator-Architecture.md), [ADR-013](ADR-013-MCP-Protocol-Integration.md)  

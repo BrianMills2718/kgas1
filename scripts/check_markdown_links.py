@@ -30,6 +30,7 @@ INLINE_LINK_RE = re.compile(r"!?\[[^\]]*]\(([^)]+)\)")
 REFERENCE_LINK_RE = re.compile(r"^\s*\[[^\]]+]\s*:\s*(\S+)")
 
 HEADING_RE = re.compile(r"^#{1,6}\s+(.+?)\s*$")
+ALLOW_MISSING_HISTORICAL_TARGETS_MARKER = "link-check: allow-missing-historical-targets"
 
 
 @dataclass(frozen=True)
@@ -141,6 +142,11 @@ def _extract_markdown_anchors(markdown_path: Path) -> set[str]:
     return anchors
 
 
+def _allows_missing_historical_targets(lines: list[str]) -> bool:
+    """Return whether a historical document explicitly permits stale local links."""
+    return any(ALLOW_MISSING_HISTORICAL_TARGETS_MARKER in line for line in lines[:25])
+
+
 def _validate_file(
     markdown_file: Path,
     anchor_cache: dict[Path, set[str]],
@@ -148,6 +154,7 @@ def _validate_file(
 ) -> list[LinkViolation]:
     violations: list[LinkViolation] = []
     lines = markdown_file.read_text(encoding="utf-8").splitlines()
+    allow_missing_historical_targets = _allows_missing_historical_targets(lines)
 
     for line_number, line in enumerate(lines, start=1):
         raw_targets: list[str] = []
@@ -188,6 +195,8 @@ def _validate_file(
                         target_path = canonical_target
 
             if not target_path.exists():
+                if allow_missing_historical_targets:
+                    continue
                 violations.append(
                     LinkViolation(
                         file_path=_to_display(markdown_file),

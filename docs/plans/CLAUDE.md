@@ -9,6 +9,7 @@ Track all implementation work here.
 | 1 | [Full Program Completion](01_full_program_completion.md) | High | ⏸️ Blocked | runtime hardening, review gate, public/export packaging |
 | 2 | [Safe Organization Completion](02_safe_organization_completion.md) | High | ✅ Complete | final safe organization closeout |
 | 3 | [Documentation Quality Pass](03_documentation_quality_pass.md) | Medium | ✅ Complete | safer thesis wiki/export navigation checks |
+| 4 | [Final Safe Docs Consolidation](04_final_safe_docs_consolidation.md) | High | ✅ Complete | final safe organization closeout |
 
 ## Status Key
 

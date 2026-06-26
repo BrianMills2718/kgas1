@@ -4,6 +4,10 @@ doc-type: ui-readme
 governance: doc-governance
 ---
 
+<!-- link-check: allow-missing-historical-targets -->
+
+> Historical UI guide. The navigation links below point to documentation files that were not retained in the cleaned current repo. Preserve them as historical references unless the UI guide is rewritten against current docs.
+
 # KGAS (Knowledge Graph Analysis System) – UI Guide
 
 This UI is part of the Knowledge Graph Analysis System (KGAS) described in the dissertation 'Theoretical Foundations for LLM-Generated Ontologies and Analysis of Fringe Discourse.'

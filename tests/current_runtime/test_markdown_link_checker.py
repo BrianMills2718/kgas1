@@ -34,3 +34,18 @@ def test_absolute_progress_link_resolves_to_wiki_progress(tmp_path: Path) -> Non
     violations = check_markdown_links(["thesis_record_wiki/wiki"], repo_root)
 
     assert violations == []
+
+
+def test_historical_marker_allows_missing_local_targets(tmp_path: Path) -> None:
+    """Historical docs can preserve stale links when explicitly marked."""
+    source = tmp_path / "docs" / "historical.md"
+    source.parent.mkdir(parents=True)
+    source.write_text(
+        "<!-- link-check: allow-missing-historical-targets -->\n"
+        "[Missing historical target](old/removed.md)\n",
+        encoding="utf-8",
+    )
+
+    violations = check_markdown_links(["docs"], tmp_path)
+
+    assert violations == []
