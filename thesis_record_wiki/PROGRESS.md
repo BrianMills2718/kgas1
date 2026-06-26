@@ -206,7 +206,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `0761bca` added the Plan #1 runtime completion review, classifying the current `.txt` runtime as locally proven while leaving non-text formats, batch analysis, public/export, and live LLM recommendation as explicit deferred gates.
 - `5ba418f` proved narrow `.pdf` `/api/analyze` support using the existing complete-pipeline/T01 path, a tiny generated PDF fixture, and live Neo4j-backed TXT+PDF smoke tests.
 - `1734ce1` proved narrow `.md` `/api/analyze` support through the existing T03 text-compatible loader, added `chardet`, and repaired phase-1 loader provenance calls from `used={}` to `inputs=[]`.
-- Pending commit proved narrow `.docx` `/api/analyze` support through the existing T02 Word loader and live Neo4j-backed TXT/PDF/Markdown/DOCX smoke tests.
+- `52c5fb6` proved narrow `.docx` `/api/analyze` support through the existing T02 Word loader and live Neo4j-backed TXT/PDF/Markdown/DOCX smoke tests.
 
 ## Deferred Risk Decisions
 
