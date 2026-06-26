@@ -225,6 +225,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added a bounded old-to-final proposal comparison covering the 47-page older proposal, full August draft, final rewrite, Prateek critique, final-submission summary, and final-revisions summary.
 - `this commit` added a final-proposal annex preservation review, showing that schema, architecture, validation, HSPC, timeline, and terminology details were moved into annexes rather than erased by main-text compression.
 - `this commit` added a proposal timeline chronology discrepancy review, preserving conflicting February 2026, February 2027, 6-month, 12-month, and 18-month timeline claims without normalizing them.
+- `this commit` resolved the `Mills_Proposal_extracted.txt` file-format caveat: the file is an 85,062-byte UTF-8 one-line extraction, not empty, and the archive-before-cleanup duplicate has the same SHA-256 hash.
 
 ## Deferred Risk Decisions
 

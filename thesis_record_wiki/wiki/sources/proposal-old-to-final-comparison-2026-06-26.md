@@ -7,6 +7,7 @@ created: 2026-06-26
 updated: 2026-06-26
 sources:
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/1/47_page_older_proposal.txt
+  - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/2/Mills_Proposal_extracted.txt
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/fragments/proposal_full_2025.08061424.txt
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/3/proposal_rewrite.txt
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/fragments/prateek_critique.txt
@@ -15,7 +16,7 @@ sources:
 confidence: high
 ---
 
-> Sources consulted: `47_page_older_proposal.txt` · `proposal_full_2025.08061424.txt` · `proposal_rewrite.txt` · `proposal_outline.md` · `prateek_critique.txt` · `final_submission_summary.md` · `final_revisions_summary.md`; plus file-size inventories for duplicate proposal trees under `archive/theoretical_exploration/...` and `archive/ARCHIVE_BEFORE_CLEANUP_20250805/...`. Status: bounded structure/delta review, not a full line-by-line textual diff.
+> Sources consulted: `47_page_older_proposal.txt` · `Mills_Proposal_extracted.txt` · `proposal_full_2025.08061424.txt` · `proposal_rewrite.txt` · `proposal_outline.md` · `prateek_critique.txt` · `final_submission_summary.md` · `final_revisions_summary.md`; plus file-size inventories for duplicate proposal trees under `archive/theoretical_exploration/...` and `archive/ARCHIVE_BEFORE_CLEANUP_20250805/...`. Status: bounded structure/delta review, not a full line-by-line textual diff.
 
 # Summary
 
@@ -133,8 +134,8 @@ The final rewrite is better for the dissertation submission task because it:
 # Open Caveats
 
 - This review did not perform a full semantic diff across all proposal text and annexes.
-- `Mills_Proposal_extracted.txt` reports zero newline-delimited lines in `wc -l`, so it may need separate inspection with a binary/encoding-aware method before being treated as empty.
-- The duplicate `ARCHIVE_BEFORE_CLEANUP_20250805/.../proposal_old/` tree appears to mirror the theoretical-exploration `proposal_old/` file set by size and path names, but this review did not hash every duplicate pair.
+- `Mills_Proposal_extracted.txt` is not empty despite reporting zero newline-delimited lines in `wc -l`. A binary-aware inspection found an 85,062-byte UTF-8 text file stored as one long line, with no LF/CR/NUL bytes; it includes the proposal title, table-of-contents material, KGAS/GraphRAG terms, timeline material, and references. The matching `ARCHIVE_BEFORE_CLEANUP_20250805/.../Mills_Proposal_extracted.txt` copy has the same SHA-256 hash (`f0db826411bfe03806e525b0182ccd69447bb276e94b2c38cf6cae74d84d9115`). This review records the file-format/provenance finding but still has not done a full semantic comparison of that extracted text. [7][8]
+- The duplicate `ARCHIVE_BEFORE_CLEANUP_20250805/.../proposal_old/` tree appears to mirror the theoretical-exploration `proposal_old/` file set by size and path names, but this review only hashed the `Mills_Proposal_extracted.txt` duplicate pair.
 - Annexes were inventoried and partially represented via summaries; a future slice should compare annex content, especially validation, HSPC, theory meta-schema, and technical architecture.
 
 # Relationship To Wiki
@@ -153,4 +154,5 @@ The final rewrite is better for the dissertation submission task because it:
 [4] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/fragments/prateek_critique.txt`  
 [5] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/3/final_submission_summary.md`  
 [6] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/3/final_revisions_summary.md`
-
+[7] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/2/Mills_Proposal_extracted.txt`
+[8] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/ARCHIVE_BEFORE_CLEANUP_20250805/proposal_rewrite_20250812_about_to_drop_all_complex_uncerainty/proposal_old/2/Mills_Proposal_extracted.txt`
