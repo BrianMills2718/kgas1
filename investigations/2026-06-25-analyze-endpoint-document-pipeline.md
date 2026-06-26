@@ -48,6 +48,29 @@ Directly wiring `/api/analyze` is not a trivial endpoint patch because the endpo
 
 Answer: wiring is feasible but larger than the current API status-honesty slice. The next implementation should be a small `analyze_document_file_path(...)` adapter or a narrowed `/api/analyze` path for `.txt` first, with explicit acceptance criteria.
 
+### Runtime Probe: tiny `.txt` fixture
+
+Command shape:
+
+```text
+Create a temporary `.txt` file containing:
+Alice works for Acme Corporation. Bob founded Beta Labs in Seattle.
+
+Instantiate CompleteGraphRAGPipeline() and call process_document(path).
+```
+
+Observed result:
+
+```text
+Neo4j connection failed: Unsupported authentication token, missing key `credentials`
+Cannot create IdentityService without Neo4j connection
+STATUS error
+EXC_TYPE RuntimeError
+EXC Neo4j connection required for IdentityService
+```
+
+Interpretation: the first real blocker is service initialization, before T01 document loading runs. `CompleteGraphRAGPipeline.__init__` constructs `T01PDFLoaderUnified`, which immediately reads `service_manager.identity_service`; `ServiceManager.identity_service` requires a live Neo4j-backed `IdentityService` and raises when the driver is unavailable. [3][5][8]
+
 ## Recommendation
 
 Do not re-enable `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The next safe implementation slice is:
@@ -57,11 +80,12 @@ Do not re-enable `/api/analyze` by calling the cross-modal orchestrator with pla
 3. Return a deliberately narrow response shape with real extracted counts/stage outputs, or adjust `AnalysisResponse` to match the complete-pipeline result instead of forcing old cross-modal fields.
 4. Add a current-runtime test that writes a temporary `.txt` file, runs the adapter, and proves no placeholder graph path is used.
 
-Confidence: medium-high for path identification; medium for direct API wiring because graph build/query service readiness still needs runtime verification.
+Confidence: high for path identification; high that a live/configured Neo4j service or a deliberate non-Neo4j service contract is required before direct API wiring.
 
 ## Open Questions
 
-- Does `CompleteGraphRAGPipeline` complete end-to-end in the isolated `.venv` without Neo4j or with the current default graph services?
+- Does `CompleteGraphRAGPipeline` complete end-to-end when Neo4j credentials are configured and reachable?
+- Should there be an explicit non-Neo4j test service manager for document-loader and text-only adapter tests?
 - Should `/api/analyze` remain a high-level document-analysis endpoint, or should a new endpoint expose complete-pipeline execution with a response model that matches actual pipeline stages?
 - Should `.docx`, `.doc`, and `.md` stay in the API validation list only after dedicated loaders are wired?
 
@@ -69,9 +93,9 @@ Confidence: medium-high for path identification; medium for direct API wiring be
 
 | # | Assumption | Confidence | How to verify | Round | Status |
 |---|---|---|---|---|---|
-| 1 | `CompleteGraphRAGPipeline` is the intended real end-to-end document path. | Medium-high | Run a tiny `.txt` fixture through `process_document()` and inspect stage output. | 1 | Open |
+| 1 | `CompleteGraphRAGPipeline` is the intended real end-to-end document path. | High | Run a tiny `.txt` fixture through `process_document()` and inspect stage output. | 1 | Partially verified; initialization reaches this path but blocks on Neo4j. |
 | 2 | Starting with `.txt` is safer than PDF for the first API adapter test. | High | Compare fixture/setup complexity and T01 support. | 1 | Open |
-| 3 | Current graph build/query dependencies may block full pipeline execution. | Medium | Run the tiny fixture in the isolated `.venv` and capture the first real failure. | 1 | Open |
+| 3 | Current graph build/query dependencies may block full pipeline execution. | High | Run the tiny fixture in the isolated `.venv` and capture the first real failure. | 1 | Verified earlier blocker: service initialization requires Neo4j. |
 
 ## Files Consulted
 
@@ -82,3 +106,4 @@ Confidence: medium-high for path identification; medium for direct API wiring be
 - [5] `src/tools/phase1/t01_pdf_loader_unified.py`
 - [6] `src/tools/phase1/phase1_mcp_tools.py`
 - [7] `src/mcp_tools/pipeline_tools.py`
+- [8] `src/core/service_manager.py`
