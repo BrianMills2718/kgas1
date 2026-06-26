@@ -145,6 +145,7 @@
 * **Risk** | Deferred Neo4j smoke-test graph cleanup because deleting accumulated local nodes is destructive shared state; future work should use source scoping, per-run labels, an isolated test database, or explicit approval.
 * **Review** | Added the Plan #1 runtime completion review, confirming the narrow `.txt` Neo4j-backed runtime proof while deferring non-text analysis, batch analysis, public/export, and live LLM recommendation.
 * **Repair** | Proved narrow `.pdf` `/api/analyze` support through the existing complete-pipeline/T01 path, with `.docx`, `.doc`, and `.md` left as explicit 501 until separately verified.
+* **Repair** | Proved narrow `.md` `/api/analyze` support through T03 text-compatible loading, added the missing `chardet` dependency, and aligned phase-1 loader provenance calls with the current `inputs=[]` service contract.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.

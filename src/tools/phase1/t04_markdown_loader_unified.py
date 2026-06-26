@@ -156,7 +156,7 @@ class T04MarkdownLoaderUnified(BaseTool):
             operation_id = self.provenance_service.start_operation(
                 tool_id=self.tool_id,
                 operation_type="load_document",
-                used={},
+                inputs=[],
                 parameters={
                     "file_path": str(file_path),
                     "workflow_id": workflow_id

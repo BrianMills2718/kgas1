@@ -165,10 +165,10 @@ async def analyze_document(
     _parse_enum(WorkflowOptimizationLevel, optimization_level, "optimization level")
     _parse_enum(ValidationLevel, validation_level, "validation level")
 
-    if file_ext not in {".txt", ".pdf"}:
+    if file_ext not in {".txt", ".pdf", ".md"}:
         raise HTTPException(
             status_code=501,
-            detail="/api/analyze is currently wired only for .txt and .pdf uploads through the complete pipeline"
+            detail="/api/analyze is currently wired only for .txt, .pdf, and .md uploads through the complete pipeline"
         )
 
     return await _analyze_document_upload(file, file_ext)

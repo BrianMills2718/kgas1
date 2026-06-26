@@ -145,7 +145,7 @@ class T09YAMLLoaderUnified(BaseTool):
             operation_id = self.provenance_service.start_operation(
                 tool_id=self.tool_id,
                 operation_type="load_yaml_document",
-                used={},
+                inputs=[],
                 parameters={
                     "file_path": str(file_path),
                     "workflow_id": workflow_id,

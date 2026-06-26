@@ -186,6 +186,62 @@ async def test_analyze_document_runs_complete_pipeline_for_pdf(monkeypatch) -> N
 
 
 @pytest.mark.asyncio
+async def test_analyze_document_runs_complete_pipeline_for_markdown(monkeypatch) -> None:
+    """Markdown uploads should preserve the real suffix and run through the complete-pipeline adapter."""
+    calls = []
+
+    class _FakePipeline:
+        async def process_document(self, document_path):
+            calls.append(document_path)
+            assert Path(document_path).exists()
+            assert Path(document_path).suffix == ".md"
+            assert Path(document_path).read_text() == "# Test\nAlice works for Acme.\n"
+            return {
+                "status": "success",
+                "transaction_id": "tx-md-test",
+                "pipeline_stats": {
+                    "chunks_created": 1,
+                    "entities_extracted": 2,
+                    "relationships_extracted": 1,
+                    "graph_nodes_created": 2,
+                    "graph_edges_created": 1,
+                    "queries_answered": 1,
+                },
+                "pipeline_results": {
+                    "document_loading": {"document_ref": "storage://document/md-test"},
+                    "relationship_extraction": {"relationship_count": 1},
+                },
+                "validation": {"pipeline_complete": True, "neo4j_verified": True},
+                "proof_of_completion": {
+                    "all_steps_executed": True,
+                    "real_operations_confirmed": True,
+                    "neo4j_integration_verified": True,
+                    "end_to_end_success": True,
+                },
+            }
+
+    monkeypatch.setattr(api, "_create_complete_pipeline", lambda: _FakePipeline())
+
+    response = await api.analyze_document(
+        background_tasks=None,
+        file=api.UploadFile(file=BytesIO(b"# Test\nAlice works for Acme.\n"), filename="sample.md"),
+        target_format="graph",
+        task="extract entities",
+        optimization_level="standard",
+        validation_level="standard",
+    )
+
+    assert calls
+    assert not Path(calls[0]).exists()
+    assert response["workflow_id"] == "tx-md-test"
+    assert response["source_traceability"] == {
+        "filename": "sample.md",
+        "file_type": ".md",
+        "document_ref": "storage://document/md-test",
+    }
+
+
+@pytest.mark.asyncio
 @pytest.mark.skipif(not os.getenv("NEO4J_PASSWORD"), reason="requires local Neo4j credentials")
 async def test_analyze_document_txt_upload_runs_live_complete_pipeline() -> None:
     """The API should expose the proven `.txt` complete-pipeline path when Neo4j is configured."""
@@ -246,8 +302,39 @@ async def test_analyze_document_pdf_upload_runs_live_complete_pipeline() -> None
 
 
 @pytest.mark.asyncio
+@pytest.mark.skipif(not os.getenv("NEO4J_PASSWORD"), reason="requires local Neo4j credentials")
+async def test_analyze_document_markdown_upload_runs_live_complete_pipeline() -> None:
+    """The API should expose a proven tiny `.md` complete-pipeline path when Neo4j is configured."""
+    response = await api.analyze_document(
+        background_tasks=None,
+        file=api.UploadFile(
+            file=BytesIO(b"# Test\nAlice works for Acme Corporation. Bob founded Beta Labs in Seattle.\n"),
+            filename="sample.md",
+        ),
+        target_format="graph",
+        task="extract entities",
+        optimization_level="standard",
+        validation_level="standard",
+    )
+
+    stats = response["results"]["pipeline_stats"]
+    proof = response["results"]["proof_of_completion"]
+    assert response["selected_mode"] == "complete_graphrag_pipeline"
+    assert stats["entities_extracted"] >= 4
+    assert stats["relationships_extracted"] >= 1
+    assert stats["graph_nodes_created"] >= 4
+    assert stats["graph_edges_created"] >= 1
+    assert stats["queries_answered"] >= 1
+    assert proof["neo4j_integration_verified"] is True
+    assert proof["end_to_end_success"] is True
+    assert response["source_traceability"]["filename"] == "sample.md"
+    assert response["source_traceability"]["file_type"] == ".md"
+    assert response["source_traceability"]["document_ref"].startswith("storage://document/")
+
+
+@pytest.mark.asyncio
 async def test_analyze_document_returns_explicit_501_for_unwired_document_formats(monkeypatch) -> None:
-    """The analyze endpoint should not claim unproven DOCX/Markdown upload support."""
+    """The analyze endpoint should not claim unproven DOCX upload support."""
     def fail_get_registry():
         raise AssertionError("registry should not be loaded")
 
@@ -256,7 +343,7 @@ async def test_analyze_document_returns_explicit_501_for_unwired_document_format
     with pytest.raises(HTTPException) as exc_info:
         await api.analyze_document(
             background_tasks=None,
-            file=api.UploadFile(file=BytesIO(b"# Heading"), filename="sample.md"),
+            file=api.UploadFile(file=BytesIO(b"docx"), filename="sample.docx"),
             target_format="graph",
             task="extract entities",
             optimization_level="standard",
@@ -264,7 +351,7 @@ async def test_analyze_document_returns_explicit_501_for_unwired_document_format
         )
 
     assert exc_info.value.status_code == 501
-    assert "only for .txt and .pdf" in exc_info.value.detail
+    assert "only for .txt, .pdf, and .md" in exc_info.value.detail
 
 
 @pytest.mark.asyncio

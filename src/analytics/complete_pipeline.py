@@ -18,6 +18,7 @@ from pathlib import Path
 from src.analytics.graph_builder import GraphBuilder
 from src.analytics.graph_query_engine import GraphQueryEngine
 from src.tools.phase1.t01_pdf_loader_unified import T01PDFLoaderUnified
+from src.tools.phase1.t03_text_loader_unified import T03TextLoaderUnified
 from src.tools.phase1.t15a_text_chunker_unified import T15ATextChunkerUnified
 from src.tools.phase1.t23a_spacy_ner_unified import T23ASpacyNERUnified
 from src.tools.phase1.t27_relationship_extractor_unified import T27RelationshipExtractorUnified
@@ -49,6 +50,7 @@ class CompleteGraphRAGPipeline:
         
         # Initialize all pipeline components
         self.pdf_loader = T01PDFLoaderUnified(self.service_manager)
+        self.text_loader = T03TextLoaderUnified(self.service_manager)
         self.text_chunker = T15ATextChunkerUnified(self.service_manager)
         self.ner_extractor = T23ASpacyNERUnified(self.service_manager)
         self.relationship_extractor = T27RelationshipExtractorUnified(self.service_manager)
@@ -255,7 +257,7 @@ class CompleteGraphRAGPipeline:
                 parameters={}
             )
             
-            result = self.pdf_loader.execute(request)
+            result = self._select_document_loader(document_path).execute(request)
             
             if result.status == "success":
                 document = result.data.get("document", {})
@@ -277,6 +279,13 @@ class CompleteGraphRAGPipeline:
         except Exception as e:
             logger.error(f"Document loading execution failed: {e}")
             return {"status": "error", "error": str(e)}
+
+    def _select_document_loader(self, document_path: str) -> Any:
+        """Select the proven phase-1 loader for a supported document extension."""
+        suffix = Path(document_path).suffix.lower()
+        if suffix in {".md", ".markdown"}:
+            return self.text_loader
+        return self.pdf_loader
     
     async def _execute_text_chunking(self, document_ref: str, text_content: str) -> Dict[str, Any]:
         """Execute T15A text chunking with real text processing"""
@@ -672,6 +681,8 @@ class CompleteGraphRAGPipeline:
             await self.query_engine.cleanup()
         if self.pdf_loader:
             self.pdf_loader.cleanup()
+        if self.text_loader:
+            self.text_loader.cleanup()
         if self.ner_extractor:
             self.ner_extractor.cleanup()
         if self.relationship_extractor:
