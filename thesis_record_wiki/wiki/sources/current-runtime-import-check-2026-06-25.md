@@ -270,6 +270,8 @@ The first source-scoping implementation is now additive. New T31 entity nodes an
 
 The query-layer source-scoping slice then threaded optional `source_refs` through the T49 path: complete-pipeline query calls pass the document ref, `GraphQueryEngine` forwards it into T49 parameters, T49 entity lookup filters candidate entities by source refs, and path/related-entity Cypher filters traversed nodes and relationships by source refs when provided. Current-runtime tests cover the parameter propagation and generated Cypher without requiring a live Neo4j database. Live source-scoped Neo4j execution remains credential-gated. [15][29][30][31][32][33]
 
+On 2026-06-26, the local Neo4j database was backed up before additional live verification. The dump path is `~/archive/phd_thesis_work/neo4j/20260626-075357/neo4j.dump`, with SHA-256 `553d57c74eb1ac3619755e3af41be81ebc1dd00fd52e2005b21f7d5cbbb630dc`. The `investigative_wiki_neo4j` container was restarted and returned to healthy status. The two live source-scoped smoke tests then passed with the local ignored Neo4j credentials: `test_complete_pipeline_processes_tiny_txt_with_neo4j` and `test_analyze_document_txt_upload_runs_live_complete_pipeline`.
+
 Verification:
 
 ```text

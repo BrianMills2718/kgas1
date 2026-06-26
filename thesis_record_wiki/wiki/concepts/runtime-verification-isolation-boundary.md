@@ -49,7 +49,7 @@ The first safe implementation slice is additive: new T31 entity-node writes and 
 
 The second safe implementation slice threads optional `source_refs` filtering through T49 query entity lookup, path expansion, and complete-pipeline smoke queries. When no source refs are supplied, query behavior remains unchanged. When source refs are supplied, entity lookup and graph traversal are constrained to nodes and relationships carrying that source ref.
 
-This does not delete or rewrite existing graph data. The remaining live verification step is to run the Neo4j-backed smoke in an environment with `NEO4J_PASSWORD` set and confirm the scoped query path against an actual local graph.
+This does not delete or rewrite existing graph data. On 2026-06-26, the local Neo4j database was dumped to `~/archive/phd_thesis_work/neo4j/20260626-075357/neo4j.dump` before live verification, and the source-scoped complete-pipeline smoke tests passed against the running container. The remaining cleanup question is now whether to add a cleanup command limited to one explicit `source_refs` value.
 
 # Why This Matters
 

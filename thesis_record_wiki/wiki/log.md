@@ -1,5 +1,9 @@
 # Update Log
 
+## 2026-06-26
+
+* **Verification** | Created a Neo4j dump backup in `~/archive/phd_thesis_work/neo4j/20260626-075357/`, restarted the container healthy, and verified the two live source-scoped complete-pipeline smoke tests pass.
+
 ## 2026-06-25
 
 * **Repair** | Threaded optional `source_refs` filtering through T49 entity lookup, path expansion, and complete-pipeline query smoke tests, preserving default unscoped behavior and avoiding graph cleanup.
