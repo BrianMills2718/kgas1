@@ -18,6 +18,42 @@ from ..mcp_adapter import MCPToolAdapter
 logger = logging.getLogger(__name__)
 
 
+def _normalize_entities_for_t27(entities: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Normalize entity records into the T27 relationship extractor contract."""
+    normalized = []
+    for index, entity in enumerate(entities):
+        if all(field in entity for field in ("text", "entity_type", "start", "end")):
+            normalized.append({
+                **entity,
+                "text": entity["text"],
+                "entity_type": entity["entity_type"],
+                "start": entity["start"],
+                "end": entity["end"],
+                "confidence": entity.get("confidence", 0.8),
+            })
+            continue
+
+        if all(field in entity for field in ("surface_form", "entity_type", "start_pos", "end_pos")):
+            converted = {
+                **entity,
+                "text": entity["surface_form"],
+                "entity_type": entity["entity_type"],
+                "start": entity["start_pos"],
+                "end": entity["end_pos"],
+                "confidence": entity.get("confidence", 0.8),
+            }
+            normalized.append(converted)
+            continue
+
+        raise ValueError(
+            "Entity "
+            f"{index} is not T27-compatible; expected text/entity_type/start/end "
+            "or T23A surface_form/entity_type/start_pos/end_pos"
+        )
+
+    return normalized
+
+
 class AnalysisAgent(ReasoningAgent):
     """
     Reasoning-enhanced analysis agent for entity and relationship extraction.
@@ -564,10 +600,11 @@ class AnalysisAgent(ReasoningAgent):
                                               entities: List[Dict]) -> Dict[str, Any]:
         """Extract relationships from a single chunk."""
         try:
+            t27_entities = _normalize_entities_for_t27(entities)
             result = await self.mcp.call_tool("extract_relationships", {
                 "chunk_ref": chunk_ref,
                 "text": text,
-                "entities": entities
+                "entities": t27_entities
             })
             
             if result.success:

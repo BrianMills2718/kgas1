@@ -13,6 +13,8 @@ sources:
   - ../src/mcp_tools/__init__.py
   - ../src/core/service_manager.py
   - ../requirements.txt
+  - ../src/orchestration/agents/analysis_agent.py
+  - ../tests/current_runtime/test_analysis_agent_t27_contract.py
 confidence: high
 ---
 
@@ -107,6 +109,10 @@ Interpretation: the first MCP repair is environment dependency installation or p
 
 The cross-modal API import blocker has been repaired and covered by `tests/current_runtime/test_cross_modal_api_contract.py`. The isolated environment pass added missing declared-runtime dependencies (`python-multipart`, `fastmcp`, `psutil`, and `sympy`) to `requirements.txt`; after that, `src.core.tool_contract`, `src.api.cross_modal_api`, and `src.mcp_server` all import in the project-local `.venv`, and `src.mcp_server.mcp` is created. [1][4][6]
 
+The first relationship-extraction follow-up is also complete for the analysis-agent bridge. Current T27 requires `text/entity_type/start/end` entity records, while T23A returns `surface_form/entity_type/start_pos/end_pos`; `src/orchestration/agents/analysis_agent.py` now normalizes entities before calling MCP relationship extraction. The focused contract tests pass, and a direct T27 fixture probe returns two relationships for both native T27 entities and converted T23A entities. [8][9]
+
+Remaining follow-up: install/manage `en_core_web_sm` in the isolated environment if dependency parsing is part of the target runtime, then add a small end-to-end analysis-agent test proving `relationships` propagate through `Result.data` rather than only through the direct T27 fixture.
+
 # Links
 
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
@@ -122,3 +128,5 @@ The cross-modal API import blocker has been repaired and covered by `tests/curre
 [5] `../src/mcp_tools/__init__.py`  
 [6] `../src/core/service_manager.py`  
 [7] `../requirements.txt`
+[8] `../src/orchestration/agents/analysis_agent.py`
+[9] `../tests/current_runtime/test_analysis_agent_t27_contract.py`

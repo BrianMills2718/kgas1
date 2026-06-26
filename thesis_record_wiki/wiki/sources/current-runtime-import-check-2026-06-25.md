@@ -12,6 +12,10 @@ sources:
   - ../src/analytics/__init__.py
   - ../src/analytics/cross_modal_orchestrator.py
   - ../requirements.txt
+  - ../src/orchestration/agents/analysis_agent.py
+  - ../src/tools/phase1/t23a_spacy_ner_unified.py
+  - ../src/tools/phase1/t27_relationship_extractor_unified.py
+  - ../tests/current_runtime/test_analysis_agent_t27_contract.py
 confidence: high
 ---
 
@@ -145,6 +149,29 @@ tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
 8 passed, 2 warnings
 ```
 
+# Relationship Extraction Follow-Up
+
+A follow-up investigation traced the T27 relationship-extraction bottleneck against current code and archived repair evidence. Current T27 validates each entity for `text`, `entity_type`, `start`, and `end`, while T23A emits `surface_form`, `entity_type`, `start_pos`, and `end_pos`. The analysis-agent path previously forwarded chunk entities directly into MCP `extract_relationships`, reproducing the historical format-mismatch risk. [9][10][11]
+
+The repair added `_normalize_entities_for_t27(...)` at the analysis-agent bridge. It passes already-normalized T27 entities through, converts T23A entities to the current T27 contract, and raises a visible `ValueError` for unknown entity shapes. The focused test file covers T23A conversion, T27 pass-through, and invalid-shape fail-loud behavior. [9][12]
+
+Verification in the isolated `.venv`:
+
+```text
+tests/current_runtime/test_analysis_agent_t27_contract.py ... [100%]
+tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
+11 passed, 2 warnings
+```
+
+A direct fixture probe also showed current T27 can extract relationships from valid or converted entities without live Neo4j/LLM services:
+
+```text
+valid success None 2
+converted_t23a success None 2
+```
+
+Runtime caveat: `en_core_web_sm` is still not installed in the project `.venv`, so T27's spaCy dependency-parsing path logs a missing-model error and remains unverified; pattern/proximity extraction produced the successful fixture results. [11]
+
 # Links
 
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md)
@@ -162,3 +189,7 @@ tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
 [6] `../requirements.txt`
 [7] `../tests/current_runtime/test_cross_modal_api_contract.py`
 [8] `../config/default.yaml`
+[9] `../src/orchestration/agents/analysis_agent.py`
+[10] `../src/tools/phase1/t23a_spacy_ner_unified.py`
+[11] `../src/tools/phase1/t27_relationship_extractor_unified.py`
+[12] `../tests/current_runtime/test_analysis_agent_t27_contract.py`

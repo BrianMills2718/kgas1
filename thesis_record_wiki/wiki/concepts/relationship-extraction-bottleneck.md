@@ -8,6 +8,10 @@ updated: 2026-06-25
 sources:
   - ../archive_full_record/lineage_variants/digimon_core_sparse/ARCHITECTURAL_BOTTLENECKS_ANALYSIS.md
   - ../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/evidence_reports_2025_08/ARCHITECTURAL_BOTTLENECKS_ANALYSIS.md
+  - ../src/orchestration/agents/analysis_agent.py
+  - ../src/tools/phase1/t23a_spacy_ner_unified.py
+  - ../src/tools/phase1/t27_relationship_extractor_unified.py
+  - ../tests/current_runtime/test_analysis_agent_t27_contract.py
 confidence: high
 ---
 
@@ -25,10 +29,19 @@ For a GraphRAG system, entity extraction alone is insufficient. If relationship 
 
 The bottleneck analysis says relationship extraction tool T27 was either not called in the multi-document pipeline or failed silently. It recommends auditing T27 invocation, adding relationship extraction to multi-document tests, and validating with a simple two-document case. [1]
 
+# Current Runtime Follow-Up
+
+A 2026-06-25 current-code investigation reproduced a more specific version of this failure mode. Current T27 requires each entity to have `text`, `entity_type`, `start`, and `end`, while current T23A emits `surface_form`, `entity_type`, `start_pos`, and `end_pos`. The analysis-agent path was forwarding T23A entities directly into MCP relationship extraction, so it could fail before extraction rather than produce relationships. [3][4][5]
+
+The analysis-agent bridge now normalizes T23A output to the current T27 contract before calling MCP. Focused current-runtime tests cover conversion, pass-through for already-normalized T27 entities, and fail-loud behavior for unknown entity shapes. A direct T27 fixture probe returned two relationships for both native T27 entities and converted T23A entities. [3][6]
+
+This does not close every relationship-extraction risk. `en_core_web_sm` is not installed in the isolated project `.venv`, so dependency-parsing extraction remains unverified; the successful fixture evidence comes from T27 pattern/proximity extraction. Broader direct callers beyond `AnalysisAgent` may also need a contract-normalization audit.
+
 # Related Pages
 
 - [Digimon Core Sparse Contract Layer](/wiki/sources/digimon-core-sparse-contract-layer.md)
 - [Digimon Lineage Evidence Reports 2025 08](/wiki/sources/digimon-lineage-evidence-reports-2025-08.md)
+- [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
 - [Contract-First Migration](/wiki/concepts/contract-first-migration.md)
 - [KGAS](/wiki/entities/kgas.md)
 
@@ -36,3 +49,7 @@ The bottleneck analysis says relationship extraction tool T27 was either not cal
 
 [1] `../archive_full_record/lineage_variants/digimon_core_sparse/ARCHITECTURAL_BOTTLENECKS_ANALYSIS.md`
 [2] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/evidence_reports_2025_08/ARCHITECTURAL_BOTTLENECKS_ANALYSIS.md`
+[3] `../src/orchestration/agents/analysis_agent.py`
+[4] `../src/tools/phase1/t23a_spacy_ner_unified.py`
+[5] `../src/tools/phase1/t27_relationship_extractor_unified.py`
+[6] `../tests/current_runtime/test_analysis_agent_t27_contract.py`

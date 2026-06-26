@@ -178,9 +178,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `1401d56` repaired the current cross-modal API import/calling-contract boundary, added focused current-runtime tests, verified passing `src.api.cross_modal_api` import, and recorded remaining `neo4j`/`torchvision` dependency blockers.
 - `f2704ad` completed the isolated KGAS environment slice, including project-local `.venv` requirements install, added `python-multipart`/`fastmcp`/`psutil`, generated empty-default `config/default.yaml`, passing isolated target imports, and non-blocking SymPy warning.
 - `bec53f2` completed SymPy dependency support, including `sympy>=1.14.0`, isolated MCP import with `mcp_is_none=False`, HybridFormulaParser SymPy support, and successful MCP tool registration.
+- `PENDING` repaired the current analysis-agent T23A-to-T27 relationship-extraction bridge, added focused current-runtime tests, wrote the T27 bottleneck investigation, and recorded the remaining `en_core_web_sm` caveat.
 
 ## Next
 
-1. Next recommended step: trace the relationship-extraction bottleneck across T27/current code/archive evidence.
+1. Next recommended step: install/manage `en_core_web_sm` in the isolated environment if dependency parsing is in scope, then add a small analysis-agent end-to-end relationship propagation test.
+2. Follow-up audit: check direct T27 callers outside `AnalysisAgent` for the same T23A/T27 entity-contract boundary.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
