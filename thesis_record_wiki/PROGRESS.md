@@ -211,6 +211,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `5ad2b1c` migrated the FastAPI startup hook to lifespan initialization, removing the runtime deprecation warning while preserving four-format live smoke coverage.
 - `9faecf1` added the Plan #1 closeout review, marking current safe runtime gates complete and selecting `/api/batch/analyze` wiring as the next safe local slice.
 - `972e373` wired `/api/batch/analyze` to the proven single-document path with per-file results/errors, job-status coverage, and a live TXT batch smoke test.
+- Pending commit marked Plan #1 safe local runtime work verified and blocked only on Brian-gated public/export, live LLM recommendation, and cleanup execution decisions.
 
 ## Deferred Risk Decisions
 
@@ -220,7 +221,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: run a final verification sweep and mark safe local runtime work complete, leaving only human-gated public/export, live LLM recommendation, and operator-triggered cleanup execution.
+1. Next recommended step: Brian should decide whether to approve any of the remaining blocked gates: public/export bundle, live LLM recommendation test, or execution of scoped Neo4j cleanup for specific source refs.
 2. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
 3. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured and budget-approved.
 4. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.

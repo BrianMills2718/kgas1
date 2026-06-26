@@ -1,6 +1,6 @@
 # Plan #1: Full Program Completion
 
-**Status:** In Progress
+**Status:** Blocked - safe local runtime complete; remaining gates require Brian review or credential/budget approval
 **Type:** design
 **Priority:** High
 **Blocked By:** human review for destructive cleanup, public export, and LLM-cost decisions
@@ -73,7 +73,7 @@ The full program is complete only when all gates below are satisfied or explicit
 | Runtime Environment | Local setup has reproducible Python deps, local Neo4j credentials, and backup procedure. | `.env` ignored locally; Neo4j dump path/hash; `pip check` | Satisfied locally |
 | Narrow E2E Pipeline | `.txt`, tiny `.pdf`, tiny `.md`, and tiny `.docx` upload/API paths run real document-loading/T15/T23/T27/T31/T34/T49 stages with Neo4j source scoping. | live source-scoped smoke tests pass | Satisfied for `.txt`, tiny `.pdf`, tiny `.md`, and tiny `.docx` |
 | Query Isolation | New graph writes carry `source_refs`; T49 can filter by `source_refs`; old smoke data cannot satisfy scoped proof. | current-runtime tests; live smoke result | Satisfied for tested path |
-| Cleanup Safety | Any cleanup command is source-scoped, dry-run capable, backed by tests, and never broad-deletes graph data. | future cleanup test + command docs | Planned, safe if scoped |
+| Cleanup Safety | Any cleanup command is source-scoped, dry-run capable, backed by tests, and never broad-deletes graph data. | cleanup helper tests + dry-run output | Helper complete; live execution remains operator-triggered |
 | API Honesty | Unsupported/unwired endpoints return explicit 501/503 rather than mock success. | current-runtime API tests | Satisfied for known endpoints |
 | Review Gate | Code review pass covers security, destructive actions, LLM boundaries, and remaining stale/mock claims. | review report in `investigations/` or wiki source page | Complete for safe runtime scope |
 | Public/Export | Any shareable bundle is derived, scanned, documented, and excludes/separates raw credential-bearing archives. | export manifest + scan output | Human-review required |
@@ -229,6 +229,20 @@ Evidence: `investigations/2026-06-26-plan1-closeout-review.md`.
 
 Evidence: `src/api/cross_modal_api.py`, `tests/current_runtime/test_cross_modal_api_contract.py`, focused API tests 26 passed / 5 skipped, full `tests/current_runtime` count 63 passed / 6 skipped, live batch TXT smoke 1 passed, and `pip check` clean.
 
+### Slice 13 - Final Safe Runtime Verification
+
+**Status:** Complete
+
+**Safe scope:** verify all safe local runtime work and stop short of human-gated public/export, LLM-cost, and cleanup-execution decisions.
+
+**Done when:**
+- [x] full current-runtime suite passes;
+- [x] live document-format and batch smokes pass;
+- [x] wiki lint, plan validation, dependency check, and secret scan are clean or documented;
+- [x] plan status reflects remaining human-gated blockers.
+
+Evidence: full `tests/current_runtime` count 63 passed / 6 skipped; live `.txt`, `.pdf`, `.md`, `.docx`, and batch TXT smoke count 5 passed; wiki lint health 100/100; plan validation/index sync clean; `pip check` clean; secret scan only found placeholder examples.
+
 ---
 
 ## Required Tests
@@ -253,14 +267,14 @@ Evidence: `src/api/cross_modal_api.py`, `tests/current_runtime/test_cross_modal_
 
 ## Acceptance Criteria
 
-- [ ] Completion plan exists and is the active plan.
-- [ ] Every future implementation slice maps to one success gate above.
-- [ ] Safe autonomous tasks are executed in thin verified slices.
-- [ ] Unsafe tasks are documented and deferred instead of guessed.
-- [ ] Raw PhD archive/history remains intact.
-- [ ] Full current-runtime tests pass before claiming runtime progress.
-- [ ] Wiki lint is 100/100 before committing wiki/progress updates.
-- [ ] Code review/report exists before declaring "done and reviewed."
+- [x] Completion plan exists and is the active plan.
+- [x] Every future implementation slice maps to one success gate above.
+- [x] Safe autonomous tasks are executed in thin verified slices.
+- [x] Unsafe tasks are documented and deferred instead of guessed.
+- [x] Raw PhD archive/history remains intact.
+- [x] Full current-runtime tests pass before claiming runtime progress.
+- [x] Wiki lint is 100/100 before committing wiki/progress updates.
+- [x] Code review/report exists before declaring "done and reviewed."
 
 ---
 

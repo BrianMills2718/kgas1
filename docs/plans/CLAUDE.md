@@ -6,7 +6,7 @@ Track all implementation work here.
 
 | # | Name | Priority | Status | Blocks |
 |---|------|----------|--------|--------|
-| 1 | [Full Program Completion](01_full_program_completion.md) | High | 🚧 In Progress | runtime hardening, review gate, public/export packaging |
+| 1 | [Full Program Completion](01_full_program_completion.md) | High | ⏸️ Blocked | runtime hardening, review gate, public/export packaging |
 
 ## Status Key
 
