@@ -32,7 +32,7 @@ Build a Karpathy-style wiki over Brian's KGAS / Digimons / PhD thesis record so 
 
 ## Current Phase
 
-Guarded handoff after runtime repair and preservation-wiki consolidation. Remaining work is either a scoped design/implementation slice with explicit isolation, or deferred until Brian approves destructive cleanup or live credential/LLM use.
+Full-program completion is now governed by `docs/plans/01_full_program_completion.md`. Continue only safe, verified slices that map to that plan; defer destructive cleanup, public export, and live LLM-cost decisions for Brian review.
 
 ## Completed
 
@@ -209,6 +209,6 @@ Guarded handoff after runtime repair and preservation-wiki consolidation. Remain
 
 ## Next
 
-1. Next recommended step: decide whether to add a per-run cleanup command that deletes only nodes/edges matching a specific current-run `source_refs` value; do not run broad graph cleanup.
+1. Next recommended step: implement the source-scoped Neo4j cleanup command from Plan #1 with dry-run-first behavior and refusal of empty/broad scopes.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.
