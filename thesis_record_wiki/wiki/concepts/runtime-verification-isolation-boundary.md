@@ -43,6 +43,12 @@ A future code slice is safe if it can prove:
 - tests pass when older Alice/Acme/Bob/Seattle nodes already exist;
 - no raw archive content or historical thesis evidence is modified.
 
+# Current Implementation State
+
+The first safe implementation slice is additive: new T31 entity-node writes and T34 relationship-edge writes now carry `source_refs` from the graph-builder input. Focused current-runtime tests prove source refs are propagated without requiring a live Neo4j database.
+
+This does not delete or rewrite existing graph data, and it does not yet make T49 queries source-scoped. The next implementation step is query-layer filtering against `source_refs`, not cleanup of the accumulated graph.
+
 # Why This Matters
 
 The PhD record is partly about how claims evolved under real verification pressure. Local runtime artifacts are not as authoritative as the preserved archive, but they can still explain why later repairs were made. Isolation preserves that history while keeping future tests deterministic.

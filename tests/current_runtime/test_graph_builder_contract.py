@@ -3,6 +3,8 @@
 import pytest
 
 from src.analytics.graph_builder import GraphBuilder
+from src.tools.phase1.t31_entity_builder_unified import T31EntityBuilderUnified
+from src.tools.phase1.t34_edge_builder_unified import T34EdgeBuilderUnified
 
 
 class _FailingEdgeBuilder:
@@ -57,3 +59,64 @@ async def test_graph_connectivity_validation_uses_bounded_summary_query() -> Non
     assert result["connectivity_check"] == "not_computed_unbounded_traversal_skipped"
     assert result["node_count"] == 4
     assert result["relationship_count"] == 5
+
+
+def test_t31_persists_source_refs_on_new_entity_nodes(monkeypatch) -> None:
+    """New Neo4j entity writes should carry source refs for future scoped verification."""
+    captured = {}
+    builder = object.__new__(T31EntityBuilderUnified)
+
+    def fake_create(entity_info, mentions):
+        captured["entity_info"] = entity_info
+        return {
+            "status": "success",
+            "neo4j_id": "node-1",
+            "properties": {"source_refs": entity_info["source_refs"]},
+        }
+
+    monkeypatch.setattr(builder, "_create_neo4j_entity_node", fake_create)
+
+    entity = builder._build_single_entity(
+        "PERSON_0001",
+        [{"text": "Alice", "entity_type": "PERSON", "confidence": 0.9}],
+        ["storage://document/source-scope"],
+    )
+
+    assert entity is not None
+    assert captured["entity_info"]["source_refs"] == ["storage://document/source-scope"]
+    assert entity["properties"]["source_refs"] == ["storage://document/source-scope"]
+
+
+def test_t34_persists_source_refs_on_new_relationship_edges(monkeypatch) -> None:
+    """New Neo4j relationship writes should carry source refs for future scoped verification."""
+    captured = {}
+    builder = object.__new__(T34EdgeBuilderUnified)
+    builder.driver = object()
+    builder.min_weight = 0.1
+    builder.max_weight = 1.0
+    builder.confidence_weight_factor = 0.8
+
+    def fake_create(relationship, weight, source_refs):
+        captured["source_refs"] = source_refs
+        return {
+            "status": "success",
+            "neo4j_rel_id": "rel-1",
+            "properties": {"source_refs": source_refs},
+        }
+
+    monkeypatch.setattr(builder, "_create_neo4j_relationship_edge", fake_create)
+
+    edge = builder._build_single_edge(
+        {
+            "subject": {"text": "Alice"},
+            "object": {"text": "Acme"},
+            "relationship_type": "WORKS_FOR",
+            "confidence": 0.9,
+            "evidence_text": "Alice works for Acme.",
+        },
+        ["storage://document/source-scope"],
+    )
+
+    assert edge is not None
+    assert captured["source_refs"] == ["storage://document/source-scope"]
+    assert edge["properties"]["source_refs"] == ["storage://document/source-scope"]

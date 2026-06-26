@@ -249,6 +249,7 @@ class T31EntityBuilderUnified(BaseTool):
         
         # Extract entity information from mentions
         entity_info = self._extract_entity_info(entity_id, mentions)
+        entity_info["source_refs"] = list(source_refs)
         
         # Create Neo4j node
         neo4j_result = self._create_neo4j_entity_node(entity_info, mentions)
@@ -319,6 +320,7 @@ class T31EntityBuilderUnified(BaseTool):
                     "surface_forms": entity_info["surface_forms"],
                     "confidence": entity_info["confidence"],
                     "mention_count": entity_info["mention_count"],
+                    "source_refs": entity_info["source_refs"],
                     "pagerank_score": 0.0,  # Initialize for PageRank
                     "created_at": datetime.now().isoformat(),
                     "tool_version": "T31_unified_v1.0"
@@ -332,6 +334,7 @@ class T31EntityBuilderUnified(BaseTool):
                     e.surface_forms = $surface_forms,
                     e.confidence = $confidence,
                     e.mention_count = $mention_count,
+                    e.source_refs = $source_refs,
                     e.pagerank_score = $pagerank_score,
                     e.created_at = $created_at,
                     e.tool_version = $tool_version

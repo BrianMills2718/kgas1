@@ -322,7 +322,7 @@ class T34EdgeBuilderUnified(BaseTool):
             weight = self._calculate_edge_weight(relationship)
             
             # Create Neo4j relationship edge
-            neo4j_result = self._create_neo4j_relationship_edge(relationship, weight)
+            neo4j_result = self._create_neo4j_relationship_edge(relationship, weight, source_refs)
             
             if neo4j_result["status"] == "success":
                 edge_data = {
@@ -349,7 +349,8 @@ class T34EdgeBuilderUnified(BaseTool):
     def _create_neo4j_relationship_edge(
         self, 
         relationship: Dict[str, Any], 
-        weight: float
+        weight: float,
+        source_refs: List[str]
     ) -> Dict[str, Any]:
         """Create relationship edge in Neo4j"""
         if not self.driver:
@@ -369,6 +370,7 @@ class T34EdgeBuilderUnified(BaseTool):
                     "confidence": relationship.get("confidence", 0.5),
                     "extraction_method": relationship.get("extraction_method", "unknown"),
                     "evidence_text": str(relationship.get("evidence_text", relationship.get("connecting_text", "")))[:500],
+                    "source_refs": list(source_refs),
                     "created_at": datetime.now().isoformat(),
                     "tool_version": "T34_unified_v1.0"
                 }

@@ -266,6 +266,8 @@ The parser-derived T27 relationship path now has focused coverage. A direct curr
 
 The remaining Neo4j cleanup question is a safety boundary, not an immediate cleanup task. Repeated smoke tests have accumulated local graph nodes, but deleting shared graph state would be destructive. Future runtime verification should use per-run/source scoping or an isolated test graph before adding cleanup behavior. See [Runtime Verification Isolation Boundary](/wiki/concepts/runtime-verification-isolation-boundary.md).
 
+The first source-scoping implementation is now additive. New T31 entity nodes and T34 relationship edges carry the graph-builder `source_refs` property, and current-runtime tests verify that propagation without a live database. The live complete-pipeline smoke fixture was also changed to use a unique source-scoped document payload and to assert source refs on graph entities/edges when Neo4j credentials are available. Query-layer filtering by `source_refs` remains a future slice. [26][27][28]
+
 Verification:
 
 ```text
@@ -308,3 +310,6 @@ tests/current_runtime/test_cross_modal_api_contract.py .................... [100
 [23] `../src/tools/phase1/multihop_query/query_entity_extractor.py`
 [24] `../src/tools/phase1/multihop_query/result_ranker.py`
 [25] `../tests/current_runtime/test_t27_dependency_parser.py`
+[26] `../src/tools/phase1/t31_entity_builder_unified.py`
+[27] `../src/tools/phase1/t34_edge_builder_unified.py`
+[28] `../tests/current_runtime/test_graph_builder_contract.py`
