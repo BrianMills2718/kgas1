@@ -213,7 +213,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `972e373` wired `/api/batch/analyze` to the proven single-document path with per-file results/errors, job-status coverage, and a live TXT batch smoke test.
 - `52db850` marked Plan #1 safe local runtime work verified and blocked only on Brian-gated public/export, live LLM recommendation, and cleanup execution decisions.
 - `6d155a5` added the blocked-gates decision brief, separating public/export, live LLM recommendation, Neo4j cleanup execution, and legacy `.doc` support into explicit Brian approval decisions with safe defaults.
-- `PENDING` added public-export readiness docs and a draft manifest, defining a documentation-first export candidate, excluded raw-risk paths, scan commands, and private-by-default publication posture.
+- `abc2b94` added public-export readiness docs and a draft manifest, defining a documentation-first export candidate, excluded raw-risk paths, scan commands, and private-by-default publication posture.
 
 ## Deferred Risk Decisions
 
