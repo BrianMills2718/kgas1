@@ -19,6 +19,7 @@
 * **Repair** | Traced and repaired the current analysis-agent T23A-to-T27 relationship-extraction bridge, added focused current-runtime tests, and made `en-core-web-sm` reproducible for T27 parser availability.
 * **Repair** | Moved T27 entity normalization into a shared compatibility adapter, applied it to complete-pipeline and Phase 1 MCP boundaries, and declared missing `aiosqlite`/`pypdf` runtime imports.
 * **Repair** | Repaired real-DAG T27 dataflow so relationship extraction receives upstream entities, with a focused DAG request-construction test.
+* **Repair** | Rewired `/api/recommend` to the current `DataContext` and mode-selector contract, with focused API tests and explicit 503 behavior for missing LLM-backed selection.
 * **Ingest** | Added analysis-validation-2025-08 slice, including 40-file validation archive inventory, development-standards validation, three Gemini claim validations, reliability/MCP/final validation configs, chronology/supersession caveat, and no-literal-key finding.
 * **Ingest** | Added generated-outputs-2025-08 slice, including 10-file inventory, performance/SLA JSON, real-vector proof, provenance and reasoning-trace SQLite schema/row counts, repomix-bundle caveats, and no-literal-key finding.
 * **Ingest** | Added docs-architecture-cleanup-2025-08-29 archive overview, including 62-file inventory, generated-document cleanup rationale, over-engineered service-guide archival, IC uncertainty ADR-to-abandonment arc, category-error critique, and no-literal-key finding.

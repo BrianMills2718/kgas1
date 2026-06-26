@@ -182,10 +182,12 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `c32fb8b` installed and declared `en-core-web-sm==3.8.0`, added a runtime model-availability test, and verified T27 can load the shared spaCy model without the previous missing-model error.
 - `fdd78f4` moved T27 entity normalization into a shared compatibility adapter, applied it to complete-pipeline and Phase 1 MCP boundaries, added propagation tests, and declared missing `aiosqlite`/`pypdf` runtime imports.
 - `996c0cc` repaired real-DAG T27 dataflow so relationship extraction receives upstream entities, and added a focused DAG request-construction test.
+- `PENDING` rewired `/api/recommend` to the current `DataContext` and mode-selector contract, with focused current-runtime API tests.
 
 ## Next
 
-1. Next recommended step: move to the next current-runtime bottleneck outside relationship extraction, because the known T27 entity-dataflow issues are now covered.
-2. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
-3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
-4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.
+1. Next recommended step: audit remaining API endpoints beyond `/api/analyze` and `/api/recommend`, especially batch processing, for stale call contracts.
+2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
+3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
+4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
+5. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

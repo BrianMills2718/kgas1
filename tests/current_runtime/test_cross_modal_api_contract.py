@@ -6,6 +6,7 @@ import pytest
 from fastapi import HTTPException
 
 from src.api import cross_modal_api as api
+from src.analytics.mode_selection_service import AnalysisMode, ConfidenceLevel, ModeSelectionResult
 
 
 def test_cross_modal_api_imports_without_registry_runtime_dependencies() -> None:
@@ -74,3 +75,97 @@ def test_selected_mode_value_handles_current_analysis_result_metadata() -> None:
     result = _FakeResult(analysis_metadata={"mode_selection": {"primary_mode": "graph_analysis"}})
 
     assert api._selected_mode_value(result) == "graph_analysis"
+
+
+def test_recommend_request_builds_current_data_context() -> None:
+    """Recommendation requests should map into the current DataContext dataclass."""
+    request = api.RecommendRequest(
+        task="find central actors",
+        data_type="graph",
+        size=120,
+        performance_priority="quality",
+    )
+
+    context = api._recommend_request_to_data_context(request)
+
+    assert context.data_size == 120
+    assert context.data_types == ["graph"]
+    assert context.entity_count == 0
+    assert context.relationship_count == 0
+    assert context.has_hierarchical_structure is True
+    assert context.available_formats == ["graph", "table", "vector"]
+
+
+def test_recommend_request_rejects_negative_size() -> None:
+    """Invalid recommendation sizes should be client errors."""
+    request = api.RecommendRequest(
+        task="find central actors",
+        data_type="graph",
+        size=-1,
+        performance_priority="quality",
+    )
+
+    with pytest.raises(HTTPException) as exc_info:
+        api._recommend_request_to_data_context(request)
+
+    assert exc_info.value.status_code == 400
+
+
+def test_serialize_mode_selection_uses_json_friendly_values() -> None:
+    """Mode-selection dataclasses should serialize enum values for the API response."""
+    result = ModeSelectionResult(
+        primary_mode=AnalysisMode.GRAPH_ANALYSIS,
+        secondary_modes=[AnalysisMode.TABLE_ANALYSIS],
+        confidence=0.82,
+        confidence_level=ConfidenceLevel.HIGH,
+        reasoning="Graph structure is central to the task.",
+        workflow_steps=[{"step": "graph"}],
+        estimated_performance={"duration": 10},
+        fallback_used=False,
+        selection_metadata={"source": "fake"},
+    )
+
+    serialized = api._serialize_mode_selection(result)
+
+    assert serialized["recommended_mode"] == "graph_analysis"
+    assert serialized["secondary_modes"] == ["table_analysis"]
+    assert serialized["confidence_level"] == "high"
+
+
+@pytest.mark.asyncio
+async def test_recommend_mode_calls_current_mode_selector_contract(monkeypatch) -> None:
+    """The endpoint should call select_optimal_mode with research_question and DataContext."""
+    calls = []
+
+    class _FakeModeSelector:
+        async def select_optimal_mode(self, research_question, data_context, preferences=None):
+            calls.append((research_question, data_context, preferences))
+            return ModeSelectionResult(
+                primary_mode=AnalysisMode.GRAPH_ANALYSIS,
+                secondary_modes=[],
+                confidence=0.91,
+                confidence_level=ConfidenceLevel.VERY_HIGH,
+                reasoning="Graph analysis fits graph data.",
+                workflow_steps=[],
+                estimated_performance={},
+                fallback_used=False,
+                selection_metadata={},
+            )
+
+    class _FakeRegistry:
+        mode_selector = _FakeModeSelector()
+
+    monkeypatch.setattr(api, "_get_registry", lambda: _FakeRegistry())
+    request = api.RecommendRequest(
+        task="find central actors",
+        data_type="graph",
+        size=100,
+        performance_priority="speed",
+    )
+
+    response = await api.recommend_mode(request)
+
+    assert response["recommended_mode"] == "graph_analysis"
+    assert calls[0][0] == "find central actors"
+    assert calls[0][1].data_types == ["graph"]
+    assert calls[0][2] == {"performance_priority": "speed"}

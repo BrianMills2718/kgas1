@@ -18,6 +18,7 @@ sources:
   - ../src/analytics/complete_pipeline.py
   - ../src/tools/phase1/phase1_mcp_tools.py
   - ../src/orchestration/real_dag_orchestrator.py
+  - ../src/api/cross_modal_api.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
   - ../tests/current_runtime/test_real_dag_t27_dataflow.py
   - ../tests/current_runtime/test_spacy_model_dependency.py
@@ -121,6 +122,8 @@ The spaCy model follow-up is complete at the dependency layer: `en-core-web-sm==
 
 The real-DAG follow-up is complete for T27 dataflow: `real_dag_orchestrator.py` now collects upstream `entities`/`mentions`, passes them into T27 requests, and the demo DAG wires relationship extraction to both chunking and entity extraction. Remaining follow-up: if dependency-parser-derived relationships matter, add a richer fixture that requires the parser path instead of pattern extraction. [14][15]
 
+The recommendation endpoint follow-up is complete at the API-contract layer: `/api/recommend` now maps `RecommendRequest` into the current `DataContext` factory, calls `ModeSelectionService.select_optimal_mode(...)` through the registry's mode selector, serializes the current `ModeSelectionResult`, and returns 503 for unavailable mode selector/LLM configuration. Real recommendation execution still requires an initialized LLM-backed mode selector. [16]
+
 # Links
 
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
@@ -144,3 +147,4 @@ The real-DAG follow-up is complete for T27 dataflow: `real_dag_orchestrator.py` 
 [13] `../tests/current_runtime/test_spacy_model_dependency.py`
 [14] `../src/orchestration/real_dag_orchestrator.py`
 [15] `../tests/current_runtime/test_real_dag_t27_dataflow.py`
+[16] `../src/api/cross_modal_api.py`

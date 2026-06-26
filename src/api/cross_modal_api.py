@@ -285,10 +285,29 @@ async def recommend_mode(request: RecommendRequest):
     
     Returns confidence scores and reasoning.
     """
-    raise HTTPException(
-        status_code=501,
-        detail="Mode recommendation endpoint is not wired to the current DataContext contract"
-    )
+    try:
+        registry = _get_registry()
+        mode_selector = registry.mode_selector
+        if not mode_selector:
+            raise HTTPException(
+                status_code=503,
+                detail="Mode selector service not available"
+            )
+
+        data_context = _recommend_request_to_data_context(request)
+        result = await mode_selector.select_optimal_mode(
+            research_question=request.task,
+            data_context=data_context,
+            preferences={"performance_priority": request.performance_priority}
+        )
+        return _serialize_mode_selection(result)
+    except HTTPException:
+        raise
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.error(f"Mode recommendation failed: {exc}")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 # Batch analysis endpoint
 @app.post("/api/batch/analyze", response_model=JobResponse)
@@ -444,6 +463,54 @@ def _preferred_modes_for_format(target_format: DataFormat) -> Optional[List[Any]
         DataFormat.VECTOR: [AnalysisMode.VECTOR_ANALYSIS],
     }
     return mapping.get(target_format)
+
+def _recommend_request_to_data_context(request: RecommendRequest) -> Any:
+    """Build the current DataContext contract from the recommendation API request."""
+    if request.size < 0:
+        raise HTTPException(status_code=400, detail="size must be non-negative")
+
+    try:
+        from src.analytics.mode_selection_service import create_data_context
+    except ImportError as exc:
+        raise HTTPException(status_code=503, detail=f"Mode selection unavailable: {exc}") from exc
+
+    normalized_data_type = request.data_type.strip().lower()
+    data_types = [normalized_data_type] if normalized_data_type else ["unknown"]
+    return create_data_context(
+        data_size=request.size,
+        data_types=data_types,
+        entity_count=0,
+        relationship_count=0,
+        has_temporal_data="temporal" in data_types,
+        has_spatial_data=any(data_type in {"spatial", "geo", "geospatial"} for data_type in data_types),
+        has_hierarchical_structure=any(data_type in {"graph", "tree", "hierarchical"} for data_type in data_types),
+        available_formats=["graph", "table", "vector"]
+    )
+
+def _serialize_mode_selection(result: Any) -> Dict[str, Any]:
+    """Serialize a current ModeSelectionResult for the recommendation endpoint."""
+    primary_mode = result.primary_mode.value if hasattr(result.primary_mode, "value") else str(result.primary_mode)
+    secondary_modes = [
+        mode.value if hasattr(mode, "value") else str(mode)
+        for mode in result.secondary_modes
+    ]
+    confidence_level = (
+        result.confidence_level.value
+        if hasattr(result.confidence_level, "value")
+        else str(result.confidence_level)
+    )
+    return {
+        "recommended_mode": primary_mode,
+        "primary_mode": primary_mode,
+        "secondary_modes": secondary_modes,
+        "confidence": result.confidence,
+        "confidence_level": confidence_level,
+        "reasoning": result.reasoning,
+        "workflow_steps": result.workflow_steps,
+        "estimated_performance": result.estimated_performance,
+        "fallback_used": result.fallback_used,
+        "selection_metadata": result.selection_metadata,
+    }
 
 def _selected_mode_value(result: Any) -> str:
     """Extract the selected mode from the current AnalysisResult metadata."""

@@ -19,6 +19,7 @@ sources:
   - ../src/analytics/complete_pipeline.py
   - ../src/tools/phase1/phase1_mcp_tools.py
   - ../src/orchestration/real_dag_orchestrator.py
+  - ../src/api/cross_modal_api.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
   - ../tests/current_runtime/test_real_dag_t27_dataflow.py
   - ../tests/current_runtime/test_spacy_model_dependency.py
@@ -195,6 +196,20 @@ OK src.orchestration.agents.analysis_agent
 OK src.analytics.complete_pipeline
 OK src.tools.phase1.phase1_mcp_tools
 OK src.orchestration.real_dag_orchestrator
+```
+
+# Recommendation Endpoint Follow-Up
+
+The `/api/recommend` endpoint no longer returns a hardcoded 501. It now builds the current `DataContext` contract from `RecommendRequest`, calls `registry.mode_selector.select_optimal_mode(research_question=..., data_context=..., preferences=...)`, serializes enum values into JSON-friendly strings, and returns 503 if the mode selector or its LLM configuration is unavailable. [2]
+
+Focused current-runtime tests cover DataContext construction, negative-size client errors, enum serialization, and endpoint wiring with a fake mode selector. The endpoint is contract-wired, but real recommendation quality still depends on an initialized mode selector with an LLM client. [2]
+
+Verification:
+
+```text
+tests/current_runtime/test_cross_modal_api_contract.py ............ [100%]
+19 passed, 2 warnings
+OK src.api.cross_modal_api
 ```
 
 # Links
