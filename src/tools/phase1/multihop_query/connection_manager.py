@@ -156,12 +156,19 @@ class Neo4jConnectionManager:
             self.logger.error(f"Failed to get graph stats: {e}")
             return {"error": str(e), "connection_healthy": False}
     
-    def find_entities_by_name(self, entity_name: str, limit: int = 10) -> List[Dict[str, Any]]:
+    def find_entities_by_name(
+        self, entity_name: str, limit: int = 10, source_refs: List[str] = None
+    ) -> List[Dict[str, Any]]:
         """Find entities by name similarity"""
+        source_refs = source_refs or []
         cypher = """
         MATCH (e:Entity)
-        WHERE toLower(e.canonical_name) CONTAINS toLower($entity_name)
-           OR toLower(e.canonical_name) = toLower($entity_name)
+        WHERE (toLower(e.canonical_name) CONTAINS toLower($entity_name)
+           OR toLower(e.canonical_name) = toLower($entity_name))
+          AND (
+              $source_refs = []
+              OR any(source_ref IN coalesce(e.source_refs, []) WHERE source_ref IN $source_refs)
+          )
         RETURN e.entity_id as entity_id,
                e.canonical_name as canonical_name,
                e.entity_type as entity_type,
@@ -173,7 +180,8 @@ class Neo4jConnectionManager:
         
         return self.execute_query(cypher, {
             "entity_name": entity_name,
-            "limit": limit
+            "limit": limit,
+            "source_refs": source_refs,
         })
     
     def find_paths_between_entities(
@@ -181,10 +189,12 @@ class Neo4jConnectionManager:
         source_id: str, 
         target_id: str, 
         max_hops: int,
-        limit_per_hop: int = 5
+        limit_per_hop: int = 5,
+        source_refs: List[str] = None
     ) -> List[Dict[str, Any]]:
         """Find paths between two entities with specified hop count"""
         all_paths = []
+        source_refs = source_refs or []
         
         for hop_count in range(1, max_hops + 1):
             cypher = f"""
@@ -192,6 +202,13 @@ class Neo4jConnectionManager:
             WHERE source.entity_id = $source_id 
               AND target.entity_id = $target_id
               AND ALL(r IN relationships(path) WHERE r.weight > 0.1)
+              AND (
+                  $source_refs = []
+                  OR (
+                      ALL(n IN nodes(path) WHERE any(source_ref IN coalesce(n.source_refs, []) WHERE source_ref IN $source_refs))
+                      AND ALL(r IN relationships(path) WHERE any(source_ref IN coalesce(r.source_refs, []) WHERE source_ref IN $source_refs))
+                  )
+              )
             WITH path, 
                  reduce(weight = 1.0, r IN relationships(path) | weight * r.weight) as path_weight,
                  [n IN nodes(path) | n.canonical_name] as path_names,
@@ -207,7 +224,8 @@ class Neo4jConnectionManager:
                 results = self.execute_query(cypher, {
                     "source_id": source_id,
                     "target_id": target_id,
-                    "limit_per_hop": limit_per_hop
+                    "limit_per_hop": limit_per_hop,
+                    "source_refs": source_refs,
                 })
                 
                 for record in results:
@@ -228,13 +246,22 @@ class Neo4jConnectionManager:
         self, 
         entity_id: str, 
         max_hops: int,
-        limit: int = 20
+        limit: int = 20,
+        source_refs: List[str] = None
     ) -> List[Dict[str, Any]]:
         """Find entities related to a given entity within max_hops"""
+        source_refs = source_refs or []
         cypher = f"""
-        MATCH (source:Entity)-[*1..{max_hops}]->(related:Entity)
+        MATCH path = (source:Entity)-[*1..{max_hops}]->(related:Entity)
         WHERE source.entity_id = $entity_id
           AND related.entity_id <> $entity_id
+          AND (
+              $source_refs = []
+              OR (
+                  ALL(n IN nodes(path) WHERE any(source_ref IN coalesce(n.source_refs, []) WHERE source_ref IN $source_refs))
+                  AND ALL(r IN relationships(path) WHERE any(source_ref IN coalesce(r.source_refs, []) WHERE source_ref IN $source_refs))
+              )
+          )
         WITH related, 
              count(*) as connection_count,
              avg(related.pagerank_score) as avg_pagerank
@@ -252,7 +279,8 @@ class Neo4jConnectionManager:
         
         return self.execute_query(cypher, {
             "entity_id": entity_id,
-            "limit": limit
+            "limit": limit,
+            "source_refs": source_refs,
         })
     
     def get_connection_stats(self) -> Dict[str, Any]:

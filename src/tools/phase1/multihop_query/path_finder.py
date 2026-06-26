@@ -31,23 +31,28 @@ class PathFinder:
         self, 
         query_entities: List[Dict[str, Any]], 
         max_hops: int,
-        result_limit: int
+        result_limit: int,
+        source_refs: List[str] = None
     ) -> List[Dict[str, Any]]:
         """Find multi-hop paths between and around query entities"""
         all_paths = []
+        source_refs = source_refs or []
         
         try:
             # Find paths between entity pairs if we have multiple entities
             if len(query_entities) >= 2:
                 inter_entity_paths = self._find_paths_between_entity_pairs(
-                    query_entities, max_hops
+                    query_entities, max_hops, source_refs
                 )
                 all_paths.extend(inter_entity_paths)
             
             # Find related entities for each query entity
             for entity in query_entities:
                 related_paths = self._find_related_entity_paths(
-                    entity, max_hops, result_limit // len(query_entities) if len(query_entities) > 0 else result_limit
+                    entity,
+                    max_hops,
+                    result_limit // len(query_entities) if len(query_entities) > 0 else result_limit,
+                    source_refs,
                 )
                 all_paths.extend(related_paths)
             
@@ -69,7 +74,8 @@ class PathFinder:
     def _find_paths_between_entity_pairs(
         self, 
         query_entities: List[Dict[str, Any]], 
-        max_hops: int
+        max_hops: int,
+        source_refs: List[str]
     ) -> List[Dict[str, Any]]:
         """Find paths between pairs of query entities"""
         paths = []
@@ -78,7 +84,7 @@ class PathFinder:
             for target_entity in query_entities[i+1:]:
                 try:
                     entity_pair_paths = self._find_paths_between_entities(
-                        source_entity, target_entity, max_hops
+                        source_entity, target_entity, max_hops, source_refs
                     )
                     paths.extend(entity_pair_paths)
                     self.path_stats["path_queries_executed"] += 1
@@ -93,7 +99,8 @@ class PathFinder:
         self, 
         source_entity: Dict[str, Any], 
         target_entity: Dict[str, Any], 
-        max_hops: int
+        max_hops: int,
+        source_refs: List[str]
     ) -> List[Dict[str, Any]]:
         """Find paths between two specific entities"""
         paths = []
@@ -104,7 +111,8 @@ class PathFinder:
                 source_entity["entity_id"],
                 target_entity["entity_id"],
                 max_hops,
-                limit_per_hop=5
+                limit_per_hop=5,
+                source_refs=source_refs,
             )
             
             for path_data in path_results:
@@ -139,7 +147,8 @@ class PathFinder:
         self, 
         entity: Dict[str, Any], 
         max_hops: int,
-        limit: int
+        limit: int,
+        source_refs: List[str]
     ) -> List[Dict[str, Any]]:
         """Find entities related to a query entity"""
         related_paths = []
@@ -147,7 +156,7 @@ class PathFinder:
         try:
             # Use connection manager to find related entities
             related_results = self.connection_manager.find_related_entities(
-                entity["entity_id"], max_hops, limit
+                entity["entity_id"], max_hops, limit, source_refs=source_refs
             )
             
             for related_data in related_results:

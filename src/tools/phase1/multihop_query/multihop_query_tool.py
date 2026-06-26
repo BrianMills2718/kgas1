@@ -121,9 +121,12 @@ class T49MultiHopQueryUnified(BaseTool):
             max_hops = request.parameters.get("max_hops", self.config["max_hops"])
             result_limit = request.parameters.get("result_limit", self.config["result_limit"])
             min_path_weight = request.parameters.get("min_path_weight", self.config["min_path_weight"])
+            source_refs = request.parameters.get("source_refs") or []
+            if isinstance(source_refs, str):
+                source_refs = [source_refs]
             
             # Extract entities from query text
-            query_entities = self.entity_extractor.extract_query_entities(query_text)
+            query_entities = self.entity_extractor.extract_query_entities(query_text, source_refs=source_refs)
             
             # Analyze query complexity
             query_analysis = self.query_analyzer.analyze_query(query_text, query_entities)
@@ -154,7 +157,10 @@ class T49MultiHopQueryUnified(BaseTool):
             
             # Perform multi-hop query
             raw_results = self.path_finder.find_multihop_paths(
-                query_entities, max_hops, result_limit * 2  # Get more results for better ranking
+                query_entities,
+                max_hops,
+                result_limit * 2,  # Get more results for better ranking
+                source_refs=source_refs,
             )
             
             # Rank and filter results
@@ -203,6 +209,7 @@ class T49MultiHopQueryUnified(BaseTool):
                     "max_hops": max_hops,
                     "result_limit": result_limit,
                     "min_path_weight": min_path_weight,
+                    "source_refs": source_refs,
                     "entities_found": len(query_entities),
                     "neo4j_available": True,
                     "component_status": self._get_component_status()

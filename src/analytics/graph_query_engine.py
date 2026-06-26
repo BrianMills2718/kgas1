@@ -62,7 +62,8 @@ class GraphQueryEngine:
         max_hops: int = 3,
         result_limit: int = 20,
         min_path_weight: float = 0.01,
-        transaction_id: str = None
+        transaction_id: str = None,
+        source_refs: List[str] = None
     ) -> Dict[str, Any]:
         """
         Execute multi-hop query with actual Neo4j graph traversal.
@@ -89,7 +90,7 @@ class GraphQueryEngine:
             
             # Execute T49 with actual Neo4j operations
             query_result = await self._execute_t49_real(
-                query_text, max_hops, result_limit, min_path_weight
+                query_text, max_hops, result_limit, min_path_weight, source_refs or []
             )
             
             if query_result["status"] != "success":
@@ -146,7 +147,8 @@ class GraphQueryEngine:
         query_text: str, 
         max_hops: int, 
         result_limit: int,
-        min_path_weight: float
+        min_path_weight: float,
+        source_refs: List[str]
     ) -> Dict[str, Any]:
         """
         Execute T49 tool with actual Neo4j operations (not simulation).
@@ -166,7 +168,8 @@ class GraphQueryEngine:
                 parameters={
                     "max_hops": max_hops,
                     "result_limit": result_limit,
-                    "min_path_weight": min_path_weight
+                    "min_path_weight": min_path_weight,
+                    "source_refs": source_refs,
                 }
             )
             

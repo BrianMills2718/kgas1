@@ -170,7 +170,8 @@ class CompleteGraphRAGPipeline:
                     query_text=query_text,
                     max_hops=3,
                     result_limit=10,
-                    transaction_id=f"{tx_id}_query_{len(query_results)}"
+                    transaction_id=f"{tx_id}_query_{len(query_results)}",
+                    source_refs=[document_ref],
                 )
                 
                 if query_result["status"] == "success":

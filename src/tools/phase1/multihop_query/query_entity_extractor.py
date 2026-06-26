@@ -28,7 +28,7 @@ class QueryEntityExtractor:
             "neo4j_lookups": 0
         }
     
-    def extract_query_entities(self, query_text: str) -> List[Dict[str, Any]]:
+    def extract_query_entities(self, query_text: str, source_refs: List[str] = None) -> List[Dict[str, Any]]:
         """Extract entities from query text using patterns and Neo4j lookup"""
         if not self.connection_manager.driver:
             self.logger.warning("No Neo4j connection available for entity extraction")
@@ -44,7 +44,7 @@ class QueryEntityExtractor:
                 return []
             
             # Look up entities in Neo4j database
-            found_entities = self._lookup_entities_in_database(potential_entities)
+            found_entities = self._lookup_entities_in_database(potential_entities, source_refs or [])
             
             self.extraction_stats["entities_extracted"] = len(found_entities)
             
@@ -111,16 +111,21 @@ class QueryEntityExtractor:
         
         return [entity for entity in entities if entity not in common_words]
     
-    def _lookup_entities_in_database(self, potential_entities: List[str]) -> List[Dict[str, Any]]:
+    def _lookup_entities_in_database(
+        self, potential_entities: List[str], source_refs: List[str] = None
+    ) -> List[Dict[str, Any]]:
         """Look up potential entities in Neo4j database"""
         found_entities = []
+        source_refs = source_refs or []
         
         for entity_name in potential_entities:
             try:
                 self.extraction_stats["neo4j_lookups"] += 1
                 
                 # Search for entities with similar names
-                entities = self.connection_manager.find_entities_by_name(entity_name, limit=3)
+                entities = self.connection_manager.find_entities_by_name(
+                    entity_name, limit=3, source_refs=source_refs
+                )
                 
                 for entity_record in entities:
                     found_entities.append({
