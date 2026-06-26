@@ -130,3 +130,39 @@ The latest verified runtime state recorded during this completion pass:
 ## Recommendation
 
 The next safe runtime slice is a narrow `.pdf` capability probe: inspect the existing PDF loader path, create or locate a tiny non-sensitive fixture, and prove whether `/api/analyze` can support exactly that format. If the existing loader path is ambiguous or mutates preserved material, stop at an investigation note and leave `.pdf` at 501.
+
+## Addendum: Later Same-Day Runtime Proofs
+
+After this initial review, Plan #1 advanced through three additional safe slices:
+
+- `5ba418f` proved a tiny `.pdf` upload through the existing T01 complete-pipeline path.
+- `1734ce1` proved a tiny `.md` upload through T03 text-compatible loading, added the missing `chardet` dependency, and repaired phase-1 loader provenance calls from `used={}` to `inputs=[]`.
+- `52c5fb6` proved a tiny `.docx` upload through T02 Word loading.
+
+Updated verified evidence:
+
+- `tests/current_runtime`: `61 passed, 5 skipped`.
+- Live Neo4j document smoke tests:
+  - `.txt`
+  - `.pdf`
+  - `.md`
+  - `.docx`
+  - Result: `4 passed`.
+- Wiki lint remains `196` pages, health `100/100`.
+- Plan validation and plan-index sync are clean.
+- `pip check` remains clean.
+
+Updated runtime status:
+
+| Format / Endpoint | Status |
+|---|---|
+| `.txt` `/api/analyze` | Proven through live complete pipeline. |
+| `.pdf` `/api/analyze` | Proven for a tiny generated text-bearing PDF through live complete pipeline. |
+| `.md` `/api/analyze` | Proven for tiny Markdown as text-compatible input through live complete pipeline. |
+| `.docx` `/api/analyze` | Proven for a tiny generated DOCX through live complete pipeline. |
+| `.doc` `/api/analyze` | Still explicit 501; no legacy binary Word loader is proven. |
+| `/api/batch/analyze` | Still explicit 501. |
+| `/api/recommend` live LLM selector | Still deferred for credential/cost approval. |
+| public/export bundle | Still deferred for human review. |
+
+The current recommendation changes accordingly: do not spend more effort on legacy `.doc` unless Brian explicitly wants old binary Word support. The next safe engineering slice is FastAPI lifespan modernization, because runtime tests consistently pass with `@app.on_event` deprecation warnings.

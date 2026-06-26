@@ -178,6 +178,18 @@ Evidence: `src/analytics/complete_pipeline.py`, `src/tools/phase1/t03_text_loade
 
 Evidence: `src/analytics/complete_pipeline.py`, `src/tools/phase1/t02_word_loader_unified.py`, `tests/current_runtime/test_cross_modal_api_contract.py`, focused API tests 24 passed / 4 skipped, live TXT+PDF+Markdown+DOCX smoke 4 passed, full `tests/current_runtime` count 61 passed / 5 skipped, and `pip check` clean.
 
+### Slice 9 - Runtime Review Status Refresh
+
+**Status:** Complete
+
+**Safe scope:** update the Plan #1 runtime review artifact to reflect the later `.pdf`, `.md`, and `.docx` proof slices without changing runtime behavior.
+
+**Done when:**
+- [x] review addendum lists current proven formats and still-deferred endpoints;
+- [x] next safe slice is updated after legacy `.doc` is classified.
+
+Evidence: `investigations/2026-06-26-runtime-completion-review.md` addendum.
+
 ---
 
 ## Required Tests
@@ -225,6 +237,7 @@ Evidence: `src/analytics/complete_pipeline.py`, `src/tools/phase1/t02_word_loade
 | C6 | Source-scoped cleanup exists, but executing it against real smoke-test source refs is still destructive for those scoped records. | Scoped data deletion | Keep as operator-triggered; do not execute automatically. |
 | C7 | `/api/batch/analyze` is intentionally 501 until it wraps a proven single-document path. | Runtime gap | Defer batch work until more single-document formats are proven. |
 | C8 | FastAPI startup/shutdown deprecation warnings remain in runtime tests. | Maintenance debt | Modernize lifecycle hooks after completion gates are stable. |
+| C9 | Legacy `.doc` support would require a separate loader/proof path for old binary Word files. | Runtime gap / scope creep | Keep explicit 501 unless Brian asks for legacy binary Word support. |
 
 ---
 

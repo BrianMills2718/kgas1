@@ -207,6 +207,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `5ba418f` proved narrow `.pdf` `/api/analyze` support using the existing complete-pipeline/T01 path, a tiny generated PDF fixture, and live Neo4j-backed TXT+PDF smoke tests.
 - `1734ce1` proved narrow `.md` `/api/analyze` support through the existing T03 text-compatible loader, added `chardet`, and repaired phase-1 loader provenance calls from `used={}` to `inputs=[]`.
 - `52c5fb6` proved narrow `.docx` `/api/analyze` support through the existing T02 Word loader and live Neo4j-backed TXT/PDF/Markdown/DOCX smoke tests.
+- Pending commit refreshed the runtime completion review to reflect proven `.txt`, `.pdf`, `.md`, and `.docx` support, with legacy `.doc`, batch, public/export, and live LLM recommendation still deferred.
 
 ## Deferred Risk Decisions
 
@@ -216,7 +217,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: update the runtime review/status summary to reflect proven `.txt`, `.pdf`, `.md`, and `.docx` support, then decide whether legacy `.doc` should stay permanently out of scope.
+1. Next recommended step: modernize the FastAPI startup/shutdown handlers from `@app.on_event` to lifespan, because current tests pass but emit deprecation warnings.
 2. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
 3. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured and budget-approved.
 4. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.

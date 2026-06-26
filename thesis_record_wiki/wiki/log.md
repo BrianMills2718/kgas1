@@ -147,6 +147,7 @@
 * **Repair** | Proved narrow `.pdf` `/api/analyze` support through the existing complete-pipeline/T01 path, with `.docx`, `.doc`, and `.md` left as explicit 501 until separately verified.
 * **Repair** | Proved narrow `.md` `/api/analyze` support through T03 text-compatible loading, added the missing `chardet` dependency, and aligned phase-1 loader provenance calls with the current `inputs=[]` service contract.
 * **Repair** | Proved narrow `.docx` `/api/analyze` support through T02 Word loading, with legacy `.doc` left as explicit 501.
+* **Review** | Refreshed the runtime completion review to list `.txt`, `.pdf`, `.md`, and `.docx` as proven live paths, while keeping legacy `.doc`, batch, public/export, and live LLM recommendation deferred.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
