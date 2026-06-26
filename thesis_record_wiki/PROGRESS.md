@@ -238,6 +238,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` recorded a no-IO confidence-scoring smoke result and safe rerun plan: CERQual score creation, range assignment, and Bayesian evidence-power combination execute in the current `.venv` without Neo4j, providers, archive reads, or source mutation.
 - `this commit` added repeatable no-IO regression coverage for the confidence-scoring smoke path under `tests/current_runtime/`.
 - `this commit` added a privacy-aware access plan for archived uncertainty datasets, defaulting future agents to manifest-level summaries and requiring explicit rerun/export review before raw reads or derived outputs.
+- `this commit` added the safe thesis organization closeout checkpoint, marking autonomous safe organization complete to the current boundary and listing remaining Brian-gated decisions.
 
 ## Deferred Risk Decisions
 
@@ -247,7 +248,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: Brian should review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` before any export publication or private export repo creation.
-2. Optional human-directed next step: decide whether the historical architecture/UI docs should remain provenance docs or be rewritten into current authoritative docs.
-3. Recommended gated runtime work: live LLM recommendation only if recommendation behavior matters; Neo4j cleanup only for exact source refs; legacy `.doc` only if a specific old Word file is needed.
-4. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
+1. Next recommended step: Brian should review [Safe Thesis Organization Closeout 2026 06 26](/wiki/concepts/safe-thesis-organization-closeout-2026-06-26.md), [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md), and [KGAS Dissertation Claim Map](/wiki/concepts/kgas-dissertation-claim-map.md).
+2. Decide the artifact goal: dissertation restart, public/portfolio narrative, private technical archive, or separate derived surfaces for each.
+3. Before any public release, review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` and decide what security/history detail stays private.
+4. Implementation maintenance remains optional and separate from preservation: Pydantic v2 confidence-model warnings, broader current-runtime suite, and any Neo4j cleanup must be planned as their own slices.
