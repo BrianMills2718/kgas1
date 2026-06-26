@@ -76,6 +76,8 @@ This is a provenance caveat because another final rewrite section says "12 month
 
 The annex likely preserves the fuller planning intent; the main-text compressed timeline may preserve an editing inconsistency or unresolved schedule change. Do not silently reconcile these.
 
+The timeline-specific review records the full discrepancy: older proposal versions targeted February 2026, the full August draft contains both 6-month and 12-month language, and the final rewrite plus Annex E target February 2027. See [Proposal Timeline Chronology Discrepancy 2026 06 26](/wiki/sources/proposal-timeline-chronology-discrepancy-2026-06-26.md).
+
 # Annex F - Glossary
 
 Annex F preserves stabilized vocabulary. It defines "construct estimate" as a computational approximation, not perfect measurement; "information-preserving" as preserving theoretical constructs of interest without claiming losslessness; and "validation without optimization" as documenting actual performance rather than tuning for benchmarks. [6]
@@ -116,4 +118,3 @@ That means annexes are part of the intellectual history, not administrative atta
 [4] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/3/annex_d_human_subjects_protection.txt`  
 [5] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/3/annex_e_timeline.txt`  
 [6] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/3/annex_f_glossary.txt`
-

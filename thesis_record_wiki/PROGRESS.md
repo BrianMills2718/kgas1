@@ -224,6 +224,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added the first proposal-framing difference review, comparing expansive architecture, academic-writing guidance, critique constraints, validation matrix, final-submission summaries, and archive-disposition notes without treating newer proposal variants as automatically better.
 - `this commit` added a bounded old-to-final proposal comparison covering the 47-page older proposal, full August draft, final rewrite, Prateek critique, final-submission summary, and final-revisions summary.
 - `this commit` added a final-proposal annex preservation review, showing that schema, architecture, validation, HSPC, timeline, and terminology details were moved into annexes rather than erased by main-text compression.
+- `this commit` added a proposal timeline chronology discrepancy review, preserving conflicting February 2026, February 2027, 6-month, 12-month, and 18-month timeline claims without normalizing them.
 
 ## Deferred Risk Decisions
 

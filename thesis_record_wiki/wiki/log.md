@@ -166,6 +166,7 @@
 * **Synthesis** | Added proposal-framing difference review, distinguishing claim softening, scope compression, validation substitution, terminology stabilization, and older-variant provenance value across the August 2025 proposal materials.
 * **Synthesis** | Added old-to-final proposal comparison, recording research-question, system-positioning, dataset, validation, terminology, and preserved-rationale deltas across the older 47-page proposal, full August draft, and final rewrite.
 * **Synthesis** | Added final proposal annex preservation review, recording how schema, technical architecture, validation framework, HSPC boundary, timeline, and glossary details preserve material compressed out of the main proposal.
+* **Synthesis** | Added proposal timeline chronology discrepancy review, preserving source-qualified February 2026, February 2027, 6-month, 12-month, and 18-month schedule claims rather than silently reconciling them.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
