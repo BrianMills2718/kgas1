@@ -175,6 +175,7 @@ verification records, and `../PROGRESS.md` remain source truth.
 * [Thesis Recovery Current State 2026 06 26](concepts/thesis-recovery-current-state-2026-06-26.md) - current-state synthesis after runtime repair, private export, proposal-history review, and HSPC boundary checks.
 * [Safe Thesis Organization Closeout 2026 06 26](concepts/safe-thesis-organization-closeout-2026-06-26.md) - closeout checkpoint for safe autonomous PhD/KGAS organization work, completed gates, remaining stop lines, and recommended next decisions.
 * [Thesis Artifact Decision Brief 2026 06 26](concepts/thesis-artifact-decision-brief-2026-06-26.md) - recommendation to keep the full private technical archive and derive a smaller reviewed public/portfolio narrative.
+* [Private Public Portfolio Narrative Outline 2026 06 26](concepts/private-public-portfolio-narrative-outline-2026-06-26.md) - private draft outline for a future public/portfolio narrative about theory-aware GraphRAG and KGAS.
 * [KGAS Dissertation Claim Map](concepts/kgas-dissertation-claim-map.md) - thesis-facing map separating final proposal claims, older ambition, validation design, runtime evidence, and governance caveats.
 * [Adaptive Operator Routing](concepts/adaptive-operator-routing.md) - falsifiable thesis that per-question operator routing should beat fixed graph and non-graph baselines.
 * [MCP Autoloop Interface](concepts/mcp-autoloop-interface.md) - historical MCP/UKRF plans and later MCP tool-surface status.

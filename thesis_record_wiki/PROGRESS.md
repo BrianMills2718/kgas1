@@ -240,6 +240,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added a privacy-aware access plan for archived uncertainty datasets, defaulting future agents to manifest-level summaries and requiring explicit rerun/export review before raw reads or derived outputs.
 - `this commit` added the safe thesis organization closeout checkpoint, marking autonomous safe organization complete to the current boundary and listing remaining Brian-gated decisions.
 - `this commit` added a thesis artifact decision brief recommending a private technical archive plus separate reviewed public/portfolio narrative as the safest default.
+- `this commit` added a private public/portfolio narrative outline for KGAS as theory-aware GraphRAG, explicitly marked not for publication and bounded by claim/privacy review rules.
 
 ## Deferred Risk Decisions
 
@@ -249,7 +250,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: review [Thesis Artifact Decision Brief 2026 06 26](/wiki/concepts/thesis-artifact-decision-brief-2026-06-26.md).
-2. Default recommendation: keep the full private technical archive and derive a smaller reviewed public/portfolio narrative.
+1. Next recommended step: review [Private Public Portfolio Narrative Outline 2026 06 26](/wiki/concepts/private-public-portfolio-narrative-outline-2026-06-26.md).
+2. If the frame feels right, draft a one-page private narrative from that outline; do not publish.
 3. Before any public release, review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` and decide what security/history detail stays private.
 4. Implementation maintenance remains optional and separate from preservation: Pydantic v2 confidence-model warnings, broader current-runtime suite, and any Neo4j cleanup must be planned as their own slices.

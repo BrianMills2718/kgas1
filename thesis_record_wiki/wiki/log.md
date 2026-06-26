@@ -182,6 +182,7 @@
 * **Safety** | Added privacy-aware access plan for archived uncertainty datasets, including manifest-level defaults, redaction requirements, rerun gates, and export exclusions.
 * **Closeout** | Added safe thesis organization closeout checkpoint with completed safe gates, remaining Brian-gated decisions, and recommended next steps.
 * **Decision** | Added thesis artifact decision brief recommending private technical archive plus separate reviewed public/portfolio narrative as the safest default.
+* **Draft** | Added private public/portfolio narrative outline for KGAS as theory-aware GraphRAG, with claim boundaries and publication review checklist.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
