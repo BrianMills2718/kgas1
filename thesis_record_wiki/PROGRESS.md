@@ -180,7 +180,7 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `bec53f2` completed SymPy dependency support, including `sympy>=1.14.0`, isolated MCP import with `mcp_is_none=False`, HybridFormulaParser SymPy support, and successful MCP tool registration.
 - `ca2ba45` repaired the current analysis-agent T23A-to-T27 relationship-extraction bridge, added focused current-runtime tests, and wrote the T27 bottleneck investigation.
 - `c32fb8b` installed and declared `en-core-web-sm==3.8.0`, added a runtime model-availability test, and verified T27 can load the shared spaCy model without the previous missing-model error.
-- `PENDING` moved T27 entity normalization into a shared compatibility adapter, applied it to complete-pipeline and Phase 1 MCP boundaries, added propagation tests, and declared missing `aiosqlite`/`pypdf` runtime imports.
+- `fdd78f4` moved T27 entity normalization into a shared compatibility adapter, applied it to complete-pipeline and Phase 1 MCP boundaries, added propagation tests, and declared missing `aiosqlite`/`pypdf` runtime imports.
 
 ## Next
 
