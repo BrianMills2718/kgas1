@@ -164,6 +164,7 @@
 * [Relationship Extraction Bottleneck](concepts/relationship-extraction-bottleneck.md) - evidence that graph construction failed when relationship extraction was missing or silent.
 * [KGAS Evolution Checkpoint 2026 06 25](concepts/kgas-evolution-checkpoint-2026-06-25.md) - bounded synthesis after top-level archive coverage, summarizing the KGAS evolution arc, remaining uncertainty, and recommended deep dives.
 * [Thesis Recovery Current State 2026 06 26](concepts/thesis-recovery-current-state-2026-06-26.md) - current-state synthesis after runtime repair, private export, proposal-history review, and HSPC boundary checks.
+* [KGAS Dissertation Claim Map](concepts/kgas-dissertation-claim-map.md) - thesis-facing map separating final proposal claims, older ambition, validation design, runtime evidence, and governance caveats.
 * [Adaptive Operator Routing](concepts/adaptive-operator-routing.md) - falsifiable thesis that per-question operator routing should beat fixed graph and non-graph baselines.
 * [MCP Autoloop Interface](concepts/mcp-autoloop-interface.md) - historical MCP/UKRF plans and later MCP tool-surface status.
 * [Graph Build Manifest](concepts/graph-build-manifest.md) - build-manifest and tool-gating contract for truthful graph capability exposure.

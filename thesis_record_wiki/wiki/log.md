@@ -172,6 +172,7 @@
 * **Synthesis** | Added HSPC/data-governance boundary review, preserving proposal ethics reasoning, reference-material inventory, SME/data triggers, and the missing-determination-letter caveat.
 * **Verification** | Ran targeted HSPC/IRB determination search; found proposal/reference/planned-deliverable hits but no actual determination-letter artifact, with two archived service-data permission-denied caveats.
 * **Synthesis** | Added thesis recovery current-state checkpoint, linking archive coverage, runtime proof, private export, proposal-history review, HSPC caveats, and remaining human-gated stop lines.
+* **Synthesis** | Added KGAS dissertation claim map, separating final proposal claims, preserved older ambition, validation design, runtime evidence, and governance boundaries.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.
