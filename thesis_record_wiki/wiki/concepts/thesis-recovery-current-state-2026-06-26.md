@@ -36,6 +36,8 @@ The raw historical record is still preserved under `archive_full_record/` and re
 
 The current runtime is locally useful and evidence-backed within a narrow scope: `.txt`, tiny `.pdf`, tiny `.md`, and tiny `.docx` `/api/analyze` paths have live Neo4j-backed proof; `/api/batch/analyze` is proven for the same single-document path; legacy `.doc` remains explicit 501. [3][4]
 
+The latest full current-runtime rerun with local Neo4j credentials loaded passed all credential-gated tests: 76 passed, with six non-failing Neo4j driver warnings about multi-record results. Treat those warnings as source-scoping/accumulated-local-state follow-up evidence, not as a reason to delete graph data. [16]
+
 The dissertation/proposal history is now represented as a non-linear provenance story. Later final proposal materials are stronger for committee-facing claim discipline, validation framing, and HSPC boundaries, but older proposal variants preserve intellectual scope, policy-tool ambition, concrete validation metrics, and abandoned alternatives. [5][6][7][8][9]
 
 # What Is Complete Enough
@@ -108,6 +110,7 @@ Do not:
 - [HSPC Data Governance Boundary](/wiki/concepts/hspc-data-governance-boundary.md)
 - [Public Export Security Boundary](/wiki/concepts/public-export-security-boundary.md)
 - [Runtime Verification Isolation Boundary](/wiki/concepts/runtime-verification-isolation-boundary.md)
+- [Current Runtime Live Neo4j Rerun 2026 06 26](/wiki/sources/current-runtime-live-neo4j-rerun-2026-06-26.md)
 
 # Citations
 
@@ -126,3 +129,4 @@ Do not:
 [13] `../../docs/public_export/EXPORT_REVIEW_2026-06-26.md`  
 [14] `/wiki/concepts/public-export-security-boundary.md`  
 [15] `../../docs/plans/01_full_program_completion.md` and `../../docs/plans/05_approved_preservation_gates.md`
+[16] `/wiki/sources/current-runtime-live-neo4j-rerun-2026-06-26.md`
