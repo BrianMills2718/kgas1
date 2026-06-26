@@ -72,6 +72,7 @@ The next productive phase is selective deep work. Broad ingest has made the arch
 # Links
 
 - [Thesis Record Overview](/wiki/overview.md)
+- [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md)
 - [KGAS](/wiki/entities/kgas.md)
 - [Public Export Security Boundary](/wiki/concepts/public-export-security-boundary.md)
 - [Evolution Timeline](/wiki/timeline/evolution-timeline.md)

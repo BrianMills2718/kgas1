@@ -229,6 +229,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added a proposal validation evolution review, preserving the shift from older coder/F1/SME validation protocols to final construct-validity, uncertainty, no-target baseline, and HSPC-boundary framing.
 - `this commit` added an HSPC/data-governance boundary review, distinguishing proposal reasoning and preserved RAND/HSPC reference material from an actual determination letter, which has not been located in this slice.
 - `this commit` recorded a targeted HSPC/IRB determination search: candidate hits were proposal/reference materials or planned-deliverable mentions, no actual determination-letter artifact was found, and two archived service-data paths were permission-denied.
+- `this commit` added a current-state recovery synthesis, tying together archive coverage, runtime proof, private export, proposal-history preservation, HSPC caveats, and the remaining human-gated stop lines.
 
 ## Deferred Risk Decisions
 
