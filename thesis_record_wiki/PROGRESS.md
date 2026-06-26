@@ -188,7 +188,7 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `3d6ef65` changed `/api/analyze` from metadata-only placeholder analysis to explicit 501 until real document extraction is wired, and aligned the optimization default to `standard`.
 - `3609419` investigated the future `/api/analyze` backing path and identified `CompleteGraphRAGPipeline.process_document()` plus a narrow `.txt` adapter as the safest next slice.
 - `7301f7e` ran the tiny `.txt` complete-pipeline probe; it blocks before T01 loading because `ServiceManager.identity_service` requires live Neo4j-backed services.
-- `PENDING` used the existing local Neo4j container, repaired DTM and complete-pipeline adapter drift, and verified a tiny `.txt` file executes real pipeline stages through Neo4j node creation and query execution.
+- `b58a599` used the existing local Neo4j container, repaired DTM and complete-pipeline adapter drift, and verified a tiny `.txt` file executes real pipeline stages through Neo4j node creation and query execution.
 
 ## Next
 
