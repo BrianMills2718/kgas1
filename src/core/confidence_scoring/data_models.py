@@ -5,7 +5,7 @@ Core data structures for confidence scoring including the main ConfidenceScore c
 and supporting enums and models.
 """
 
-from pydantic import BaseModel, confloat, PositiveInt, Field, validator
+from pydantic import BaseModel, ConfigDict, Field, PositiveInt, ValidationInfo, confloat, field_validator
 from typing import Literal, Dict, Any, Optional, Tuple, List
 from enum import Enum
 from datetime import datetime
@@ -27,6 +27,8 @@ class ConfidenceScore(BaseModel):
     ENHANCED: Now supports uncertainty framework with confidence ranges,
     CERQual assessment, and advanced uncertainty propagation.
     """
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
     
     # Core confidence - now supports ranges
     value: confloat(ge=0.0, le=1.0) = Field(
@@ -122,8 +124,9 @@ class ConfidenceScore(BaseModel):
         description="Additional metadata for this confidence assessment"
     )
     
-    @validator('confidence_range')
-    def validate_confidence_range(cls, v, values):
+    @field_validator('confidence_range')
+    @classmethod
+    def validate_confidence_range(cls, v: Optional[Tuple[float, float]], info: ValidationInfo):
         """Validate that confidence range is properly ordered and within bounds."""
         if v is not None:
             min_val, max_val = v
@@ -131,15 +134,16 @@ class ConfidenceScore(BaseModel):
                 raise ValueError("Confidence range must be [min, max] where 0 <= min <= max <= 1")
             
             # Check that main value falls within range if both are provided
-            if 'value' in values and values['value'] is not None:
-                main_value = values['value']
+            main_value = info.data.get('value')
+            if main_value is not None:
                 if not (min_val <= main_value <= max_val):
                     raise ValueError(f"Main confidence value {main_value} must fall within range [{min_val}, {max_val}]")
         
         return v
     
-    @validator('data_coverage')
-    def validate_data_coverage(cls, v):
+    @field_validator('data_coverage')
+    @classmethod
+    def validate_data_coverage(cls, v: float):
         """Validate data coverage is between 0 and 1."""
         if not (0.0 <= v <= 1.0):
             raise ValueError("Data coverage must be between 0.0 and 1.0")
@@ -180,10 +184,3 @@ class ConfidenceScore(BaseModel):
     
     def __repr__(self) -> str:
         return self.__str__()
-    
-    class Config:
-        """Pydantic configuration."""
-        arbitrary_types_allowed = True
-        json_encoders = {
-            datetime: lambda v: v.isoformat() if v else None
-        }

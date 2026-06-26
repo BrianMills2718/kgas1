@@ -42,7 +42,7 @@ class ConfidenceScore(BaseConfidenceScore):
         try:
             result = CombinationMethodFactory.combine_scores(self, other, method)
             logger.debug(f"Combined {self.value:.3f} with {other.value:.3f} → {result.value:.3f}")
-            return ConfidenceScore(**result.dict())
+            return ConfidenceScore(**result.model_dump())
         except Exception as e:
             logger.error(f"Error combining confidence scores: {e}")
             # Fallback to simple average
@@ -65,7 +65,7 @@ class ConfidenceScore(BaseConfidenceScore):
         })
         
         return ConfidenceScore(
-            **{**self.dict(), "value": decayed_value, "metadata": new_metadata}
+            **{**self.model_dump(), "value": decayed_value, "metadata": new_metadata}
         )
     
     def apply_temporal_decay(self, current_time: Optional[datetime] = None) -> "ConfidenceScore":
@@ -73,7 +73,7 @@ class ConfidenceScore(BaseConfidenceScore):
         try:
             manager = TemporalRangeManager()
             result = manager.temporal_processor.apply_temporal_decay(self, current_time)
-            return ConfidenceScore(**result.dict())
+            return ConfidenceScore(**result.model_dump())
         except Exception as e:
             logger.error(f"Error applying temporal decay: {e}")
             return self
@@ -90,7 +90,7 @@ class ConfidenceScore(BaseConfidenceScore):
                 self, methodological_limitations, relevance, coherence, 
                 adequacy_of_data, evidence_description
             )
-            return ConfidenceScore(**result.dict())
+            return ConfidenceScore(**result.model_dump())
         except Exception as e:
             logger.error(f"Error adding CERQual evidence: {e}")
             return self
@@ -108,7 +108,7 @@ class ConfidenceScore(BaseConfidenceScore):
         try:
             manager = TemporalRangeManager()
             result = manager.range_processor.set_confidence_range(self, min_confidence, max_confidence)
-            return ConfidenceScore(**result.dict())
+            return ConfidenceScore(**result.model_dump())
         except Exception as e:
             logger.error(f"Error setting confidence range: {e}")
             return self
@@ -118,7 +118,7 @@ class ConfidenceScore(BaseConfidenceScore):
         try:
             manager = TemporalRangeManager()
             result = manager.range_processor.combine_with_range_preservation(self, other)
-            return ConfidenceScore(**result.dict())
+            return ConfidenceScore(**result.model_dump())
         except Exception as e:
             logger.error(f"Error combining with range preservation: {e}")
             return self.combine_with(other)
@@ -138,7 +138,7 @@ class ConfidenceScore(BaseConfidenceScore):
                 methodological_limitations, relevance, coherence, adequacy_of_data,
                 evidence_weight, base_confidence, source
             )
-            return ConfidenceScore(**result.dict())
+            return ConfidenceScore(**result.model_dump())
         except Exception as e:
             logger.error(f"Error creating confidence with CERQual: {e}")
             # Fallback to basic confidence
@@ -157,7 +157,7 @@ class ConfidenceScore(BaseConfidenceScore):
         try:
             manager = TemporalRangeManager()
             result = manager.range_processor.create_range_only(min_confidence, max_confidence, evidence_weight, source)
-            return ConfidenceScore(**result.dict())
+            return ConfidenceScore(**result.model_dump())
         except Exception as e:
             logger.error(f"Error creating range-only confidence: {e}")
             # Fallback to midpoint
@@ -174,19 +174,19 @@ class ConfidenceScore(BaseConfidenceScore):
     def create_high_confidence(cls, evidence_weight: int = 3, source: str = "high_confidence") -> "ConfidenceScore":
         """Create high confidence score (0.8-0.9 range)."""
         base_score = create_high_confidence(evidence_weight=evidence_weight)
-        return cls(**base_score.dict())
+        return cls(**base_score.model_dump())
     
     @classmethod
     def create_medium_confidence(cls, evidence_weight: int = 2, source: str = "medium_confidence") -> "ConfidenceScore":
         """Create medium confidence score (0.5-0.7 range).""" 
         base_score = create_medium_confidence(evidence_weight=evidence_weight)
-        return cls(**base_score.dict())
+        return cls(**base_score.model_dump())
     
     @classmethod
     def create_low_confidence(cls, evidence_weight: int = 1, source: str = "low_confidence") -> "ConfidenceScore":
         """Create low confidence score (0.2-0.4 range)."""
         base_score = create_low_confidence(evidence_weight=evidence_weight)
-        return cls(**base_score.dict())
+        return cls(**base_score.model_dump())
 
 
 # Alias for the decomposed ConfidenceCalculator
