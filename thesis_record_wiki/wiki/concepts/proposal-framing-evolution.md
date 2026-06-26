@@ -94,6 +94,7 @@ Do not collapse these buckets into a linear "old bad, new good" story.
 
 # Links
 
+- [Proposal Old To Final Comparison 2026 06 26](/wiki/sources/proposal-old-to-final-comparison-2026-06-26.md)
 - [Digimon Lineage Proposal Rewrite 2025 08 12](/wiki/sources/digimon-lineage-proposal-rewrite-2025-08-12.md)
 - [Digimon Lineage Theoretical Exploration Proposal Materials](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-materials.md)
 - [Digimon Lineage Theoretical Exploration Proposal Evolution](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-evolution.md)
@@ -113,4 +114,3 @@ Do not collapse these buckets into a linear "old bad, new good" story.
 [6] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/3/final_submission_summary.md`  
 [7] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/historical_versions/proposal_old/3/final_revisions_summary.md`  
 [8] `../archive_full_record/lineage_variants/digimon_lineage_Digimons/archive/theoretical_exploration/archived_proposal_materials/assessment_documentation/PROPOSAL_REWRITE_SYSTEMATIC_ASSESSMENT.md`
-

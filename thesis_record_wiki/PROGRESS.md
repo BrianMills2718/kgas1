@@ -222,6 +222,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` wired `/api/recommend` mode selection to the governed `llm_client` adapter with default `gpt-5.4-mini`, proved the focused API contract tests, and ran a tiny live mode-selection smoke that returned `graph_analysis`.
 - `this commit` recorded the historical variant review program and Plan #5 no-data-loss preservation decisions: no Neo4j deletion without exact source refs and backup evidence, no raw archive mutation, and no legacy `.doc` silent drop.
 - `this commit` added the first proposal-framing difference review, comparing expansive architecture, academic-writing guidance, critique constraints, validation matrix, final-submission summaries, and archive-disposition notes without treating newer proposal variants as automatically better.
+- `this commit` added a bounded old-to-final proposal comparison covering the 47-page older proposal, full August draft, final rewrite, Prateek critique, final-submission summary, and final-revisions summary.
 
 ## Deferred Risk Decisions
 
