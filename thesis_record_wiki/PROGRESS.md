@@ -199,7 +199,7 @@ Guarded handoff after runtime repair and preservation-wiki consolidation. Remain
 - `ff56240` added a public-export security boundary: raw PhD/KGAS archives remain preserved, while shareable exports must be derived, scanned, documented, and reviewed without in-place archive sanitization.
 - `87060f3` recorded the public-export boundary commit hash in this progress file.
 - `1fc1810` added a runtime verification isolation boundary: future Neo4j-backed smoke tests should use run/source scoping or isolated test graphs instead of deleting accumulated local graph state.
-- Pending commit added non-destructive source-ref propagation for new T31/T34 Neo4j writes, plus current-runtime tests proving new entity nodes and relationship edges carry `source_refs`; live Neo4j tests remain credential-gated.
+- `4d6f02a` added non-destructive source-ref propagation for new T31/T34 Neo4j writes, plus current-runtime tests proving new entity nodes and relationship edges carry `source_refs`; live Neo4j tests remain credential-gated.
 
 ## Deferred Risk Decisions
 
