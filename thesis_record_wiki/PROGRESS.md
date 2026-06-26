@@ -250,6 +250,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this session` attempted broad `pytest --collect-only -q`; collection produced no output after roughly 90 seconds and required terminating the local collection process, so `tests/current_runtime` remains the safe verification surface unless broad collection is separately investigated.
 - `this commit` fixed broad pytest collection by setting `testpaths = ["tests/current_runtime"]`; root cause was legacy vertical-slice POC `test*.py` scripts with import-time Neo4j side effects and stale hardcoded paths.
 - `this commit` added a legacy vertical-slice test revival plan, classifying POC tests by runtime risk and recommending a no-IO first migration slice before any Neo4j/provider revival.
+- `this commit` added a README manifest to `tool_compatability/poc/vertical_slice/`, marking it as historical POC material excluded from default pytest and pointing agents to the revival plan.
 
 ## Deferred Risk Decisions
 
