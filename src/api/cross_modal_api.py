@@ -11,6 +11,7 @@ This complements (not replaces) the MCP server interface.
 
 import uuid
 import tempfile
+from contextlib import asynccontextmanager
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Union
 from pathlib import Path
@@ -32,13 +33,42 @@ from src.analytics.cross_modal_validator import ValidationLevel
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
+async def startup_event() -> None:
+    """Initialize cross-modal services on startup."""
+    try:
+        # Initialize with default configuration
+        config = {
+            'llm': {'provider': 'openai'},
+            'embedding': {'device': 'cpu'}
+        }
+
+        success = _initialize_cross_modal_services(config)
+        if success:
+            logger.info("✅ Cross-modal services initialized successfully")
+        else:
+            logger.warning("⚠️ Some services failed to initialize - API will have limited functionality")
+
+    except Exception as e:
+        logger.error(f"Failed to initialize services: {e}")
+        logger.warning("API starting with limited functionality")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Initialize services using FastAPI's lifespan API."""
+    await startup_event()
+    yield
+
+
 # Initialize FastAPI app
 app = FastAPI(
     title="KGAS Cross-Modal Analysis API",
     description="Local REST API for cross-modal document analysis and format conversion",
     version="1.0.0",
     docs_url="/api/docs",
-    redoc_url="/api/redoc"
+    redoc_url="/api/redoc",
+    lifespan=lifespan,
 )
 
 # Configure CORS for local origins only
@@ -97,27 +127,6 @@ class AnalysisResponse(BaseModel):
     validation: Dict[str, Any]
     performance_metrics: Dict[str, Any]
     source_traceability: Optional[Dict[str, Any]] = None
-
-# Initialize services on startup
-@app.on_event("startup")
-async def startup_event():
-    """Initialize cross-modal services on startup"""
-    try:
-        # Initialize with default configuration
-        config = {
-            'llm': {'provider': 'openai'},
-            'embedding': {'device': 'cpu'}
-        }
-        
-        success = _initialize_cross_modal_services(config)
-        if success:
-            logger.info("✅ Cross-modal services initialized successfully")
-        else:
-            logger.warning("⚠️ Some services failed to initialize - API will have limited functionality")
-            
-    except Exception as e:
-        logger.error(f"Failed to initialize services: {e}")
-        logger.warning("API starting with limited functionality")
 
 # Health check endpoint
 @app.get("/api/health")

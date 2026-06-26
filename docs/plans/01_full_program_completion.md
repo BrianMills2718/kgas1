@@ -190,6 +190,18 @@ Evidence: `src/analytics/complete_pipeline.py`, `src/tools/phase1/t02_word_loade
 
 Evidence: `investigations/2026-06-26-runtime-completion-review.md` addendum.
 
+### Slice 10 - FastAPI Lifespan Modernization
+
+**Status:** Complete
+
+**Safe scope:** replace deprecated `@app.on_event("startup")` usage with FastAPI lifespan initialization while preserving the same service initialization behavior.
+
+**Done when:**
+- [x] current-runtime tests pass without FastAPI `on_event` deprecation warnings;
+- [x] live TXT/PDF/Markdown/DOCX smoke still passes.
+
+Evidence: `src/api/cross_modal_api.py`, API contract tests 24 passed / 4 skipped, full `tests/current_runtime` count 61 passed / 5 skipped, and live four-format smoke 4 passed.
+
 ---
 
 ## Required Tests
@@ -236,7 +248,7 @@ Evidence: `investigations/2026-06-26-runtime-completion-review.md` addendum.
 | C5 | Legacy Word `.doc` remains unproven through current `/api/analyze`. | Runtime gap | Keep explicit 501 unless a real legacy `.doc` loader is proven. |
 | C6 | Source-scoped cleanup exists, but executing it against real smoke-test source refs is still destructive for those scoped records. | Scoped data deletion | Keep as operator-triggered; do not execute automatically. |
 | C7 | `/api/batch/analyze` is intentionally 501 until it wraps a proven single-document path. | Runtime gap | Defer batch work until more single-document formats are proven. |
-| C8 | FastAPI startup/shutdown deprecation warnings remain in runtime tests. | Maintenance debt | Modernize lifecycle hooks after completion gates are stable. |
+| C8 | FastAPI startup/shutdown deprecation warnings remained in runtime tests. | Maintenance debt | Resolved by Slice 10 lifespan migration. |
 | C9 | Legacy `.doc` support would require a separate loader/proof path for old binary Word files. | Runtime gap / scope creep | Keep explicit 501 unless Brian asks for legacy binary Word support. |
 
 ---
