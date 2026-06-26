@@ -231,6 +231,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` recorded a targeted HSPC/IRB determination search: candidate hits were proposal/reference materials or planned-deliverable mentions, no actual determination-letter artifact was found, and two archived service-data paths were permission-denied.
 - `this commit` added a current-state recovery synthesis, tying together archive coverage, runtime proof, private export, proposal-history preservation, HSPC caveats, and the remaining human-gated stop lines.
 - `this commit` added a KGAS dissertation claim map, separating final proposal claims, older ambition, validation design, current runtime evidence, and governance boundaries.
+- `this commit` added a theory-schema/application lineage synthesis, connecting paper-to-schema extraction, model-form routing, schema variants, universal application, generated outputs, and validation caveats.
 
 ## Deferred Risk Decisions
 

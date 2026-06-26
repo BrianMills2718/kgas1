@@ -200,6 +200,7 @@
 * [Analyst Assembler Pattern](concepts/analyst-assembler-pattern.md) - LLM for semantic interpretation, deterministic code for schema assembly and validation.
 * [Literature Corpus As Theory Testbed](concepts/literature-corpus-as-theory-testbed.md) - heterogeneous corpus as stress test for theory-to-schema representation methods.
 * [Schema Variant Drift](concepts/schema-variant-drift.md) - multiple extraction passes over the same source preserve different theory content.
+* [Theory Schema Application Lineage](concepts/theory-schema-application-lineage.md) - synthesis of paper-to-schema-to-application methodology, model-form routing, schema variants, and validation caveats.
 * [Multi-Level Influence Modeling](concepts/multi-level-influence-modeling.md) - representation pattern for campaign-level influence theories spanning actors, messages, strategies, and metrics.
 * [Multi Theory Extraction Split](concepts/multi-theory-extraction-split.md) - design choice between preserving multiple related theories and producing one primary executable theory.
 

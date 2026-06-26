@@ -43,6 +43,7 @@ Do not force every theory into the same representation just because the platform
 - [Digimon Lineage Old Backups Stress Test Framework](/wiki/sources/digimon-lineage-old-backups-stress-test-framework.md)
 - [Formal Notation As Theory Content](/wiki/concepts/formal-notation-as-theory-content.md)
 - [Schema Extraction Pipeline Evolution](/wiki/concepts/schema-extraction-pipeline-evolution.md)
+- [Theory Schema Application Lineage](/wiki/concepts/theory-schema-application-lineage.md)
 
 # Citations
 
