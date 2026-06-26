@@ -60,6 +60,8 @@ The proposal-rewrite subtree adds the dissertation-writing version of this rule:
 
 The proposal variant review adds a practical distinction: newer proposal text may be better for claim posture while older variants remain necessary provenance for architecture ambition, rationale, and abandoned alternatives. See [Proposal Framing Evolution](/wiki/concepts/proposal-framing-evolution.md).
 
+The proposal validation review adds the same distinction for methods: older validation plans preserve concrete coder/F1/SME protocol ideas, while final proposal materials are stronger for construct-validity framing, no-target baseline reporting, and HSPC boundaries. See [Proposal Validation Evolution](/wiki/concepts/proposal-validation-evolution.md).
+
 # Core Lesson
 
 The archived false-claims README states the key rule plainly: component success does not equal system integration success. It says individual tools and interfaces had been tested, but full auto-registration, agent-tool integration, and real workflow execution had not been validated. [1]
@@ -102,6 +104,7 @@ Future summaries must name the validation level.
 - [Digimon Lineage Archived Uncertainty Experiments Code Delta](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-code-delta.md): unique diagnostic/mock-capable tests versus duplicated code.
 - [Digimon Lineage Proposal Rewrite 2025 08 12](/wiki/sources/digimon-lineage-proposal-rewrite-2025-08-12.md): proposal/future-tense claim discipline versus adjacent readiness language.
 - [Proposal Framing Evolution](/wiki/concepts/proposal-framing-evolution.md): difference review of claim softening, scope compression, and preserved older rationale.
+- [Proposal Validation Evolution](/wiki/concepts/proposal-validation-evolution.md): validation-plan difference review separating planned tests, historical outputs, runtime evidence, and governance boundaries.
 
 # Citations
 

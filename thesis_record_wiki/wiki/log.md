@@ -168,6 +168,7 @@
 * **Synthesis** | Added final proposal annex preservation review, recording how schema, technical architecture, validation framework, HSPC boundary, timeline, and glossary details preserve material compressed out of the main proposal.
 * **Synthesis** | Added proposal timeline chronology discrepancy review, preserving source-qualified February 2026, February 2027, 6-month, 12-month, and 18-month schedule claims rather than silently reconciling them.
 * **Verification** | Resolved the `Mills_Proposal_extracted.txt` caveat: the file is readable UTF-8 text stored as one long line, not empty, and the archive-before-cleanup duplicate has the same SHA-256 hash.
+* **Synthesis** | Added proposal validation evolution review, separating older concrete validation protocols from final construct-validity/no-target/HSPC claim discipline.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.

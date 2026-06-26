@@ -178,6 +178,7 @@
 * [Balance Driven Validation](concepts/balance-driven-validation.md) - five-purpose balance metric pattern and its evidence/overfitting risk.
 * [Academic Proof Of Concept Scope](concepts/academic-proof-of-concept-scope.md) - scope decision prioritizing academic correctness, provenance, and local reproducibility.
 * [Proposal Framing Evolution](concepts/proposal-framing-evolution.md) - difference review of proposal variants, claim softening, scope compression, validation substitution, and preserved older rationale.
+* [Proposal Validation Evolution](concepts/proposal-validation-evolution.md) - difference review of dissertation validation plans, preserving concrete older metrics and final construct-validity/no-target discipline.
 * [Public Export Security Boundary](concepts/public-export-security-boundary.md) - rule for deriving public/shareable bundles from the preserved thesis archive without modifying raw source records.
 * [Storage Architecture Evolution](concepts/storage-architecture-evolution.md) - KGAS storage evolution from tri-store avoidance to Neo4j/SQLite and Neo4j/PostgreSQL.
 * [Uncertainty Framework Evolution](concepts/uncertainty-framework-evolution.md) - movement from confidence fields to auditable local uncertainty reasoning.
