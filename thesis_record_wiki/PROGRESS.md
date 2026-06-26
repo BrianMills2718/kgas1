@@ -207,7 +207,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `5ba418f` proved narrow `.pdf` `/api/analyze` support using the existing complete-pipeline/T01 path, a tiny generated PDF fixture, and live Neo4j-backed TXT+PDF smoke tests.
 - `1734ce1` proved narrow `.md` `/api/analyze` support through the existing T03 text-compatible loader, added `chardet`, and repaired phase-1 loader provenance calls from `used={}` to `inputs=[]`.
 - `52c5fb6` proved narrow `.docx` `/api/analyze` support through the existing T02 Word loader and live Neo4j-backed TXT/PDF/Markdown/DOCX smoke tests.
-- Pending commit refreshed the runtime completion review to reflect proven `.txt`, `.pdf`, `.md`, and `.docx` support, with legacy `.doc`, batch, public/export, and live LLM recommendation still deferred.
+- `def3ea1` refreshed the runtime completion review to reflect proven `.txt`, `.pdf`, `.md`, and `.docx` support, with legacy `.doc`, batch, public/export, and live LLM recommendation still deferred.
 
 ## Deferred Risk Decisions
 
