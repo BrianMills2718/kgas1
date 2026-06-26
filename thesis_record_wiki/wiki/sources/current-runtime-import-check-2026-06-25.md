@@ -224,6 +224,21 @@ tests/current_runtime/test_cross_modal_api_contract.py .............. [100%]
 OK src.api.cross_modal_api
 ```
 
+# Convert/Stats Endpoint Follow-Up
+
+The `/api/convert` endpoint was stale against the current converter service: the live service exposes `convert_data(...)`, while the endpoint still called `convert(...)` and expected older `metadata`, `conversion_time`, and `data_size` attributes. The endpoint now calls `convert_data(data=..., source_format=..., target_format=..., method=...)` and serializes the current `ConversionResult.conversion_metadata` shape into API JSON. [2][19]
+
+The same pass fixed status-code honesty for unavailable services. A deliberately raised converter-unavailable 503 is no longer masked by the endpoint's broad exception handler, and `/api/stats` now preserves `_get_registry()` 503 failures instead of converting them to 500. [2]
+
+Focused API tests cover the current converter call contract, same-format shortcut, missing-converter 503, and stats registry-unavailable 503. [7]
+
+Verification:
+
+```text
+tests/current_runtime/test_cross_modal_api_contract.py .................. [100%]
+18 passed, 2 warnings
+```
+
 # Links
 
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md)
@@ -251,3 +266,4 @@ OK src.api.cross_modal_api
 [16] `../src/tools/phase1/phase1_mcp_tools.py`
 [17] `../src/orchestration/real_dag_orchestrator.py`
 [18] `../tests/current_runtime/test_real_dag_t27_dataflow.py`
+[19] `../src/analytics/cross_modal_converter.py`

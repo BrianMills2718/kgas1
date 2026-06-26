@@ -253,24 +253,17 @@ async def convert_format(request: ConvertRequest):
             )
         
         # Convert data
-        result = await converter.convert(
+        result = await converter.convert_data(
             data=request.data,
             source_format=source_fmt,
             target_format=target_fmt,
             method=request.method
         )
         
-        return {
-            "data": _serialize_results(result.data),
-            "source_format": request.source_format,
-            "target_format": request.target_format,
-            "metadata": result.metadata,
-            "performance": {
-                "conversion_time": result.conversion_time,
-                "data_size": result.data_size
-            }
-        }
+        return _serialize_conversion_result(result)
         
+    except HTTPException:
+        raise
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
@@ -365,6 +358,8 @@ async def get_statistics():
                 "failed_jobs": len([j for j in jobs.values() if j["status"] == "failed"])
             }
         }
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Failed to get statistics: {e}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -379,6 +374,30 @@ def _serialize_results(data: Any) -> Any:
     elif hasattr(data, '__dict__'):
         return data.__dict__
     return data
+
+def _serialize_conversion_result(result: Any) -> Dict[str, Any]:
+    """Serialize the current ConversionResult dataclass for API callers."""
+    metadata = result.conversion_metadata
+    return {
+        "data": _serialize_results(result.data),
+        "source_format": result.source_format.value,
+        "target_format": result.target_format.value,
+        "metadata": {
+            "conversion_timestamp": metadata.conversion_timestamp,
+            "semantic_features_preserved": metadata.semantic_features_preserved,
+            "quality_metrics": metadata.quality_metrics,
+            "conversion_parameters": metadata.conversion_parameters,
+            "preservation_score": result.preservation_score,
+            "validation_passed": result.validation_passed,
+            "semantic_integrity": result.semantic_integrity,
+            "warnings": result.warnings,
+        },
+        "performance": {
+            "conversion_time": metadata.processing_time,
+            "data_size_before": metadata.data_size_before,
+            "data_size_after": metadata.data_size_after,
+        },
+    }
 
 def _get_registry() -> Any:
     """Import the registry only when an endpoint actually needs service wiring."""

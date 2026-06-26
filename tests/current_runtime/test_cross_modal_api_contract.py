@@ -171,6 +171,135 @@ async def test_recommend_mode_calls_current_mode_selector_contract(monkeypatch) 
     assert calls[0][2] == {"performance_priority": "speed"}
 
 
+@dataclass
+class _FakeConversionMetadata:
+    conversion_timestamp: str = "2026-06-25T00:00:00"
+    processing_time: float = 0.25
+    data_size_before: int = 12
+    data_size_after: int = 20
+    semantic_features_preserved: list = None
+    quality_metrics: dict = None
+    conversion_parameters: dict = None
+
+
+@dataclass
+class _FakeConversionResult:
+    data: dict
+    source_format: api.DataFormat
+    target_format: api.DataFormat
+    preservation_score: float
+    conversion_metadata: _FakeConversionMetadata
+    validation_passed: bool
+    semantic_integrity: bool
+    warnings: list
+
+
+@pytest.mark.asyncio
+async def test_convert_format_calls_current_converter_contract(monkeypatch) -> None:
+    """The convert endpoint should call convert_data and serialize the current result shape."""
+    calls = []
+
+    class _FakeConverter:
+        async def convert_data(self, data, source_format, target_format, method=None):
+            calls.append((data, source_format, target_format, method))
+            return _FakeConversionResult(
+                data={"rows": [{"id": "n1"}]},
+                source_format=source_format,
+                target_format=target_format,
+                preservation_score=0.96,
+                conversion_metadata=_FakeConversionMetadata(
+                    semantic_features_preserved=["entities"],
+                    quality_metrics={"size_preservation_ratio": 1.6},
+                    conversion_parameters={"method": method},
+                ),
+                validation_passed=True,
+                semantic_integrity=True,
+                warnings=[],
+            )
+
+    class _FakeRegistry:
+        converter = _FakeConverter()
+
+    monkeypatch.setattr(api, "_get_registry", lambda: _FakeRegistry())
+    request = api.ConvertRequest(
+        data={"nodes": [{"id": "n1"}], "edges": []},
+        source_format="graph",
+        target_format="table",
+        method="lossless",
+    )
+
+    response = await api.convert_format(request)
+
+    assert calls == [
+        (
+            {"nodes": [{"id": "n1"}], "edges": []},
+            api.DataFormat.GRAPH,
+            api.DataFormat.TABLE,
+            "lossless",
+        )
+    ]
+    assert response["data"] == {"rows": [{"id": "n1"}]}
+    assert response["source_format"] == "graph"
+    assert response["target_format"] == "table"
+    assert response["metadata"]["preservation_score"] == 0.96
+    assert response["metadata"]["conversion_parameters"] == {"method": "lossless"}
+    assert response["performance"]["conversion_time"] == 0.25
+    assert response["performance"]["data_size_after"] == 20
+
+
+@pytest.mark.asyncio
+async def test_convert_format_returns_503_when_converter_missing(monkeypatch) -> None:
+    """A missing converter is an unavailable service, not an internal server error."""
+    class _FakeRegistry:
+        converter = None
+
+    monkeypatch.setattr(api, "_get_registry", lambda: _FakeRegistry())
+
+    with pytest.raises(HTTPException) as exc_info:
+        await api.convert_format(
+            api.ConvertRequest(
+                data={"nodes": [], "edges": []},
+                source_format="graph",
+                target_format="table",
+            )
+        )
+
+    assert exc_info.value.status_code == 503
+
+
+@pytest.mark.asyncio
+async def test_convert_format_same_source_and_target_short_circuits(monkeypatch) -> None:
+    """No converter should be required when the requested formats already match."""
+    def fail_get_registry():
+        raise AssertionError("registry should not be loaded")
+
+    monkeypatch.setattr(api, "_get_registry", fail_get_registry)
+
+    response = await api.convert_format(
+        api.ConvertRequest(
+            data={"nodes": [], "edges": []},
+            source_format="graph",
+            target_format="GRAPH",
+        )
+    )
+
+    assert response == {"data": {"nodes": [], "edges": []}, "message": "Source and target formats are the same"}
+
+
+@pytest.mark.asyncio
+async def test_get_statistics_preserves_registry_unavailable_status(monkeypatch) -> None:
+    """Stats should not mask registry import failures as generic 500s."""
+    def unavailable_registry():
+        raise HTTPException(status_code=503, detail="registry unavailable")
+
+    monkeypatch.setattr(api, "_get_registry", unavailable_registry)
+
+    with pytest.raises(HTTPException) as exc_info:
+        await api.get_statistics()
+
+    assert exc_info.value.status_code == 503
+
+
 @pytest.mark.asyncio
 async def test_batch_analyze_returns_explicit_501() -> None:
     """Batch analysis should fail honestly until wired to the current pipeline."""

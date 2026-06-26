@@ -126,6 +126,8 @@ The recommendation endpoint follow-up is complete at the API-contract layer: `/a
 
 The batch endpoint follow-up is complete at the status-honesty layer: `/api/batch/analyze` no longer schedules fake processing or returns demo entities/relationships. It now returns 501 until wired to the current document-analysis pipeline, and the background helper marks jobs failed with an explicit "not wired" error if called directly. [16]
 
+The convert/stats endpoint follow-up is complete at the API-contract layer: `/api/convert` now calls the current converter `convert_data(...)` method, serializes `ConversionResult.conversion_metadata`, preserves the same-format shortcut, and returns 503 for unavailable converter service without broad-exception masking. `/api/stats` now preserves registry-unavailable 503 failures instead of converting them to 500. Focused tests cover these boundary contracts with fake services. [16][17]
+
 # Links
 
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
@@ -150,3 +152,4 @@ The batch endpoint follow-up is complete at the status-honesty layer: `/api/batc
 [14] `../src/orchestration/real_dag_orchestrator.py`
 [15] `../tests/current_runtime/test_real_dag_t27_dataflow.py`
 [16] `../src/api/cross_modal_api.py`
+[17] `../src/analytics/cross_modal_converter.py`
