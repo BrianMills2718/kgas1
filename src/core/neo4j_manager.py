@@ -111,8 +111,11 @@ class Neo4jDockerManager:
         return self.query_executor.execute_query(query, params)
 
     async def execute_read_query(self, query: str, params: Dict[str, Any] = None) -> List[Dict[str, Any]]:
-        """Compatibility async read-query API used by graph analytics callers."""
-        return self.execute_query(query, params)
+        """Execute trusted internal read-only analytics Cypher."""
+        driver = self.connection_manager.get_driver()
+        with driver.session() as session:
+            result = session.run(query, params or {})
+            return [dict(record) for record in result]
     
     # Performance Monitoring Delegation
     def get_health_status(self) -> Dict[str, Any]:

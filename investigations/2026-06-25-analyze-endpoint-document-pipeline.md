@@ -132,7 +132,7 @@ The response maps the complete-pipeline output into the existing `AnalysisRespon
 
 Previously accepted but unproven extensions (`.pdf`, `.docx`, `.doc`, `.md`) now return 501 from `/api/analyze` with an explicit "only for .txt" message. Unsupported extensions such as `.exe` still return 400. Focused API tests prove temp-file cleanup, pipeline dispatch, response serialization, and non-text 501 behavior. A skip-safe live API test also calls `analyze_document(...)` with a `.txt` upload when `NEO4J_PASSWORD` is configured and asserts relationships, graph edges, Neo4j proof, and end-to-end success. [1][12]
 
-The live API test exposed a non-blocking graph-validation concern: `_analyze_graph_connectivity(...)` uses a `CALL { ... }` Cypher subquery that the current input validator blocks as a dangerous pattern. Entity and edge verification still succeed, `neo4j_integration_verified=True`, and `end_to_end_success=True`, but graph connectivity statistics should be audited separately rather than silently treated as validated. [9]
+The live API test exposed a graph-validation concern: `_analyze_graph_connectivity(...)` used a `CALL { ... }` variable-length traversal that the current input validator blocked as a dangerous pattern. Allowing that trusted internal query made the live pipeline hang on the accumulated local graph, so the repair classified full connected-component analysis as not computed during request-time validation. Graph validation now uses a bounded node/relationship summary query, returns `connectivity_check="not_computed_unbounded_traversal_skipped"`, and leaves entity/edge verification as the Neo4j proof basis. [9][13]
 
 ## Recommendation
 
@@ -142,7 +142,6 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 
 ## Open Questions
 
-- Should graph connectivity validation be rewritten to avoid the validator-blocked `CALL { ... }` subquery, or should that query be explicitly allowed as a trusted internal read?
 - Should `GraphQueryEngine` query-stat helpers get the same read-query compatibility audit, or is the current successful-but-zero-path query result sufficient for the first `/api/analyze` slice?
 - Should there be an explicit non-Neo4j test service manager for document-loader and text-only adapter tests?
 - Should `/api/analyze` keep using the generic `AnalysisResponse` wrapper, or should a new endpoint expose complete-pipeline execution with a response model that exactly matches actual pipeline stages?

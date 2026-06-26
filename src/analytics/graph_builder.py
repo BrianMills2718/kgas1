@@ -375,37 +375,25 @@ class GraphBuilder:
     async def _analyze_graph_connectivity(self) -> Dict[str, Any]:
         """Analyze graph connectivity in Neo4j"""
         try:
-            # Count connected components
-            component_query = """
+            # Avoid unbounded variable-length traversal during request-time validation.
+            summary_query = """
             MATCH (n:Entity)
-            WITH n
-            CALL {
-                WITH n
-                MATCH path = (n)-[*]-(connected:Entity)
-                RETURN connected
-                UNION
-                WITH n
-                RETURN n as connected
-            }
-            WITH n, collect(DISTINCT connected) as component
-            RETURN count(DISTINCT component) as component_count,
-                   avg(size(component)) as avg_component_size,
-                   max(size(component)) as largest_component_size
+            OPTIONAL MATCH (n)-[r]-(:Entity)
+            RETURN count(DISTINCT n) as node_count,
+                   count(r) as relationship_count
             """
             
-            result = await self.neo4j_manager.execute_read_query(component_query)
+            result = await self.neo4j_manager.execute_read_query(summary_query)
             record = result[0] if result else {}
             
-            component_count = record.get("component_count", 0)
-            
-            # Check if graph is connected (single component)
-            is_connected = component_count <= 1
-            
             return {
-                "is_connected": is_connected,
-                "component_count": component_count,
-                "avg_component_size": record.get("avg_component_size", 0),
-                "largest_component_size": record.get("largest_component_size", 0)
+                "is_connected": False,
+                "component_count": None,
+                "avg_component_size": None,
+                "largest_component_size": None,
+                "node_count": record.get("node_count", 0),
+                "relationship_count": record.get("relationship_count", 0),
+                "connectivity_check": "not_computed_unbounded_traversal_skipped"
             }
             
         except Exception as e:
