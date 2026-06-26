@@ -136,7 +136,7 @@ OK src.api.cross_modal_api
 OK src.mcp_server
 ```
 
-The MCP import still logs a warning that `sympy` is unavailable and falls back to the enhanced parser. That warning does not block module import, but it should be tracked if formula parsing with SymPy support matters for MCP algorithm tools. [3]
+The first isolated MCP import still logged a warning that `sympy` was unavailable and fell back to the enhanced parser. Because that also prevented the backward-compatible MCP server instance from being created, `sympy>=1.14.0` was added to `requirements.txt`. After installing it, `src.mcp_server` imports, algorithm tools report `HybridFormulaParser` with SymPy support, all MCP tools register successfully, and `src.mcp_server.mcp is None` is `False`. [3][6]
 
 The focused current-runtime tests also pass in the isolated environment:
 

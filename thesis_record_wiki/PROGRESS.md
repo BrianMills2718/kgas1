@@ -177,10 +177,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `4430129` added the KGAS evolution checkpoint synthesis, including top-level archive coverage completion, GraphRAG-to-theory-system arc, evidence/status caveats, relationship-extraction and uncertainty risks, and recommended deep dives.
 - `1401d56` repaired the current cross-modal API import/calling-contract boundary, added focused current-runtime tests, verified passing `src.api.cross_modal_api` import, and recorded remaining `neo4j`/`torchvision` dependency blockers.
 - `f2704ad` completed the isolated KGAS environment slice, including project-local `.venv` requirements install, added `python-multipart`/`fastmcp`/`psutil`, generated empty-default `config/default.yaml`, passing isolated target imports, and non-blocking SymPy warning.
+- Pending commit: SymPy dependency completion, including `sympy>=1.14.0`, isolated MCP import with `mcp_is_none=False`, HybridFormulaParser SymPy support, and successful MCP tool registration.
 
 ## Next
 
-1. Next recommended step: decide whether to add `sympy` for full MCP formula-parser support or leave the current enhanced-parser fallback documented.
-2. After that, trace the relationship-extraction bottleneck across T27/current code/archive evidence.
+1. Run wiki lint, focused tests, isolated import checks, commit, and push the SymPy dependency completion.
+2. Next recommended step: trace the relationship-extraction bottleneck across T27/current code/archive evidence.
 3. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
 4. Security follow-up: treat the preserved `.env` credentials in lit-review and backup tarballs as compromised before any public sharing or archive export.

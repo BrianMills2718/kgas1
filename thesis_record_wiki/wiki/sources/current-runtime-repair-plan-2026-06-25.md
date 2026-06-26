@@ -105,7 +105,7 @@ Interpretation: the first MCP repair is environment dependency installation or p
 
 # Follow-Up Status
 
-The cross-modal API import blocker has been repaired and covered by `tests/current_runtime/test_cross_modal_api_contract.py`. The isolated environment pass added missing declared-runtime dependencies (`python-multipart`, `fastmcp`, and `psutil`) to `requirements.txt`; after that, `src.core.tool_contract`, `src.api.cross_modal_api`, and `src.mcp_server` all import in the project-local `.venv`. MCP still logs a non-blocking missing-`sympy` fallback warning during import. [1][4][6]
+The cross-modal API import blocker has been repaired and covered by `tests/current_runtime/test_cross_modal_api_contract.py`. The isolated environment pass added missing declared-runtime dependencies (`python-multipart`, `fastmcp`, `psutil`, and `sympy`) to `requirements.txt`; after that, `src.core.tool_contract`, `src.api.cross_modal_api`, and `src.mcp_server` all import in the project-local `.venv`, and `src.mcp_server.mcp` is created. [1][4][6]
 
 # Links
 

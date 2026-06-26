@@ -11,6 +11,7 @@ python-louvain>=0.16
 leidenalg>=0.10.0
 igraph>=0.10.0
 pygraphviz>=1.10
+sympy>=1.14.0
 
 # Database
 neo4j>=5.0.0
