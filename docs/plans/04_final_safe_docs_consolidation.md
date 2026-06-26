@@ -39,6 +39,8 @@ Mark historical documents with an explicit missing-target marker and banner. Pre
 - `docs/plans/CLAUDE.md`
 - `thesis_record_wiki/PROGRESS.md`
 - `thesis_record_wiki/wiki/log.md`
+- `thesis_record_wiki/wiki/overview.md`
+- `thesis_record_wiki/wiki/sources/digimon-lineage-archive-coverage-audit-2026-06-25.md`
 
 ## Success Criteria
 
