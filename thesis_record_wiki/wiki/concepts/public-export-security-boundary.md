@@ -19,6 +19,8 @@ The preserved thesis/KGAS record should be treated as an internal source of trut
 
 That preservation choice creates a security boundary: public sharing requires a separate reviewed derivative export. Do not edit, delete, or rewrite the raw archive to sanitize it in place.
 
+The proposal's HSPC/data-governance boundary does not remove this export requirement. Even when proposal materials classify the dissertation design as public/de-identified and not human subjects research, raw archive export still needs a separate security/privacy review. See [HSPC Data Governance Boundary](/wiki/concepts/hspc-data-governance-boundary.md).
+
 # Boundary
 
 Before any public sharing, archive export, publication supplement, or handoff to a third party:
@@ -48,6 +50,7 @@ The raw archive is for internal preservation and evidence recovery. A public bun
 - [Lit Review Root Files](/wiki/sources/lit-review-root-files.md)
 - [Digimon Lineage Archived Uncertainty Datasets](/wiki/sources/digimon-lineage-archived-uncertainty-datasets.md)
 - [KGAS Evolution Checkpoint 2026-06-25](/wiki/concepts/kgas-evolution-checkpoint-2026-06-25.md)
+- [HSPC Data Governance Boundary](/wiki/concepts/hspc-data-governance-boundary.md)
 
 # Citations
 

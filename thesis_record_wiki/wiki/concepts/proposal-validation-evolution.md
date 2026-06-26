@@ -88,6 +88,7 @@ Do not collapse these into one validation status.
 # Links
 
 - [Proposal Framing Evolution](/wiki/concepts/proposal-framing-evolution.md)
+- [HSPC Data Governance Boundary](/wiki/concepts/hspc-data-governance-boundary.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Proposal Old To Final Comparison 2026 06 26](/wiki/sources/proposal-old-to-final-comparison-2026-06-26.md)
 - [Final Proposal Annex Preservation Review 2026 06 26](/wiki/sources/final-proposal-annex-preservation-review-2026-06-26.md)

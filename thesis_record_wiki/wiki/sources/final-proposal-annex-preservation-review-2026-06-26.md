@@ -107,6 +107,7 @@ That means annexes are part of the intellectual history, not administrative atta
 - [Proposal Old To Final Comparison 2026 06 26](/wiki/sources/proposal-old-to-final-comparison-2026-06-26.md): main old/full/final proposal comparison.
 - [Proposal Framing Evolution](/wiki/concepts/proposal-framing-evolution.md): concept-level difference review.
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md): validation-level guardrail.
+- [HSPC Data Governance Boundary](/wiki/concepts/hspc-data-governance-boundary.md): human-subjects, privacy, and SME-review guardrail.
 - [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md): related uncertainty-framework history.
 - [Academic Proof Of Concept Scope](/wiki/concepts/academic-proof-of-concept-scope.md): proof-of-concept and proposal tone boundary.
 
