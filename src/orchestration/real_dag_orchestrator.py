@@ -164,6 +164,30 @@ class RealDAGOrchestrator:
                 ready.append(node_id)
         
         return ready
+
+    def _collect_chunks_from_inputs(self, node_inputs: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """Collect chunk records produced by upstream DAG nodes."""
+        chunks = []
+        for value in node_inputs.values():
+            if not isinstance(value, dict):
+                continue
+            if isinstance(value.get("chunks"), list):
+                chunks.extend(value["chunks"])
+            elif isinstance(value.get("chunk"), dict):
+                chunks.append(value["chunk"])
+        return chunks
+
+    def _collect_entities_from_inputs(self, node_inputs: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """Collect entity records produced by upstream DAG nodes."""
+        entities = []
+        for value in node_inputs.values():
+            if not isinstance(value, dict):
+                continue
+            if isinstance(value.get("entities"), list):
+                entities.extend(value["entities"])
+            if isinstance(value.get("mentions"), list):
+                entities.extend(value["mentions"])
+        return entities
     
     async def execute_node(self, node_id: str, input_data: Dict[str, Any]) -> Any:
         """Execute a single node with real tool invocation"""
@@ -240,17 +264,17 @@ class RealDAGOrchestrator:
                     parameters={}
                 )
             elif node.tool_name == "T27_RELATIONSHIP_EXTRACTOR":
-                # Get chunks from previous node  
-                prev_result = node_inputs.get(node.inputs[0], {})
-                if prev_result is None:
-                    prev_result = {}
-                chunks = prev_result.get('chunks', []) if isinstance(prev_result, dict) else []
+                chunks = self._collect_chunks_from_inputs(node_inputs)
+                entities = self._collect_entities_from_inputs(node_inputs)
+                chunk_ref = chunks[0].get("chunk_ref", f"chunk_{node_id}") if chunks else f"chunk_{node_id}"
+                text = " ".join([c.get('text', '') for c in chunks]) if chunks else input_data.get("text", "")
                 tool_request = ToolRequest(
                     tool_id="T27_RELATIONSHIP_EXTRACTOR",
                     operation="extract",
                     input_data={
-                        "chunk_ref": f"chunk_{node_id}",
-                        "text": " ".join([c.get('text', '') for c in chunks]) if chunks else "",
+                        "chunk_ref": chunk_ref,
+                        "text": text,
+                        "entities": entities,
                         "confidence": 0.8
                     },
                     parameters={}
@@ -453,7 +477,7 @@ async def demo_real_dag_execution():
     
     # Parallel branches
     orchestrator.add_node("extract_entities", "T23A_SPACY_NER", inputs=["chunk_text"])
-    orchestrator.add_node("extract_relations", "T27_RELATIONSHIP_EXTRACTOR", inputs=["chunk_text"])
+    orchestrator.add_node("extract_relations", "T27_RELATIONSHIP_EXTRACTOR", inputs=["chunk_text", "extract_entities"])
     
     # Join point
     orchestrator.add_node("build_entities", "T31_ENTITY_BUILDER", 

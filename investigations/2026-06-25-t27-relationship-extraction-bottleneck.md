@@ -1,7 +1,7 @@
 # T27 Relationship Extraction Bottleneck Investigation
 
 Date: 2026-06-25
-Status: repaired for analysis-agent, complete-pipeline, and Phase 1 MCP boundaries; spaCy model dependency installed
+Status: repaired for analysis-agent, complete-pipeline, Phase 1 MCP, and real-DAG boundaries; spaCy model dependency installed
 
 ## Question
 
@@ -18,6 +18,7 @@ Trace the T27 relationship-extraction bottleneck across current code and archive
 | A5 | Can we run a minimal current T27 test in the isolated `.venv` without external services? | A1 | answered |
 | A6 | What is the current root cause hypothesis and the next verification step? | A1-A5 | answered |
 | A7 | Which direct T27 callers outside `AnalysisAgent` need the same boundary protection? | A1-A6 | answered; selected callers repaired |
+| A8 | Does `real_dag_orchestrator.py` pass entities into T27? | A7 | answered; repaired |
 
 ## Assumptions Register
 
@@ -118,7 +119,7 @@ Answer: the direct caller audit found two real caller boundaries worth repairing
 
 - `src/analytics/complete_pipeline.py` grouped T23A-style mentions by chunk and passed `chunk_mentions` directly to `T27RelationshipExtractorUnified`; this is now normalized with the shared `normalize_entities_for_t27(...)` adapter.
 - `src/tools/phase1/phase1_mcp_tools.py` exposed public MCP `extract_relationships` and documented that callers should already provide T27-shaped entities; it now accepts either T27-shaped entities or T23A-shaped entities and normalizes before constructing the T27 request.
-- `src/orchestration/real_dag_orchestrator.py` constructs a T27 request without any `entities` field, so it remains a separate DAG wiring issue rather than just an entity-shape normalization issue.
+- `src/orchestration/real_dag_orchestrator.py` constructed a T27 request without any `entities` field, so it was a separate DAG wiring issue rather than just an entity-shape normalization issue. It now collects entity records from upstream dependency results and the demo DAG wires T27 to both chunking and entity extraction.
 - `src/tools/enhanced_mcp_tools.py` has a relationship-discovery method, but the actual multi-strategy extraction implementation is still a placeholder returning `[]`, so normalizing there would not yet repair a real T27 call.
 
 The adapter was moved into `src/tools/compatibility/t27_adapter.py` so analysis, pipeline, and MCP boundaries share the same contract. Importing `src.analytics.complete_pipeline` also exposed missing declared dependencies, now added to `requirements.txt`: `aiosqlite>=0.19.0` and `pypdf>=4.0.0`.
@@ -136,9 +137,30 @@ No broken requirements found.
 
 Status: answered and repaired for selected real boundaries.
 
+### A8 - Real DAG T27 Dataflow
+
+Answer: `real_dag_orchestrator.py` did not pass entities to T27 before this repair. Its T27 branch only read chunks from the first dependency and constructed input data with `chunk_ref`, `text`, and `confidence`. The demo DAG also made `extract_relations` depend only on `chunk_text`, so it had no path to `extract_entities`.
+
+Repair completed:
+
+- Added `_collect_chunks_from_inputs(...)` and `_collect_entities_from_inputs(...)` helper methods to collect upstream chunk/entity outputs.
+- Updated the T27 request builder to include `entities` from upstream `entities` or `mentions` results.
+- Updated the demo DAG so `extract_relations` depends on both `chunk_text` and `extract_entities`.
+- Added `tests/current_runtime/test_real_dag_t27_dataflow.py`, which proves a T27 DAG node receives chunk text and entity records from upstream nodes.
+
+Verification:
+
+```text
+tests/current_runtime/test_real_dag_t27_dataflow.py . [100%]
+15 passed, 2 warnings
+OK src.orchestration.real_dag_orchestrator
+```
+
+Status: answered and repaired.
+
 ## Contraction After Round 1
 
-The problem contracts from "relationship extraction might be broadly broken" to a specific T23A/T27 entity-shape contract issue plus one remaining DAG wiring issue. T27 itself can extract relationships from valid inputs. The analysis-agent, complete-pipeline, and Phase 1 MCP boundaries now normalize T23A output into T27 input before calling T27. `en_core_web_sm` is installed and declared, so the remaining unresolved relationship-extraction risk is narrower: `real_dag_orchestrator.py` does not provide entities to T27 at all, and parser-derived relationship output still needs a richer fixture if it matters.
+The problem contracts from "relationship extraction might be broadly broken" to two concrete repaired issues: T23A/T27 entity-shape mismatch at current call boundaries and missing entity dataflow in `real_dag_orchestrator.py`. T27 itself can extract relationships from valid inputs. The analysis-agent, complete-pipeline, and Phase 1 MCP boundaries now normalize T23A output into T27 input before calling T27. The real DAG now passes upstream entities into T27. `en_core_web_sm` is installed and declared, so the remaining unresolved relationship-extraction risk is a richer fixture for parser-derived relationship output if that method matters.
 
 ## Synthesis
 
@@ -146,8 +168,8 @@ Root cause found: current T27 expects `text/entity_type/start/end`, while T23A e
 
 Impact: this could cause analysis tasks to report successful entity extraction but no relationships, with relationship errors captured only as warnings rather than graph-rich output. That matches the archived concern that KGAS can become entity-only despite GraphRAG ambitions.
 
-Repair completed: added shared `normalize_entities_for_t27(...)` in `src/tools/compatibility/t27_adapter.py`, applied it before T27 calls in `src/orchestration/agents/analysis_agent.py`, `src/analytics/complete_pipeline.py`, and `src/tools/phase1/phase1_mcp_tools.py`, and added focused current-runtime tests in `tests/current_runtime/test_analysis_agent_t27_contract.py`.
+Repair completed: added shared `normalize_entities_for_t27(...)` in `src/tools/compatibility/t27_adapter.py`, applied it before T27 calls in `src/orchestration/agents/analysis_agent.py`, `src/analytics/complete_pipeline.py`, and `src/tools/phase1/phase1_mcp_tools.py`, repaired T27 entity dataflow in `src/orchestration/real_dag_orchestrator.py`, and added focused current-runtime tests.
 
 Confidence: high for the analysis-agent contract mismatch and repair; medium for broader pipeline coverage because other direct callers may still need normalization audits.
 
-Recommended next step: inspect `src/orchestration/real_dag_orchestrator.py` as a separate DAG wiring issue because it constructs a T27 request without entities. Add a richer dependency-parser fixture only if parser-derived relationships are a target runtime capability.
+Recommended next step: add a richer dependency-parser fixture only if parser-derived relationships are a target runtime capability; otherwise move to the next current-runtime bottleneck outside relationship extraction.

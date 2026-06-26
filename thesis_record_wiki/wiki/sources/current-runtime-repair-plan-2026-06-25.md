@@ -17,7 +17,9 @@ sources:
   - ../src/tools/compatibility/t27_adapter.py
   - ../src/analytics/complete_pipeline.py
   - ../src/tools/phase1/phase1_mcp_tools.py
+  - ../src/orchestration/real_dag_orchestrator.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
+  - ../tests/current_runtime/test_real_dag_t27_dataflow.py
   - ../tests/current_runtime/test_spacy_model_dependency.py
 confidence: high
 ---
@@ -115,7 +117,9 @@ The cross-modal API import blocker has been repaired and covered by `tests/curre
 
 The first relationship-extraction follow-up is complete for the main real boundaries. Current T27 requires `text/entity_type/start/end` entity records, while T23A returns `surface_form/entity_type/start_pos/end_pos`; shared `normalize_entities_for_t27(...)` now normalizes entities before T27 calls from `AnalysisAgent`, `CompleteGraphRAGPipeline`, and the Phase 1 MCP wrapper. The focused contract tests pass, and a direct T27 fixture probe returns two relationships for both native T27 entities and converted T23A entities. [8][9][10][11][12]
 
-The spaCy model follow-up is complete at the dependency layer: `en-core-web-sm==3.8.0` is installed in the isolated environment, declared in `requirements.txt`, and covered by a runtime test that verifies the parser component is available. The complete-pipeline import audit also added `aiosqlite>=0.19.0` and `pypdf>=4.0.0`, matching imports used by current code. Remaining follow-up: inspect `real_dag_orchestrator.py`, which constructs a T27 request without `entities`; if dependency-parser-derived relationships matter, add a richer fixture that requires the parser path instead of pattern extraction. [7][13]
+The spaCy model follow-up is complete at the dependency layer: `en-core-web-sm==3.8.0` is installed in the isolated environment, declared in `requirements.txt`, and covered by a runtime test that verifies the parser component is available. The complete-pipeline import audit also added `aiosqlite>=0.19.0` and `pypdf>=4.0.0`, matching imports used by current code. [7][13]
+
+The real-DAG follow-up is complete for T27 dataflow: `real_dag_orchestrator.py` now collects upstream `entities`/`mentions`, passes them into T27 requests, and the demo DAG wires relationship extraction to both chunking and entity extraction. Remaining follow-up: if dependency-parser-derived relationships matter, add a richer fixture that requires the parser path instead of pattern extraction. [14][15]
 
 # Links
 
@@ -138,3 +142,5 @@ The spaCy model follow-up is complete at the dependency layer: `en-core-web-sm==
 [11] `../src/tools/phase1/phase1_mcp_tools.py`
 [12] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
 [13] `../tests/current_runtime/test_spacy_model_dependency.py`
+[14] `../src/orchestration/real_dag_orchestrator.py`
+[15] `../tests/current_runtime/test_real_dag_t27_dataflow.py`

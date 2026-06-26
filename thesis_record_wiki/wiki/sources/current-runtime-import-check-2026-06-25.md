@@ -18,7 +18,9 @@ sources:
   - ../src/tools/compatibility/t27_adapter.py
   - ../src/analytics/complete_pipeline.py
   - ../src/tools/phase1/phase1_mcp_tools.py
+  - ../src/orchestration/real_dag_orchestrator.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
+  - ../tests/current_runtime/test_real_dag_t27_dataflow.py
   - ../tests/current_runtime/test_spacy_model_dependency.py
 confidence: high
 ---
@@ -178,17 +180,21 @@ The model follow-up installed `en-core-web-sm==3.8.0` and added the direct spaCy
 
 A broader direct-caller audit then patched two additional real T27 boundaries: `src/analytics/complete_pipeline.py` now normalizes grouped mentions before direct T27 execution, and `src/tools/phase1/phase1_mcp_tools.py` now normalizes public MCP relationship-extraction inputs. Importing `complete_pipeline.py` exposed two missing declared dependencies, now added to `requirements.txt`: `aiosqlite>=0.19.0` and `pypdf>=4.0.0`. [6][14][15][16]
 
+The follow-up DAG audit repaired a separate dataflow bug: `src/orchestration/real_dag_orchestrator.py` built T27 requests without an `entities` field, and the demo DAG made relationship extraction depend only on chunking. The orchestrator now collects upstream `entities`/`mentions` from dependency results, includes them in the T27 request, and wires the demo relationship node to both chunking and entity extraction. [17][18]
+
 Expanded verification after the model follow-up:
 
 ```text
+tests/current_runtime/test_real_dag_t27_dataflow.py . [100%]
 tests/current_runtime/test_analysis_agent_t27_contract.py ..... [100%]
 tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
 tests/current_runtime/test_spacy_model_dependency.py . [100%]
-14 passed, 2 warnings
+15 passed, 2 warnings
 OK src.tools.compatibility.t27_adapter
 OK src.orchestration.agents.analysis_agent
 OK src.analytics.complete_pipeline
 OK src.tools.phase1.phase1_mcp_tools
+OK src.orchestration.real_dag_orchestrator
 ```
 
 # Links
@@ -216,3 +222,5 @@ OK src.tools.phase1.phase1_mcp_tools
 [14] `../src/tools/compatibility/t27_adapter.py`
 [15] `../src/analytics/complete_pipeline.py`
 [16] `../src/tools/phase1/phase1_mcp_tools.py`
+[17] `../src/orchestration/real_dag_orchestrator.py`
+[18] `../tests/current_runtime/test_real_dag_t27_dataflow.py`

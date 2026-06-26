@@ -14,7 +14,9 @@ sources:
   - ../src/tools/compatibility/t27_adapter.py
   - ../src/analytics/complete_pipeline.py
   - ../src/tools/phase1/phase1_mcp_tools.py
+  - ../src/orchestration/real_dag_orchestrator.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
+  - ../tests/current_runtime/test_real_dag_t27_dataflow.py
   - ../requirements.txt
   - ../tests/current_runtime/test_spacy_model_dependency.py
 confidence: high
@@ -40,7 +42,7 @@ A 2026-06-25 current-code investigation reproduced a more specific version of th
 
 The analysis-agent, complete-pipeline, and Phase 1 MCP boundaries now normalize T23A output to the current T27 contract before calling T27. Focused current-runtime tests cover conversion, pass-through for already-normalized T27 entities, fail-loud behavior for unknown entity shapes, analysis-agent propagation, and complete-pipeline propagation. A direct T27 fixture probe returned two relationships for both native T27 entities and converted T23A entities. [3][6][7][8][9]
 
-This does not close every relationship-extraction risk. `en-core-web-sm==3.8.0` is now installed, declared in `requirements.txt`, and covered by a runtime test confirming the parser component is available, but the successful T27 fixture evidence still comes from pattern extraction. The remaining current-code issue found in this audit is different: `real_dag_orchestrator.py` constructs a T27 request without `entities`, so it needs DAG dataflow repair rather than only entity-shape normalization. Parser-derived relationship output also needs a richer fixture if it becomes an explicit target. [10][11]
+This does not close every relationship-extraction risk. `en-core-web-sm==3.8.0` is now installed, declared in `requirements.txt`, and covered by a runtime test confirming the parser component is available, but the successful T27 fixture evidence still comes from pattern extraction. The real DAG now passes upstream entities into T27, so the remaining current-code caveat is narrower: parser-derived relationship output needs a richer fixture if it becomes an explicit target. [10][11][12][13]
 
 # Related Pages
 
@@ -61,5 +63,7 @@ This does not close every relationship-extraction risk. `en-core-web-sm==3.8.0` 
 [7] `../src/analytics/complete_pipeline.py`
 [8] `../src/tools/phase1/phase1_mcp_tools.py`
 [9] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
-[10] `../requirements.txt`
-[11] `../tests/current_runtime/test_spacy_model_dependency.py`
+[10] `../src/orchestration/real_dag_orchestrator.py`
+[11] `../tests/current_runtime/test_real_dag_t27_dataflow.py`
+[12] `../requirements.txt`
+[13] `../tests/current_runtime/test_spacy_model_dependency.py`
