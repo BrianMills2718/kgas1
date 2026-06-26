@@ -99,7 +99,7 @@ Interpretation: the first MCP repair is environment dependency installation or p
 # Recommended Repair Order
 
 1. **Do not install into the shared `/home/brian/projects/.venv` as the first move.** Create or activate a project-local `.venv` if the goal is to test KGAS runtime without perturbing other projects.
-2. **For cross-modal API, update the API to the current orchestrator contract instead of only exporting `AnalysisRequest`.** The endpoint should call `orchestrator.orchestrate_analysis(research_question=task, data=mock_graph_data, source_format=DataFormat.GRAPH, validation_level=..., optimization_level=...)`.
+2. **For cross-modal API, update import and status honesty before claiming runtime readiness.** The first pass repaired the import/calling-contract drift. The later analyze-endpoint pass superseded the placeholder-graph path with explicit 501 until real document extraction is wired.
 3. **Add or update a minimal import/runtime test** that imports `src.api.cross_modal_api` and constructs the relevant endpoint path without needing a live Neo4j instance.
 4. **For MCP, install declared dependencies in an isolated environment first.** Only after that, rerun `import src.mcp_server` to distinguish missing package from live Neo4j configuration failure.
 5. **If MCP must import without Neo4j installed, plan a separate source hardening patch** that moves `from neo4j import GraphDatabase` inside `ServiceManager.get_neo4j_driver()` and fails loudly when Neo4j-backed services are invoked.
@@ -108,7 +108,7 @@ Interpretation: the first MCP repair is environment dependency installation or p
 
 - `python -c "import src.core.tool_contract"` passes. Completed in the follow-up repair pass.
 - `python -c "import src.api.cross_modal_api"` passes. Completed in the follow-up repair pass.
-- A focused API test proves the cross-modal endpoint calls the current `orchestrate_analysis(...)` signature.
+- Focused API tests prove current endpoint behavior without a live Neo4j instance: recommendation and conversion are contract-wired through fake services, while analyze and batch fail explicitly where real pipeline wiring is absent.
 - In an isolated KGAS environment with requirements installed, `python -c "import src.mcp_server"` reaches the next real configuration or service-readiness state.
 - Any remaining failures are recorded with full traceback and not collapsed into a generic "broken" label.
 
@@ -127,6 +127,8 @@ The recommendation endpoint follow-up is complete at the API-contract layer: `/a
 The batch endpoint follow-up is complete at the status-honesty layer: `/api/batch/analyze` no longer schedules fake processing or returns demo entities/relationships. It now returns 501 until wired to the current document-analysis pipeline, and the background helper marks jobs failed with an explicit "not wired" error if called directly. [16]
 
 The convert/stats endpoint follow-up is complete at the API-contract layer: `/api/convert` now calls the current converter `convert_data(...)` method, serializes `ConversionResult.conversion_metadata`, preserves the same-format shortcut, and returns 503 for unavailable converter service without broad-exception masking. `/api/stats` now preserves registry-unavailable 503 failures instead of converting them to 500. Focused tests cover these boundary contracts with fake services. [16][17]
+
+The analyze endpoint follow-up is complete at the status-honesty layer: `/api/analyze` no longer saves an uploaded document, discards its content, and sends a metadata-only placeholder graph into the orchestrator. It validates file type and enum parameters, then returns explicit 501 until real document parsing and extraction are wired. The stale `balanced` optimization default was also aligned to the current `standard` enum value. [16]
 
 # Links
 

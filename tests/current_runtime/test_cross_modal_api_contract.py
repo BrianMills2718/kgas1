@@ -1,6 +1,7 @@
 """Runtime contract checks for the cross-modal API boundary."""
 
 from dataclasses import dataclass
+from io import BytesIO
 
 import pytest
 from fastapi import HTTPException
@@ -36,25 +37,58 @@ def test_parse_enum_returns_http_400_for_bad_value() -> None:
     assert "graph" in exc_info.value.detail
 
 
-def test_document_placeholder_graph_preserves_document_metadata() -> None:
-    """The current analyze endpoint sends explicit document metadata into the orchestrator."""
-    graph = api._document_placeholder_graph("sample.txt", 42, ".txt")
+@pytest.mark.asyncio
+async def test_analyze_document_returns_explicit_501_until_real_pipeline_wired(monkeypatch) -> None:
+    """The analyze endpoint should not run metadata-only placeholder analysis."""
+    def fail_get_registry():
+        raise AssertionError("registry should not be loaded")
 
-    assert graph == {
-        "nodes": [
-            {
-                "id": "document",
-                "label": "sample.txt",
-                "type": "DOCUMENT",
-                "properties": {
-                    "filename": "sample.txt",
-                    "extension": ".txt",
-                    "byte_count": 42,
-                },
-            }
-        ],
-        "edges": [],
-    }
+    monkeypatch.setattr(api, "_get_registry", fail_get_registry)
+
+    with pytest.raises(HTTPException) as exc_info:
+        await api.analyze_document(
+            background_tasks=None,
+            file=api.UploadFile(file=BytesIO(b"real text"), filename="sample.txt"),
+            target_format="graph",
+            task="extract entities",
+            optimization_level="standard",
+            validation_level="standard",
+        )
+
+    assert exc_info.value.status_code == 501
+    assert "not wired" in exc_info.value.detail
+
+
+@pytest.mark.asyncio
+async def test_analyze_document_rejects_unsupported_file_type() -> None:
+    """Unsupported uploads should still fail as client errors before pipeline dispatch."""
+    with pytest.raises(HTTPException) as exc_info:
+        await api.analyze_document(
+            background_tasks=None,
+            file=api.UploadFile(file=BytesIO(b"data"), filename="sample.exe"),
+            target_format="graph",
+            task="extract entities",
+            optimization_level="standard",
+            validation_level="standard",
+        )
+
+    assert exc_info.value.status_code == 400
+
+
+@pytest.mark.asyncio
+async def test_analyze_document_rejects_invalid_target_format() -> None:
+    """Invalid analyze enum parameters should remain 400s, not 501s."""
+    with pytest.raises(HTTPException) as exc_info:
+        await api.analyze_document(
+            background_tasks=None,
+            file=api.UploadFile(file=BytesIO(b"data"), filename="sample.txt"),
+            target_format="network",
+            task="extract entities",
+            optimization_level="standard",
+            validation_level="standard",
+        )
+
+    assert exc_info.value.status_code == 400
 
 
 def test_preferred_modes_follow_requested_target_format() -> None:

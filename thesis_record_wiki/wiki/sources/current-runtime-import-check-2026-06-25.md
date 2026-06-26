@@ -239,6 +239,19 @@ tests/current_runtime/test_cross_modal_api_contract.py .................. [100%]
 18 passed, 2 warnings
 ```
 
+# Analyze Endpoint Follow-Up
+
+The `/api/analyze` endpoint previously accepted an uploaded document, wrote it to a temporary file, discarded the content, and sent a metadata-only placeholder graph into the orchestrator. That behavior made the endpoint appear to perform document analysis while analyzing only filename, extension, and byte count. The endpoint now fails honestly with 501 after file-type and enum validation until it is wired to a real document extraction pipeline. [2]
+
+The same pass aligned the stale `optimization_level` default from `balanced` to the current orchestrator enum value `standard`. Focused API tests cover explicit analyze 501 behavior, unsupported-file 400 behavior, invalid-target-format 400 behavior, and the broader cross-modal API contract file. [2][7]
+
+Verification:
+
+```text
+tests/current_runtime/test_cross_modal_api_contract.py .................... [100%]
+20 passed, 2 warnings
+```
+
 # Links
 
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md)

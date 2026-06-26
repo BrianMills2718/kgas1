@@ -9,9 +9,6 @@ and mode recommendation for local automation and custom UIs.
 This complements (not replaces) the MCP server interface.
 """
 
-import asyncio
-import os
-import tempfile
 import uuid
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Union
@@ -67,7 +64,7 @@ class AnalyzeRequest(BaseModel):
     """Request model for document analysis"""
     target_format: str = Field("graph", description="Target format: graph, table, or vector")
     task: str = Field("extract entities", description="Analysis task description")
-    optimization_level: str = Field("balanced", description="Optimization: speed, balanced, or quality")
+    optimization_level: str = Field("standard", description="Optimization: basic, standard, aggressive, or adaptive")
     validation_level: str = Field("standard", description="Validation: basic, standard, or comprehensive")
 
 class ConvertRequest(BaseModel):
@@ -148,84 +145,31 @@ async def analyze_document(
     file: UploadFile = File(...),
     target_format: str = Query("graph", description="Target format for analysis"),
     task: str = Query("extract entities", description="Analysis task"),
-    optimization_level: str = Query("balanced", description="Optimization level"),
+    optimization_level: str = Query("standard", description="Optimization level"),
     validation_level: str = Query("standard", description="Validation level")
 ):
     """
     Analyze an uploaded document and convert to specified format.
-    
-    Supports PDF, Word, and text documents.
     """
     # Validate file type
     allowed_types = [".pdf", ".docx", ".doc", ".txt", ".md"]
-    file_ext = Path(file.filename).suffix.lower()
+    file_ext = Path(file.filename or "").suffix.lower()
     if file_ext not in allowed_types:
         raise HTTPException(
             status_code=400,
             detail=f"Unsupported file type: {file_ext}. Allowed: {allowed_types}"
         )
     
-    # Validate target format
-    try:
-        target_fmt = _parse_enum(DataFormat, target_format, "target format")
-    except ValueError:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Invalid target format: {target_format}. Use: graph, table, or vector"
-        )
-    
-    try:
-        # Save uploaded file temporarily
-        with tempfile.NamedTemporaryFile(delete=False, suffix=file_ext) as tmp_file:
-            content = await file.read()
-            tmp_file.write(content)
-            tmp_path = tmp_file.name
-        
-        registry = _get_registry()
-        graph_data = _document_placeholder_graph(file.filename, len(content), file_ext)
-        
-        # Execute analysis
-        orchestrator = registry.orchestrator
-        if not orchestrator:
-            raise HTTPException(
-                status_code=503,
-                detail="Orchestrator service not available"
-            )
-            
-        result = await orchestrator.orchestrate_analysis(
-            research_question=task,
-            data=graph_data,
-            source_format=DataFormat.GRAPH,
-            preferred_modes=_preferred_modes_for_format(target_fmt),
-            optimization_level=_parse_enum(WorkflowOptimizationLevel, optimization_level, "optimization level"),
-            validation_level=_parse_enum(ValidationLevel, validation_level, "validation level")
-        )
-        
-        # Clean up temp file
-        os.unlink(tmp_path)
-        
-        # Return results
-        return AnalysisResponse(
-            workflow_id=result.workflow_id,
-            selected_mode=_selected_mode_value(result),
-            results={
-                target_format: _serialize_results(result.primary_result)
-            },
-            validation=_serialize_validation_report(result.validation_report),
-            performance_metrics=result.performance_metrics,
-            source_traceability=result.analysis_metadata
-        )
-        
-    except HTTPException:
-        if 'tmp_path' in locals() and os.path.exists(tmp_path):
-            os.unlink(tmp_path)
-        raise
-    except Exception as e:
-        logger.error(f"Analysis failed: {e}")
-        # Clean up temp file if it exists
-        if 'tmp_path' in locals() and os.path.exists(tmp_path):
-            os.unlink(tmp_path)
-        raise HTTPException(status_code=500, detail=str(e))
+    _parse_enum(DataFormat, target_format, "target format")
+    _parse_enum(WorkflowOptimizationLevel, optimization_level, "optimization level")
+    _parse_enum(ValidationLevel, validation_level, "validation level")
+    raise HTTPException(
+        status_code=501,
+        detail=(
+            "/api/analyze is not wired to the current document extraction pipeline. "
+            "Use lower-level pipeline tools or implement real document parsing before enabling this endpoint."
+        ),
+    )
 
 # Format conversion endpoint
 @app.post("/api/convert")
@@ -414,24 +358,6 @@ def _initialize_cross_modal_services(config: Dict[str, Any]) -> Any:
     except ImportError as exc:
         raise HTTPException(status_code=503, detail=f"Cross-modal registry unavailable: {exc}") from exc
     return initialize_cross_modal_services(config)
-
-def _document_placeholder_graph(filename: str, byte_count: int, file_ext: str) -> Dict[str, Any]:
-    """Create explicit document-metadata graph input until full pipeline wiring is restored."""
-    return {
-        "nodes": [
-            {
-                "id": "document",
-                "label": filename,
-                "type": "DOCUMENT",
-                "properties": {
-                    "filename": filename,
-                    "extension": file_ext,
-                    "byte_count": byte_count
-                }
-            }
-        ],
-        "edges": []
-    }
 
 def _parse_enum(enum_cls: Any, raw_value: str, label: str) -> Any:
     """Parse API strings against enum values, accepting case-insensitive values."""

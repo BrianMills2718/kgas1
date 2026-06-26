@@ -185,10 +185,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `12b8488` rewired `/api/recommend` to the current `DataContext` and mode-selector contract, with focused current-runtime API tests.
 - `d0fc8c5` changed `/api/batch/analyze` from mock/demo KG output to explicit 501 status until real batch pipeline wiring exists.
 - `a34cb20` repaired `/api/convert` against the current converter `convert_data(...)` contract, preserved converter/stats 503 status codes, and added focused current-runtime API tests.
+- `PENDING` changed `/api/analyze` from metadata-only placeholder analysis to explicit 501 until real document extraction is wired, and aligned the optimization default to `standard`.
 
 ## Next
 
-1. Next recommended step: audit `/api/analyze` runtime behavior beyond import/calling-contract coverage, especially placeholder graph input versus real document extraction.
+1. Next recommended step: identify the real document extraction entry point that should eventually back `/api/analyze`, or audit another still-active runtime boundary if endpoint triage remains the priority.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
 4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
