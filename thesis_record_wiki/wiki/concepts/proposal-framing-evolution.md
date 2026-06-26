@@ -95,6 +95,7 @@ Do not collapse these buckets into a linear "old bad, new good" story.
 # Links
 
 - [Proposal Old To Final Comparison 2026 06 26](/wiki/sources/proposal-old-to-final-comparison-2026-06-26.md)
+- [Final Proposal Annex Preservation Review 2026 06 26](/wiki/sources/final-proposal-annex-preservation-review-2026-06-26.md)
 - [Digimon Lineage Proposal Rewrite 2025 08 12](/wiki/sources/digimon-lineage-proposal-rewrite-2025-08-12.md)
 - [Digimon Lineage Theoretical Exploration Proposal Materials](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-materials.md)
 - [Digimon Lineage Theoretical Exploration Proposal Evolution](/wiki/sources/digimon-lineage-theoretical-exploration-proposal-evolution.md)
