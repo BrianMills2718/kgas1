@@ -14,6 +14,9 @@ sources:
   - ../src/core/service_manager.py
   - ../requirements.txt
   - ../src/orchestration/agents/analysis_agent.py
+  - ../src/tools/compatibility/t27_adapter.py
+  - ../src/analytics/complete_pipeline.py
+  - ../src/tools/phase1/phase1_mcp_tools.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
   - ../tests/current_runtime/test_spacy_model_dependency.py
 confidence: high
@@ -110,9 +113,9 @@ Interpretation: the first MCP repair is environment dependency installation or p
 
 The cross-modal API import blocker has been repaired and covered by `tests/current_runtime/test_cross_modal_api_contract.py`. The isolated environment pass added missing declared-runtime dependencies (`python-multipart`, `fastmcp`, `psutil`, and `sympy`) to `requirements.txt`; after that, `src.core.tool_contract`, `src.api.cross_modal_api`, and `src.mcp_server` all import in the project-local `.venv`, and `src.mcp_server.mcp` is created. [1][4][6]
 
-The first relationship-extraction follow-up is also complete for the analysis-agent bridge. Current T27 requires `text/entity_type/start/end` entity records, while T23A returns `surface_form/entity_type/start_pos/end_pos`; `src/orchestration/agents/analysis_agent.py` now normalizes entities before calling MCP relationship extraction. The focused contract tests pass, and a direct T27 fixture probe returns two relationships for both native T27 entities and converted T23A entities. [8][9]
+The first relationship-extraction follow-up is complete for the main real boundaries. Current T27 requires `text/entity_type/start/end` entity records, while T23A returns `surface_form/entity_type/start_pos/end_pos`; shared `normalize_entities_for_t27(...)` now normalizes entities before T27 calls from `AnalysisAgent`, `CompleteGraphRAGPipeline`, and the Phase 1 MCP wrapper. The focused contract tests pass, and a direct T27 fixture probe returns two relationships for both native T27 entities and converted T23A entities. [8][9][10][11][12]
 
-The spaCy model follow-up is complete at the dependency layer: `en-core-web-sm==3.8.0` is installed in the isolated environment, declared in `requirements.txt`, and covered by a runtime test that verifies the parser component is available. Remaining follow-up: audit direct T27 callers outside `AnalysisAgent`; if dependency-parser-derived relationships matter, add a richer fixture that requires the parser path instead of pattern extraction. [7][10]
+The spaCy model follow-up is complete at the dependency layer: `en-core-web-sm==3.8.0` is installed in the isolated environment, declared in `requirements.txt`, and covered by a runtime test that verifies the parser component is available. The complete-pipeline import audit also added `aiosqlite>=0.19.0` and `pypdf>=4.0.0`, matching imports used by current code. Remaining follow-up: inspect `real_dag_orchestrator.py`, which constructs a T27 request without `entities`; if dependency-parser-derived relationships matter, add a richer fixture that requires the parser path instead of pattern extraction. [7][13]
 
 # Links
 
@@ -130,5 +133,8 @@ The spaCy model follow-up is complete at the dependency layer: `en-core-web-sm==
 [6] `../src/core/service_manager.py`  
 [7] `../requirements.txt`
 [8] `../src/orchestration/agents/analysis_agent.py`
-[9] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
-[10] `../tests/current_runtime/test_spacy_model_dependency.py`
+[9] `../src/tools/compatibility/t27_adapter.py`
+[10] `../src/analytics/complete_pipeline.py`
+[11] `../src/tools/phase1/phase1_mcp_tools.py`
+[12] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
+[13] `../tests/current_runtime/test_spacy_model_dependency.py`

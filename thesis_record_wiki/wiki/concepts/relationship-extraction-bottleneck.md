@@ -11,6 +11,9 @@ sources:
   - ../src/orchestration/agents/analysis_agent.py
   - ../src/tools/phase1/t23a_spacy_ner_unified.py
   - ../src/tools/phase1/t27_relationship_extractor_unified.py
+  - ../src/tools/compatibility/t27_adapter.py
+  - ../src/analytics/complete_pipeline.py
+  - ../src/tools/phase1/phase1_mcp_tools.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
   - ../requirements.txt
   - ../tests/current_runtime/test_spacy_model_dependency.py
@@ -35,9 +38,9 @@ The bottleneck analysis says relationship extraction tool T27 was either not cal
 
 A 2026-06-25 current-code investigation reproduced a more specific version of this failure mode. Current T27 requires each entity to have `text`, `entity_type`, `start`, and `end`, while current T23A emits `surface_form`, `entity_type`, `start_pos`, and `end_pos`. The analysis-agent path was forwarding T23A entities directly into MCP relationship extraction, so it could fail before extraction rather than produce relationships. [3][4][5]
 
-The analysis-agent bridge now normalizes T23A output to the current T27 contract before calling MCP. Focused current-runtime tests cover conversion, pass-through for already-normalized T27 entities, and fail-loud behavior for unknown entity shapes. A direct T27 fixture probe returned two relationships for both native T27 entities and converted T23A entities. [3][6]
+The analysis-agent, complete-pipeline, and Phase 1 MCP boundaries now normalize T23A output to the current T27 contract before calling T27. Focused current-runtime tests cover conversion, pass-through for already-normalized T27 entities, fail-loud behavior for unknown entity shapes, analysis-agent propagation, and complete-pipeline propagation. A direct T27 fixture probe returned two relationships for both native T27 entities and converted T23A entities. [3][6][7][8][9]
 
-This does not close every relationship-extraction risk. `en-core-web-sm==3.8.0` is now installed, declared in `requirements.txt`, and covered by a runtime test confirming the parser component is available, but the successful T27 fixture evidence still comes from pattern extraction. Broader direct callers beyond `AnalysisAgent` may need a contract-normalization audit, and parser-derived relationship output needs a richer fixture if it becomes an explicit target. [7][8]
+This does not close every relationship-extraction risk. `en-core-web-sm==3.8.0` is now installed, declared in `requirements.txt`, and covered by a runtime test confirming the parser component is available, but the successful T27 fixture evidence still comes from pattern extraction. The remaining current-code issue found in this audit is different: `real_dag_orchestrator.py` constructs a T27 request without `entities`, so it needs DAG dataflow repair rather than only entity-shape normalization. Parser-derived relationship output also needs a richer fixture if it becomes an explicit target. [10][11]
 
 # Related Pages
 
@@ -54,6 +57,9 @@ This does not close every relationship-extraction risk. `en-core-web-sm==3.8.0` 
 [3] `../src/orchestration/agents/analysis_agent.py`
 [4] `../src/tools/phase1/t23a_spacy_ner_unified.py`
 [5] `../src/tools/phase1/t27_relationship_extractor_unified.py`
-[6] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
-[7] `../requirements.txt`
-[8] `../tests/current_runtime/test_spacy_model_dependency.py`
+[6] `../src/tools/compatibility/t27_adapter.py`
+[7] `../src/analytics/complete_pipeline.py`
+[8] `../src/tools/phase1/phase1_mcp_tools.py`
+[9] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
+[10] `../requirements.txt`
+[11] `../tests/current_runtime/test_spacy_model_dependency.py`

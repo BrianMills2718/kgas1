@@ -22,6 +22,7 @@ from src.tools.phase1.t15a_text_chunker_unified import T15ATextChunkerUnified
 from src.tools.phase1.t23a_spacy_ner_unified import T23ASpacyNERUnified
 from src.tools.phase1.t27_relationship_extractor_unified import T27RelationshipExtractorUnified
 from src.tools.phase1.t68_pagerank_unified import T68PageRankCalculatorUnified
+from src.tools.compatibility.t27_adapter import normalize_entities_for_t27
 from src.core.service_manager import ServiceManager
 from src.core.distributed_transaction_manager import DistributedTransactionManager
 
@@ -384,7 +385,7 @@ class CompleteGraphRAGPipeline:
                     input_data={
                         "chunk_ref": chunk_ref,
                         "text": chunk.get("text", ""),
-                        "entities": chunk_mentions,
+                        "entities": normalize_entities_for_t27(chunk_mentions),
                         "confidence": chunk.get("confidence", 0.8)
                     },
                     parameters={}

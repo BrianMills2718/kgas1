@@ -15,6 +15,9 @@ sources:
   - ../src/orchestration/agents/analysis_agent.py
   - ../src/tools/phase1/t23a_spacy_ner_unified.py
   - ../src/tools/phase1/t27_relationship_extractor_unified.py
+  - ../src/tools/compatibility/t27_adapter.py
+  - ../src/analytics/complete_pipeline.py
+  - ../src/tools/phase1/phase1_mcp_tools.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
   - ../tests/current_runtime/test_spacy_model_dependency.py
 confidence: high
@@ -154,7 +157,7 @@ tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
 
 A follow-up investigation traced the T27 relationship-extraction bottleneck against current code and archived repair evidence. Current T27 validates each entity for `text`, `entity_type`, `start`, and `end`, while T23A emits `surface_form`, `entity_type`, `start_pos`, and `end_pos`. The analysis-agent path previously forwarded chunk entities directly into MCP `extract_relationships`, reproducing the historical format-mismatch risk. [9][10][11]
 
-The repair added `_normalize_entities_for_t27(...)` at the analysis-agent bridge. It passes already-normalized T27 entities through, converts T23A entities to the current T27 contract, and raises a visible `ValueError` for unknown entity shapes. The focused test file covers T23A conversion, T27 pass-through, and invalid-shape fail-loud behavior. [9][12]
+The repair added shared `normalize_entities_for_t27(...)` in `src/tools/compatibility/t27_adapter.py`. It passes already-normalized T27 entities through, converts T23A entities to the current T27 contract, and raises a visible `ValueError` for unknown entity shapes. The focused test file covers T23A conversion, T27 pass-through, invalid-shape fail-loud behavior, analysis-agent propagation, and complete-pipeline propagation. [9][12][14][15]
 
 Verification in the isolated `.venv` before the spaCy model follow-up:
 
@@ -173,12 +176,19 @@ converted_t23a success None 2
 
 The model follow-up installed `en-core-web-sm==3.8.0` and added the direct spaCy model wheel to `requirements.txt`. The model now loads in the project `.venv`, exposes the parser component, and `pip check` reports no broken requirements. The direct T27 fixture now loads the shared spaCy model through the resource manager without the earlier `[E050]` missing-model error; that fixture still emitted pattern-based relationships, so parser-derived relationship output remains a separate richer-fixture test target. [6][11][13]
 
+A broader direct-caller audit then patched two additional real T27 boundaries: `src/analytics/complete_pipeline.py` now normalizes grouped mentions before direct T27 execution, and `src/tools/phase1/phase1_mcp_tools.py` now normalizes public MCP relationship-extraction inputs. Importing `complete_pipeline.py` exposed two missing declared dependencies, now added to `requirements.txt`: `aiosqlite>=0.19.0` and `pypdf>=4.0.0`. [6][14][15][16]
+
 Expanded verification after the model follow-up:
 
 ```text
-tests/current_runtime/test_analysis_agent_t27_contract.py .... [100%]
+tests/current_runtime/test_analysis_agent_t27_contract.py ..... [100%]
 tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
 tests/current_runtime/test_spacy_model_dependency.py . [100%]
+14 passed, 2 warnings
+OK src.tools.compatibility.t27_adapter
+OK src.orchestration.agents.analysis_agent
+OK src.analytics.complete_pipeline
+OK src.tools.phase1.phase1_mcp_tools
 ```
 
 # Links
@@ -203,3 +213,6 @@ tests/current_runtime/test_spacy_model_dependency.py . [100%]
 [11] `../src/tools/phase1/t27_relationship_extractor_unified.py`
 [12] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
 [13] `../tests/current_runtime/test_spacy_model_dependency.py`
+[14] `../src/tools/compatibility/t27_adapter.py`
+[15] `../src/analytics/complete_pipeline.py`
+[16] `../src/tools/phase1/phase1_mcp_tools.py`

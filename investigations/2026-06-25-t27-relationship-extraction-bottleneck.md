@@ -1,7 +1,7 @@
 # T27 Relationship Extraction Bottleneck Investigation
 
 Date: 2026-06-25
-Status: repaired for analysis-agent bridge; spaCy model dependency installed; follow-up required for broader caller audit
+Status: repaired for analysis-agent, complete-pipeline, and Phase 1 MCP boundaries; spaCy model dependency installed
 
 ## Question
 
@@ -17,6 +17,7 @@ Trace the T27 relationship-extraction bottleneck across current code and archive
 | A4 | What archived repair/test evidence exists for T23A -> T27 format conversion or relationship-pattern fixes? | A1, A3 | answered |
 | A5 | Can we run a minimal current T27 test in the isolated `.venv` without external services? | A1 | answered |
 | A6 | What is the current root cause hypothesis and the next verification step? | A1-A5 | answered |
+| A7 | Which direct T27 callers outside `AnalysisAgent` need the same boundary protection? | A1-A6 | answered; selected callers repaired |
 
 ## Assumptions Register
 
@@ -24,7 +25,7 @@ Trace the T27 relationship-extraction bottleneck across current code and archive
 | --- | --- | --- | --- | --- | --- |
 | 1 | The historical zero-relationship failure may be a T23A/T27 input-shape mismatch rather than only weak extraction patterns. | high | Compare T27 expected entity keys with T23A output and archived `test_pipeline_fix.py`. | 1 | Supported: current analysis-agent path forwarded raw T23A entities to T27 before the repair. |
 | 2 | Current T27 can be exercised without Neo4j or live LLM services. | high | Import and instantiate T27 in `.venv`; run on fixture text/entities. | 1 | Supported. Pattern extraction produced relationships, and `en_core_web_sm` now loads for dependency parsing. |
-| 3 | MCP exposure of `extract_relationships` is not the same as main pipeline invocation. | high | Trace both MCP `pipeline_tools.py` and core pipeline/orchestrator callers. | 1 | Supported: MCP function docs require pre-normalized T27 entities; analysis-agent was a separate caller path. |
+| 3 | MCP exposure of `extract_relationships` is not the same as main pipeline invocation. | high | Trace both MCP `pipeline_tools.py` and core pipeline/orchestrator callers. | 1 | Supported: MCP function docs required pre-normalized T27 entities; the Phase 1 MCP wrapper now normalizes at the boundary. |
 
 ## Evidence Log
 
@@ -51,7 +52,7 @@ Answer: the analysis-agent path was contract-incompatible before this investigat
 
 Repair applied in this round:
 
-- `src/orchestration/agents/analysis_agent.py` now normalizes entities via `_normalize_entities_for_t27(...)` before calling MCP relationship extraction.
+- `src/orchestration/agents/analysis_agent.py` now normalizes entities via `normalize_entities_for_t27(...)` before calling MCP relationship extraction.
 - `tests/current_runtime/test_analysis_agent_t27_contract.py` covers T23A conversion, already-normalized T27 pass-through, and invalid-shape fail-loud behavior.
 
 Status: answered and repaired for the analysis-agent bridge.
@@ -102,7 +103,7 @@ python /home/brian/projects/.agents/skills/karpathy-wiki/scripts/lint.py /home/b
 Results:
 
 ```text
-13 passed, 2 warnings
+14 passed, 2 warnings
 tests/current_runtime/test_spacy_model_dependency.py . [100%]
 valid success None 2
 converted_t23a success None 2
@@ -111,9 +112,33 @@ Wiki health: 100/100
 
 Status: answered.
 
+### A7 - Direct Caller Audit
+
+Answer: the direct caller audit found two real caller boundaries worth repairing now and one broader legacy/orchestrator gap to leave as follow-up:
+
+- `src/analytics/complete_pipeline.py` grouped T23A-style mentions by chunk and passed `chunk_mentions` directly to `T27RelationshipExtractorUnified`; this is now normalized with the shared `normalize_entities_for_t27(...)` adapter.
+- `src/tools/phase1/phase1_mcp_tools.py` exposed public MCP `extract_relationships` and documented that callers should already provide T27-shaped entities; it now accepts either T27-shaped entities or T23A-shaped entities and normalizes before constructing the T27 request.
+- `src/orchestration/real_dag_orchestrator.py` constructs a T27 request without any `entities` field, so it remains a separate DAG wiring issue rather than just an entity-shape normalization issue.
+- `src/tools/enhanced_mcp_tools.py` has a relationship-discovery method, but the actual multi-strategy extraction implementation is still a placeholder returning `[]`, so normalizing there would not yet repair a real T27 call.
+
+The adapter was moved into `src/tools/compatibility/t27_adapter.py` so analysis, pipeline, and MCP boundaries share the same contract. Importing `src.analytics.complete_pipeline` also exposed missing declared dependencies, now added to `requirements.txt`: `aiosqlite>=0.19.0` and `pypdf>=4.0.0`.
+
+Verification:
+
+```text
+OK src.tools.compatibility.t27_adapter
+OK src.orchestration.agents.analysis_agent
+OK src.analytics.complete_pipeline
+OK src.tools.phase1.phase1_mcp_tools
+14 passed, 2 warnings
+No broken requirements found.
+```
+
+Status: answered and repaired for selected real boundaries.
+
 ## Contraction After Round 1
 
-The problem contracts from "relationship extraction might be broadly broken" to a specific current bridge bug plus an environment dependency gap. T27 itself can extract relationships from valid inputs. The current analysis-agent bridge needed to convert T23A output into T27 input before calling MCP. That bridge is now repaired and covered by focused tests. The remaining unresolved runtime question is not the T23A/T27 contract but whether the full extraction stack should install/manage `en_core_web_sm` so dependency parsing is available, and whether higher-level pipelines beyond `AnalysisAgent` need the same normalization boundary.
+The problem contracts from "relationship extraction might be broadly broken" to a specific T23A/T27 entity-shape contract issue plus one remaining DAG wiring issue. T27 itself can extract relationships from valid inputs. The analysis-agent, complete-pipeline, and Phase 1 MCP boundaries now normalize T23A output into T27 input before calling T27. `en_core_web_sm` is installed and declared, so the remaining unresolved relationship-extraction risk is narrower: `real_dag_orchestrator.py` does not provide entities to T27 at all, and parser-derived relationship output still needs a richer fixture if it matters.
 
 ## Synthesis
 
@@ -121,8 +146,8 @@ Root cause found: current T27 expects `text/entity_type/start/end`, while T23A e
 
 Impact: this could cause analysis tasks to report successful entity extraction but no relationships, with relationship errors captured only as warnings rather than graph-rich output. That matches the archived concern that KGAS can become entity-only despite GraphRAG ambitions.
 
-Repair completed: added `_normalize_entities_for_t27(...)` to `src/orchestration/agents/analysis_agent.py`, applied it before the MCP `extract_relationships` call, and added focused current-runtime tests in `tests/current_runtime/test_analysis_agent_t27_contract.py`.
+Repair completed: added shared `normalize_entities_for_t27(...)` in `src/tools/compatibility/t27_adapter.py`, applied it before T27 calls in `src/orchestration/agents/analysis_agent.py`, `src/analytics/complete_pipeline.py`, and `src/tools/phase1/phase1_mcp_tools.py`, and added focused current-runtime tests in `tests/current_runtime/test_analysis_agent_t27_contract.py`.
 
 Confidence: high for the analysis-agent contract mismatch and repair; medium for broader pipeline coverage because other direct callers may still need normalization audits.
 
-Recommended next step: audit direct T27 callers outside `AnalysisAgent` for the same T23A/T27 entity-contract boundary, then add a richer dependency-parser fixture if parser-derived relationships are a target runtime capability.
+Recommended next step: inspect `src/orchestration/real_dag_orchestrator.py` as a separate DAG wiring issue because it constructs a T27 request without entities. Add a richer dependency-parser fixture only if parser-derived relationships are a target runtime capability.

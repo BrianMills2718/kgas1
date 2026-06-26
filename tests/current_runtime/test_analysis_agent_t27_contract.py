@@ -5,7 +5,9 @@ from dataclasses import dataclass
 
 import pytest
 
-from src.orchestration.agents.analysis_agent import AnalysisAgent, _normalize_entities_for_t27
+from src.orchestration.agents.analysis_agent import AnalysisAgent
+from src.analytics.complete_pipeline import CompleteGraphRAGPipeline
+from src.tools.compatibility.t27_adapter import normalize_entities_for_t27
 
 
 @dataclass
@@ -13,6 +15,13 @@ class _FakeMCPResult:
     success: bool
     data: dict
     error: str | None = None
+
+
+@dataclass
+class _FakeToolResult:
+    status: str
+    data: dict
+    error_message: str | None = None
 
 
 class _FakeMCPAdapter:
@@ -31,6 +40,28 @@ class _FakeMCPAdapter:
                         "relationship_type": "WORKS_FOR",
                         "subject": payload["entities"][0],
                         "object": payload["entities"][1],
+                    }
+                ]
+            },
+        )
+
+
+class _FakeRelationshipExtractor:
+    """Capture direct T27 requests from pipeline code."""
+
+    def __init__(self) -> None:
+        self.requests = []
+
+    def execute(self, request):
+        self.requests.append(request)
+        return _FakeToolResult(
+            status="success",
+            data={
+                "relationships": [
+                    {
+                        "relationship_type": "WORKS_FOR",
+                        "subject": request.input_data["entities"][0],
+                        "object": request.input_data["entities"][1],
                     }
                 ]
             },
@@ -57,7 +88,7 @@ def test_t23a_entities_convert_to_t27_contract() -> None:
         },
     ]
 
-    normalized = _normalize_entities_for_t27(entities)
+    normalized = normalize_entities_for_t27(entities)
 
     assert normalized[0]["text"] == "Alice"
     assert normalized[0]["entity_type"] == "PERSON"
@@ -75,7 +106,7 @@ def test_existing_t27_entities_pass_through_with_default_confidence() -> None:
         {"text": "Acme Corp", "entity_type": "ORG", "start": 15, "end": 24, "confidence": 0.95},
     ]
 
-    normalized = _normalize_entities_for_t27(entities)
+    normalized = normalize_entities_for_t27(entities)
 
     assert normalized[0] == {
         "text": "Alice",
@@ -90,7 +121,7 @@ def test_existing_t27_entities_pass_through_with_default_confidence() -> None:
 def test_invalid_entities_fail_loudly() -> None:
     """Unknown entity shapes should not be silently passed to T27."""
     with pytest.raises(ValueError, match="not T27-compatible"):
-        _normalize_entities_for_t27([{"name": "Alice", "type": "PERSON"}])
+        normalize_entities_for_t27([{"name": "Alice", "type": "PERSON"}])
 
 
 @pytest.mark.asyncio
@@ -149,6 +180,43 @@ async def test_relationship_extraction_bridge_sends_t27_entities_and_returns_rel
     }
     assert fake_mcp.calls[0][0] == "extract_relationships"
     sent_entities = fake_mcp.calls[0][1]["entities"]
+    assert sent_entities[0]["text"] == "Alice"
+    assert sent_entities[0]["start"] == 0
+    assert sent_entities[1]["text"] == "Acme Corp"
+    assert sent_entities[1]["end"] == 24
+
+
+@pytest.mark.asyncio
+async def test_complete_pipeline_relationship_stage_sends_t27_entities() -> None:
+    """CompleteGraphRAGPipeline should normalize mentions before direct T27 execution."""
+    fake_extractor = _FakeRelationshipExtractor()
+    pipeline = object.__new__(CompleteGraphRAGPipeline)
+    pipeline.relationship_extractor = fake_extractor
+    chunks = [{"chunk_ref": "chunk-1", "text": "Alice works at Acme Corp.", "confidence": 0.9}]
+    mentions = [
+        {
+            "surface_form": "Alice",
+            "entity_type": "PERSON",
+            "source_ref": "chunk-1",
+            "start_pos": 0,
+            "end_pos": 5,
+            "confidence": 0.91,
+        },
+        {
+            "surface_form": "Acme Corp",
+            "entity_type": "ORG",
+            "source_ref": "chunk-1",
+            "start_pos": 15,
+            "end_pos": 24,
+            "confidence": 0.93,
+        },
+    ]
+
+    result = await pipeline._execute_relationship_extraction(chunks, mentions)
+
+    assert result["status"] == "success"
+    assert result["relationship_count"] == 1
+    sent_entities = fake_extractor.requests[0].input_data["entities"]
     assert sent_entities[0]["text"] == "Alice"
     assert sent_entities[0]["start"] == 0
     assert sent_entities[1]["text"] == "Acme Corp"

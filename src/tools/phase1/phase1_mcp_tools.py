@@ -31,6 +31,7 @@ from src.tools.phase1.t31_entity_builder_unified import T31EntityBuilderUnified
 from src.tools.phase1.t34_edge_builder_unified import T34EdgeBuilderUnified
 from src.tools.phase1.t68_pagerank_unified import T68PageRankCalculatorUnified
 from src.tools.phase1.t49_multihop_query_unified import T49MultiHopQueryUnified
+from src.tools.compatibility.t27_adapter import normalize_entities_for_t27
 from src.core.config_manager import get_config
 
 
@@ -200,7 +201,9 @@ def create_phase1_mcp_tools(mcp: FastMCP):
         Args:
             chunk_ref: Reference to source text chunk
             text: Text to analyze for relationships
-            entities: List of entities found in this chunk (in T27 format: text, entity_type, start, end)
+            entities: List of entities found in this chunk, either T27 format
+                (text, entity_type, start, end) or T23A format
+                (surface_form, entity_type, start_pos, end_pos)
             confidence: Minimum confidence threshold for relationships
         """
         from src.tools.base_tool import ToolRequest
@@ -211,7 +214,7 @@ def create_phase1_mcp_tools(mcp: FastMCP):
             input_data={
                 "chunk_ref": chunk_ref,
                 "text": text,
-                "entities": entities,  # Should be in T27 format already
+                "entities": normalize_entities_for_t27(entities),
                 "confidence": confidence
             },
             parameters={}
