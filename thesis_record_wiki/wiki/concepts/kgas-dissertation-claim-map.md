@@ -113,6 +113,7 @@ Most confusion in the record comes from mixing these levels.
 
 - [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md)
 - [Theory Schema Application Lineage](/wiki/concepts/theory-schema-application-lineage.md)
+- [Uncertainty Framework Consolidation 2026 06 26](/wiki/concepts/uncertainty-framework-consolidation-2026-06-26.md)
 - [Proposal Framing Evolution](/wiki/concepts/proposal-framing-evolution.md)
 - [Proposal Validation Evolution](/wiki/concepts/proposal-validation-evolution.md)
 - [HSPC Data Governance Boundary](/wiki/concepts/hspc-data-governance-boundary.md)

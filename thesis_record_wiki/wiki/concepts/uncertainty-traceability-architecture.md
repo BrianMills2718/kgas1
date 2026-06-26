@@ -62,6 +62,7 @@ This concept connects to:
 - [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md): implementation/result slice for uncertainty services, tests, Davis validation, and bias-readiness caveats.
 - [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md): implementation-code slice for Bayesian, CERQual, LLM-native, and optimized uncertainty services.
 - [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md): methodology/specification slice with unchecked implementation checklist.
+- [Uncertainty Framework Consolidation 2026 06 26](/wiki/concepts/uncertainty-framework-consolidation-2026-06-26.md): dated synthesis separating superseded ADRs, accepted designs, experimental stress-test branches, preserved outputs, and current-status boundaries.
 
 # Citations
 

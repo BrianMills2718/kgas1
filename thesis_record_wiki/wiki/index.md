@@ -185,6 +185,7 @@
 * [Public Export Security Boundary](concepts/public-export-security-boundary.md) - rule for deriving public/shareable bundles from the preserved thesis archive without modifying raw source records.
 * [Storage Architecture Evolution](concepts/storage-architecture-evolution.md) - KGAS storage evolution from tri-store avoidance to Neo4j/SQLite and Neo4j/PostgreSQL.
 * [Uncertainty Framework Evolution](concepts/uncertainty-framework-evolution.md) - movement from confidence fields to auditable local uncertainty reasoning.
+* [Uncertainty Framework Consolidation 2026 06 26](concepts/uncertainty-framework-consolidation-2026-06-26.md) - dated map separating superseded ADRs, accepted entity-resolution design, experimental stress-test evidence, validation outputs, and current-status caveats.
 * [Layered Tool Interface Architecture](concepts/layered-tool-interface-architecture.md) - three-layer reconciliation of implementation tools, internal contracts, and MCP access.
 * [Analysis Expansion Architecture](concepts/analysis-expansion-architecture.md) - KGAS expansion from graph extraction to cross-modal, schema, simulation, statistical, and local automation modes.
 * [Multi Agent Evidence Harness](concepts/multi-agent-evidence-harness.md) - isolated implementation/evaluation pattern used to enforce 100/100 phase gates.

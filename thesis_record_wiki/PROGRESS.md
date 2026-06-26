@@ -232,6 +232,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added a current-state recovery synthesis, tying together archive coverage, runtime proof, private export, proposal-history preservation, HSPC caveats, and the remaining human-gated stop lines.
 - `this commit` added a KGAS dissertation claim map, separating final proposal claims, older ambition, validation design, current runtime evidence, and governance boundaries.
 - `this commit` added a theory-schema/application lineage synthesis, connecting paper-to-schema extraction, model-form routing, schema variants, universal application, generated outputs, and validation caveats.
+- `this commit` added an uncertainty-framework consolidation, separating superseded ADRs, accepted entity-resolution design, experimental stress-test implementations, preserved validation outputs, sensitive datasets, and current-status caveats.
 
 ## Deferred Risk Decisions
 

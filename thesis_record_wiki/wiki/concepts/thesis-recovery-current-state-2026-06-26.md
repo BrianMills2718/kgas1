@@ -101,6 +101,7 @@ Do not:
 
 - [Progress](../../PROGRESS.md)
 - [KGAS Dissertation Claim Map](/wiki/concepts/kgas-dissertation-claim-map.md)
+- [Uncertainty Framework Consolidation 2026 06 26](/wiki/concepts/uncertainty-framework-consolidation-2026-06-26.md)
 - [KGAS Evolution Checkpoint 2026-06-25](/wiki/concepts/kgas-evolution-checkpoint-2026-06-25.md)
 - [Proposal Framing Evolution](/wiki/concepts/proposal-framing-evolution.md)
 - [Proposal Validation Evolution](/wiki/concepts/proposal-validation-evolution.md)
