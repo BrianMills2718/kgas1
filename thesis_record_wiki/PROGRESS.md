@@ -210,7 +210,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `def3ea1` refreshed the runtime completion review to reflect proven `.txt`, `.pdf`, `.md`, and `.docx` support, with legacy `.doc`, batch, public/export, and live LLM recommendation still deferred.
 - `5ad2b1c` migrated the FastAPI startup hook to lifespan initialization, removing the runtime deprecation warning while preserving four-format live smoke coverage.
 - `9faecf1` added the Plan #1 closeout review, marking current safe runtime gates complete and selecting `/api/batch/analyze` wiring as the next safe local slice.
-- Pending commit wired `/api/batch/analyze` to the proven single-document path with per-file results/errors, job-status coverage, and a live TXT batch smoke test.
+- `972e373` wired `/api/batch/analyze` to the proven single-document path with per-file results/errors, job-status coverage, and a live TXT batch smoke test.
 
 ## Deferred Risk Decisions
 
