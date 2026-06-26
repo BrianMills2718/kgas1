@@ -10,6 +10,7 @@ Track all implementation work here.
 | 2 | [Safe Organization Completion](02_safe_organization_completion.md) | High | ✅ Complete | final safe organization closeout |
 | 3 | [Documentation Quality Pass](03_documentation_quality_pass.md) | Medium | ✅ Complete | safer thesis wiki/export navigation checks |
 | 4 | [Final Safe Docs Consolidation](04_final_safe_docs_consolidation.md) | High | ✅ Complete | final safe organization closeout |
+| 5 | [Approved Preservation Gates](05_approved_preservation_gates.md) | High | ✅ Complete | private export, live recommendation proof, Neo4j safety, legacy preservation |
 
 ## Status Key
 

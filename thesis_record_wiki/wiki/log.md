@@ -158,6 +158,11 @@
 * **Review** | Added Plan #1 closeout review, separating completed safe runtime gates from human-gated public/export and LLM decisions, and selecting batch analysis wiring as the next safe slice.
 * **Repair** | Wired `/api/batch/analyze` to the proven single-document path with in-memory upload capture, per-file results/errors, job-status reporting, and live TXT batch smoke coverage.
 * **Verification** | Completed final safe-runtime verification sweep for Plan #1 and marked remaining work blocked on Brian-gated public/export, live LLM recommendation, and cleanup-execution decisions.
+* **Export** | Created the private docs-only GitHub export `BrianMills2718/kgas-thesis-record` at commit `048568d`, verified private visibility, and recorded scan evidence in `docs/public_export/PRIVATE_GITHUB_EXPORT_2026-06-26.md`.
+* **Repair** | Added the governed `llm_client` adapter for `/api/recommend` mode selection, defaulting to `gpt-5.4-mini` with task/trace/budget metadata and focused no-spend test coverage.
+* **Verification** | Ran a tiny live mode-selection smoke through `gpt-5.4-mini`; result was `graph_analysis` with trace `kgas.mode_selection:5620148fdd7ef259`, 699 total tokens, and `$0.000699` recorded cost.
+* **Review** | Added the historical variant review program, preserving provenance as claim-level comparison rather than treating newer docs as automatically better.
+* **Safety** | Recorded Plan #5 preservation decisions: no Neo4j deletion executed, cleanup execution still requires exact source refs plus backup evidence, and no `.doc`/`.docx` files were found under `archive_full_record/`.
 * **Verification** | Repaired complete-pipeline T23A `chunk_ref` grouping for T27, added Neo4j read-query compatibility, and verified the tiny `.txt` runtime smoke now creates relationships, Neo4j edges, and `end_to_end_success=True`.
 * **Verification** | Added active-environment inspection to runtime import evidence, including missing `neo4j`, direct `AnalysisRequest` import success, and `pip check` conflict.
 * **Verification** | Added runtime import check for current KGAS contract, cross-modal API, and MCP modules.

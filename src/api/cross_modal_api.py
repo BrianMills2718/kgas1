@@ -10,6 +10,7 @@ This complements (not replaces) the MCP server interface.
 """
 
 import uuid
+import os
 import tempfile
 from contextlib import asynccontextmanager
 from datetime import datetime
@@ -40,7 +41,11 @@ async def startup_event() -> None:
     try:
         # Initialize with default configuration
         config = {
-            'llm': {'provider': 'openai'},
+            'llm': {
+                'provider': os.getenv('KGAS_LLM_PROVIDER', 'llm_client'),
+                'model': os.getenv('KGAS_RECOMMEND_MODEL', 'gpt-5.4-mini'),
+                'max_budget': float(os.getenv('KGAS_RECOMMEND_MAX_BUDGET', '5.0')),
+            },
             'embedding': {'device': 'cpu'}
         }
 

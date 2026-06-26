@@ -1,6 +1,8 @@
 """Runtime contract checks for the cross-modal API boundary."""
 
 import os
+import sys
+from types import SimpleNamespace
 from dataclasses import dataclass
 from io import BytesIO
 from pathlib import Path
@@ -9,6 +11,8 @@ import pytest
 from fastapi import HTTPException
 
 from src.api import cross_modal_api as api
+from src.analytics.cross_modal_service_registry import CrossModalServiceRegistry
+from src.analytics.governed_llm_client_adapter import GovernedLLMClientAdapter
 from src.analytics.mode_selection_service import AnalysisMode, ConfidenceLevel, ModeSelectionResult
 
 
@@ -535,6 +539,75 @@ def test_recommend_request_rejects_negative_size() -> None:
         api._recommend_request_to_data_context(request)
 
     assert exc_info.value.status_code == 400
+
+
+@pytest.mark.asyncio
+async def test_startup_defaults_recommendation_llm_to_governed_client(monkeypatch) -> None:
+    """API startup should default recommendation LLM calls to llm_client gpt-5.4-mini."""
+    captured = {}
+
+    def fake_initialize(config):
+        captured.update(config)
+        return True
+
+    monkeypatch.setattr(api, "_initialize_cross_modal_services", fake_initialize)
+    monkeypatch.delenv("KGAS_LLM_PROVIDER", raising=False)
+    monkeypatch.delenv("KGAS_RECOMMEND_MODEL", raising=False)
+    monkeypatch.delenv("KGAS_RECOMMEND_MAX_BUDGET", raising=False)
+
+    await api.startup_event()
+
+    assert captured["llm"] == {
+        "provider": "llm_client",
+        "model": "gpt-5.4-mini",
+        "max_budget": 5.0,
+    }
+
+
+def test_registry_builds_governed_llm_client_adapter() -> None:
+    """The service registry should support the llm_client provider explicitly."""
+    registry = CrossModalServiceRegistry()
+    registry.shutdown()
+
+    llm_service = registry._initialize_llm_service(
+        {"provider": "llm_client", "model": "gpt-5.4-mini", "max_budget": 7.5}
+    )
+
+    assert isinstance(llm_service, GovernedLLMClientAdapter)
+    assert llm_service.model == "gpt-5.4-mini"
+    assert llm_service.max_budget == 7.5
+    assert registry.llm_service is llm_service
+    registry.shutdown()
+
+
+@pytest.mark.asyncio
+async def test_governed_llm_client_adapter_uses_required_observability_kwargs(monkeypatch) -> None:
+    """The adapter should call llm_client with task, trace_id, and max_budget."""
+    calls = []
+
+    async def fake_acall_llm(model, messages, **kwargs):
+        calls.append((model, messages, kwargs))
+        return SimpleNamespace(
+            content='{"primary_mode":"graph_analysis","secondary_modes":[],"confidence":0.91,"reasoning":"Graph fits.","key_factors":["graph"]}',
+            model=model,
+            requested_model=model,
+            resolved_model="openrouter/openai/gpt-5.4-mini",
+            cost=0.01,
+            usage={"total_tokens": 42},
+        )
+
+    monkeypatch.setitem(sys.modules, "llm_client", SimpleNamespace(acall_llm=fake_acall_llm))
+    adapter = GovernedLLMClientAdapter(model="gpt-5.4-mini", max_budget=3.0)
+
+    response = await adapter.complete("select a mode")
+
+    assert "graph_analysis" in response
+    assert calls[0][0] == "gpt-5.4-mini"
+    assert calls[0][1] == [{"role": "user", "content": "select a mode"}]
+    assert calls[0][2]["task"] == "kgas.mode_selection"
+    assert calls[0][2]["trace_id"].startswith("kgas.mode_selection:")
+    assert calls[0][2]["max_budget"] == 3.0
+    assert adapter.last_call_metadata["cost"] == 0.01
 
 
 def test_serialize_mode_selection_uses_json_friendly_values() -> None:

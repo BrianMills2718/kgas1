@@ -17,8 +17,7 @@ from .mode_selection_service import ModeSelectionService
 from .cross_modal_converter import CrossModalConverter
 from .cross_modal_orchestrator import CrossModalOrchestrator
 from .cross_modal_validator import CrossModalValidator
-from .real_llm_service import RealLLMService
-from .real_embedding_service import RealEmbeddingService
+from .governed_llm_client_adapter import GovernedLLMClientAdapter
 
 logger = logging.getLogger(__name__)
 
@@ -144,10 +143,21 @@ class CrossModalServiceRegistry:
             self.shutdown()
             return False
     
-    def _initialize_llm_service(self, config: Dict[str, Any]) -> Optional[RealLLMService]:
+    def _initialize_llm_service(self, config: Dict[str, Any]) -> Optional[Any]:
         """Initialize LLM service with configuration"""
         try:
             provider = config.get('provider', 'openai')
+            if provider == 'llm_client':
+                llm_service = GovernedLLMClientAdapter(
+                    model=config.get('model', 'gpt-5.4-mini'),
+                    task=config.get('task', 'kgas.mode_selection'),
+                    max_budget=float(config.get('max_budget', 5.0)),
+                )
+                self.register_service('llm_service', llm_service)
+                return llm_service
+
+            from .real_llm_service import RealLLMService
+
             llm_service = RealLLMService(provider=provider)
             
             # Verify it's actually initialized
@@ -162,9 +172,11 @@ class CrossModalServiceRegistry:
             logger.error(f"Failed to initialize LLM service: {e}")
             return None
     
-    def _initialize_embedding_service(self, config: Dict[str, Any]) -> Optional[RealEmbeddingService]:
+    def _initialize_embedding_service(self, config: Dict[str, Any]) -> Optional[Any]:
         """Initialize embedding service with configuration"""
         try:
+            from .real_embedding_service import RealEmbeddingService
+
             device = config.get('device', None)
             embedding_service = RealEmbeddingService(device=device)
             
@@ -335,21 +347,21 @@ class CrossModalServiceRegistry:
         return self.get_service('orchestrator')
     
     @property
-    def llm_service(self) -> Optional[RealLLMService]:
+    def llm_service(self) -> Optional[Any]:
         """Get LLM service"""
         return self.get_service('llm_service')
     
     @property
-    def embedding_service(self) -> Optional[RealEmbeddingService]:
+    def embedding_service(self) -> Optional[Any]:
         """Get embedding service"""
         return self.get_service('embedding_service')
     
     # Service manager compatibility methods
-    def get_llm_client(self) -> Optional[RealLLMService]:
+    def get_llm_client(self) -> Optional[Any]:
         """Get LLM client for compatibility with service manager interface"""
         return self.llm_service
     
-    def get_embedding_client(self) -> Optional[RealEmbeddingService]:
+    def get_embedding_client(self) -> Optional[Any]:
         """Get embedding client for compatibility"""
         return self.embedding_service
 
