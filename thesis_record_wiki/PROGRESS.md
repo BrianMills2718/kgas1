@@ -236,6 +236,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` verified ADR-029 location status: missing from the initially inspected primary ADR tree, but recovered as a byte-identical five-file bundle in `digimon_core_sparse` and the `docs_architecture_cleanup_2025_08_29` archive, where it was later archived as an abandoned IC uncertainty approach.
 - `this commit` added a current uncertainty code-path map, separating current ADR-004/CERQual/range confidence code and source-ref provenance from archived ADR-029/Comprehensive7 runtime claims.
 - `this commit` recorded a no-IO confidence-scoring smoke result and safe rerun plan: CERQual score creation, range assignment, and Bayesian evidence-power combination execute in the current `.venv` without Neo4j, providers, archive reads, or source mutation.
+- `this commit` added repeatable no-IO regression coverage for the confidence-scoring smoke path under `tests/current_runtime/`.
 
 ## Deferred Risk Decisions
 

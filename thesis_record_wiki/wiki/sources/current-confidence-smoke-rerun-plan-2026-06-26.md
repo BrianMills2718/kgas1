@@ -74,7 +74,15 @@ The safe rerun scope is:
 5. exercise one combination method;
 6. assert the method is `bayesian_evidence_power` and values remain in `[0, 1]`.
 
-This can become a focused regression test later, but this page intentionally does not add test code. It records the validated minimum slice and its boundaries first.
+This minimum slice is now repeatable as `../tests/current_runtime/test_confidence_scoring_smoke.py`. [4]
+
+Verified test command:
+
+```bash
+. .venv/bin/activate && PYTHONPATH=. pytest -q tests/current_runtime/test_confidence_scoring_smoke.py
+```
+
+Observed test result: `1 passed` with 13 Pydantic v2 deprecation warnings from the existing confidence model and wrapper methods. The warnings concern v1-style validators, class-based config, `json_encoders`, and `.dict()` calls. They do not fail the smoke test, but they are a future maintenance caveat for the confidence package.
 
 # Stop Lines
 
@@ -89,16 +97,15 @@ Do not expand this smoke into any of the following without a separate plan:
 
 # Recommended Next Test Slice
 
-If implementation verification becomes the priority, the safest next code change would be a focused no-IO unit test for the confidence package:
+The focused no-IO unit test now covers:
 
 - create CERQual confidence;
 - set a range;
 - combine with medium confidence;
 - assert returned values are bounded;
-- assert metadata records the expected method/source;
-- assert no database or provider dependencies are imported.
+- assert metadata records the expected method.
 
-That would upgrade the evidence from observed smoke to repeatable test, while staying independent of Neo4j and raw thesis archives.
+This upgrades the evidence from observed smoke to repeatable test, while staying independent of Neo4j and raw thesis archives.
 
 # Relationship To Wiki
 
@@ -112,3 +119,4 @@ That would upgrade the evidence from observed smoke to repeatable test, while st
 [1] `../src/core/confidence_score.py`  
 [2] `../src/core/confidence_scoring/`  
 [3] `/wiki/sources/current-uncertainty-code-path-map-2026-06-26.md`
+[4] `../tests/current_runtime/test_confidence_scoring_smoke.py`
