@@ -184,7 +184,7 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `996c0cc` repaired real-DAG T27 dataflow so relationship extraction receives upstream entities, and added a focused DAG request-construction test.
 - `12b8488` rewired `/api/recommend` to the current `DataContext` and mode-selector contract, with focused current-runtime API tests.
 - `d0fc8c5` changed `/api/batch/analyze` from mock/demo KG output to explicit 501 status until real batch pipeline wiring exists.
-- `PENDING` repaired `/api/convert` against the current converter `convert_data(...)` contract, preserved converter/stats 503 status codes, and added focused current-runtime API tests.
+- `a34cb20` repaired `/api/convert` against the current converter `convert_data(...)` contract, preserved converter/stats 503 status codes, and added focused current-runtime API tests.
 
 ## Next
 
