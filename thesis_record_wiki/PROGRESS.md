@@ -186,10 +186,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `d0fc8c5` changed `/api/batch/analyze` from mock/demo KG output to explicit 501 status until real batch pipeline wiring exists.
 - `a34cb20` repaired `/api/convert` against the current converter `convert_data(...)` contract, preserved converter/stats 503 status codes, and added focused current-runtime API tests.
 - `3d6ef65` changed `/api/analyze` from metadata-only placeholder analysis to explicit 501 until real document extraction is wired, and aligned the optimization default to `standard`.
+- `PENDING` investigated the future `/api/analyze` backing path and identified `CompleteGraphRAGPipeline.process_document()` plus a narrow `.txt` adapter as the safest next slice.
 
 ## Next
 
-1. Next recommended step: identify the real document extraction entry point that should eventually back `/api/analyze`, or audit another still-active runtime boundary if endpoint triage remains the priority.
+1. Next recommended step: run a tiny `.txt` fixture through `CompleteGraphRAGPipeline.process_document()` to find the first real runtime blocker before wiring `/api/analyze`.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
 4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.

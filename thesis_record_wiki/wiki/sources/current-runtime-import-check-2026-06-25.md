@@ -245,6 +245,8 @@ The `/api/analyze` endpoint previously accepted an uploaded document, wrote it t
 
 The same pass aligned the stale `optimization_level` default from `balanced` to the current orchestrator enum value `standard`. Focused API tests cover explicit analyze 501 behavior, unsupported-file 400 behavior, invalid-target-format 400 behavior, and the broader cross-modal API contract file. [2][7]
 
+A follow-up investigation identified `CompleteGraphRAGPipeline.process_document()` / `execute_complete_pipeline()` as the likely real backing path for a future `/api/analyze` implementation. That path runs file-path-oriented T01 document loading, chunking, entity extraction, relationship extraction, graph build, and query stages; `T01PDFLoaderUnified` currently supports `.pdf` and `.txt`, so the safest first API wiring slice is a narrow `.txt` adapter with a real fixture rather than broad upload support. [20]
+
 Verification:
 
 ```text
@@ -280,3 +282,4 @@ tests/current_runtime/test_cross_modal_api_contract.py .................... [100
 [17] `../src/orchestration/real_dag_orchestrator.py`
 [18] `../tests/current_runtime/test_real_dag_t27_dataflow.py`
 [19] `../src/analytics/cross_modal_converter.py`
+[20] `../investigations/2026-06-25-analyze-endpoint-document-pipeline.md`

@@ -23,6 +23,7 @@
 * **Repair** | Changed `/api/batch/analyze` from mock/demo KG output to explicit 501 status until real batch pipeline wiring exists.
 * **Repair** | Repaired `/api/convert` against the current converter `convert_data(...)` contract and preserved converter/stats 503 status codes with focused API tests.
 * **Repair** | Changed `/api/analyze` from metadata-only placeholder graph analysis to explicit 501 until real document extraction is wired, and aligned the optimization default to `standard`.
+* **Investigation** | Identified `CompleteGraphRAGPipeline.process_document()` as the likely future `/api/analyze` backing path and recommended a narrow `.txt` adapter slice before broad upload support.
 * **Ingest** | Added analysis-validation-2025-08 slice, including 40-file validation archive inventory, development-standards validation, three Gemini claim validations, reliability/MCP/final validation configs, chronology/supersession caveat, and no-literal-key finding.
 * **Ingest** | Added generated-outputs-2025-08 slice, including 10-file inventory, performance/SLA JSON, real-vector proof, provenance and reasoning-trace SQLite schema/row counts, repomix-bundle caveats, and no-literal-key finding.
 * **Ingest** | Added docs-architecture-cleanup-2025-08-29 archive overview, including 62-file inventory, generated-document cleanup rationale, over-engineered service-guide archival, IC uncertainty ADR-to-abandonment arc, category-error critique, and no-literal-key finding.

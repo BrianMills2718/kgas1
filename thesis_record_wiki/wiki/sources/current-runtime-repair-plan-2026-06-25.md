@@ -130,6 +130,8 @@ The convert/stats endpoint follow-up is complete at the API-contract layer: `/ap
 
 The analyze endpoint follow-up is complete at the status-honesty layer: `/api/analyze` no longer saves an uploaded document, discards its content, and sends a metadata-only placeholder graph into the orchestrator. It validates file type and enum parameters, then returns explicit 501 until real document parsing and extraction are wired. The stale `balanced` optimization default was also aligned to the current `standard` enum value. [16]
 
+The analyze document-pipeline investigation identifies `CompleteGraphRAGPipeline.process_document()` / `execute_complete_pipeline()` as the likely real backing path. Because that path is file-path-oriented and currently relies on T01 support for `.pdf` and `.txt`, the recommended implementation slice is a narrow `.txt` adapter and fixture before broader upload support. [18]
+
 # Links
 
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
@@ -155,3 +157,4 @@ The analyze endpoint follow-up is complete at the status-honesty layer: `/api/an
 [15] `../tests/current_runtime/test_real_dag_t27_dataflow.py`
 [16] `../src/api/cross_modal_api.py`
 [17] `../src/analytics/cross_modal_converter.py`
+[18] `../investigations/2026-06-25-analyze-endpoint-document-pipeline.md`
