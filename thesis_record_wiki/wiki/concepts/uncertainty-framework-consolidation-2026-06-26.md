@@ -18,12 +18,13 @@ sources:
   - /wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md
   - /wiki/sources/digimon-lineage-archived-uncertainty-experiments-docs-validation.md
   - /wiki/sources/digimon-lineage-archived-uncertainty-datasets.md
+  - /wiki/sources/adr-029-location-verification-2026-06-26.md
   - /wiki/concepts/evidence-claim-discipline.md
   - /wiki/concepts/current-status-verification-discipline.md
 confidence: high
 ---
 
-> Sources consulted: [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md) · [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md) · [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md) · [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md) · [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md) · [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md) · [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md) · [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md) · [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md) · [Digimon Lineage Archived Uncertainty Tests Overview](/wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md) · [Digimon Lineage Archived Uncertainty Experiments Docs And Validation](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-docs-validation.md) · [Digimon Lineage Archived Uncertainty Datasets](/wiki/sources/digimon-lineage-archived-uncertainty-datasets.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md)
+> Sources consulted: [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md) · [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md) · [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md) · [Digimon Lineage Uncertainty Stress Test Root](/wiki/sources/digimon-lineage-uncertainty-stress-test-root.md) · [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md) · [Digimon Lineage Uncertainty Stress Test Core Services](/wiki/sources/digimon-lineage-uncertainty-stress-test-core-services.md) · [Digimon Lineage Uncertainty Stress Test Validation](/wiki/sources/digimon-lineage-uncertainty-stress-test-validation.md) · [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md) · [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md) · [Digimon Lineage Archived Uncertainty Tests Overview](/wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md) · [Digimon Lineage Archived Uncertainty Experiments Docs And Validation](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-docs-validation.md) · [Digimon Lineage Archived Uncertainty Datasets](/wiki/sources/digimon-lineage-archived-uncertainty-datasets.md) · [ADR 029 Location Verification 2026 06 26](/wiki/sources/adr-029-location-verification-2026-06-26.md) · [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md) · [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md)
 
 # Summary
 
@@ -36,7 +37,7 @@ The safest reading is that KGAS uncertainty work evolved toward auditable, local
 | Layer | Status in the record | What it is good for | Main caveat |
 | --- | --- | --- | --- |
 | ADR-004 normalized `ConfidenceScore` | Superseded interface contract. | Shows the early push to make tool outputs comparable. | Normalized confidence alone did not solve research uncertainty. |
-| ADR-007 CERQual framework | Superseded research-quality framework. | Preserves the move from generic confidence to social-science evidence reasoning. | Later files cite an ADR-029 successor, but the referenced ADR was not found in the preserved ADR tree. |
+| ADR-007 CERQual framework | Superseded research-quality framework. | Preserves the move from generic confidence to social-science evidence reasoning. | Later files cite ADR-029; later verification found ADR-029 outside the initially inspected primary tree, but in an archive that says the IC uncertainty approach was later abandoned. |
 | ADR-010 confidence degradation | Superseded quality-degradation design. | Preserves the attempt to propagate confidence across processing chains. | Later notes reject simple multiplicative degradation as mathematically weak and overly pessimistic. |
 | ADR-025 entity-resolution uncertainty | Accepted architecture thread. | Important for pronouns, group references, ambiguity, frequency-versus-confidence separation, and preserving distributions. | Accepted design status is not the same as current runtime proof for every entity-resolution path. |
 | `UNCERTAINTY_20250825.md` local assessment | Later conceptual guidance. | Strongest later direction: tools assess construct mapping locally, store reasoning, and avoid hardcoded global uncertainty rules. | It is guidance and architecture evidence, not a completed validation report by itself. |
@@ -47,6 +48,7 @@ The safest reading is that KGAS uncertainty work evolved toward auditable, local
 | Validation outputs | Preserved result layer. | Includes basic connectivity, formal Bayesian medical and cold-fusion examples, seven-case LLM-native comparison, and SocialMaze mock-mode output. | Some expected ground-truth/bias output files are absent; SocialMaze result is mock-mode evidence. |
 | 2025-07 archived experiments docs/validation | Status-conflict layer. | Preserves production-ready framing, 75%-ready/fix-bias-first framing, Kunst validation claims, LLM-native outputs, and external-review packets. | The same bundle contains incompatible readiness claims; preserve the conflict rather than normalizing it. |
 | Archived uncertainty datasets | Corpus/provenance layer. | Preserves 100-user and 84-user Twitter-like psychological datasets plus ground truths and configuration. | Sensitive research data with identifiers, handles, tweet text, timestamps, and psychological scores; use manifest-level summaries by default. |
+| ADR-029 / Comprehensive7 | Recovered historical architecture layer. | Shows the accepted 2025-07 IC-informed framework: ICD-203/206, Heuer principles, root-sum-squares propagation, and single integrated LLM analysis. | The recovered bundle was later moved into an architecture-cleanup archive whose manifest says the IC uncertainty approach was abandoned. |
 | Current-status verification discipline | Recovery rule. | Separates architecture claim, historical evidence claim, current code claim, and runtime claim. | No future summary should convert archived uncertainty evidence into current runtime status without rerunning or inspecting the checkout. |
 
 # Active Reading Rule
@@ -65,7 +67,7 @@ The dissertation-facing synthesis should say: KGAS developed a serious uncertain
 Do not claim:
 
 - "KGAS uncertainty framework" without naming the source/date or layer;
-- ADR-029 is present in the recovered ADR tree;
+- ADR-029 was unrecovered across the thesis archive;
 - the stress-test code proves current runtime behavior;
 - SocialMaze validation was live when the preserved output says `mock_mode: true`;
 - production-ready framing overrides the validation-status warning about sample-size and language-complexity bias;
@@ -89,14 +91,14 @@ This is exactly the kind of messy evolution the thesis record should preserve.
 
 The next safe uncertainty work is read-only:
 
-1. locate or prove absence of the cited ADR-029 beyond the current ADR tree;
-2. make a source-level map of the uncertainty code paths that still exist in the current cleaned checkout;
-3. design a non-destructive rerun plan for one tiny current uncertainty path, if a current path exists;
-4. write a privacy-aware access plan before using the archived Twitter-like datasets for any rerun or export.
+1. make a source-level map of the uncertainty code paths that still exist in the current cleaned checkout;
+2. design a non-destructive rerun plan for one tiny current uncertainty path, if a current path exists;
+3. write a privacy-aware access plan before using the archived Twitter-like datasets for any rerun or export.
 
 # Links
 
 - [Uncertainty Framework Evolution](/wiki/concepts/uncertainty-framework-evolution.md)
+- [ADR 029 Location Verification 2026 06 26](/wiki/sources/adr-029-location-verification-2026-06-26.md)
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)
 - [Current Status Verification Discipline](/wiki/concepts/current-status-verification-discipline.md)

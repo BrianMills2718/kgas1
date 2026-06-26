@@ -22,7 +22,7 @@ Phase 4 adds the same lesson at integration scale: stored tests can pass while c
 
 Phase 6 extends the issue into deployment language: internal production-validation simulations can support "production validation package exists" without proving an externally deployed production service. See [Lit Review Phase 6 Production Validation](/wiki/sources/lit-review-phase6-production-validation.md).
 
-The uncertainty ADRs add another claim-discipline rule: do not cite "the KGAS uncertainty framework" as one stable object without naming the document/date, because several frameworks were explicitly superseded and a referenced ADR-029 path is missing from the preserved ADR tree. See [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md).
+The uncertainty ADRs add another claim-discipline rule: do not cite "the KGAS uncertainty framework" as one stable object without naming the document/date, because several frameworks were explicitly superseded and ADR-029 was later found only outside the initially inspected primary ADR tree, including an architecture-cleanup archive that says the IC uncertainty approach was abandoned. See [Digimon Lineage Uncertainty Quality ADRs](/wiki/sources/digimon-lineage-uncertainty-quality-adrs.md) and [ADR 029 Location Verification 2026 06 26](/wiki/sources/adr-029-location-verification-2026-06-26.md).
 
 The analysis-expansion ADRs add a scale warning: broad accepted architecture and validation claims for cross-modal, schema, ABM, and statistical capabilities should not be treated as current working-system status without separate implementation evidence. See [Digimon Lineage Analysis Expansion ADRs](/wiki/sources/digimon-lineage-analysis-expansion-adrs.md).
 

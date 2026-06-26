@@ -56,7 +56,7 @@ The note rejects hardcoded uncertainty reductions, global uncertainty, and rule-
 
 # Verification Gap
 
-ADR-007, ADR-010, ADR-025, and the uncertainty propagation architecture all reference an ADR-029 IC-informed framework path. A focused `find` under `docs/architecture` did not locate that ADR-029 directory in the preserved `digimon_lineage_Digimons` archive during this ingest. Treat ADR-029 as a cited but currently missing source until another archive slice locates it.
+ADR-007, ADR-010, ADR-025, and the uncertainty propagation architecture all reference an ADR-029 IC-informed framework path. A focused `find` under the primary `digimon_lineage_Digimons/docs/architecture` tree did not locate that ADR-029 directory during this ingest. A later targeted verification found the byte-identical five-file ADR-029 bundle in `digimon_core_sparse` and in the `digimon_lineage_Digimons/archive/docs_architecture_cleanup_2025_08_29/` archive, where the cleanup manifest says the IC uncertainty approach was later archived after user-confirmed abandonment. See [ADR 029 Location Verification 2026 06 26](/wiki/sources/adr-029-location-verification-2026-06-26.md).
 
 # Links
 

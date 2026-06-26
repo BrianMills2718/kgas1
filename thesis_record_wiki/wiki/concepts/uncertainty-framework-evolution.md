@@ -56,7 +56,7 @@ This concept connects the KGAS implementation arc to the thesis question. LLM-ge
 
 # Verification Caveat
 
-Several files cite an ADR-029 IC-informed uncertainty framework, but that directory was not found in the preserved `docs/architecture` tree during this ingest. Until found elsewhere, the wiki should treat the local-assessment note and active uncertainty-propagation architecture as the available later-state evidence, not as a complete ADR-029 substitute.
+Several files cite an ADR-029 IC-informed uncertainty framework. The initial ADR ingest did not find it in the primary `digimon_lineage_Digimons/docs/architecture/adrs` tree, but later verification found a byte-identical five-file ADR-029 bundle in `digimon_core_sparse` and in the `digimon_lineage_Digimons` architecture-cleanup archive. The cleanup manifest says the IC uncertainty approach was later archived after user-confirmed abandonment, so ADR-029 is recovered historical evidence, not current-runtime proof or automatically canonical current architecture. See [ADR 029 Location Verification 2026 06 26](/wiki/sources/adr-029-location-verification-2026-06-26.md).
 
 # Links
 
@@ -68,6 +68,7 @@ Several files cite an ADR-029 IC-informed uncertainty framework, but that direct
 - [Digimon Lineage Uncertainty Stress Test Testing](/wiki/sources/digimon-lineage-uncertainty-stress-test-testing.md)
 - [Digimon Lineage Uncertainty Stress Test Bayesian](/wiki/sources/digimon-lineage-uncertainty-stress-test-bayesian.md)
 - [Digimon Lineage Uncertainty Stress Test Docs](/wiki/sources/digimon-lineage-uncertainty-stress-test-docs.md)
+- [ADR 029 Location Verification 2026 06 26](/wiki/sources/adr-029-location-verification-2026-06-26.md)
 - [Uncertainty Framework Consolidation 2026 06 26](/wiki/concepts/uncertainty-framework-consolidation-2026-06-26.md)
 - [Uncertainty Traceability Architecture](/wiki/concepts/uncertainty-traceability-architecture.md)
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md)

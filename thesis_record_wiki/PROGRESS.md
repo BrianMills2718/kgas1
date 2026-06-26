@@ -233,6 +233,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added a KGAS dissertation claim map, separating final proposal claims, older ambition, validation design, current runtime evidence, and governance boundaries.
 - `this commit` added a theory-schema/application lineage synthesis, connecting paper-to-schema extraction, model-form routing, schema variants, universal application, generated outputs, and validation caveats.
 - `this commit` added an uncertainty-framework consolidation, separating superseded ADRs, accepted entity-resolution design, experimental stress-test implementations, preserved validation outputs, sensitive datasets, and current-status caveats.
+- `this commit` verified ADR-029 location status: missing from the initially inspected primary ADR tree, but recovered as a byte-identical five-file bundle in `digimon_core_sparse` and the `docs_architecture_cleanup_2025_08_29` archive, where it was later archived as an abandoned IC uncertainty approach.
 
 ## Deferred Risk Decisions
 
