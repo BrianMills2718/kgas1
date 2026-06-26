@@ -217,7 +217,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `936e892` added Plan #2 safe-organization completion criteria and the public-export review artifact for the local docs-only candidate: 251 files, 2.4M, 74 review-needed pattern hits, and no forbidden file types.
 - `fc3431b` completed Plan #2 closeout: wiki/plan/export gates pass, public/export remains unapproved, and all remaining work is bounded to Brian approval gates.
 - `076a0e1` completed Plan #3 documentation quality pass: fixed thesis wiki-root link checking, added regression tests, made the wiki link check clean, and recorded the remaining 72-link historical docs backlog.
-- `PENDING` completed Plan #4 final safe docs consolidation: classified historical architecture/UI docs, added explicit stale-link markers and banners, and made docs/investigations/wiki markdown link checks pass.
+- `605f044` completed Plan #4 final safe docs consolidation: classified historical architecture/UI docs, added explicit stale-link markers and banners, and made docs/investigations/wiki markdown link checks pass.
 
 ## Deferred Risk Decisions
 
