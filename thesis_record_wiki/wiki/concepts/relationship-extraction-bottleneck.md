@@ -12,6 +12,8 @@ sources:
   - ../src/tools/phase1/t23a_spacy_ner_unified.py
   - ../src/tools/phase1/t27_relationship_extractor_unified.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
+  - ../requirements.txt
+  - ../tests/current_runtime/test_spacy_model_dependency.py
 confidence: high
 ---
 
@@ -35,7 +37,7 @@ A 2026-06-25 current-code investigation reproduced a more specific version of th
 
 The analysis-agent bridge now normalizes T23A output to the current T27 contract before calling MCP. Focused current-runtime tests cover conversion, pass-through for already-normalized T27 entities, and fail-loud behavior for unknown entity shapes. A direct T27 fixture probe returned two relationships for both native T27 entities and converted T23A entities. [3][6]
 
-This does not close every relationship-extraction risk. `en_core_web_sm` is not installed in the isolated project `.venv`, so dependency-parsing extraction remains unverified; the successful fixture evidence comes from T27 pattern/proximity extraction. Broader direct callers beyond `AnalysisAgent` may also need a contract-normalization audit.
+This does not close every relationship-extraction risk. `en-core-web-sm==3.8.0` is now installed, declared in `requirements.txt`, and covered by a runtime test confirming the parser component is available, but the successful T27 fixture evidence still comes from pattern extraction. Broader direct callers beyond `AnalysisAgent` may need a contract-normalization audit, and parser-derived relationship output needs a richer fixture if it becomes an explicit target. [7][8]
 
 # Related Pages
 
@@ -53,3 +55,5 @@ This does not close every relationship-extraction risk. `en_core_web_sm` is not 
 [4] `../src/tools/phase1/t23a_spacy_ner_unified.py`
 [5] `../src/tools/phase1/t27_relationship_extractor_unified.py`
 [6] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
+[7] `../requirements.txt`
+[8] `../tests/current_runtime/test_spacy_model_dependency.py`

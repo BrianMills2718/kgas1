@@ -15,6 +15,7 @@ sources:
   - ../requirements.txt
   - ../src/orchestration/agents/analysis_agent.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
+  - ../tests/current_runtime/test_spacy_model_dependency.py
 confidence: high
 ---
 
@@ -111,7 +112,7 @@ The cross-modal API import blocker has been repaired and covered by `tests/curre
 
 The first relationship-extraction follow-up is also complete for the analysis-agent bridge. Current T27 requires `text/entity_type/start/end` entity records, while T23A returns `surface_form/entity_type/start_pos/end_pos`; `src/orchestration/agents/analysis_agent.py` now normalizes entities before calling MCP relationship extraction. The focused contract tests pass, and a direct T27 fixture probe returns two relationships for both native T27 entities and converted T23A entities. [8][9]
 
-Remaining follow-up: install/manage `en_core_web_sm` in the isolated environment if dependency parsing is part of the target runtime, then add a small end-to-end analysis-agent test proving `relationships` propagate through `Result.data` rather than only through the direct T27 fixture.
+The spaCy model follow-up is complete at the dependency layer: `en-core-web-sm==3.8.0` is installed in the isolated environment, declared in `requirements.txt`, and covered by a runtime test that verifies the parser component is available. Remaining follow-up: audit direct T27 callers outside `AnalysisAgent`; if dependency-parser-derived relationships matter, add a richer fixture that requires the parser path instead of pattern extraction. [7][10]
 
 # Links
 
@@ -130,3 +131,4 @@ Remaining follow-up: install/manage `en_core_web_sm` in the isolated environment
 [7] `../requirements.txt`
 [8] `../src/orchestration/agents/analysis_agent.py`
 [9] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
+[10] `../tests/current_runtime/test_spacy_model_dependency.py`

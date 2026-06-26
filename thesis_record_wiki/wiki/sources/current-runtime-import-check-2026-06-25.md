@@ -16,6 +16,7 @@ sources:
   - ../src/tools/phase1/t23a_spacy_ner_unified.py
   - ../src/tools/phase1/t27_relationship_extractor_unified.py
   - ../tests/current_runtime/test_analysis_agent_t27_contract.py
+  - ../tests/current_runtime/test_spacy_model_dependency.py
 confidence: high
 ---
 
@@ -155,7 +156,7 @@ A follow-up investigation traced the T27 relationship-extraction bottleneck agai
 
 The repair added `_normalize_entities_for_t27(...)` at the analysis-agent bridge. It passes already-normalized T27 entities through, converts T23A entities to the current T27 contract, and raises a visible `ValueError` for unknown entity shapes. The focused test file covers T23A conversion, T27 pass-through, and invalid-shape fail-loud behavior. [9][12]
 
-Verification in the isolated `.venv`:
+Verification in the isolated `.venv` before the spaCy model follow-up:
 
 ```text
 tests/current_runtime/test_analysis_agent_t27_contract.py ... [100%]
@@ -170,7 +171,15 @@ valid success None 2
 converted_t23a success None 2
 ```
 
-Runtime caveat: `en_core_web_sm` is still not installed in the project `.venv`, so T27's spaCy dependency-parsing path logs a missing-model error and remains unverified; pattern/proximity extraction produced the successful fixture results. [11]
+The model follow-up installed `en-core-web-sm==3.8.0` and added the direct spaCy model wheel to `requirements.txt`. The model now loads in the project `.venv`, exposes the parser component, and `pip check` reports no broken requirements. The direct T27 fixture now loads the shared spaCy model through the resource manager without the earlier `[E050]` missing-model error; that fixture still emitted pattern-based relationships, so parser-derived relationship output remains a separate richer-fixture test target. [6][11][13]
+
+Expanded verification after the model follow-up:
+
+```text
+tests/current_runtime/test_analysis_agent_t27_contract.py .... [100%]
+tests/current_runtime/test_cross_modal_api_contract.py ........ [100%]
+tests/current_runtime/test_spacy_model_dependency.py . [100%]
+```
 
 # Links
 
@@ -193,3 +202,4 @@ Runtime caveat: `en_core_web_sm` is still not installed in the project `.venv`, 
 [10] `../src/tools/phase1/t23a_spacy_ner_unified.py`
 [11] `../src/tools/phase1/t27_relationship_extractor_unified.py`
 [12] `../tests/current_runtime/test_analysis_agent_t27_contract.py`
+[13] `../tests/current_runtime/test_spacy_model_dependency.py`

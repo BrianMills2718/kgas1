@@ -1,7 +1,7 @@
 # T27 Relationship Extraction Bottleneck Investigation
 
 Date: 2026-06-25
-Status: repaired for analysis-agent bridge; follow-up required for spaCy model and broader caller audit
+Status: repaired for analysis-agent bridge; spaCy model dependency installed; follow-up required for broader caller audit
 
 ## Question
 
@@ -23,7 +23,7 @@ Trace the T27 relationship-extraction bottleneck across current code and archive
 | # | Assumption | Confidence | How to verify | Round | Status |
 | --- | --- | --- | --- | --- | --- |
 | 1 | The historical zero-relationship failure may be a T23A/T27 input-shape mismatch rather than only weak extraction patterns. | high | Compare T27 expected entity keys with T23A output and archived `test_pipeline_fix.py`. | 1 | Supported: current analysis-agent path forwarded raw T23A entities to T27 before the repair. |
-| 2 | Current T27 can be exercised without Neo4j or live LLM services. | medium | Import and instantiate T27 in `.venv`; run on fixture text/entities. | 1 | Supported for pattern/proximity extraction; dependency parsing still lacks `en_core_web_sm`. |
+| 2 | Current T27 can be exercised without Neo4j or live LLM services. | high | Import and instantiate T27 in `.venv`; run on fixture text/entities. | 1 | Supported. Pattern extraction produced relationships, and `en_core_web_sm` now loads for dependency parsing. |
 | 3 | MCP exposure of `extract_relationships` is not the same as main pipeline invocation. | high | Trace both MCP `pipeline_tools.py` and core pipeline/orchestrator callers. | 1 | Supported: MCP function docs require pre-normalized T27 entities; analysis-agent was a separate caller path. |
 
 ## Evidence Log
@@ -86,12 +86,13 @@ Answer: yes, a minimal `.venv` T27 check can run without live Neo4j or live LLM 
 - Raw T23A-shaped fixture entities returned `error` with `Entity 0 missing required field: text`.
 - After applying `_normalize_entities_for_t27(...)`, converted T23A-shaped fixture entities returned `success` and `relationship_count=2`.
 
-Runtime limitation: `en_core_web_sm` is not installed in the project `.venv`, so the resource manager logs `[E050] Can't find model 'en_core_web_sm'`. Pattern/proximity extraction still works; spaCy dependency-parsing extraction remains unverified until the model package is installed.
+Runtime follow-up: `en_core_web_sm==3.8.0` was installed into the project `.venv` and added to `requirements.txt` as a direct spaCy model wheel dependency. The resource manager now loads the model successfully. The minimal fixture still produced pattern-based relationships; dependency-parser-specific relationship output should be tested with a richer syntax fixture if that method becomes a target criterion.
 
 Verification commands:
 
 ```bash
 .venv/bin/python -m pytest tests/current_runtime/test_analysis_agent_t27_contract.py tests/current_runtime/test_cross_modal_api_contract.py
+.venv/bin/python -m pytest tests/current_runtime/test_spacy_model_dependency.py
 .venv/bin/python - <<'PY'
 # direct T27 fixture probe run during investigation
 PY
@@ -101,7 +102,8 @@ python /home/brian/projects/.agents/skills/karpathy-wiki/scripts/lint.py /home/b
 Results:
 
 ```text
-11 passed, 2 warnings
+13 passed, 2 warnings
+tests/current_runtime/test_spacy_model_dependency.py . [100%]
 valid success None 2
 converted_t23a success None 2
 Wiki health: 100/100
@@ -123,4 +125,4 @@ Repair completed: added `_normalize_entities_for_t27(...)` to `src/orchestration
 
 Confidence: high for the analysis-agent contract mismatch and repair; medium for broader pipeline coverage because other direct callers may still need normalization audits.
 
-Recommended next step: install or otherwise vendor `en_core_web_sm` in the isolated environment if dependency parsing is required, then run a small analysis-agent end-to-end test with a fake MCP adapter or local MCP adapter to verify relationships propagate into `Result.data["relationships"]`.
+Recommended next step: audit direct T27 callers outside `AnalysisAgent` for the same T23A/T27 entity-contract boundary, then add a richer dependency-parser fixture if parser-derived relationships are a target runtime capability.
