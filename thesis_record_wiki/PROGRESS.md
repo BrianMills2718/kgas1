@@ -198,7 +198,7 @@ Guarded handoff after runtime repair and preservation-wiki consolidation. Remain
 - `cb9a09b` added a focused T27 dependency-parser fixture proving the spaCy subject-verb-object path can emit a dependency-parsing relationship without Neo4j/service-manager setup.
 - `ff56240` added a public-export security boundary: raw PhD/KGAS archives remain preserved, while shareable exports must be derived, scanned, documented, and reviewed without in-place archive sanitization.
 - `87060f3` recorded the public-export boundary commit hash in this progress file.
-- Pending commit added a runtime verification isolation boundary: future Neo4j-backed smoke tests should use run/source scoping or isolated test graphs instead of deleting accumulated local graph state.
+- `1fc1810` added a runtime verification isolation boundary: future Neo4j-backed smoke tests should use run/source scoping or isolated test graphs instead of deleting accumulated local graph state.
 
 ## Deferred Risk Decisions
 
