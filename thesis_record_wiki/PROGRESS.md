@@ -212,6 +212,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `9faecf1` added the Plan #1 closeout review, marking current safe runtime gates complete and selecting `/api/batch/analyze` wiring as the next safe local slice.
 - `972e373` wired `/api/batch/analyze` to the proven single-document path with per-file results/errors, job-status coverage, and a live TXT batch smoke test.
 - `52db850` marked Plan #1 safe local runtime work verified and blocked only on Brian-gated public/export, live LLM recommendation, and cleanup execution decisions.
+- `PENDING` added the blocked-gates decision brief, separating public/export, live LLM recommendation, Neo4j cleanup execution, and legacy `.doc` support into explicit Brian approval decisions with safe defaults.
 
 ## Deferred Risk Decisions
 
@@ -221,7 +222,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: Brian should decide whether to approve any of the remaining blocked gates: public/export bundle, live LLM recommendation test, or execution of scoped Neo4j cleanup for specific source refs.
-2. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
-3. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured and budget-approved.
+1. Next recommended step: Brian should review `investigations/2026-06-26-blocked-gates-decision-brief.md` and approve at most one remaining gate at a time.
+2. Recommended order: public/export decision first if sharing is near-term; live LLM recommendation second if recommendation behavior matters; Neo4j cleanup only for exact source refs; legacy `.doc` only if a specific old Word file is needed.
+3. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
 4. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.

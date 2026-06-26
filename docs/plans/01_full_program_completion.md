@@ -243,6 +243,19 @@ Evidence: `src/api/cross_modal_api.py`, `tests/current_runtime/test_cross_modal_
 
 Evidence: full `tests/current_runtime` count 63 passed / 6 skipped; live `.txt`, `.pdf`, `.md`, `.docx`, and batch TXT smoke count 5 passed; wiki lint health 100/100; plan validation/index sync clean; `pip check` clean; secret scan only found placeholder examples.
 
+### Slice 14 - Blocked Gates Decision Brief
+
+**Status:** Complete
+
+**Safe scope:** document the remaining Brian-gated decisions without running cleanup, exporting raw material, publishing anything, or calling paid LLM services.
+
+**Done when:**
+- [x] public/export, live LLM recommendation, Neo4j cleanup execution, and legacy `.doc` decisions are separated;
+- [x] safe defaults and approval paths are explicit;
+- [x] next recommended order is recorded.
+
+Evidence: `investigations/2026-06-26-blocked-gates-decision-brief.md`.
+
 ---
 
 ## Required Tests
