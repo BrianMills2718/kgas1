@@ -200,7 +200,7 @@ Guarded handoff after runtime repair and preservation-wiki consolidation. Remain
 - `87060f3` recorded the public-export boundary commit hash in this progress file.
 - `1fc1810` added a runtime verification isolation boundary: future Neo4j-backed smoke tests should use run/source scoping or isolated test graphs instead of deleting accumulated local graph state.
 - `4d6f02a` added non-destructive source-ref propagation for new T31/T34 Neo4j writes, plus current-runtime tests proving new entity nodes and relationship edges carry `source_refs`; live Neo4j tests remain credential-gated.
-- Pending commit added optional `source_refs` filtering through T49 query entity lookup, path expansion, and complete-pipeline smoke queries, with no-database current-runtime coverage for scoped query behavior.
+- `8270f08` added optional `source_refs` filtering through T49 query entity lookup, path expansion, and complete-pipeline smoke queries, with no-database current-runtime coverage for scoped query behavior.
 
 ## Deferred Risk Decisions
 
