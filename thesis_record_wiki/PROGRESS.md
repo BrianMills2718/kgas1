@@ -213,6 +213,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `972e373` wired `/api/batch/analyze` to the proven single-document path with per-file results/errors, job-status coverage, and a live TXT batch smoke test.
 - `52db850` marked Plan #1 safe local runtime work verified and blocked only on Brian-gated public/export, live LLM recommendation, and cleanup execution decisions.
 - `6d155a5` added the blocked-gates decision brief, separating public/export, live LLM recommendation, Neo4j cleanup execution, and legacy `.doc` support into explicit Brian approval decisions with safe defaults.
+- `PENDING` added public-export readiness docs and a draft manifest, defining a documentation-first export candidate, excluded raw-risk paths, scan commands, and private-by-default publication posture.
 
 ## Deferred Risk Decisions
 
@@ -222,7 +223,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: Brian should review `investigations/2026-06-26-blocked-gates-decision-brief.md` and approve at most one remaining gate at a time.
-2. Recommended order: public/export decision first if sharing is near-term; live LLM recommendation second if recommendation behavior matters; Neo4j cleanup only for exact source refs; legacy `.doc` only if a specific old Word file is needed.
+1. Next recommended step: Brian should review `docs/public_export/EXPORT_MANIFEST_DRAFT.md` and decide whether to approve building a temporary documentation-only export candidate for scan review.
+2. Recommended order after export review: live LLM recommendation only if recommendation behavior matters; Neo4j cleanup only for exact source refs; legacy `.doc` only if a specific old Word file is needed.
 3. Keep scoped Neo4j cleanup as an operator-triggered command, not an automatic action.
 4. Public/export follow-up: if a shareable archive is needed, derive a separate sanitized bundle using the public-export security boundary rather than editing the raw preserved record.

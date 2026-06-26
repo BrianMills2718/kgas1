@@ -48,6 +48,8 @@ This plan does not create a new shared callable capability. It coordinates exist
 
 - `docs/plans/01_full_program_completion.md` (create)
 - `docs/plans/CLAUDE.md` (update active-plan index)
+- `docs/public_export/README.md` (create public/export readiness policy)
+- `docs/public_export/EXPORT_MANIFEST_DRAFT.md` (create draft export manifest)
 - `thesis_record_wiki/PROGRESS.md` (update next phase and completion criteria pointer)
 - `thesis_record_wiki/wiki/log.md` (record planning update)
 
@@ -255,6 +257,20 @@ Evidence: full `tests/current_runtime` count 63 passed / 6 skipped; live `.txt`,
 - [x] next recommended order is recorded.
 
 Evidence: `investigations/2026-06-26-blocked-gates-decision-brief.md`.
+
+### Slice 15 - Public Export Readiness Draft
+
+**Status:** Complete
+
+**Safe scope:** create a documentation-only public/export readiness policy and draft manifest without building or publishing an export bundle and without copying raw archive material.
+
+**Done when:**
+- [x] proposed include/exclude paths are documented;
+- [x] local risk items are called out explicitly;
+- [x] required pre-publication scan commands are recorded;
+- [x] default destination remains private unless Brian approves public release.
+
+Evidence: `docs/public_export/README.md`, `docs/public_export/EXPORT_MANIFEST_DRAFT.md`.
 
 ---
 
