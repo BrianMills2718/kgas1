@@ -59,6 +59,7 @@ For future work, use manifest-level summaries and derived aggregate statistics b
 
 - [Digimon Lineage Archived Uncertainty Tests Overview](/wiki/sources/digimon-lineage-archived-uncertainty-tests-overview.md): parent overview for the archived bundle.
 - [Digimon Lineage Archived Uncertainty Experiments Docs And Validation](/wiki/sources/digimon-lineage-archived-uncertainty-experiments-docs-validation.md): docs and validation page that uses these datasets as historical context.
+- [Archived Uncertainty Dataset Access Plan 2026 06 26](/wiki/sources/archived-uncertainty-dataset-access-plan-2026-06-26.md): privacy-aware access policy for future raw reads, reruns, derived outputs, and exports.
 - [Evidence Claim Discipline](/wiki/concepts/evidence-claim-discipline.md): dataset presence does not by itself establish broad validation, especially with count inconsistencies and privacy constraints.
 
 # Citations

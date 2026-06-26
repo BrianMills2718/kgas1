@@ -237,6 +237,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added a current uncertainty code-path map, separating current ADR-004/CERQual/range confidence code and source-ref provenance from archived ADR-029/Comprehensive7 runtime claims.
 - `this commit` recorded a no-IO confidence-scoring smoke result and safe rerun plan: CERQual score creation, range assignment, and Bayesian evidence-power combination execute in the current `.venv` without Neo4j, providers, archive reads, or source mutation.
 - `this commit` added repeatable no-IO regression coverage for the confidence-scoring smoke path under `tests/current_runtime/`.
+- `this commit` added a privacy-aware access plan for archived uncertainty datasets, defaulting future agents to manifest-level summaries and requiring explicit rerun/export review before raw reads or derived outputs.
 
 ## Deferred Risk Decisions
 

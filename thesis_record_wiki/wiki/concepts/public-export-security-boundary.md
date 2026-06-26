@@ -49,6 +49,7 @@ The raw archive is for internal preservation and evidence recovery. A public bun
 - [Digimon Lineage Old Backups Backup Archives](/wiki/sources/digimon-lineage-old-backups-backup-archives.md)
 - [Lit Review Root Files](/wiki/sources/lit-review-root-files.md)
 - [Digimon Lineage Archived Uncertainty Datasets](/wiki/sources/digimon-lineage-archived-uncertainty-datasets.md)
+- [Archived Uncertainty Dataset Access Plan 2026 06 26](/wiki/sources/archived-uncertainty-dataset-access-plan-2026-06-26.md)
 - [KGAS Evolution Checkpoint 2026-06-25](/wiki/concepts/kgas-evolution-checkpoint-2026-06-25.md)
 - [HSPC Data Governance Boundary](/wiki/concepts/hspc-data-governance-boundary.md)
 
