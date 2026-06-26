@@ -58,8 +58,8 @@ class QueryEntityExtractor:
         """Extract potential entity names using pattern matching"""
         potential_entities = []
         
-        # Pattern 1: Capitalized words/phrases (proper nouns)
-        capitalized_patterns = re.findall(r'\b[A-Z][a-zA-Z\s]{1,30}(?=\s|$)', query_text)
+        # Pattern 1: Capitalized words/phrases (proper nouns), excluding lowercase connective text.
+        capitalized_patterns = re.findall(r'\b[A-Z][a-zA-Z]*(?:\s+[A-Z][a-zA-Z]*)*\b', query_text)
         potential_entities.extend([p.strip() for p in capitalized_patterns if len(p.strip()) > 2])
         self.extraction_stats["patterns_matched"] += len(capitalized_patterns)
         
@@ -79,7 +79,7 @@ class QueryEntityExtractor:
         ]
         
         for pattern in entity_indicators:
-            matches = re.findall(pattern, query_text, re.IGNORECASE)
+            matches = re.findall(pattern, query_text)
             potential_entities.extend([m.strip() for m in matches])
             self.extraction_stats["patterns_matched"] += len(matches)
         

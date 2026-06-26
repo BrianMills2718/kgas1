@@ -258,6 +258,8 @@ The graph-connectivity caveat was classified during the follow-up repair. The or
 
 The query-quality follow-up repaired another proof weakness. The complete pipeline previously used generic canned questions that contained no document entities, so T49 executed successfully but returned zero discovered paths. Default smoke queries are now derived from extracted entity names when the caller does not provide explicit `test_queries`, and `queries_answered` counts only query executions with non-empty result sets. A live `.txt` probe returned `queries_answered=2`, with `Alice` and `Bob` each producing 10 related-entity results. [15]
 
+The T49 query-entity extractor also now handles simple natural-language questions more cleanly. The capitalized-phrase pattern no longer swallows lowercase connective text, and entity-indicator patterns no longer run case-insensitively. A live GraphQueryEngine probe for `Who is connected to Alice?` now extracts Alice and returns five related-entity results. [23]
+
 Verification:
 
 ```text
@@ -296,3 +298,4 @@ tests/current_runtime/test_cross_modal_api_contract.py .................... [100
 [20] `../investigations/2026-06-25-analyze-endpoint-document-pipeline.md`
 [21] `../src/core/neo4j_manager.py`
 [22] `../tests/current_runtime/test_neo4j_manager_compat.py`
+[23] `../src/tools/phase1/multihop_query/query_entity_extractor.py`

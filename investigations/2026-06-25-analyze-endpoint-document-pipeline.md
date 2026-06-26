@@ -157,6 +157,19 @@ query Bob count 10
 
 This does not make T49 a general natural-language QA system, but it stops treating empty generic query executions as answered questions and proves at least some graph query results are returned from the built graph. [3][12][14]
 
+### T49 query entity extraction repair
+
+The follow-up T49 audit found a regex-level extraction bug. The first capitalized-phrase pattern allowed lowercase spaces, so questions such as `Who is connected to Alice?` produced the candidate `Who is connected to` and missed `Alice`. Entity indicator patterns also ran with `re.IGNORECASE`, which allowed `How is Alice connected to Acme Corporation?` to produce the noisy candidate `How is Alice connected to Acme`. [15]
+
+The repair limits the primary pattern to capitalized tokens and removes case-insensitive matching from the indicator patterns. Pattern-only tests now assert:
+
+```text
+Who is connected to Alice? -> Alice
+How is Alice connected to Acme Corporation? -> Alice, Acme Corporation
+```
+
+A live T49/GraphQueryEngine probe with Neo4j configured now returns five results for `Who is connected to Alice?`, with the top related-entity result connecting Alice to Seattle. [15]
+
 ## Recommendation
 
 Do not broaden `/api/analyze` by calling the cross-modal orchestrator with placeholder graph data. The current safe slice is `.txt` only and backed by `CompleteGraphRAGPipeline.process_document(...)`. The next safe implementation slice is either a live API-level `.txt` test with Neo4j credentials available or a similarly narrow `.pdf` acceptance fixture after PDF behavior is proven through T01 and the complete pipeline.
@@ -166,8 +179,8 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 ## Open Questions
 
 - Should `GraphQueryEngine` query-stat helpers get the same read-query compatibility audit, or is the current successful-but-zero-path query result sufficient for the first `/api/analyze` slice?
-- Should T49 query-entity extraction be improved so natural-language questions like "Who is connected to Alice?" extract `Alice` instead of greedy capitalized fragments?
 - Should complete-pipeline query smoke tests prefer relationship endpoints such as source/target pairs rather than single-entity related-neighbor queries?
+- Should graph query ranking deduplicate repeated entities from accumulated smoke-test runs so result quality is not dominated by local duplicate nodes?
 - Should there be an explicit non-Neo4j test service manager for document-loader and text-only adapter tests?
 - Should `/api/analyze` keep using the generic `AnalysisResponse` wrapper, or should a new endpoint expose complete-pipeline execution with a response model that exactly matches actual pipeline stages?
 - Should `.docx`, `.doc`, and `.md` stay in the API validation list only after dedicated loaders are wired?
@@ -197,3 +210,4 @@ Confidence: high for path identification; high that the `.txt` complete-pipeline
 - [12] `tests/current_runtime/test_analysis_agent_t27_contract.py`
 - [13] `tests/current_runtime/test_neo4j_manager_compat.py`
 - [14] `tests/current_runtime/test_complete_pipeline_neo4j_runtime.py`
+- [15] `src/tools/phase1/multihop_query/query_entity_extractor.py`

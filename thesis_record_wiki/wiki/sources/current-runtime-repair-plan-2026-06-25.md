@@ -137,6 +137,8 @@ The analyze document-pipeline investigation identifies `CompleteGraphRAGPipeline
 
 The query-result quality follow-up is complete for the default smoke path. Complete-pipeline default queries are now derived from extracted entity names rather than generic questions that T49 cannot ground, and `queries_answered` counts only non-empty result sets. The live `.txt` probe now returns graph query results for `Alice` and `Bob` instead of treating three empty query executions as answered. Remaining query work is T49 natural-language entity extraction quality, not complete-pipeline proof wiring. [10][18]
 
+The first T49 natural-language extraction repair is also complete. The query entity extractor now avoids swallowing lowercase connective text in capitalized-phrase matches, so `Who is connected to Alice?` extracts Alice and a live GraphQueryEngine probe returns five related-entity results. Remaining graph-query quality work is result deduplication and richer relationship-focused answers. [22]
+
 # Links
 
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)
@@ -166,3 +168,4 @@ The query-result quality follow-up is complete for the default smoke path. Compl
 [19] `../src/core/neo4j_manager.py`
 [20] `../tests/current_runtime/test_complete_pipeline_neo4j_runtime.py`
 [21] `../tests/current_runtime/test_neo4j_manager_compat.py`
+[22] `../src/tools/phase1/multihop_query/query_entity_extractor.py`

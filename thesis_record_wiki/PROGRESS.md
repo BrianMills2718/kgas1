@@ -193,10 +193,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - Pending commit wired `/api/analyze` for `.txt` uploads only through `CompleteGraphRAGPipeline.process_document(...)`, with temp-file cleanup, live Neo4j-backed API coverage, and explicit 501 status for unproven non-text document formats.
 - Pending commit classified request-time graph connectivity validation as a bounded summary, avoiding the prior validator-blocked and hang-prone `CALL { ... }` connected-component query while preserving entity/edge Neo4j proof.
 - Pending commit changed default complete-pipeline query smoke tests to use extracted entity names and count only non-empty query results as answered; live `.txt` probe now returns results for `Alice` and `Bob`.
+- Pending commit repaired T49 query entity extraction so simple natural-language questions like "Who is connected to Alice?" extract Alice and return live graph query results.
 
 ## Next
 
-1. Next recommended step: improve or bound T49 natural-language query entity extraction; current regex misses questions like "Who is connected to Alice?" by extracting greedy capitalized fragments.
+1. Next recommended step: audit graph-query result deduplication/ranking, because repeated local smoke runs create duplicate entity nodes and can dominate related-entity results.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
 4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.
