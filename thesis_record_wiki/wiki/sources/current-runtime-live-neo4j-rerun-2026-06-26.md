@@ -51,6 +51,8 @@ Affected tests:
 
 Interpretation: these warnings are non-failing but worth preserving. They likely reflect accumulated local graph state or queries that expect one record while repeated smoke data can produce multiple matching records. This is not a reason to delete graph data; use source scoping or isolated test databases for future cleanup-sensitive work.
 
+Follow-up probe: the standalone complete-pipeline Neo4j test, the standalone TXT API live test, and the five live API tests grouped together all passed with `UserWarning` promoted to an error. The local container later exited cleanly and was restarted; after it returned healthy, the standalone complete-pipeline Neo4j test again passed with `UserWarning` promoted to an error. That means the warning is full-suite/order/local-state dependent in the observed environment rather than a deterministic failure in a single live test. Do not patch query behavior without a reproducible stack trace or a narrower failing test.
+
 # Safety Notes
 
 - No Neo4j cleanup was executed.
