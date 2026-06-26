@@ -65,7 +65,7 @@ That makes Annex D a governance guardrail, not just an appendix.
 
 # Caveats
 
-- No actual HSPC determination letter was identified in this bounded slice. The record currently supports "proposal reasoning and reference materials exist," not "determination letter found."
+- No actual HSPC determination letter was identified in this bounded slice. A targeted filename and text search found HSPC reference materials, Annex D duplicates, and proposal text naming "HSPC determination letter" as a planned deliverable, but not a preserved determination-letter artifact. Two archived service-data paths under the April 2026 filesystem snapshot returned permission-denied errors, so the search is strong but not absolutely exhaustive. The record currently supports "proposal reasoning and reference materials exist," not "determination letter found."
 - The preserved HTML is a large saved intranet page. This review records its existence and hash but does not summarize internal page content.
 - The HSPC summary contains an AI-generated review section. Use that as process provenance, not as authoritative policy.
 - The proposal's public/de-identified-data claim should be rechecked before any public release or new analysis using raw datasets.

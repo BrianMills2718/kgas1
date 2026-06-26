@@ -228,6 +228,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` resolved the `Mills_Proposal_extracted.txt` file-format caveat: the file is an 85,062-byte UTF-8 one-line extraction, not empty, and the archive-before-cleanup duplicate has the same SHA-256 hash.
 - `this commit` added a proposal validation evolution review, preserving the shift from older coder/F1/SME validation protocols to final construct-validity, uncertainty, no-target baseline, and HSPC-boundary framing.
 - `this commit` added an HSPC/data-governance boundary review, distinguishing proposal reasoning and preserved RAND/HSPC reference material from an actual determination letter, which has not been located in this slice.
+- `this commit` recorded a targeted HSPC/IRB determination search: candidate hits were proposal/reference materials or planned-deliverable mentions, no actual determination-letter artifact was found, and two archived service-data paths were permission-denied.
 
 ## Deferred Risk Decisions
 
