@@ -186,7 +186,7 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `d0fc8c5` changed `/api/batch/analyze` from mock/demo KG output to explicit 501 status until real batch pipeline wiring exists.
 - `a34cb20` repaired `/api/convert` against the current converter `convert_data(...)` contract, preserved converter/stats 503 status codes, and added focused current-runtime API tests.
 - `3d6ef65` changed `/api/analyze` from metadata-only placeholder analysis to explicit 501 until real document extraction is wired, and aligned the optimization default to `standard`.
-- `PENDING` investigated the future `/api/analyze` backing path and identified `CompleteGraphRAGPipeline.process_document()` plus a narrow `.txt` adapter as the safest next slice.
+- `3609419` investigated the future `/api/analyze` backing path and identified `CompleteGraphRAGPipeline.process_document()` plus a narrow `.txt` adapter as the safest next slice.
 
 ## Next
 
