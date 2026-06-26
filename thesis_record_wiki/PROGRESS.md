@@ -183,10 +183,11 @@ Continue bounded ingest of `archive_full_record/lineage_variants/digimon_lineage
 - `fdd78f4` moved T27 entity normalization into a shared compatibility adapter, applied it to complete-pipeline and Phase 1 MCP boundaries, added propagation tests, and declared missing `aiosqlite`/`pypdf` runtime imports.
 - `996c0cc` repaired real-DAG T27 dataflow so relationship extraction receives upstream entities, and added a focused DAG request-construction test.
 - `12b8488` rewired `/api/recommend` to the current `DataContext` and mode-selector contract, with focused current-runtime API tests.
+- `PENDING` changed `/api/batch/analyze` from mock/demo KG output to explicit 501 status until real batch pipeline wiring exists.
 
 ## Next
 
-1. Next recommended step: audit remaining API endpoints beyond `/api/analyze` and `/api/recommend`, especially batch processing, for stale call contracts.
+1. Next recommended step: audit `/api/convert`, `/api/health`, and `/api/stats` against the current lazy registry/service contracts.
 2. Follow-up runtime: test real mode recommendation only after an LLM-backed mode selector is configured.
 3. Follow-up test: add a richer fixture specifically proving parser-derived T27 relationships if that method is a target runtime capability.
 4. Security follow-up: treat API keys visible in preserved logs as compromised before any public sharing or archive export.

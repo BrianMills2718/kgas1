@@ -322,33 +322,9 @@ async def batch_analyze(
     
     Returns a job ID to track progress.
     """
-    # Create job
-    job_id = str(uuid.uuid4())
-    job = {
-        "id": job_id,
-        "status": "pending",
-        "created_at": datetime.now().isoformat(),
-        "total_files": len(files),
-        "processed_files": 0,
-        "results": [],
-        "errors": []
-    }
-    jobs[job_id] = job
-    
-    # Process in background
-    background_tasks.add_task(
-        process_batch_analysis,
-        job_id,
-        files,
-        target_format,
-        task
-    )
-    
-    return JobResponse(
-        job_id=job_id,
-        status="pending",
-        created_at=job["created_at"],
-        message=f"Batch job created for {len(files)} files"
+    raise HTTPException(
+        status_code=501,
+        detail="Batch analysis endpoint is not wired to the current document analysis pipeline"
     )
 
 # Job status endpoint
@@ -539,29 +515,10 @@ async def process_batch_analysis(job_id: str, files: List[UploadFile], target_fo
     job["status"] = "processing"
     
     try:
-        for i, file in enumerate(files):
-            try:
-                # NOTE: Full pipeline integration pending
-                # When ready, each file will be processed through the full pipeline
-                # For now, return mock results to demonstrate API structure
-                result = {
-                    "filename": file.filename,
-                    "status": "success",
-                    "message": "Pipeline integration pending - returning demo data",
-                    "entities": ["Entity1", "Entity2"],  # Mock results
-                    "relationships": ["Rel1", "Rel2"],
-                    "note": "Full document processing will be available after core service fixes"
-                }
-                job["results"].append(result)
-            except Exception as e:
-                job["errors"].append({
-                    "filename": file.filename,
-                    "error": str(e)
-                })
-            
-            job["processed_files"] = i + 1
-        
-        job["status"] = "completed" if not job["errors"] else "completed_with_errors"
+        job["status"] = "failed"
+        job["errors"].append({
+            "error": "Batch analysis is not wired to the current document analysis pipeline"
+        })
         
     except Exception as e:
         job["status"] = "failed"

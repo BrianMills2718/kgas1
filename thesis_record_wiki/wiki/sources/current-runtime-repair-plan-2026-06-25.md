@@ -124,6 +124,8 @@ The real-DAG follow-up is complete for T27 dataflow: `real_dag_orchestrator.py` 
 
 The recommendation endpoint follow-up is complete at the API-contract layer: `/api/recommend` now maps `RecommendRequest` into the current `DataContext` factory, calls `ModeSelectionService.select_optimal_mode(...)` through the registry's mode selector, serializes the current `ModeSelectionResult`, and returns 503 for unavailable mode selector/LLM configuration. Real recommendation execution still requires an initialized LLM-backed mode selector. [16]
 
+The batch endpoint follow-up is complete at the status-honesty layer: `/api/batch/analyze` no longer schedules fake processing or returns demo entities/relationships. It now returns 501 until wired to the current document-analysis pipeline, and the background helper marks jobs failed with an explicit "not wired" error if called directly. [16]
+
 # Links
 
 - [Current Runtime Import Check 2026-06-25](/wiki/sources/current-runtime-import-check-2026-06-25.md)

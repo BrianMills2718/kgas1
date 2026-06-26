@@ -169,3 +169,41 @@ async def test_recommend_mode_calls_current_mode_selector_contract(monkeypatch) 
     assert calls[0][0] == "find central actors"
     assert calls[0][1].data_types == ["graph"]
     assert calls[0][2] == {"performance_priority": "speed"}
+
+
+@pytest.mark.asyncio
+async def test_batch_analyze_returns_explicit_501() -> None:
+    """Batch analysis should fail honestly until wired to the current pipeline."""
+    with pytest.raises(HTTPException) as exc_info:
+        await api.batch_analyze(
+            background_tasks=None,
+            files=[],
+            target_format="graph",
+            task="extract entities",
+        )
+
+    assert exc_info.value.status_code == 501
+    assert "not wired" in exc_info.value.detail
+
+
+@pytest.mark.asyncio
+async def test_process_batch_analysis_does_not_create_demo_results() -> None:
+    """The background helper should not emit mock entities or relationships."""
+    api.jobs["job-test"] = {
+        "id": "job-test",
+        "status": "pending",
+        "created_at": "2026-06-25T00:00:00",
+        "total_files": 0,
+        "processed_files": 0,
+        "results": [],
+        "errors": [],
+    }
+
+    try:
+        await api.process_batch_analysis("job-test", [], "graph", "extract entities")
+
+        assert api.jobs["job-test"]["status"] == "failed"
+        assert api.jobs["job-test"]["results"] == []
+        assert "not wired" in api.jobs["job-test"]["errors"][0]["error"]
+    finally:
+        api.jobs.pop("job-test", None)

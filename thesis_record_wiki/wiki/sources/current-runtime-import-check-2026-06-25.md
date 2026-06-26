@@ -212,6 +212,18 @@ tests/current_runtime/test_cross_modal_api_contract.py ............ [100%]
 OK src.api.cross_modal_api
 ```
 
+# Batch Endpoint Follow-Up
+
+The `/api/batch/analyze` endpoint no longer schedules fake background work or emits demo entities/relationships. It now returns an explicit 501 until batch processing is wired to the current document-analysis pipeline. The background helper also fails the job with an explicit "not wired" error if invoked directly, so it cannot silently populate mock KG results. [2]
+
+Verification:
+
+```text
+tests/current_runtime/test_cross_modal_api_contract.py .............. [100%]
+21 passed, 2 warnings
+OK src.api.cross_modal_api
+```
+
 # Links
 
 - [Current Code Verification 2026-06-25](/wiki/sources/current-code-verification-2026-06-25.md)
