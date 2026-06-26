@@ -249,6 +249,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` recorded a full live Neo4j-backed current-runtime rerun: 76 passed, with six non-failing Neo4j multi-record warnings preserved as follow-up evidence.
 - `this session` attempted broad `pytest --collect-only -q`; collection produced no output after roughly 90 seconds and required terminating the local collection process, so `tests/current_runtime` remains the safe verification surface unless broad collection is separately investigated.
 - `this commit` fixed broad pytest collection by setting `testpaths = ["tests/current_runtime"]`; root cause was legacy vertical-slice POC `test*.py` scripts with import-time Neo4j side effects and stale hardcoded paths.
+- `this commit` added a legacy vertical-slice test revival plan, classifying POC tests by runtime risk and recommending a no-IO first migration slice before any Neo4j/provider revival.
 
 ## Deferred Risk Decisions
 
@@ -261,4 +262,4 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 1. Next recommended step: start with [Thesis Record Reading Guide 2026 06 26](/wiki/concepts/thesis-record-reading-guide-2026-06-26.md), then read the private README and claim audit.
 2. If external sharing becomes the goal, derive a separate export candidate from the private README rather than copying it directly.
 3. Before any public release, review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` and decide what security/history detail stays private.
-4. Implementation maintenance remains optional and separate from preservation: investigate live Neo4j multi-record warnings only if they block a concrete task; any Neo4j cleanup or legacy vertical-slice test revival must be planned as its own slice.
+4. Implementation maintenance remains optional and separate from preservation: investigate live Neo4j multi-record warnings only if they block a concrete task; any Neo4j cleanup or legacy vertical-slice runtime revival must be planned as its own slice.
