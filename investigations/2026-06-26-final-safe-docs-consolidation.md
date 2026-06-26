@@ -29,13 +29,6 @@ link-check: allow-missing-historical-targets
 
 The marker must appear near the top of a markdown file. When present, missing local targets are permitted for that file. The marker is paired with a visible banner explaining that the document is historical and that stale links are intentionally preserved.
 
-Two thesis wiki progress references were also converted to literal file references:
-
-- `thesis_record_wiki/wiki/overview.md`
-- `thesis_record_wiki/wiki/sources/digimon-lineage-archive-coverage-audit-2026-06-25.md`
-
-This avoids treating the progress tracker as a wiki page while preserving the navigation hint for agents.
-
 ## Verification
 
 Passing checks:
