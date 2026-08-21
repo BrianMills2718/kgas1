@@ -8,6 +8,11 @@ verification records, and `../PROGRESS.md` remain source truth.
 * [Overview](overview.md) - top-level map of the thesis work record and preservation strategy.
 * [Progress](../PROGRESS.md) - durable mission, acceptance criteria, completed commits, and next slices for the thesis record wiki.
 
+# Current Checkpoint
+
+* [Thesis Context Preservation State 2026 08 20](concepts/thesis-context-preservation-state-2026-08-20.md) - verified location map for the tracked repo, desktop and laptop raw archives, OneDrive-managed snapshot, and related thesis sources.
+* [Thesis Record Reading Guide 2026 06 26](concepts/thesis-record-reading-guide-2026-06-26.md) - short reading paths through the organized record after checking the current preservation state.
+
 # Sources
 
 * [Recovery Archive Manifest](sources/recovery-archive-manifest-2026-04-04.md) - why `archive_full_record/` exists and what it preserves.

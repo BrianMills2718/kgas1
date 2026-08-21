@@ -78,7 +78,7 @@ confidence: high | medium | low | speculative
 - Use citations to repo-relative paths for every non-obvious claim.
 - Mark contradictions and uncertainty explicitly. Do not silently reconcile conflicting project status claims.
 - Separate phases of evolution: early Digimons experiments, KGAS implementation, cleaned external-evaluation repo, recovery archive, and post-program preservation.
-- The current branch `backup/2026-05-23/phd_thesis_work-master` is itself part of the historical record, not just the active branch.
+- Commit `2dfab76fe4181a1734001b666b634449d56c69fb`, formerly recorded through branch `backup/2026-05-23/phd_thesis_work-master`, is a historical checkpoint now reachable from `master`; do not describe that old branch name as the active branch.
 - Do not copy the 17G archive into `raw/`; use manifests and path citations to avoid duplication.
 
 ## Ingest Workflow

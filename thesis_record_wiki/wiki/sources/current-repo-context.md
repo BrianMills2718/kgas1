@@ -4,7 +4,7 @@ title: Current Repo Context
 description: Summary of current tracked KGAS repo docs, branch, and recent git history.
 tags: [source, current-repo, kgas]
 created: 2026-06-25
-updated: 2026-06-25
+updated: 2026-08-20
 sources:
   - ../README.md
   - ../CLAUDE.md
@@ -13,12 +13,13 @@ confidence: medium
 
 # Summary
 
-The current tracked repo describes KGAS as an experimental academic GraphRAG system for entity extraction, relationship mapping, graph query processing, and research validation. [1] Its local branch is `backup/2026-05-23/phd_thesis_work-master` at commit `2dfab76fe4181a1734001b666b634449d56c69fb`.
+The current tracked repo describes KGAS as an experimental academic GraphRAG system for entity extraction, relationship mapping, graph query processing, and research validation. [1] As verified on 2026-08-20, its active local and remote line is `master`; this preservation update began from commit `96975ba63509d032ae354e58323596b83fb6f3bf`. The earlier checkpoint `2dfab76fe4181a1734001b666b634449d56c69fb`, formerly named through `backup/2026-05-23/phd_thesis_work-master`, remains reachable from `master`; the old branch label is not current.
 
 # Recent Git Timeline
 
 | Date | Commit | Note |
 | --- | --- | --- |
+| 2026-08-19 | `96975ba` | Declare that the current repository has no active UI |
 | 2026-06-22 | `2dfab76` | Clarify forum user modeling context |
 | 2026-06-22 | `f0cf060` | Document Carter WorldView reference |
 | 2026-05-23 | `07c5cf8` | Backup snapshot of uncommitted work |
@@ -43,4 +44,4 @@ The current README frames the system as academic research capable. [1] The curre
 
 [1] `../README.md`  
 [2] `../CLAUDE.md`  
-[3] Git history on `backup/2026-05-23/phd_thesis_work-master`
+[3] `master` history; preservation-update starting point `96975ba63509d032ae354e58323596b83fb6f3bf`, containing historical checkpoint `2dfab76fe4181a1734001b666b634449d56c69fb`

@@ -8,6 +8,34 @@ The tracked `kgas1` checkout restored the clean repository state, but it did not
 
 That layer is ignored by git on purpose. It is a preservation area, not part of the clean working tree.
 
+## Verified Preservation State (2026-08-20)
+
+The full archive was found intact on host `DESKTOP-79G7E9D` and copied without
+moving or deleting the desktop source. The preservation topology is now:
+
+| Role | Location | State |
+| --- | --- | --- |
+| Desktop source | `desktop:/home/brian/projects/phd_thesis_work/archive_full_record/` | Present; retained in place |
+| Laptop working mirror | `/home/brian/code/kgas1/archive_full_record/` | Present; ignored by Git as designed |
+| OneDrive-managed recovery snapshot | `/mnt/c/Users/thela/OneDrive/brian-disk-archive/kgas-thesis/archive_full_record-20260820.tar.gz` | Present; gzip integrity passed; cloud-upload completion not independently verified |
+| Snapshot checksum | Adjacent `archive_full_record-20260820.tar.gz.sha256` | SHA-256 `dd10bc4783979f4887a2e49fd26d82ee9e85dc7b8492e81c4e31d80eae0d8a9b` |
+
+Desktop and laptop were compared after the copy:
+
+- 234,993 regular files, 26,910 directories, and 242 symlinks on each side;
+- a checksum-mode dry-run reported no differences for the normally readable
+  archive;
+- the three root-owned Redis files were copied separately through a read-only
+  container mount and their SHA-256 hashes match;
+- all seven portable Git bundles pass `git bundle verify` locally; and
+- the compressed recovery snapshot contains 262,145 members and is
+  2,562,037,008 bytes.
+
+The private GitHub repositories `BrianMills2718/kgas1` and
+`BrianMills2718/kgas-thesis-record` preserve tracked code/history and the
+derived documentation export respectively. Neither is a substitute for the
+ignored raw archive.
+
 ## Preserved Material
 
 The following sources are preserved under `archive_full_record/` as real on-disk copies:

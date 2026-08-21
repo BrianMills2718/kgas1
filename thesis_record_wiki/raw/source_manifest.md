@@ -2,18 +2,44 @@
 
 Initial source set for the Thesis Record Wiki.
 
+## Current Preservation Topology (verified 2026-08-20)
+
+| Surface | Location | Verification / authority |
+| --- | --- | --- |
+| Current tracked checkout | `/home/brian/code/kgas1` | `master` at `96975ba63509d032ae354e58323596b83fb6f3bf` before this preservation update; GitHub remote `BrianMills2718/kgas1` is private |
+| Raw archive desktop source | `desktop:/home/brian/projects/phd_thesis_work/archive_full_record/` | Retained in place on `DESKTOP-79G7E9D` |
+| Raw archive laptop mirror | `/home/brian/code/kgas1/archive_full_record/` | 234,993 files, 26,910 directories, 242 symlinks; checksum comparison found no content differences |
+| Compressed recovery snapshot | `/mnt/c/Users/thela/OneDrive/brian-disk-archive/kgas-thesis/archive_full_record-20260820.tar.gz` | 2,562,037,008 bytes; 262,145 members; gzip integrity passed; SHA-256 `dd10bc4783979f4887a2e49fd26d82ee9e85dc7b8492e81c4e31d80eae0d8a9b`; cloud-upload completion not independently verified |
+| Derived documentation export | Private GitHub `BrianMills2718/kgas-thesis-record` | Navigation/synthesis copy only; not raw provenance |
+
+The raw archive and the wiki have different jobs. The archive preserves bytes
+and historical structure without cleanup; the wiki organizes meaning,
+authority, chronology, and contradictions without replacing those bytes.
+
+## Related Thesis Context Outside This Repository
+
+These files remain in their owning locations. They are indexed here so future
+thesis work does not silently omit them or merge them into KGAS without source
+review.
+
+| Source | Role | Hash / Identifier | Notes |
+| --- | --- | --- | --- |
+| `/home/brian/code/second-brain/obsidian-export/Thesis.md` | Broad thesis note/export | `sha256:8612fb006a28fb35ec6ff188247f8b3d9ef80321451d792a6e4adc64233e7b7a` | Present 2026-08-20; keep in its owning Second Brain context until deliberately ingested |
+| `/home/brian/projects/personal-vault/wiki/synthesis/brian-thesis-area-hub.md` | Personal-vault thesis hub | `sha256:2fc265471b691bb77317428de2ad62e56a8e43ecbff992dfd4b43449840d33e6` | Present 2026-08-20; orientation source, not KGAS authority |
+| `/home/brian/projects/Digimon_for_KG_application/wiki/thesis.md` | Later Digimon application thesis page | `sha256:48fb25b53a468b773d7613ea6d9547172c63cfd4f0994d25988c6b94612b4dfc` | Present 2026-08-20; related project source that should retain its own provenance |
+
 | Source | Role | Hash / Identifier | Notes |
 | --- | --- | --- | --- |
 | `../CLAUDE.md` | Current repo operating context | `sha256:98452e6a49a4f7f71d7e0897441993f9c71507ace0fb0cb85aa9f97632a17273` | Contains KGAS implementation guide and historical sprint/status notes. |
 | `../README.md` | Current repo public overview | `sha256:77429c375715acc1402c44e9ee50b5d9b6b670c6b29161187b128f02760f9dca` | Describes KGAS as academic research GraphRAG system. |
-| `../RECOVERY_ARCHIVE_MANIFEST_2026-04-04.md` | Recovery manifest | `sha256:f240caafa14019e520e3c2c4314a10c86f7542ed66b6c22519f843d84293bcdc` | Canonical explanation of why `archive_full_record/` exists. |
+| `../RECOVERY_ARCHIVE_MANIFEST_2026-04-04.md` | Recovery manifest | `sha256:0b4fa8cd308f5590e5dbed28c419f67c373d90b9f3a5871d57deefb2d8178479` | Canonical explanation of why `archive_full_record/` exists and its verified 2026-08-20 preservation topology. |
 | `../archive_full_record/metadata/recovery_inventory.tsv` | Recovery inventory | `sha256:91f664414195a82927b3f69655fc3d2f47c6474dfcf869c519d8d3e73f030e95` | Source/destination sizes, counts, skipped paths, git heads. |
 | `../archive_full_record/metadata/recovery_inventory_errors.tsv` | Recovery verification errors | `sha256:68656353f6d6e4b945702ffcc5f0e730b50ca25b2ba8b0e29fb58006f0310509` | Permission-denied paths encountered during verification. |
 | `../archive_full_record/metadata/git_bundle_status.tsv` | Git bundle status | `sha256:b00e35aacf943da3872a4755f610566f50b1f0c37c4e0fd13e3471222baae730` | Lists bundle creation status for preserved repos. |
 | `../archive_full_record/filesystem_snapshots/` | Preserved filesystem snapshots | Directory source | Large raw preservation area; do not modify from wiki tasks. |
 | `../archive_full_record/lineage_variants/` | Preserved lineage variants | Directory source | Largest source set; one wiki page per major variant. |
 | `../archive_full_record/git_bundles/` | Portable git bundles | Directory source | Recovery artifacts for current repo and major preserved variants. |
-| Git history on `backup/2026-05-23/phd_thesis_work-master` | Evolution evidence | `HEAD 2dfab76fe4181a1734001b666b634449d56c69fb` | Includes cleanup, recovery, and post-backup commits. |
+| `master` Git history | Evolution evidence | `HEAD 96975ba63509d032ae354e58323596b83fb6f3bf` before this preservation update | Includes historical checkpoint `2dfab76fe4181a1734001b666b634449d56c69fb`, formerly recorded through branch `backup/2026-05-23/phd_thesis_work-master`; the old branch label is not current. |
 | `../archive_full_record/lineage_variants/Digimons_docs/README.md` | Documentation variant overview | `sha256:61a19ab2a30a9705d6c182915ad919fbc5b5b36dde9ea6cad16d6ff1d0ccffec` | Defines the docs repo as complete KGAS documentation with roadmap as status source. |
 | `../archive_full_record/lineage_variants/Digimons_docs/docs/architecture/README.md` | Architecture documentation scope | `sha256:a2fe0c370b49d617e8b404a11e7fc85d882c0649981a89be834488b98e4a6203` | Separates target architecture from implementation status. |
 | `../archive_full_record/lineage_variants/Digimons_docs/docs/roadmap/ROADMAP_OVERVIEW_CONSERVATIVE.md` | Conservative verified status | `sha256:7f8194cd655b53a788d0f1e39602b6f5926355f8303e7e37d06fb045442dd54f` | Gives cautious 2025-07-31 implementation status and gaps. |

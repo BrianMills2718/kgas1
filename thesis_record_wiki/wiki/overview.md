@@ -19,7 +19,7 @@ This wiki is a derived navigation layer for Brian's KGAS / Digimons / PhD thesis
 
 The current tracked repo presents KGAS as an academic research GraphRAG system connected to the dissertation topic "Theoretical Foundations for LLM-Generated Ontologies and Analysis of Fringe Discourse." [2] The current `CLAUDE.md` also preserves older operational context about tool compatibility, vertical slices, uncertainty propagation, provenance, reasoning traces, and documentation cleanup. [3]
 
-For ongoing ingest state and next slices, see [Progress](/PROGRESS.md).
+For ongoing ingest state and next slices, see [Progress](../PROGRESS.md).
 
 # Preservation Model
 
@@ -180,7 +180,8 @@ After the first small-variant ingest, two organizing themes are visible:
 
 - Two permission-denied paths are recorded in the recovery errors metadata; treat those as verification gaps, not as proof of absence. [4]
 - Some lineage variants have `destination_git_head` recorded as `ERROR`; those need later review rather than deletion. [5]
-- The active branch is `backup/2026-05-23/phd_thesis_work-master`, not `master`, and includes post-backup commits. [6]
+- The active tracked line is `master`. Commit `2dfab76fe4181a1734001b666b634449d56c69fb` preserves the former backup-branch checkpoint within that history; the old branch label is historical, not current. [6]
+- The ignored raw archive has verified desktop and laptop copies plus a tested snapshot in the OneDrive-managed backup folder; cloud-upload completion remains unverified. [7]
 - See [Verification Gaps](/wiki/concepts/verification-gaps.md) before interpreting missing data or failed git-head reads.
 
 # Citations
@@ -190,4 +191,6 @@ After the first small-variant ingest, two organizing themes are visible:
 [3] `../CLAUDE.md`  
 [4] `../archive_full_record/metadata/recovery_inventory_errors.tsv`  
 [5] `../archive_full_record/metadata/recovery_inventory.tsv`  
-[6] Git history on `backup/2026-05-23/phd_thesis_work-master`, HEAD `2dfab76fe4181a1734001b666b634449d56c69fb`
+[6] `master` history containing checkpoint commit `2dfab76fe4181a1734001b666b634449d56c69fb`
+
+[7] `../RECOVERY_ARCHIVE_MANIFEST_2026-04-04.md`, section "Verified Preservation State (2026-08-20)"

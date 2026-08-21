@@ -4,7 +4,7 @@ title: Thesis Record Reading Guide 2026 06 26
 description: Short reading paths for entering the KGAS/thesis record wiki without rereading the full archive.
 tags: [concept, guide, navigation, thesis-record, kgas]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-08-20
 status: current
 sources:
   - /wiki/overview.md
@@ -13,10 +13,13 @@ sources:
   - /wiki/concepts/safe-thesis-organization-closeout-2026-06-26.md
   - /wiki/concepts/kgas-dissertation-claim-map.md
   - /wiki/concepts/private-kgas-readme-claim-audit-2026-06-26.md
+  - /wiki/concepts/thesis-context-preservation-state-2026-08-20.md
 confidence: high
 ---
 
-> Sources consulted: [Thesis Record Overview](/wiki/overview.md) · [Progress](/PROGRESS.md) · [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md) · [Safe Thesis Organization Closeout 2026 06 26](/wiki/concepts/safe-thesis-organization-closeout-2026-06-26.md) · [KGAS Dissertation Claim Map](/wiki/concepts/kgas-dissertation-claim-map.md) · [Private KGAS README Claim Audit 2026 06 26](/wiki/concepts/private-kgas-readme-claim-audit-2026-06-26.md). Status: internal navigation guide, not a source of new claims.
+> Sources consulted: [Thesis Record Overview](/wiki/overview.md) · [Progress](../../PROGRESS.md) · [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md) · [Safe Thesis Organization Closeout 2026 06 26](/wiki/concepts/safe-thesis-organization-closeout-2026-06-26.md) · [KGAS Dissertation Claim Map](/wiki/concepts/kgas-dissertation-claim-map.md) · [Private KGAS README Claim Audit 2026 06 26](/wiki/concepts/private-kgas-readme-claim-audit-2026-06-26.md). Status: internal navigation guide, not a source of new claims.
+
+> Current location and preservation status: [Thesis Context Preservation State 2026 08 20](/wiki/concepts/thesis-context-preservation-state-2026-08-20.md). Read that checkpoint before treating any June path or status wording as present tense.
 
 # Purpose
 
@@ -30,9 +33,10 @@ The wiki is a navigation and synthesis layer. The raw archive remains the histor
 
 Read these in order:
 
-1. [Private KGAS README Draft 2026 06 26](/wiki/concepts/private-kgas-readme-draft-2026-06-26.md) - fastest current orientation.
-2. [Private KGAS README Claim Audit 2026 06 26](/wiki/concepts/private-kgas-readme-claim-audit-2026-06-26.md) - what the README can and cannot claim.
-3. [Safe Thesis Organization Closeout 2026 06 26](/wiki/concepts/safe-thesis-organization-closeout-2026-06-26.md) - what is complete, what is gated, and what not to do.
+1. [Thesis Context Preservation State 2026 08 20](/wiki/concepts/thesis-context-preservation-state-2026-08-20.md) - where the complete record currently lives.
+2. [Private KGAS README Draft 2026 06 26](/wiki/concepts/private-kgas-readme-draft-2026-06-26.md) - fastest conceptual orientation.
+3. [Private KGAS README Claim Audit 2026 06 26](/wiki/concepts/private-kgas-readme-claim-audit-2026-06-26.md) - what the README can and cannot claim.
+4. [Safe Thesis Organization Closeout 2026 06 26](/wiki/concepts/safe-thesis-organization-closeout-2026-06-26.md) - what was complete at that checkpoint, what was gated, and what not to do.
 
 Use this path when the goal is: "What is this work, what is safe to say, and what should I avoid?"
 
@@ -93,7 +97,7 @@ Default to the 15-minute path for orientation and the 60-minute path before any 
 # Links
 
 - [Thesis Record Overview](/wiki/overview.md)
-- [Progress](/PROGRESS.md)
+- [Progress](../../PROGRESS.md)
 - [Private KGAS README Draft 2026 06 26](/wiki/concepts/private-kgas-readme-draft-2026-06-26.md)
 - [Private KGAS README Claim Audit 2026 06 26](/wiki/concepts/private-kgas-readme-claim-audit-2026-06-26.md)
 - [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md)

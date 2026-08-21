@@ -4,7 +4,7 @@ title: Current Clean Repo
 description: Current tracked KGAS checkout after cleanup, recovery manifest addition, and post-backup commits.
 tags: [variant, current-repo, kgas]
 created: 2026-06-25
-updated: 2026-06-25
+updated: 2026-08-20
 sources:
   - ../README.md
   - ../CLAUDE.md
@@ -20,8 +20,9 @@ This page should be read as the current navigable endpoint, not as a claim that 
 
 # Current Identifiers
 
-- Branch: `backup/2026-05-23/phd_thesis_work-master`
-- HEAD: `2dfab76fe4181a1734001b666b634449d56c69fb`
+- Branch: `master`
+- Preservation-update starting point: `96975ba63509d032ae354e58323596b83fb6f3bf`
+- Historical checkpoint: `2dfab76fe4181a1734001b666b634449d56c69fb` (formerly recorded through `backup/2026-05-23/phd_thesis_work-master`, now reachable from `master`)
 - Public framing: academic research GraphRAG / KGAS system. [2]
 
 # Related Pages
