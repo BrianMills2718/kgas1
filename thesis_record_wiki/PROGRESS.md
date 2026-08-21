@@ -4,7 +4,7 @@ title: Thesis Record Wiki Progress
 description: Durable mission, acceptance criteria, completed commits, and next slices for the thesis record wiki.
 tags: [progress, mission, thesis-record]
 created: 2026-06-25
-updated: 2026-06-26
+updated: 2026-08-20
 confidence: high
 ---
 
@@ -253,6 +253,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 - `this commit` added a README manifest to `tool_compatability/poc/vertical_slice/`, marking it as historical POC material excluded from default pytest and pointing agents to the revival plan.
 - `this commit` started the explicit legacy-test namespace with isolated SQLite coverage for the historical vertical-slice table service; default pytest collection remains scoped to current runtime tests.
 - `this commit` added no-IO legacy framework registry tests that exercise tool capability registration and chain discovery without constructing Neo4j-backed services.
+- `this commit` restored and checksum-verified the ignored full-record archive from the retained desktop source, created a tested compressed recovery snapshot, indexed external thesis-context sources without moving them, and added the current preservation/location checkpoint.
 
 ## Deferred Risk Decisions
 
@@ -262,7 +263,7 @@ Full-program completion is now governed by `docs/plans/01_full_program_completio
 
 ## Next
 
-1. Next recommended step: start with [Thesis Record Reading Guide 2026 06 26](/wiki/concepts/thesis-record-reading-guide-2026-06-26.md), then read the private README and claim audit.
+1. Next recommended step: start with [Thesis Context Preservation State 2026 08 20](/wiki/concepts/thesis-context-preservation-state-2026-08-20.md), then use the [Thesis Record Reading Guide 2026 06 26](/wiki/concepts/thesis-record-reading-guide-2026-06-26.md) for a short conceptual path.
 2. If external sharing becomes the goal, derive a separate export candidate from the private README rather than copying it directly.
 3. Before any public release, review `docs/public_export/EXPORT_REVIEW_2026-06-26.md` and decide what security/history detail stays private.
 4. Implementation maintenance remains optional and separate from preservation: investigate live Neo4j multi-record warnings only if they block a concrete task; any Neo4j cleanup or legacy vertical-slice runtime revival must be planned as its own slice.

@@ -1,5 +1,11 @@
 # Update Log
 
+## 2026-08-20
+
+* **Preservation** | Restored the ignored full-record archive from the desktop into the local KGAS checkout without removing the source; verified 234,993 files, 26,910 directories, 242 symlinks, protected Redis-file hashes, and all seven Git bundles.
+* **Backup** | Created and integrity-tested the OneDrive-managed `archive_full_record-20260820.tar.gz` recovery snapshot with 262,145 members and SHA-256 sidecar; remote cloud-upload completion remains explicitly unverified.
+* **Reconciliation** | Added the current preservation/location checkpoint, indexed three related external thesis-context files by path and hash, and corrected stale wording that described the former backup branch as active.
+
 ## 2026-06-26
 
 * **Repair** | Completed final safe docs consolidation: classified five historical architecture/UI docs, added explicit stale-link markers and banners, and made docs/investigations/wiki markdown link checks pass without guessing missing targets.

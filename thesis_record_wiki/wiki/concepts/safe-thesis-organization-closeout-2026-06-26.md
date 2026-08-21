@@ -18,7 +18,7 @@ sources:
 confidence: high
 ---
 
-> Sources consulted: [Progress](/PROGRESS.md) · [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md) · [KGAS Dissertation Claim Map](/wiki/concepts/kgas-dissertation-claim-map.md) · [Theory Schema Application Lineage](/wiki/concepts/theory-schema-application-lineage.md) · [Uncertainty Framework Consolidation 2026 06 26](/wiki/concepts/uncertainty-framework-consolidation-2026-06-26.md) · [Current Confidence Smoke Rerun Plan 2026 06 26](/wiki/sources/current-confidence-smoke-rerun-plan-2026-06-26.md) · [Archived Uncertainty Dataset Access Plan 2026 06 26](/wiki/sources/archived-uncertainty-dataset-access-plan-2026-06-26.md) · `../../docs/plans/01_full_program_completion.md` · `../../docs/plans/05_approved_preservation_gates.md`
+> Sources consulted: [Progress](../../PROGRESS.md) · [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md) · [KGAS Dissertation Claim Map](/wiki/concepts/kgas-dissertation-claim-map.md) · [Theory Schema Application Lineage](/wiki/concepts/theory-schema-application-lineage.md) · [Uncertainty Framework Consolidation 2026 06 26](/wiki/concepts/uncertainty-framework-consolidation-2026-06-26.md) · [Current Confidence Smoke Rerun Plan 2026 06 26](/wiki/sources/current-confidence-smoke-rerun-plan-2026-06-26.md) · [Archived Uncertainty Dataset Access Plan 2026 06 26](/wiki/sources/archived-uncertainty-dataset-access-plan-2026-06-26.md) · `../../docs/plans/01_full_program_completion.md` · `../../docs/plans/05_approved_preservation_gates.md`
 
 # Summary
 
@@ -30,7 +30,7 @@ This does not mean the dissertation, KGAS implementation, or public export is fi
 
 | Gate | Status | Evidence |
 | --- | --- | --- |
-| Raw preservation | Complete for current boundary. `archive_full_record/` was not rewritten or sanitized in place. | [Full Record Preservation](/wiki/concepts/full-record-preservation.md), [Progress](/PROGRESS.md) |
+| Raw preservation | Complete for current boundary. `archive_full_record/` was not rewritten or sanitized in place. | [Full Record Preservation](/wiki/concepts/full-record-preservation.md), [Progress](../../PROGRESS.md) |
 | Wiki navigability | Complete for current boundary. Wiki lint remains 100/100. | 210 pages, clean linter and link checker on latest pass. |
 | Proposal/history preservation | Complete for current boundary. Older proposals, final proposal, annexes, timeline discrepancies, HSPC caveats, and validation evolution are preserved without assuming newer is better. | [Proposal Framing Evolution](/wiki/concepts/proposal-framing-evolution.md), [Proposal Validation Evolution](/wiki/concepts/proposal-validation-evolution.md), [HSPC Data Governance Boundary](/wiki/concepts/hspc-data-governance-boundary.md) |
 | Dissertation claim map | Complete for current boundary. Final claims, older ambition, validation design, runtime proof, and governance boundaries are separated. | [KGAS Dissertation Claim Map](/wiki/concepts/kgas-dissertation-claim-map.md) |
@@ -90,7 +90,7 @@ Use this hierarchy for future work:
 
 # Links
 
-- [Progress](/PROGRESS.md)
+- [Progress](../../PROGRESS.md)
 - [Thesis Recovery Current State 2026 06 26](/wiki/concepts/thesis-recovery-current-state-2026-06-26.md)
 - [KGAS Dissertation Claim Map](/wiki/concepts/kgas-dissertation-claim-map.md)
 - [Theory Schema Application Lineage](/wiki/concepts/theory-schema-application-lineage.md)
