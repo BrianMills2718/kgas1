@@ -1,17 +1,12 @@
----
-doc-role: wiki-manifest
-freshness: 2026-06-25
----
-
-# Wiki Manifest — PhD Thesis Work (KGAS)
-
-id: Digimons
-portfolio_tier: personal
-description: >
-  PhD Thesis Work (KGAS)
-
-sources:
-  - path: ../README.md
-    role: overview
-  - path: ../CLAUDE.md
-    role: instructions
+version: 1
+project: Digimons
+# PhD Thesis Work (KGAS)
+publish:
+  - path: README.md
+    type: ProjectOverview
+    title: Digimons Overview
+    tags: [portfolio, knowledge-graph, graphrag]
+  - path: CLAUDE.md
+    type: Methodology
+    title: Digimons Repository Instructions
+    tags: [portfolio, knowledge-graph, graphrag]
