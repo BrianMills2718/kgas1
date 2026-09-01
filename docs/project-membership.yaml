@@ -1,0 +1,16 @@
+schema_version: 1.0.0
+project_id: project-kgas
+display_name: KGAS Thesis Work
+context_epoch: 1
+revision_policy:
+  development: moving_checkout
+  evidence: exact_revision
+repositories:
+  - repository_id: Digimons
+    role: primary
+    workspace: default
+    authority_entrypoints:
+      - CLAUDE.md
+      - README.md
+      - THESIS_WORK.md
+    contract_seams: []
