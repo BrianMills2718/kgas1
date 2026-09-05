@@ -24,7 +24,7 @@ This is an experimental GraphRAG (Graph-based Retrieval-Augmented Generation) sy
 
 ### Current Status:
 - ✅ **Academic Research Capable**: Suitable for local research and experimentation
-- ✅ **Development Testing**: 14 tests covering core research functionality validation
+- ✅ **Development Testing**: 81 tests; 75 pass, 6 require a local Neo4j
 - ✅ **Research Functionality**: Genuine research capabilities without production mocks
 - ✅ **Academic Evidence**: Research execution logs and academic validation
 - 🔄 **Research Enhancement**: Ongoing development of advanced research capabilities
@@ -39,6 +39,10 @@ This is an experimental GraphRAG (Graph-based Retrieval-Augmented Generation) sy
 - Development-grade error handling for research reliability
 - Research logging and academic validation monitoring
 
+### Not currently wired up:
+- The `mcp`, `ui` and `dev-ui` CLI entry points (their target modules are absent)
+- Real uncertainty propagation (currently hardcoded 0.0) and reasoning traces (currently templates)
+
 ### What This System Does:
 - Extracts entities from text documents
 - Identifies relationships between entities
@@ -47,7 +51,6 @@ This is an experimental GraphRAG (Graph-based Retrieval-Augmented Generation) sy
 - Demonstrates GraphRAG concepts
 
 ### Known Research Limitations:
-- Package installation requires manual fixes for development setup
 - Neo4j shows property warnings during research validation
 - Development-grade error handling suitable for academic research
 - Manual configuration needed for research environment setup
@@ -56,31 +59,38 @@ This is an experimental GraphRAG (Graph-based Retrieval-Augmented Generation) sy
 ## Quick Start
 
 ### Prerequisites
-- Python 3.8+
-- Docker (for Neo4j)
-- Basic understanding of GraphRAG concepts
+- Python 3.10+
+- Docker, for Neo4j — required by the graph pipeline and its integration tests
 
-### Installation
+### Install
 ```bash
-# Clone repository
-git clone <repository-url>
-cd Digimons
-
-# Install package
+git clone https://github.com/BrianMills2718/kgas1.git
+cd kgas1
+python3 -m venv .venv && . .venv/bin/activate
 pip install -e .
-
-# Verify installation
-python examples/verify_package_installation.py
+pip install -r requirements.txt
 ```
 
-### Basic Usage
+### Verify
 ```bash
-# Start Neo4j
-docker run -p 7687:7687 -p 7474:7474 --name neo4j -d -e NEO4J_AUTH=none neo4j:latest
-
-# Run example
-python examples/minimal_working_example.py
+python -m pytest tests -q
 ```
+Expect 75 passed and 6 skipped. The six skips need a local Neo4j; they are the
+tests that exercise the graph pipeline end to end, so a green run without them
+says the units work and says nothing about the pipeline.
+
+To run those too, start Neo4j first:
+```bash
+docker run -p 7687:7687 -p 7474:7474 --name neo4j -d -e NEO4J_AUTH=none neo4j:latest
+```
+
+### Entry points
+
+`python -m src.cli` exposes `mcp`, `ui` and `dev-ui`. **None of them currently
+run in this tree**: `mcp` needs `config/config_loader.py`, `ui` needs
+`ui/graphrag_ui.py`, and `dev-ui` needs `streamlit_app.py`, and none of those
+files are present. The importable library and the test suite are the working
+surface today.
 
 **Full roadmap**: docs/planning/roadmap.md
 
