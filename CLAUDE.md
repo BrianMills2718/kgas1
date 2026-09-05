@@ -35,11 +35,16 @@
 /experiments/        # Research experiments (keep)
 ```
 
-### **Entry Points** 
-- `main.py` - Production FastAPI server
-- `streamlit_app.py` - Academic UI for ontology generation  
-- `kgas_mcp_server.py` - Full MCP server (37+ tools)
-- `kgas_simple_mcp_server.py` - Simple MCP server (testing)
+### **Entry Points**
+`python -m src.cli` is the only CLI, exposing `mcp`, `ui` and `dev-ui`.
+
+**None of the three currently run in this tree** — each needs a file that is
+not present (`config/config_loader.py`, `ui/graphrag_ui.py`,
+`streamlit_app.py` respectively). Verified 2026-09-05 by running all three.
+
+The working surface today is the importable library (`import src`) and the
+test suite. `main.py`, `kgas_mcp_server.py` and `kgas_simple_mcp_server.py`
+were listed here previously and do not exist in the repository.
 
 ### **What Actually Works**
 ✅ Basic tool chaining (text → embedding → database)
@@ -128,7 +133,9 @@
 ## 4. INFRASTRUCTURE
 
 ### **Working Directory**
-`/home/brian/projects/Digimons/tool_compatability/poc/vertical_slice/`
+`tool_compatability/poc/vertical_slice/`, relative to the repository root.
+(This previously named `/home/brian/projects/Digimons/...`, a path that no
+longer exists — the repository is `kgas1`.)
 
 ### **Database Configuration**
 - **Neo4j**: `bolt://localhost:7687` (neo4j/devpassword)
@@ -138,8 +145,8 @@
 
 ### **Quick Verification Commands**
 ```bash
-# Test working adapters
-cd /home/brian/projects/Digimons/tool_compatability/poc/vertical_slice
+# Test working adapters (needs a local Neo4j on bolt://localhost:7687)
+cd tool_compatability/poc/vertical_slice
 python3 register_with_framework.py  # Should show "Chain found: ['VectorTool', 'TableTool']"
 python3 test_integration.py         # Should show "✅ Integration successful"
 
