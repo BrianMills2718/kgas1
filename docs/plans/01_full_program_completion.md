@@ -1,3 +1,8 @@
+---
+plan_id: "Digimons#1"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # Plan #1: Full Program Completion
 
 **Status:** Blocked - safe local runtime complete; remaining gates require Brian review or credential/budget approval
