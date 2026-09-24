@@ -10,7 +10,7 @@ repositories:
     role: primary
     workspace: default
     authority_entrypoints:
-      - CLAUDE.md
+      - AGENTS.md
       - README.md
       - THESIS_WORK.md
     contract_seams: []

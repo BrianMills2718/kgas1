@@ -13,10 +13,10 @@ Original KGAS thesis GraphRAG research system with document processing, entity/r
 
 ## Read next
 
-- [Operating rules](../CLAUDE.md)
+- [Operating rules](../AGENTS.md)
 - [Operating rules (Codex mirror)](../AGENTS.md)
 - [Project overview](../README.md)
-- [Active plan queue](../docs/plans/CLAUDE.md)
+- [Active plan queue](../docs/plans/AGENTS.md)
 
 ## Coverage and unknowns
 

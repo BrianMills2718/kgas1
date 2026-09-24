@@ -1,4 +1,4 @@
-# Utils Module - CLAUDE.md
+# Utils Module - AGENTS.md
 
 ## Overview
 The `src/utils/` directory contains utility functions, helper modules, and common functionality shared across the KGAS system. These utilities provide foundational support for database operations, file handling, data processing, and system integration.
@@ -112,14 +112,14 @@ def safe_file_operation(file_path: Union[str, Path]) -> Optional[str]:
     """Safe file operation with comprehensive validation"""
     if not file_path:
         raise ValueError("File path cannot be empty")
-    
+
     path = Path(file_path)
     if not path.exists():
         raise FileNotFoundError(f"File not found: {path}")
-    
+
     if not path.is_file():
         raise ValueError(f"Path is not a file: {path}")
-    
+
     # ... rest of operation ...
 ```
 
@@ -258,18 +258,18 @@ def test_utility_edge_cases():
 def utility_function(param1: str, param2: Optional[int] = None) -> Dict[str, Any]:
     """
     Brief description of what the utility does.
-    
+
     Args:
         param1: Description of param1
         param2: Description of param2 (optional)
-    
+
     Returns:
         Dict containing result with status and data/error
-    
+
     Raises:
         ValueError: If param1 is invalid
         RuntimeError: If operation fails
-    
+
     Example:
         >>> result = utility_function("test", 42)
         >>> assert result["status"] == "success"

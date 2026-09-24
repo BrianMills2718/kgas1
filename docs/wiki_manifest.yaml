@@ -6,7 +6,7 @@ publish:
     type: ProjectOverview
     title: Digimons Overview
     tags: [portfolio, knowledge-graph, graphrag]
-  - path: CLAUDE.md
+  - path: AGENTS.md
     type: Methodology
     title: Digimons Repository Instructions
     tags: [portfolio, knowledge-graph, graphrag]
