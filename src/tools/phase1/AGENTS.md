@@ -1,4 +1,4 @@
-# Phase 1 Tools - CLAUDE.md
+# Phase 1 Tools - AGENTS.md
 
 ## Overview
 The `src/tools/phase1/` directory contains the core tools that implement the vertical slice workflow: **PDF → PageRank → Answer**. These tools form the foundational pipeline for document processing and knowledge graph construction.
@@ -84,7 +84,7 @@ operation_id = self.provenance_service.start_operation(
 try:
     # Tool logic here
     # ...
-    
+
     # Complete operation
     completion_result = self.provenance_service.complete_operation(
         operation_id=operation_id,
@@ -95,14 +95,14 @@ try:
             "processing_time": duration
         }
     )
-    
+
     return {
         "status": "success",
         "results": results,
         "operation_id": operation_id,
         "provenance": completion_result
     }
-    
+
 except Exception as e:
     return self._complete_with_error(operation_id, str(e))
 ```
@@ -460,4 +460,4 @@ python -c "from src.tools.phase1.t01_pdf_loader import PDFLoader; print(PDFLoade
 - **PII Handling**: Integrate with PII service for sensitive data
 - **Access Control**: Proper access control for database operations
 - **Audit Logging**: Comprehensive audit logging for operations
-- **Data Sanitization**: Sanitize all inputs before processing 
+- **Data Sanitization**: Sanitize all inputs before processing

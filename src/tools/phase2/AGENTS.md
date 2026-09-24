@@ -1,4 +1,4 @@
-# Phase 2 Tools - CLAUDE.md
+# Phase 2 Tools - AGENTS.md
 
 ## Overview
 The `src/tools/phase2/` directory contains enhanced tools that implement **ontology-aware processing** and **semantic reasoning**. These tools build upon Phase 1 capabilities by adding domain-specific knowledge, LLM-driven extraction, and advanced graph visualization.
@@ -25,7 +25,7 @@ The Phase 2 workflow enhances the basic pipeline with ontology awareness:
 ### Ontology-Aware Pattern
 All Phase 2 tools integrate with domain ontologies:
 ```python
-def __init__(self, 
+def __init__(self,
              identity_service: Optional[IdentityService] = None,
              ontology_storage: Optional[OntologyStorageService] = None,
              confidence_threshold: float = 0.7):
@@ -61,9 +61,9 @@ Phase 2 tools support async processing for performance:
 class AsyncMultiDocumentProcessor:
     def __init__(self, max_concurrent_docs: int = 5):
         self.semaphore = asyncio.Semaphore(max_concurrent_docs)
-    
+
     async def process_documents_async(self, document_paths: List[str]) -> List[ProcessingResult]:
-        tasks = [asyncio.create_task(self.process_single_document(doc_path)) 
+        tasks = [asyncio.create_task(self.process_single_document(doc_path))
                 for doc_path in document_paths]
         return await asyncio.gather(*tasks, return_exceptions=True)
 ```
@@ -85,9 +85,9 @@ from src.tools.phase2.t23c_ontology_aware_extractor import OntologyAwareExtracto
 
 extractor = OntologyAwareExtractor()
 result = extractor.extract_entities(
-    text_content, 
-    ontology, 
-    source_ref, 
+    text_content,
+    ontology,
+    source_ref,
     confidence_threshold=0.7,
     use_theory_validation=True
 )
@@ -210,8 +210,8 @@ from src.tools.phase2.enhanced_vertical_slice_workflow import EnhancedVerticalSl
 
 workflow = EnhancedVerticalSliceWorkflow()
 result = workflow.execute_enhanced_workflow(
-    document_paths, 
-    queries, 
+    document_paths,
+    queries,
     confidence_threshold=0.7
 )
 ```
@@ -381,4 +381,4 @@ python -c "import asyncio; from src.tools.phase2.async_multi_document_processor 
 - **Entity Migration**: Migrate entities to ontology-aware format
 - **Relationship Migration**: Migrate relationships with ontological validation
 - **Graph Migration**: Migrate graph data with enhanced metadata
-- **Validation Migration**: Add theory-driven validation to existing data 
+- **Validation Migration**: Add theory-driven validation to existing data

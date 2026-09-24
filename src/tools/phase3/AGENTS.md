@@ -1,4 +1,4 @@
-# Phase 3 Tools - CLAUDE.md
+# Phase 3 Tools - AGENTS.md
 
 ## Overview
 The `src/tools/phase3/` directory contains **multi-document knowledge fusion** tools that consolidate knowledge across document collections with conflict resolution. These tools implement the most advanced phase of the GraphRAG system, focusing on cross-document knowledge integration and consistency.
@@ -27,7 +27,7 @@ Phase 3 tools consolidate functionality from multiple sources:
 """
 CONSOLIDATED TOOL CLASSES (Priority 2 Consolidation)
 These classes consolidate functionality from:
-- t301_fusion_tools.py 
+- t301_fusion_tools.py
 - t301_multi_document_fusion_tools.py
 - t301_mcp_tools.py
 """
@@ -399,4 +399,4 @@ python -c "from src.tools.phase3.t301_multi_document_fusion import MultiDocument
 - **Entity Migration**: Migrate entities to fusion-aware format
 - **Relationship Migration**: Migrate relationships with fusion metadata
 - **Graph Migration**: Migrate graph data with fusion results
-- **Consistency Migration**: Add consistency metrics to existing data 
+- **Consistency Migration**: Add consistency metrics to existing data

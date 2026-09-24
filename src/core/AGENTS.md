@@ -43,7 +43,7 @@ src/core/
 ```
 ServiceManager
 ├── IdentityService (T107)
-├── ProvenanceService (T110) 
+├── ProvenanceService (T110)
 ├── QualityService (T111)
 ├── WorkflowStateService (T121)
 └── Configuration & Error Handling
@@ -93,17 +93,17 @@ class CoreService(ABC):
     def initialize(self, config: Dict[str, Any]) -> ServiceResponse:
         """Initialize service with configuration"""
         pass
-    
+
     @abstractmethod
     def health_check(self) -> ServiceResponse:
         """Check service health and readiness"""
         pass
-    
+
     @abstractmethod
     def get_statistics(self) -> ServiceResponse:
         """Get service performance statistics"""
         pass
-    
+
     @abstractmethod
     def cleanup(self) -> ServiceResponse:
         """Clean up service resources"""
@@ -116,8 +116,8 @@ class CoreService(ABC):
 ```python
 # src/core/identity_service.py - Updated implementation
 class IdentityService(CoreService):
-    def create_mention(self, surface_form: str, start_pos: int, end_pos: int, 
-                      source_ref: str, entity_type: str = None, 
+    def create_mention(self, surface_form: str, start_pos: int, end_pos: int,
+                      source_ref: str, entity_type: str = None,
                       confidence: float = 0.8) -> ServiceResponse:
         """Create mention with comprehensive validation and error handling"""
         try:
@@ -130,7 +130,7 @@ class IdentityService(CoreService):
                     error_code="INVALID_SURFACE_FORM",
                     error_message="Surface form cannot be empty"
                 )
-            
+
             if start_pos < 0 or end_pos <= start_pos:
                 return ServiceResponse(
                     success=False,
@@ -139,11 +139,11 @@ class IdentityService(CoreService):
                     error_code="INVALID_POSITION",
                     error_message="Invalid start/end positions"
                 )
-            
+
             # Full implementation with error handling
             mention_id = self._generate_mention_id()
             entity_id = self._resolve_or_create_entity(surface_form, entity_type)
-            
+
             mention = {
                 "mention_id": mention_id,
                 "entity_id": entity_id,
@@ -155,10 +155,10 @@ class IdentityService(CoreService):
                 "confidence": confidence,
                 "created_at": datetime.now().isoformat()
             }
-            
+
             # Store mention with full error handling
             self._store_mention(mention)
-            
+
             return ServiceResponse(
                 success=True,
                 data=mention,
@@ -168,7 +168,7 @@ class IdentityService(CoreService):
                     "timestamp": datetime.now().isoformat()
                 }
             )
-            
+
         except Exception as e:
             logger.error(f"Failed to create mention: {e}", exc_info=True)
             return ServiceResponse(
@@ -189,7 +189,7 @@ class TestServiceContracts:
         services = [IdentityService, ProvenanceService, QualityService, WorkflowStateService]
         for service_class in services:
             assert issubclass(service_class, CoreService)
-            
+
     def test_service_response_consistency(self):
         """Test all services return consistent response format"""
         for service in self.get_all_services():
@@ -198,7 +198,7 @@ class TestServiceContracts:
             assert hasattr(response, 'success')
             assert hasattr(response, 'data')
             assert hasattr(response, 'metadata')
-            
+
     def test_error_handling_completeness(self):
         """Test all services handle error conditions properly"""
         for service in self.get_all_services():
@@ -229,50 +229,50 @@ from contextlib import contextmanager
 
 class ServiceManager:
     """Thread-safe service manager with dependency injection"""
-    
+
     _instance = None
     _lock = threading.Lock()
     _services: Dict[str, Any] = {}
     _initialized = False
-    
+
     def __new__(cls) -> 'ServiceManager':
         if cls._instance is None:
             with cls._lock:
                 if cls._instance is None:
                     cls._instance = super().__new__(cls)
         return cls._instance
-    
+
     def initialize(self, config: Dict[str, Any]) -> bool:
         """Initialize all services with proper dependency order"""
         if self._initialized:
             return True
-            
+
         try:
             # Initialize in dependency order
             self._initialize_configuration(config)
             self._initialize_error_handler()
             self._initialize_logging()
             self._initialize_core_services()
-            
+
             self._initialized = True
             logger.info("ServiceManager initialized successfully")
             return True
-            
+
         except Exception as e:
             logger.error(f"ServiceManager initialization failed: {e}")
             self.cleanup()
             return False
-    
+
     @property
     def identity_service(self) -> IdentityService:
         """Get or create identity service instance"""
         return self._get_service('identity', IdentityService)
-    
+
     @property
     def provenance_service(self) -> ProvenanceService:
         """Get or create provenance service instance"""
         return self._get_service('provenance', ProvenanceService)
-    
+
     def _get_service(self, service_name: str, service_class: Type) -> Any:
         """Thread-safe service creation"""
         if service_name not in self._services:
@@ -280,12 +280,12 @@ class ServiceManager:
                 if service_name not in self._services:
                     self._services[service_name] = self._create_service(service_class)
         return self._services[service_name]
-    
+
     def _create_service(self, service_class: Type) -> Any:
         """Create service instance with dependency injection"""
         # Implement full dependency injection
         pass
-    
+
     def health_check(self) -> Dict[str, bool]:
         """Check health of all managed services"""
         health_status = {}
@@ -297,7 +297,7 @@ class ServiceManager:
                 logger.error(f"Health check failed for {service_name}: {e}")
                 health_status[service_name] = False
         return health_status
-    
+
     def cleanup(self) -> None:
         """Clean up all services and resources"""
         for service_name, service in self._services.items():
@@ -331,7 +331,7 @@ import logging
 
 class ServiceErrorSeverity(Enum):
     INFO = "info"
-    WARNING = "warning" 
+    WARNING = "warning"
     ERROR = "error"
     CRITICAL = "critical"
 
@@ -347,37 +347,37 @@ class ServiceError:
 
 class ServiceErrorHandler:
     """Centralized error handling for all core services"""
-    
+
     def __init__(self):
         self.error_counts = {}
         self.recovery_strategies = {}
-        
+
     def handle_service_error(self, error: ServiceError) -> bool:
         """Handle service error with appropriate response"""
         try:
             # Log error with full context
             self._log_error(error)
-            
+
             # Track error frequency
             self._track_error(error)
-            
+
             # Attempt recovery if strategy exists
             recovery_successful = self._attempt_recovery(error)
-            
+
             # Escalate if critical or recovery failed
             if error.severity == ServiceErrorSeverity.CRITICAL or not recovery_successful:
                 self._escalate_error(error)
-                
+
             return recovery_successful
-            
+
         except Exception as e:
             logger.critical(f"Error handler itself failed: {e}")
             return False
-    
+
     def register_recovery_strategy(self, error_code: str, strategy: Callable) -> None:
         """Register recovery strategy for specific error type"""
         self.recovery_strategies[error_code] = strategy
-    
+
     def _attempt_recovery(self, error: ServiceError) -> bool:
         """Attempt to recover from error"""
         if error.recovery_action:
@@ -385,14 +385,14 @@ class ServiceErrorHandler:
                 return error.recovery_action()
             except Exception as e:
                 logger.error(f"Recovery action failed: {e}")
-                
+
         strategy = self.recovery_strategies.get(error.error_code)
         if strategy:
             try:
                 return strategy(error)
             except Exception as e:
                 logger.error(f"Recovery strategy failed: {e}")
-                
+
         return False
 ```
 
@@ -403,7 +403,7 @@ class IdentityService(CoreService):
     def __init__(self, error_handler: ServiceErrorHandler):
         self.error_handler = error_handler
         self._setup_error_recovery()
-    
+
     def _setup_error_recovery(self):
         """Setup error recovery strategies"""
         self.error_handler.register_recovery_strategy(
@@ -414,7 +414,7 @@ class IdentityService(CoreService):
             "MEMORY_LIMIT_EXCEEDED",
             self._clear_cache_and_retry
         )
-    
+
     def create_mention(self, **kwargs) -> ServiceResponse:
         """Create mention with comprehensive error handling"""
         try:
@@ -423,11 +423,11 @@ class IdentityService(CoreService):
             if validation_error:
                 self.error_handler.handle_service_error(validation_error)
                 return self._create_error_response(validation_error)
-            
+
             # Attempt operation with error handling
             result = self._create_mention_internal(**kwargs)
             return self._create_success_response(result)
-            
+
         except DatabaseConnectionError as e:
             error = ServiceError(
                 service_name="IdentityService",
@@ -440,7 +440,7 @@ class IdentityService(CoreService):
             )
             self.error_handler.handle_service_error(error)
             return self._create_error_response(error)
-            
+
         except Exception as e:
             error = ServiceError(
                 service_name="IdentityService",
@@ -485,7 +485,7 @@ class PerformanceMetrics:
 
 class PerformanceMonitor:
     """Monitor performance of all core service operations"""
-    
+
     def __init__(self):
         self.metrics = []
         self.thresholds = {
@@ -493,14 +493,14 @@ class PerformanceMonitor:
             'max_memory': 100 * 1024 * 1024,  # 100MB
             'max_cpu': 80.0  # 80%
         }
-    
+
     @contextmanager
     def monitor_operation(self, operation: str):
         """Context manager to monitor operation performance"""
         process = psutil.Process()
         start_time = time.time()
         start_memory = process.memory_info().rss
-        
+
         try:
             yield
         finally:
@@ -508,7 +508,7 @@ class PerformanceMonitor:
             end_memory = process.memory_info().rss
             memory_used = end_memory - start_memory
             cpu_percent = process.cpu_percent()
-            
+
             metrics = PerformanceMetrics(
                 operation=operation,
                 duration=duration,
@@ -516,18 +516,18 @@ class PerformanceMonitor:
                 cpu_percent=cpu_percent,
                 timestamp=datetime.now().isoformat()
             )
-            
+
             self.metrics.append(metrics)
             self._check_thresholds(metrics)
-    
+
     def _check_thresholds(self, metrics: PerformanceMetrics):
         """Check if performance metrics exceed thresholds"""
         if metrics.duration > self.thresholds['max_duration']:
             logger.warning(f"Operation {metrics.operation} exceeded duration threshold: {metrics.duration}s")
-        
+
         if metrics.memory_used > self.thresholds['max_memory']:
             logger.warning(f"Operation {metrics.operation} exceeded memory threshold: {metrics.memory_used} bytes")
-        
+
         if metrics.cpu_percent > self.thresholds['max_cpu']:
             logger.warning(f"Operation {metrics.operation} exceeded CPU threshold: {metrics.cpu_percent}%")
 ```
@@ -538,12 +538,12 @@ class PerformanceMonitor:
 class IdentityService(CoreService):
     def __init__(self, performance_monitor: PerformanceMonitor):
         self.performance_monitor = performance_monitor
-    
+
     def create_mention(self, **kwargs) -> ServiceResponse:
         """Create mention with performance monitoring"""
         with self.performance_monitor.monitor_operation("identity_create_mention"):
             return self._create_mention_internal(**kwargs)
-    
+
     def get_entity_by_mention(self, mention_id: str) -> ServiceResponse:
         """Get entity with performance monitoring"""
         with self.performance_monitor.monitor_operation("identity_get_entity"):
@@ -557,21 +557,21 @@ class IdentityService(CoreService):
 # tests/unit/core/test_service_comprehensive.py
 class TestServiceComprehensive:
     """Comprehensive testing for all core services"""
-    
+
     def test_service_initialization(self):
         """Test service initialization with various configurations"""
         # Test valid configurations
         # Test invalid configurations
         # Test partial configurations
         # Verify error handling for each case
-        
+
     def test_service_operations_under_load(self):
         """Test service operations under various load conditions"""
         # Single-threaded performance
         # Multi-threaded performance
         # Memory pressure testing
         # CPU pressure testing
-        
+
     def test_error_conditions_comprehensive(self):
         """Test all possible error conditions"""
         # Invalid inputs
@@ -579,7 +579,7 @@ class TestServiceComprehensive:
         # Memory exhaustion
         # Network failures
         # Concurrent access issues
-        
+
     def test_recovery_mechanisms(self):
         """Test error recovery mechanisms"""
         # Database reconnection
@@ -597,13 +597,13 @@ class TestServicePerformance:
         # Test each service operation
         # Measure response times under various conditions
         # Verify times meet performance requirements
-        
+
     def test_memory_usage_patterns(self):
         """Validate memory usage stays within bounds"""
         # Monitor memory usage during operations
         # Test for memory leaks
         # Verify cleanup effectiveness
-        
+
     def test_concurrent_access_performance(self):
         """Test performance under concurrent access"""
         # Multiple threads accessing services

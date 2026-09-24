@@ -49,7 +49,7 @@ src/tools/
 ### Tool Categories (121 Total)
 ```
 T01-T30:  Graph Analysis Tools    (5 implemented, 25 remaining)
-T31-T60:  Table Analysis Tools    (2 implemented, 28 remaining)  
+T31-T60:  Table Analysis Tools    (2 implemented, 28 remaining)
 T61-T90:  Vector Analysis Tools   (2 implemented, 28 remaining)
 T91-T121: Cross-Modal Tools       (0 implemented, 31 remaining)
 ```
@@ -72,88 +72,7 @@ T91-T121: Cross-Modal Tools       (0 implemented, 31 remaining)
 
 **Implementation Steps**:
 
-1. **Create Unified Tool Interface Contract**
-```python
-# src/tools/base_classes/tool_protocol.py
-from abc import ABC, abstractmethod
-from typing import Dict, Any, Optional, List
-from dataclasses import dataclass
-from enum import Enum
-
-class ToolStatus(Enum):
-    READY = "ready"
-    PROCESSING = "processing" 
-    ERROR = "error"
-    MAINTENANCE = "maintenance"
-
-@dataclass(frozen=True)
-class ToolRequest:
-    """Standardized tool input format"""
-    tool_id: str
-    operation: str
-    input_data: Any
-    parameters: Dict[str, Any]
-    context: Optional[Dict[str, Any]] = None
-    validation_mode: bool = False
-
-@dataclass(frozen=True)
-class ToolResult:
-    """Standardized tool output format"""
-    tool_id: str
-    status: str  # "success" or "error"
-    data: Any
-    metadata: Dict[str, Any]
-    execution_time: float
-    memory_used: int
-    error_code: Optional[str] = None
-    error_message: Optional[str] = None
-
-@dataclass(frozen=True)
-class ToolContract:
-    """Tool capability and requirement specification"""
-    tool_id: str
-    name: str
-    description: str
-    category: str  # "graph", "table", "vector", "cross_modal"
-    input_schema: Dict[str, Any]
-    output_schema: Dict[str, Any]
-    dependencies: List[str]
-    performance_requirements: Dict[str, Any]
-    error_conditions: List[str]
-
-class UnifiedTool(ABC):
-    """Contract all tools MUST implement"""
-    
-    @abstractmethod
-    def get_contract(self) -> ToolContract:
-        """Return tool contract specification"""
-        pass
-    
-    @abstractmethod
-    def execute(self, request: ToolRequest) -> ToolResult:
-        """Execute tool operation with standardized input/output"""
-        pass
-    
-    @abstractmethod
-    def validate_input(self, input_data: Any) -> bool:
-        """Validate input against tool contract"""
-        pass
-    
-    @abstractmethod
-    def health_check(self) -> ToolResult:
-        """Check tool health and readiness"""
-        pass
-    
-    @abstractmethod
-    def get_status(self) -> ToolStatus:
-        """Get current tool status"""
-        pass
-    
-    @abstractmethod
-    def cleanup(self) -> bool:
-        """Clean up tool resources"""
-        pass
-```
+1. **Create Unified Tool Interface Contract** — [historical example](TOOL_CONTRACT_EXAMPLE.md); verify against current code before implementing.
 
 2. **Migrate All 26 Existing Tools to Unified Interface**
 
@@ -162,14 +81,14 @@ class UnifiedTool(ABC):
 # src/tools/phase1/t23a_spacy_ner.py - Updated implementation
 class SpacyNER(UnifiedTool):
     """T23A: spaCy Named Entity Recognition with unified interface"""
-    
+
     def __init__(self, service_manager: ServiceManager):
         self.service_manager = service_manager
         self.tool_id = "T23A_SPACY_NER"
         self.status = ToolStatus.READY
         self.performance_monitor = PerformanceMonitor()
         self._initialize_spacy()
-    
+
     def get_contract(self) -> ToolContract:
         """Return tool contract specification"""
         return ToolContract(
@@ -221,16 +140,16 @@ class SpacyNER(UnifiedTool):
                 "MEMORY_LIMIT_EXCEEDED"
             ]
         )
-    
+
     def execute(self, request: ToolRequest) -> ToolResult:
         """Execute entity extraction with comprehensive error handling"""
         start_time = time.time()
         start_memory = psutil.Process().memory_info().rss
-        
+
         try:
             # Set status to processing
             self.status = ToolStatus.PROCESSING
-            
+
             # Validate input against contract
             if not self.validate_input(request.input_data):
                 return self._create_error_result(
@@ -238,12 +157,12 @@ class SpacyNER(UnifiedTool):
                     "INVALID_INPUT",
                     "Input validation failed against tool contract"
                 )
-            
+
             # Extract parameters with defaults
             text = request.input_data.get("text")
             chunk_ref = request.input_data.get("chunk_ref")
             confidence_threshold = request.parameters.get("confidence_threshold", 0.8)
-            
+
             # Validate text is not empty
             if not text or not text.strip():
                 return self._create_error_result(
@@ -251,7 +170,7 @@ class SpacyNER(UnifiedTool):
                     "EMPTY_TEXT",
                     "Text input cannot be empty"
                 )
-            
+
             # Check spaCy model availability
             if not self.nlp:
                 self._initialize_spacy()
@@ -261,28 +180,28 @@ class SpacyNER(UnifiedTool):
                         "SPACY_MODEL_NOT_AVAILABLE",
                         "spaCy model not available. Install with: python -m spacy download en_core_web_sm"
                     )
-            
+
             # Process text with spaCy
             doc = self.nlp(text)
-            
+
             # Extract entities with comprehensive processing
             entities = []
             for ent in doc.ents:
                 # Filter by entity types and confidence
                 if ent.label_ not in self.target_entity_types:
                     continue
-                
+
                 if len(ent.text.strip()) < 2:  # Skip very short entities
                     continue
-                
+
                 # Calculate entity confidence
                 entity_confidence = self._calculate_entity_confidence(
                     ent.text, ent.label_, confidence_threshold
                 )
-                
+
                 if entity_confidence < confidence_threshold:
                     continue
-                
+
                 # Create mention through identity service
                 mention_result = self.service_manager.identity_service.create_mention(
                     surface_form=ent.text,
@@ -292,7 +211,7 @@ class SpacyNER(UnifiedTool):
                     entity_type=ent.label_,
                     confidence=entity_confidence
                 )
-                
+
                 if mention_result.success:
                     entity_data = {
                         "entity_id": mention_result.data["entity_id"],
@@ -307,14 +226,14 @@ class SpacyNER(UnifiedTool):
                     entities.append(entity_data)
                 else:
                     logger.warning(f"Failed to create mention for entity: {ent.text}")
-            
+
             # Calculate execution metrics
             execution_time = time.time() - start_time
             memory_used = psutil.Process().memory_info().rss - start_memory
-            
+
             # Reset status
             self.status = ToolStatus.READY
-            
+
             # Create success result
             return ToolResult(
                 tool_id=self.tool_id,
@@ -339,7 +258,7 @@ class SpacyNER(UnifiedTool):
                 execution_time=execution_time,
                 memory_used=memory_used
             )
-            
+
         except Exception as e:
             self.status = ToolStatus.ERROR
             logger.error(f"Unexpected error in {self.tool_id}: {e}", exc_info=True)
@@ -348,7 +267,7 @@ class SpacyNER(UnifiedTool):
                 "UNEXPECTED_ERROR",
                 f"Unexpected error during entity extraction: {str(e)}"
             )
-    
+
     def validate_input(self, input_data: Any) -> bool:
         """Validate input against tool contract"""
         try:
@@ -358,26 +277,26 @@ class SpacyNER(UnifiedTool):
         except jsonschema.ValidationError as e:
             logger.error(f"Input validation failed: {e}")
             return False
-    
+
     def health_check(self) -> ToolResult:
         """Check tool health and readiness"""
         try:
             # Check spaCy model availability
             if not self.nlp:
                 self._initialize_spacy()
-            
+
             model_available = self.nlp is not None
-            
+
             # Check service dependencies
             dependencies_healthy = True
             if self.service_manager:
                 health_status = self.service_manager.health_check()
                 dependencies_healthy = all(health_status.values())
-            
+
             # Overall health status
             healthy = model_available and dependencies_healthy
             status = "success" if healthy else "error"
-            
+
             return ToolResult(
                 tool_id=self.tool_id,
                 status=status,
@@ -394,7 +313,7 @@ class SpacyNER(UnifiedTool):
                 execution_time=0.0,
                 memory_used=0
             )
-            
+
         except Exception as e:
             return ToolResult(
                 tool_id=self.tool_id,
@@ -413,40 +332,40 @@ class SpacyNER(UnifiedTool):
 # src/tools/base_classes/tool_validator.py
 class ToolContractValidator:
     """Validate tools against their contracts"""
-    
+
     def validate_tool_contract(self, tool: UnifiedTool) -> bool:
         """Validate tool implements its contract correctly"""
         try:
             contract = tool.get_contract()
-            
+
             # Validate contract completeness
             if not self._validate_contract_completeness(contract):
                 return False
-            
+
             # Validate tool methods
             if not self._validate_tool_methods(tool):
                 return False
-            
+
             # Validate input/output schemas
             if not self._validate_schemas(contract):
                 return False
-            
+
             # Test tool with valid inputs
             if not self._test_tool_execution(tool, contract):
                 return False
-            
+
             return True
-            
+
         except Exception as e:
             logger.error(f"Contract validation failed for {tool.tool_id}: {e}")
             return False
-    
+
     def _test_tool_execution(self, tool: UnifiedTool, contract: ToolContract) -> bool:
         """Test tool execution with sample data"""
         try:
             # Generate valid test input
             test_input = self._generate_test_input(contract.input_schema)
-            
+
             # Create test request
             request = ToolRequest(
                 tool_id=contract.tool_id,
@@ -455,20 +374,20 @@ class ToolContractValidator:
                 parameters={},
                 validation_mode=True
             )
-            
+
             # Execute tool
             result = tool.execute(request)
-            
+
             # Validate result format
             if not isinstance(result, ToolResult):
                 return False
-            
+
             # Validate output schema
             if result.status == "success":
                 jsonschema.validate(result.data, contract.output_schema)
-            
+
             return True
-            
+
         except Exception as e:
             logger.error(f"Tool execution test failed: {e}")
             return False
@@ -494,7 +413,7 @@ from enum import Enum
 
 class ToolCategory(Enum):
     GRAPH = "graph"
-    TABLE = "table" 
+    TABLE = "table"
     VECTOR = "vector"
     CROSS_MODAL = "cross_modal"
 
@@ -520,14 +439,14 @@ class ToolRegistryEntry:
 
 class ToolRegistry:
     """Complete registry of all 121 tools"""
-    
+
     def __init__(self):
         self.tools = self._initialize_complete_registry()
-    
+
     def _initialize_complete_registry(self) -> Dict[str, ToolRegistryEntry]:
         """Initialize complete 121-tool registry"""
         registry = {}
-        
+
         # Graph Analysis Tools (T01-T30)
         graph_tools = [
             ("T01", "PDF Loader", "Load and extract text from PDF documents", 10),
@@ -561,7 +480,7 @@ class ToolRegistry:
             ("T29", "Graph Repair", "Repair graph inconsistencies", 5),
             ("T30", "Graph Export", "Export graphs to various formats", 7)
         ]
-        
+
         for tool_id, name, description, priority in graph_tools:
             status = ImplementationStatus.IMPLEMENTED if tool_id in self._get_implemented_tools() else ImplementationStatus.NOT_STARTED
             registry[tool_id] = ToolRegistryEntry(
@@ -577,14 +496,14 @@ class ToolRegistry:
                 test_coverage=self._get_test_coverage(tool_id),
                 performance_benchmarks=self._get_performance_benchmarks(tool_id)
             )
-        
+
         # Table Analysis Tools (T31-T60)
-        # Vector Analysis Tools (T61-T90)  
+        # Vector Analysis Tools (T61-T90)
         # Cross-Modal Tools (T91-T121)
         # ... (similar initialization for all categories)
-        
+
         return registry
-    
+
     def get_implementation_status(self) -> Dict[str, int]:
         """Get implementation status summary"""
         status_counts = {}
@@ -592,15 +511,15 @@ class ToolRegistry:
             status = tool.status.value
             status_counts[status] = status_counts.get(status, 0) + 1
         return status_counts
-    
+
     def get_priority_queue(self) -> List[ToolRegistryEntry]:
         """Get tools ordered by implementation priority"""
         not_implemented = [
-            tool for tool in self.tools.values() 
+            tool for tool in self.tools.values()
             if tool.status == ImplementationStatus.NOT_STARTED
         ]
         return sorted(not_implemented, key=lambda x: x.priority, reverse=True)
-    
+
     def get_dependency_graph(self) -> Dict[str, List[str]]:
         """Get tool dependency graph"""
         dep_graph = {}
@@ -614,11 +533,11 @@ class ToolRegistry:
 # scripts/generate_tool_docs.py
 class ToolDocumentationGenerator:
     """Generate documentation for all 121 tools"""
-    
+
     def generate_tool_docs(self, tool_id: str) -> str:
         """Generate comprehensive documentation for a tool"""
         registry_entry = self.tool_registry.tools[tool_id]
-        
+
         doc_template = f"""# {tool_id}: {registry_entry.name}
 
 ## Overview
@@ -764,22 +683,22 @@ class DataFormatSpec:
 
 class CrossModalTool(UnifiedTool):
     """Base class for cross-modal conversion tools"""
-    
+
     @abstractmethod
     def get_source_format(self) -> DataFormatSpec:
         """Get source data format specification"""
         pass
-    
+
     @abstractmethod
     def get_target_format(self) -> DataFormatSpec:
         """Get target data format specification"""
         pass
-    
+
     @abstractmethod
     def convert(self, source_data: Any, context: Dict[str, Any] = None) -> Any:
         """Convert data from source to target format"""
         pass
-    
+
     @abstractmethod
     def validate_conversion(self, source_data: Any, target_data: Any) -> bool:
         """Validate conversion maintains data integrity"""
@@ -793,11 +712,11 @@ class CrossModalTool(UnifiedTool):
 # src/tools/cross_modal/t91_graph_to_table.py
 class GraphToTableConverter(CrossModalTool):
     """T91: Convert graph data to table format"""
-    
+
     def __init__(self, service_manager: ServiceManager):
         super().__init__(service_manager)
         self.tool_id = "T91_GRAPH_TO_TABLE"
-    
+
     def get_contract(self) -> ToolContract:
         return ToolContract(
             tool_id=self.tool_id,
@@ -851,20 +770,20 @@ class GraphToTableConverter(CrossModalTool):
                 "DATA_INTEGRITY_VIOLATION"
             ]
         )
-    
+
     def execute(self, request: ToolRequest) -> ToolResult:
         """Execute graph to table conversion"""
         try:
             graph_data = request.input_data["graph_data"]
             table_type = request.input_data["table_type"]
-            
+
             # Validate graph data format
             if not self._validate_graph_format(graph_data):
                 return self._create_error_result(
-                    request, "INVALID_GRAPH_FORMAT", 
+                    request, "INVALID_GRAPH_FORMAT",
                     "Graph data format validation failed"
                 )
-            
+
             # Convert based on table type
             if table_type == "adjacency":
                 table_data = self._convert_to_adjacency_matrix(graph_data)
@@ -879,17 +798,17 @@ class GraphToTableConverter(CrossModalTool):
                     request, "UNSUPPORTED_TABLE_TYPE",
                     f"Table type '{table_type}' is not supported"
                 )
-            
+
             # Validate conversion integrity
             if not self.validate_conversion(graph_data, table_data):
                 return self._create_error_result(
                     request, "DATA_INTEGRITY_VIOLATION",
                     "Conversion failed data integrity validation"
                 )
-            
+
             # Calculate conversion statistics
             conversion_stats = self._calculate_conversion_stats(graph_data, table_data)
-            
+
             return ToolResult(
                 tool_id=self.tool_id,
                 status="success",
@@ -905,7 +824,7 @@ class GraphToTableConverter(CrossModalTool):
                 execution_time=time.time() - start_time,
                 memory_used=self._get_memory_usage()
             )
-            
+
         except Exception as e:
             return self._create_error_result(
                 request, "CONVERSION_FAILED",
@@ -948,12 +867,12 @@ class ToolPerformanceMetrics:
 
 class ToolPerformanceMonitor:
     """Monitor performance of all tools"""
-    
+
     def __init__(self):
         self.metrics = []
         self.benchmarks = {}
         self.performance_requirements = {}
-    
+
     @contextmanager
     def monitor_tool_execution(self, tool_id: str, operation: str, input_data: Any):
         """Monitor tool execution performance"""
@@ -961,7 +880,7 @@ class ToolPerformanceMonitor:
         start_time = time.time()
         start_memory = process.memory_info().rss
         start_cpu = process.cpu_percent()
-        
+
         try:
             yield
         finally:
@@ -969,9 +888,9 @@ class ToolPerformanceMonitor:
             end_memory = process.memory_info().rss
             memory_used = end_memory - start_memory
             cpu_percent = process.cpu_percent() - start_cpu
-            
+
             input_size = self._calculate_data_size(input_data)
-            
+
             metrics = ToolPerformanceMetrics(
                 tool_id=tool_id,
                 operation=operation,
@@ -983,26 +902,26 @@ class ToolPerformanceMonitor:
                 accuracy=None,   # Set by tool if applicable
                 timestamp=datetime.now().isoformat()
             )
-            
+
             self.metrics.append(metrics)
             self._check_performance_requirements(metrics)
-    
+
     def register_performance_requirements(self, tool_id: str, requirements: Dict[str, Any]):
         """Register performance requirements for a tool"""
         self.performance_requirements[tool_id] = requirements
-    
+
     def _check_performance_requirements(self, metrics: ToolPerformanceMetrics):
         """Check if metrics meet performance requirements"""
         requirements = self.performance_requirements.get(metrics.tool_id)
         if not requirements:
             return
-        
+
         if metrics.execution_time > requirements.get("max_execution_time", float("inf")):
             logger.warning(f"{metrics.tool_id} exceeded execution time: {metrics.execution_time}s")
-        
+
         if metrics.memory_used > requirements.get("max_memory_mb", float("inf")) * 1024 * 1024:
             logger.warning(f"{metrics.tool_id} exceeded memory usage: {metrics.memory_used} bytes")
-        
+
         if metrics.accuracy and metrics.accuracy < requirements.get("min_accuracy", 0.0):
             logger.warning(f"{metrics.tool_id} below accuracy requirement: {metrics.accuracy}")
 ```
@@ -1014,7 +933,7 @@ class ToolPerformanceMonitor:
 # tests/tools/test_tool_comprehensive.py
 class TestToolComprehensive:
     """Comprehensive testing framework for all tools"""
-    
+
     def test_all_tools_implement_contract(self):
         """Test all tools implement UnifiedTool interface"""
         for tool_class in self.get_all_tool_classes():
@@ -1023,23 +942,23 @@ class TestToolComprehensive:
             assert hasattr(tool, 'execute')
             assert hasattr(tool, 'get_contract')
             assert hasattr(tool, 'validate_input')
-    
+
     def test_tool_contract_compliance(self):
         """Test each tool against its contract"""
         validator = ToolContractValidator()
         for tool in self.get_all_tools():
             assert validator.validate_tool_contract(tool)
-    
+
     def test_tool_performance_requirements(self):
         """Test tools meet performance requirements"""
         monitor = ToolPerformanceMonitor()
         for tool in self.get_all_tools():
             contract = tool.get_contract()
             monitor.register_performance_requirements(
-                tool.tool_id, 
+                tool.tool_id,
                 contract.performance_requirements
             )
-            
+
             # Test with various input sizes
             for input_data in self.generate_test_inputs(contract):
                 request = ToolRequest(
@@ -1048,11 +967,11 @@ class TestToolComprehensive:
                     input_data=input_data,
                     parameters={}
                 )
-                
+
                 with monitor.monitor_tool_execution(tool.tool_id, "test", input_data):
                     result = tool.execute(request)
                     assert result.status == "success"
-    
+
     def test_cross_modal_integrity(self):
         """Test cross-modal tools maintain data integrity"""
         for tool in self.get_cross_modal_tools():
@@ -1060,20 +979,20 @@ class TestToolComprehensive:
             for sample_data in self.get_cross_modal_test_data():
                 source_data = sample_data["source"]
                 expected_properties = sample_data["expected_properties"]
-                
+
                 request = ToolRequest(
                     tool_id=tool.tool_id,
                     operation="convert",
                     input_data={"data": source_data},
                     parameters={}
                 )
-                
+
                 result = tool.execute(request)
                 assert result.status == "success"
-                
+
                 # Validate data integrity
                 assert tool.validate_conversion(source_data, result.data)
-                
+
                 # Check expected properties preserved
                 for prop in expected_properties:
                     assert self._check_property_preserved(

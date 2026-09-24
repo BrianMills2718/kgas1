@@ -1,4 +1,4 @@
-# Services Module - CLAUDE.md
+# Services Module - AGENTS.md
 
 ## Overview
 The `src/services/` directory contains specialized services that provide analytics, monitoring, and utility functionality to the GraphRAG system. These services implement performance optimization, safety gates, and advanced analytics capabilities.
@@ -24,7 +24,7 @@ All services prioritize performance and safety:
 **Reason**: Replaced by sophisticated analytics infrastructure in `/src/analytics/`
 **Replacement**: Use CrossModalOrchestrator, CrossModalConverter, and other advanced analytics tools
 
-The basic AnalyticsService has been archived as part of the architecture simplification. 
+The basic AnalyticsService has been archived as part of the architecture simplification.
 For analytics capabilities, use the sophisticated infrastructure in `/src/analytics/`:
 - CrossModalOrchestrator - Orchestrates cross-modal analysis
 - CrossModalConverter - Converts between graph/table/vector formats
@@ -308,4 +308,4 @@ python -c "import numpy as np; from scipy.stats import skew; weights = [0.1, 0.1
 - **Algorithm Selection**: Select optimal algorithms
 - **Parameter Tuning**: Tune algorithm parameters
 - **Resource Optimization**: Optimize resource usage
-- **Performance Optimization**: Optimize performance characteristics 
+- **Performance Optimization**: Optimize performance characteristics
