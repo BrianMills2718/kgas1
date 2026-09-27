@@ -176,9 +176,7 @@ async def analyze_document(
             detail=f"Unsupported file type: {file_ext}. Allowed: {allowed_types}"
         )
     
-    _parse_enum(DataFormat, target_format, "target format")
-    _parse_enum(WorkflowOptimizationLevel, optimization_level, "optimization level")
-    _parse_enum(ValidationLevel, validation_level, "validation level")
+    _require_supported_analysis_options(target_format, task, optimization_level, validation_level)
 
     if file_ext not in {".txt", ".pdf", ".md", ".docx"}:
         raise HTTPException(
@@ -276,7 +274,7 @@ async def batch_analyze(
     
     Returns a job ID to track progress.
     """
-    _parse_enum(DataFormat, target_format, "target format")
+    _require_supported_analysis_options(target_format, task, "standard", "standard")
     job_id = f"job_{uuid.uuid4().hex[:12]}"
     payloads = await _read_batch_uploads(files)
     jobs[job_id] = {
@@ -461,6 +459,42 @@ def _parse_enum(enum_cls: Any, raw_value: str, label: str) -> Any:
             status_code=400,
             detail=f"Invalid {label}: {raw_value}. Use one of: {allowed}"
         ) from exc
+
+def _require_supported_analysis_options(
+    target_format: str, task: str, optimization_level: str, validation_level: str
+) -> None:
+    """Reject analyze options the complete pipeline cannot honor instead of ignoring them.
+
+    The complete GraphRAG pipeline takes only a document path: it always extracts
+    entities into a graph with its own fixed optimization and validation. Invalid
+    values stay 400s; valid values the pipeline would silently drop are 501s.
+    """
+    requested = {
+        "target_format": _parse_enum(DataFormat, target_format, "target format"),
+        "optimization_level": _parse_enum(WorkflowOptimizationLevel, optimization_level, "optimization level"),
+        "validation_level": _parse_enum(ValidationLevel, validation_level, "validation level"),
+        "task": " ".join(task.lower().split()),
+    }
+    supported = {
+        "target_format": DataFormat.GRAPH,
+        "optimization_level": WorkflowOptimizationLevel.STANDARD,
+        "validation_level": ValidationLevel.STANDARD,
+        "task": "extract entities",
+    }
+    unsupported = [
+        f"{name}={requested[name].value if hasattr(requested[name], 'value') else requested[name]}"
+        for name in supported
+        if requested[name] != supported[name]
+    ]
+    if unsupported:
+        raise HTTPException(
+            status_code=501,
+            detail=(
+                "/api/analyze runs only the complete GraphRAG pipeline "
+                "(target_format=graph, task='extract entities', optimization_level=standard, "
+                f"validation_level=standard); unsupported: {', '.join(unsupported)}"
+            ),
+        )
 
 def _preferred_modes_for_format(target_format: DataFormat) -> Optional[List[Any]]:
     """Map a requested output format to preferred analysis modes when possible."""
