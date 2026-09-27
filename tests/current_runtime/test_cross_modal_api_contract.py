@@ -978,3 +978,69 @@ async def test_get_job_status_returns_completed_batch_results(monkeypatch) -> No
         assert status["results"][0]["filename"] == "one.txt"
     finally:
         api.jobs.pop(response.job_id, None)
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "overrides",
+    [
+        {"target_format": "table"},
+        {"task": "summarize"},
+        {"optimization_level": "aggressive"},
+        {"validation_level": "comprehensive"},
+    ],
+)
+async def test_analyze_document_rejects_options_the_pipeline_cannot_honor(monkeypatch, overrides) -> None:
+    """Valid-but-unsupported analyze options must fail loudly, not be silently ignored."""
+    calls = []
+
+    class _FakePipeline:
+        async def process_document(self, document_path):
+            calls.append(document_path)
+            return {"status": "success"}
+
+    monkeypatch.setattr(api, "_create_complete_pipeline", lambda: _FakePipeline())
+    params = {
+        "target_format": "graph",
+        "task": "extract entities",
+        "optimization_level": "standard",
+        "validation_level": "standard",
+        **overrides,
+    }
+
+    with pytest.raises(HTTPException) as exc_info:
+        await api.analyze_document(
+            background_tasks=None,
+            file=api.UploadFile(file=BytesIO(b"Alice works for Acme Corporation."), filename="sample.txt"),
+            **params,
+        )
+
+    assert exc_info.value.status_code == 501
+    assert not calls
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("overrides", [{"target_format": "vector"}, {"task": "summarize"}])
+async def test_batch_analyze_rejects_options_the_pipeline_cannot_honor(monkeypatch, overrides) -> None:
+    """Batch submission must reject unsupported options up front instead of queuing a job."""
+    calls = []
+
+    class _FakePipeline:
+        async def process_document(self, document_path):
+            calls.append(document_path)
+            return {"status": "success"}
+
+    monkeypatch.setattr(api, "_create_complete_pipeline", lambda: _FakePipeline())
+    params = {"target_format": "graph", "task": "extract entities", **overrides}
+    jobs_before = dict(api.jobs)
+
+    with pytest.raises(HTTPException) as exc_info:
+        await api.batch_analyze(
+            background_tasks=None,
+            files=[api.UploadFile(file=BytesIO(b"text"), filename="a.txt")],
+            **params,
+        )
+
+    assert exc_info.value.status_code == 501
+    assert api.jobs == jobs_before
+    assert not calls

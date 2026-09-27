@@ -74,10 +74,16 @@ Upload and analyze a document.
 
 **Parameters**:
 - `file`: Document file (PDF, DOCX, TXT, MD)
-- `target_format`: Output format (graph, table, vector)
-- `task`: Analysis task description
-- `optimization_level`: speed, balanced, or quality
-- `validation_level`: basic, standard, or comprehensive
+- `target_format`: must be `graph` (default)
+- `task`: must be `extract entities` (default)
+- `optimization_level`: must be `standard` (default)
+- `validation_level`: must be `standard` (default)
+
+The endpoint runs only the complete GraphRAG pipeline, which takes nothing but
+the document. Any other valid value returns 501 rather than being silently
+ignored; an invalid value returns 400. `/api/batch/analyze` applies the same
+rule to `target_format` and `task`. Use `/api/convert` to turn the graph into
+a table or vectors.
 
 **Example**:
 ```python
@@ -219,7 +225,6 @@ print(f"Confidence: {rec['confidence']:.2%}")
 for pdf in *.pdf; do
     curl -X POST \
         -F "file=@$pdf" \
-        -F "target_format=table" \
         "http://localhost:8000/api/analyze" \
         -o "${pdf%.pdf}_analysis.json"
 done
@@ -252,8 +257,7 @@ library(jsonlite)
 # Analyze document from R
 response <- POST(
     "http://localhost:8000/api/analyze",
-    body = list(file = upload_file("data.pdf")),
-    query = list(target_format = "table")
+    body = list(file = upload_file("data.pdf"))
 )
 
 data <- fromJSON(content(response, "text"))
